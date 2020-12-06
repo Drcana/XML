@@ -67,24 +67,23 @@
         <xs:element name="napomena">
           <xs:complexType>
             <xs:sequence>
-              <xs:element ref="zalba:lista_napomena"/>
+              <xs:element name="lista_napomena">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="stavka">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute default="napomena1" name="id" type="xs:string"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
             <xs:attribute default="Napomena:" name="title" type="xs:string"/>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="lista_napomena">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" name="stavka">
-          <xs:complexType>
-            <xs:simpleContent>
-              <xs:extension base="xs:string">
-                <xs:attribute default="napomena1" name="id" type="xs:string"/>
-              </xs:extension>
-            </xs:simpleContent>
           </xs:complexType>
         </xs:element>
       </xs:sequence>

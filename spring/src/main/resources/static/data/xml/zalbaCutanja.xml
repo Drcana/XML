@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<podaci_o_zalbi_cutanja xmlns="zalba_cutanje"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="zalba_cutanje ../schemas/zalbaCutanja.xsd">
+
+    <vrsta_zalbe>
+        ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ РОКУ
+        (ЋУТАЊЕ УПРАВЕ)
+    </vrsta_zalbe>
+
+    <informacije_o_primaocu_zalbe>
+        <primalac_zalbe>
+            Поверенику за информације од јавног значаја и заштиту података о личности
+        </primalac_zalbe>
+        <adresa>
+            Адреса за пошту:
+            <mesto>Београд</mesto>
+            ,
+            <ulica>Булевар краља Александрa</ulica>
+            бр.
+            <broj>15</broj>
+        </adresa>
+    </informacije_o_primaocu_zalbe>
+
+    <informacije_o_zalbi>
+        <zakon>У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим:</zakon>
+        <naslov>Ж А Л Б У</naslov>
+        <naziv_organa></naziv_organa>
+        ( навести назив органа)
+    </informacije_o_zalbi>
+
+    <razlog_zalbe>
+        због тога што орган власти:
+        није поступио / није поступио у целости / у законском року
+        (подвући због чега се изјављује жалба)
+    </razlog_zalbe>
+
+    <detalji_zalbe>
+        по мом захтеву за слободан приступ информацијама од јавног значаја који сам поднео том органу дана
+        <datum></datum>
+        године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја
+        омогући увид- копија документа који садржи информације о /у вези са :
+        <podaci_o_zalbi></podaci_o_zalbi>
+        (навести податке о захтеву и информацији/ама)
+    </detalji_zalbe>
+
+    <predlog_resenja>
+        На основу изнетог, предлажем да Повереник уважи моју жалбу и омогући ми приступ траженој/им информацији/ма.
+        Као доказ , уз жалбу достављам копију захтева са доказом о предаји органу власти.
+    </predlog_resenja>
+    <napomena>
+        Напомена: Код жалбе због непоступању по захтеву у целости, треба приложити и добијени одговор органа власти.
+    </napomena>
+
+    <podnosilac_zalbe>
+        <ime></ime>
+        <prezime></prezime>
+        Подносилац жалбе / Име и презиме
+        <adresa>
+            <mesto></mesto>
+            <ulica></ulica>
+            <broj></broj>
+        </adresa>
+        адреса
+        <podaci_za_kontakt></podaci_za_kontakt>
+        други подаци за контакт
+        <potpis></potpis>
+        Потпис
+    </podnosilac_zalbe>
+
+    <mesto_i_datum>
+        У <mesto></mesto>,
+        дана <datum></datum> године
+    </mesto_i_datum>
+
+</podaci_o_zalbi_cutanja>

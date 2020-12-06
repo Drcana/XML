@@ -6,7 +6,7 @@
 //
 
 
-package zalbaOdluke;
+package ftn.unc.as.rs.xml.poc.model.zalbaOdluke;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the zalbaOdluke package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the zalbaOdluke package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -47,14 +46,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: zalbaOdluke
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke }
-     * 
      */
     public ZalbaProtivOdluke createZalbaProtivOdluke() {
         return new ZalbaProtivOdluke();
@@ -62,7 +59,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.Napomena }
-     * 
      */
     public ZalbaProtivOdluke.Napomena createZalbaProtivOdlukeNapomena() {
         return new ZalbaProtivOdluke.Napomena();
@@ -70,7 +66,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.Napomena.ListaNapomena }
-     * 
      */
     public ZalbaProtivOdluke.Napomena.ListaNapomena createZalbaProtivOdlukeNapomenaListaNapomena() {
         return new ZalbaProtivOdluke.Napomena.ListaNapomena();
@@ -78,7 +73,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.PodaciOOrganu }
-     * 
      */
     public ZalbaProtivOdluke.PodaciOOrganu createZalbaProtivOdlukePodaciOOrganu() {
         return new ZalbaProtivOdluke.PodaciOOrganu();
@@ -86,7 +80,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Adresa }
-     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -94,7 +87,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.InformacijeOPrimaocuZalbe }
-     * 
      */
     public ZalbaProtivOdluke.InformacijeOPrimaocuZalbe createZalbaProtivOdlukeInformacijeOPrimaocuZalbe() {
         return new ZalbaProtivOdluke.InformacijeOPrimaocuZalbe();
@@ -102,7 +94,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.PodaciOZaliocu }
-     * 
      */
     public ZalbaProtivOdluke.PodaciOZaliocu createZalbaProtivOdlukePodaciOZaliocu() {
         return new ZalbaProtivOdluke.PodaciOZaliocu();
@@ -110,7 +101,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.DetaljiZalbe }
-     * 
      */
     public ZalbaProtivOdluke.DetaljiZalbe createZalbaProtivOdlukeDetaljiZalbe() {
         return new ZalbaProtivOdluke.DetaljiZalbe();
@@ -118,7 +108,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.MestoIDatum }
-     * 
      */
     public ZalbaProtivOdluke.MestoIDatum createZalbaProtivOdlukeMestoIDatum() {
         return new ZalbaProtivOdluke.MestoIDatum();
@@ -126,7 +115,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.PodaciOPodnosiocuZalbe }
-     * 
      */
     public ZalbaProtivOdluke.PodaciOPodnosiocuZalbe createZalbaProtivOdlukePodaciOPodnosiocuZalbe() {
         return new ZalbaProtivOdluke.PodaciOPodnosiocuZalbe();
@@ -134,7 +122,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.Napomena.ListaNapomena.Stavka }
-     * 
      */
     public ZalbaProtivOdluke.Napomena.ListaNapomena.Stavka createZalbaProtivOdlukeNapomenaListaNapomenaStavka() {
         return new ZalbaProtivOdluke.Napomena.ListaNapomena.Stavka();
@@ -142,7 +129,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva }
-     * 
      */
     public ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva createZalbaProtivOdlukePodaciOOrganuResenjeZahteva() {
         return new ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva();
@@ -150,7 +136,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "mesto", scope = Adresa.class)
     public JAXBElement<String> createAdresaMesto(String value) {
@@ -159,7 +144,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "broj", scope = Adresa.class)
     public JAXBElement<String> createAdresaBroj(String value) {
@@ -168,7 +152,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "ulica", scope = Adresa.class)
     public JAXBElement<String> createAdresaUlica(String value) {
@@ -177,7 +160,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "broj_resenja", scope = ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOOrganuResenjeZahtevaBrojResenja(String value) {
@@ -186,7 +168,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "datum", scope = ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOOrganuResenjeZahtevaDatum(String value) {
@@ -195,7 +176,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "naziv", scope = ZalbaProtivOdluke.PodaciOZaliocu.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOZaliocuNaziv(String value) {
@@ -204,7 +184,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "drugi_podaci_za_kontakt", scope = ZalbaProtivOdluke.PodaciOPodnosiocuZalbe.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOPodnosiocuZalbeDrugiPodaciZaKontakt(String value) {
@@ -213,7 +192,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "potpis", scope = ZalbaProtivOdluke.PodaciOPodnosiocuZalbe.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOPodnosiocuZalbePotpis(String value) {
@@ -222,7 +200,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "ime", scope = ZalbaProtivOdluke.PodaciOPodnosiocuZalbe.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOPodnosiocuZalbeIme(String value) {
@@ -231,7 +208,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "prezime", scope = ZalbaProtivOdluke.PodaciOPodnosiocuZalbe.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOPodnosiocuZalbePrezime(String value) {
@@ -240,7 +216,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "mesto", scope = ZalbaProtivOdluke.MestoIDatum.class)
     public JAXBElement<String> createZalbaProtivOdlukeMestoIDatumMesto(String value) {
@@ -249,7 +224,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "datum", scope = ZalbaProtivOdluke.MestoIDatum.class)
     public JAXBElement<String> createZalbaProtivOdlukeMestoIDatumDatum(String value) {
@@ -258,7 +232,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "razlog_zalbe", scope = ZalbaProtivOdluke.DetaljiZalbe.class)
     public JAXBElement<String> createZalbaProtivOdlukeDetaljiZalbeRazlogZalbe(String value) {
@@ -267,7 +240,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "datum", scope = ZalbaProtivOdluke.DetaljiZalbe.class)
     public JAXBElement<String> createZalbaProtivOdlukeDetaljiZalbeDatum(String value) {
@@ -276,7 +248,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "resenje_zahteva", scope = ZalbaProtivOdluke.PodaciOOrganu.class)
     public JAXBElement<ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva> createZalbaProtivOdlukePodaciOOrganuResenjeZahteva(ZalbaProtivOdluke.PodaciOOrganu.ResenjeZahteva value) {
@@ -285,7 +256,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_protiv_odluke", name = "naziv_organa", scope = ZalbaProtivOdluke.PodaciOOrganu.class)
     public JAXBElement<String> createZalbaProtivOdlukePodaciOOrganuNazivOrgana(String value) {

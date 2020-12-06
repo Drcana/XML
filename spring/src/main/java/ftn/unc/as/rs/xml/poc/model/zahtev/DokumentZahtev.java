@@ -6,7 +6,7 @@
 //
 
 
-package zahtev;
+package ftn.unc.as.rs.xml.poc.model.zahtev;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,9 +28,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -127,20 +127,18 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "nazivOrgana",
-    "adresa",
-    "naslovDokumenta",
-    "zahtevNaOsnovu",
-    "listaZahteva",
-    "zahtevSeOdnosiNa",
-    "mestoIDatum",
-    "podnosilacZahteva",
-    "napomene"
+        "nazivOrgana",
+        "adresa",
+        "naslovDokumenta",
+        "zahtevNaOsnovu",
+        "listaZahteva",
+        "zahtevSeOdnosiNa",
+        "mestoIDatum",
+        "podnosilacZahteva",
+        "napomene"
 })
 @XmlRootElement(name = "dokument_zahtev")
 public class DokumentZahtev {
@@ -166,11 +164,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the nazivOrgana property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNazivOrgana() {
         return nazivOrgana;
@@ -178,11 +174,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the nazivOrgana property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNazivOrgana(String value) {
         this.nazivOrgana = value;
@@ -190,11 +184,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa }
-     *     
+     *
+     * @return possible object is
+     * {@link Adresa }
      */
     public Adresa getAdresa() {
         return adresa;
@@ -202,11 +194,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Adresa }
      */
     public void setAdresa(Adresa value) {
         this.adresa = value;
@@ -214,11 +204,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the naslovDokumenta property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNaslovDokumenta() {
         return naslovDokumenta;
@@ -226,11 +214,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the naslovDokumenta property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNaslovDokumenta(String value) {
         this.naslovDokumenta = value;
@@ -238,11 +224,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the zahtevNaOsnovu property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DokumentZahtev.ZahtevNaOsnovu }
-     *     
+     *
+     * @return possible object is
+     * {@link DokumentZahtev.ZahtevNaOsnovu }
      */
     public DokumentZahtev.ZahtevNaOsnovu getZahtevNaOsnovu() {
         return zahtevNaOsnovu;
@@ -250,11 +234,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the zahtevNaOsnovu property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DokumentZahtev.ZahtevNaOsnovu }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DokumentZahtev.ZahtevNaOsnovu }
      */
     public void setZahtevNaOsnovu(DokumentZahtev.ZahtevNaOsnovu value) {
         this.zahtevNaOsnovu = value;
@@ -262,11 +244,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the listaZahteva property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DokumentZahtev.ListaZahteva }
-     *     
+     *
+     * @return possible object is
+     * {@link DokumentZahtev.ListaZahteva }
      */
     public DokumentZahtev.ListaZahteva getListaZahteva() {
         return listaZahteva;
@@ -274,11 +254,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the listaZahteva property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DokumentZahtev.ListaZahteva }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DokumentZahtev.ListaZahteva }
      */
     public void setListaZahteva(DokumentZahtev.ListaZahteva value) {
         this.listaZahteva = value;
@@ -286,11 +264,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the zahtevSeOdnosiNa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DokumentZahtev.ZahtevSeOdnosiNa }
-     *     
+     *
+     * @return possible object is
+     * {@link DokumentZahtev.ZahtevSeOdnosiNa }
      */
     public DokumentZahtev.ZahtevSeOdnosiNa getZahtevSeOdnosiNa() {
         return zahtevSeOdnosiNa;
@@ -298,11 +274,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the zahtevSeOdnosiNa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DokumentZahtev.ZahtevSeOdnosiNa }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DokumentZahtev.ZahtevSeOdnosiNa }
      */
     public void setZahtevSeOdnosiNa(DokumentZahtev.ZahtevSeOdnosiNa value) {
         this.zahtevSeOdnosiNa = value;
@@ -310,11 +284,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the mestoIDatum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DokumentZahtev.MestoIDatum }
-     *     
+     *
+     * @return possible object is
+     * {@link DokumentZahtev.MestoIDatum }
      */
     public DokumentZahtev.MestoIDatum getMestoIDatum() {
         return mestoIDatum;
@@ -322,11 +294,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the mestoIDatum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DokumentZahtev.MestoIDatum }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DokumentZahtev.MestoIDatum }
      */
     public void setMestoIDatum(DokumentZahtev.MestoIDatum value) {
         this.mestoIDatum = value;
@@ -334,11 +304,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the podnosilacZahteva property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DokumentZahtev.PodnosilacZahteva }
-     *     
+     *
+     * @return possible object is
+     * {@link DokumentZahtev.PodnosilacZahteva }
      */
     public DokumentZahtev.PodnosilacZahteva getPodnosilacZahteva() {
         return podnosilacZahteva;
@@ -346,11 +314,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the podnosilacZahteva property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DokumentZahtev.PodnosilacZahteva }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DokumentZahtev.PodnosilacZahteva }
      */
     public void setPodnosilacZahteva(DokumentZahtev.PodnosilacZahteva value) {
         this.podnosilacZahteva = value;
@@ -358,11 +324,9 @@ public class DokumentZahtev {
 
     /**
      * Gets the value of the napomene property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DokumentZahtev.Napomene }
-     *     
+     *
+     * @return possible object is
+     * {@link DokumentZahtev.Napomene }
      */
     public DokumentZahtev.Napomene getNapomene() {
         return napomene;
@@ -370,11 +334,9 @@ public class DokumentZahtev {
 
     /**
      * Sets the value of the napomene property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DokumentZahtev.Napomene }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DokumentZahtev.Napomene }
      */
     public void setNapomene(DokumentZahtev.Napomene value) {
         this.napomene = value;
@@ -383,9 +345,9 @@ public class DokumentZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -397,12 +359,10 @@ public class DokumentZahtev {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "zahtev"
+            "zahtev"
     })
     public static class ListaZahteva {
 
@@ -411,25 +371,23 @@ public class DokumentZahtev {
 
         /**
          * Gets the value of the zahtev property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the zahtev property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getZahtev().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Zahtev }
-         * 
-         * 
          */
         public List<Zahtev> getZahtev() {
             if (zahtev == null) {
@@ -443,9 +401,9 @@ public class DokumentZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -458,45 +416,41 @@ public class DokumentZahtev {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class MestoIDatum {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "mesto", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "datum", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "mesto", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
+                @XmlElementRef(name = "datum", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false)
         })
         @XmlMixed
         protected List<Serializable> content;
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link String }
-         * 
-         * 
          */
         public List<Serializable> getContent() {
             if (content == null) {
@@ -510,9 +464,9 @@ public class DokumentZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -535,12 +489,10 @@ public class DokumentZahtev {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "lista"
+            "lista"
     })
     public static class Napomene {
 
@@ -553,11 +505,9 @@ public class DokumentZahtev {
 
         /**
          * Gets the value of the lista property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link DokumentZahtev.Napomene.Lista }
-         *     
+         *
+         * @return possible object is
+         * {@link DokumentZahtev.Napomene.Lista }
          */
         public DokumentZahtev.Napomene.Lista getLista() {
             return lista;
@@ -565,11 +515,9 @@ public class DokumentZahtev {
 
         /**
          * Sets the value of the lista property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link DokumentZahtev.Napomene.Lista }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link DokumentZahtev.Napomene.Lista }
          */
         public void setLista(DokumentZahtev.Napomene.Lista value) {
             this.lista = value;
@@ -577,11 +525,9 @@ public class DokumentZahtev {
 
         /**
          * Gets the value of the naslov property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNaslov() {
             return naslov;
@@ -589,11 +535,9 @@ public class DokumentZahtev {
 
         /**
          * Sets the value of the naslov property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNaslov(String value) {
             this.naslov = value;
@@ -602,9 +546,9 @@ public class DokumentZahtev {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -616,12 +560,10 @@ public class DokumentZahtev {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "napomena"
+                "napomena"
         })
         public static class Lista {
 
@@ -630,25 +572,23 @@ public class DokumentZahtev {
 
             /**
              * Gets the value of the napomena property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the napomena property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getNapomena().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Napomena }
-             * 
-             * 
              */
             public List<Napomena> getNapomena() {
                 if (napomena == null) {
@@ -664,9 +604,9 @@ public class DokumentZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -682,41 +622,39 @@ public class DokumentZahtev {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class PodnosilacZahteva {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "prezime", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "ime", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "adresa", namespace = "zahtev_za_pristup_informacijama", type = Adresa.class, required = false),
-            @XmlElementRef(name = "potpis", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "drugi_podaci_za_kontakt", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "prezime", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
+                @XmlElementRef(name = "ime", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
+                @XmlElementRef(name = "adresa", namespace = "zahtev_za_pristup_informacijama", type = Adresa.class, required = false),
+                @XmlElementRef(name = "potpis", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
+                @XmlElementRef(name = "drugi_podaci_za_kontakt", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false)
         })
         @XmlMixed
         protected List<Object> content;
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link String }
@@ -725,8 +663,6 @@ public class DokumentZahtev {
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link Adresa }
          * {@link JAXBElement }{@code <}{@link String }{@code >}
-         * 
-         * 
          */
         public List<Object> getContent() {
             if (content == null) {
@@ -740,9 +676,9 @@ public class DokumentZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -755,13 +691,11 @@ public class DokumentZahtev {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "zakon",
-        "napomena"
+            "zakon",
+            "napomena"
     })
     public static class ZahtevNaOsnovu {
 
@@ -772,11 +706,9 @@ public class DokumentZahtev {
 
         /**
          * Gets the value of the zakon property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getZakon() {
             return zakon;
@@ -784,11 +716,9 @@ public class DokumentZahtev {
 
         /**
          * Sets the value of the zakon property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setZakon(String value) {
             this.zakon = value;
@@ -796,11 +726,9 @@ public class DokumentZahtev {
 
         /**
          * Gets the value of the napomena property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Napomena }
-         *     
+         *
+         * @return possible object is
+         * {@link Napomena }
          */
         public Napomena getNapomena() {
             return napomena;
@@ -808,11 +736,9 @@ public class DokumentZahtev {
 
         /**
          * Sets the value of the napomena property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Napomena }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Napomena }
          */
         public void setNapomena(Napomena value) {
             this.napomena = value;
@@ -823,9 +749,9 @@ public class DokumentZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -837,12 +763,10 @@ public class DokumentZahtev {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class ZahtevSeOdnosiNa {
 
@@ -852,26 +776,24 @@ public class DokumentZahtev {
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link String }
-         * 
-         * 
          */
         public List<Serializable> getContent() {
             if (content == null) {

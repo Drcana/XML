@@ -6,7 +6,7 @@
 //
 
 
-package zalbaOdluke;
+package ftn.unc.as.rs.xml.poc.model.zalbaOdluke;
 
 import java.io.Serializable;
 import java.util.ArrayList;

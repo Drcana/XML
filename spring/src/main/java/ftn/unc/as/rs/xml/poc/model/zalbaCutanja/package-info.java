@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "zalba_cutanje", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package zalbaCutanja;
+package ftn.unc.as.rs.xml.poc.model.zalbaCutanja;

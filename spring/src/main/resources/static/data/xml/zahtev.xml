@@ -1,0 +1,83 @@
+<dokument_zahtev xmlns="zahtev_za_pristup_informacijama" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="zahtev_za_pristup_informacijama  ../schemas/zahtev.xsd">
+    <naziv_organa></naziv_organa>
+    <adresa>
+        <ulica></ulica>
+        <broj></broj>
+        <mesto></mesto>
+    </adresa>
+    <naslov_dokumenta>
+        З А Х Т Е В
+        за приступ информацији од јавног значаја
+    </naslov_dokumenta>
+
+    <zahtev_na_osnovu>
+        <zakon>
+            На основу члана 15. ст. 1. Закона о слободном приступу информацијама од јавног значаја („Службени гласник
+            РС“, бр. 120/04, 54/07, 104/09 и 36/10), од горе наведеног органа захтевам:
+        </zakon>
+        <napomena id="1"/>
+    </zahtev_na_osnovu>
+
+    <lista_zahteva>
+        <zahtev tip_zahteva="posedovanje_informacije" check="">обавештење да ли поседује тражену информацију;</zahtev>
+        <zahtev tip_zahteva="uvid_u_dokument" check="">увид у документ који садржи тражену информацију;⁫</zahtev>
+        <zahtev tip_zahteva="kopija_dokumenta" check="">копију документа који садржи тражену информацију;</zahtev>
+        <zahtev tip_zahteva="dostavljanje_kopije_dokumenta" check="">
+            достављање копије документа који садржи тражену информацију
+            <napomena id="2"/>
+            <lista_nacina>
+                <nacin tip_dostave="postom" check=""></nacin>
+                <nacin tip_dostave="elektronski" check=""></nacin>
+                <nacin tip_dostave="faksom" check=""></nacin>
+                <nacin tip_dostave="drugi_nacin" check="">
+                    <drugi_nacin>
+                        <sadrzaj></sadrzaj>
+                        <napomena id="3"/>
+                    </drugi_nacin>
+                </nacin>
+            </lista_nacina>
+        </zahtev>
+    </lista_zahteva>
+
+    <zahtev_se_odnosi_na>
+        Овај захтев се односи на следеће информације:
+        <informacije></informacije>
+        навести што прецизнији опис информације која се
+        тражи као и друге податке који олакшавају проналажење
+        тражене информације
+    </zahtev_se_odnosi_na>
+
+    <mesto_i_datum>
+        У  <mesto></mesto>,
+        dana <datum></datum> godine
+    </mesto_i_datum>
+
+    <podnosilac_zahteva>
+        <ime></ime>
+        <prezime></prezime>
+        Тражилац информације/Име и презиме
+        <adresa>
+            <ulica></ulica>
+            <broj></broj>
+            <mesto></mesto>
+        </adresa>
+        адреса
+        <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>
+        други подаци за контакт
+        <potpis></potpis>
+        Потпис
+    </podnosilac_zahteva>
+
+    <napomene naslov="Napomene">
+        <lista>
+            <napomena id="1" labela="*">У кућици означити која законска права на приступ информацијама желите да
+                остварите.
+            </napomena>
+            <napomena id="2" labela="**">У кућици означити начин достављања копије докумената.</napomena>
+            <napomena id="3" labela="***">Када захтевате други начин достављања обавезно уписати који начин достављања
+                захтевате.
+            </napomena>
+        </lista>
+    </napomene>
+</dokument_zahtev>

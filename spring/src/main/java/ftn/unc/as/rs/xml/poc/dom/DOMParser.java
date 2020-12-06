@@ -259,10 +259,6 @@ public class DOMParser implements ErrorHandler {
 			System.out.println("ENTITY: " + entity.getNotationName());
 		}
 	}
-	
-	/*
-	 * Error handling methods
-	 */
 
 	@Override
 	public void error(SAXParseException err) throws SAXParseException {
@@ -288,10 +284,28 @@ public class DOMParser implements ErrorHandler {
 
 		System.out.println("[INFO] DOM Parser");
 
+		System.out.println("Odaberite file za parsiranje:");
+		System.out.println(" 0 - zahtev: \n 1 - zalba protiv odluke" +
+				" \n 2 - zalba protiv cutanja \n 3 - obavestenje \n 4 - ");
+
+		Scanner scanner = new Scanner(System.in);
+		Integer option = Integer.valueOf(scanner.next());
+
+		switch (option){
+			case 0:
+				filePath="src\\main\\resources\\static\\data\\xml\\zahtev.xml";
+				break;
+			case 1:
+				filePath="src\\main\\resources\\static\\data\\xml\\zalbaOdluke.xml";
+				break;
+			case 2:
+				filePath="src\\main\\resources\\static\\data\\xml\\zalbaCutanja.xml";
+				break;
+			default:
+				break;
+		}
+
 		if (args.length != 1) {
-
-			filePath = "src\\main\\resources\\static\\data\\xml\\zalbaCutanja.xml";
-
 			System.out.println("[INFO] No input file, using default \""	+ filePath + "\"");
 
 		} else {

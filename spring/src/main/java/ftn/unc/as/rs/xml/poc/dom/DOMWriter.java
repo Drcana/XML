@@ -13,10 +13,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.Scanner;
 
 /**
  * Primer demonstrira metode API-ja za potrebe programskog kreiranja DOM stabla.
@@ -25,9 +22,9 @@ import java.util.Scanner;
  */
 public class DOMWriter {
 
-    private static String TARGET_NAMESPACE = "http://www.ftn.uns.ac.rs/zalba_cutanje";
+    private static final String TARGET_NAMESPACE = "http://www.ftn.uns.ac.rs/zalba_cutanje";
 
-    private static String XSI_NAMESPACE = "http://www.w3.org/2001/XMLSchema-instance";
+    private static final String XSI_NAMESPACE = "http://www.w3.org/2001/XMLSchema-instance";
 
     private static DocumentBuilderFactory factory;
 
@@ -47,7 +44,7 @@ public class DOMWriter {
     /**
      * Generates document object model for a given XML file.
      */
-    public void createDocument() {
+    void createDocument() {
 
         try {
 
@@ -66,12 +63,11 @@ public class DOMWriter {
      * programmatically using DOM API methods.
      */
 
-    public void generateZahtevDOM() {
+    void generateZahtevDOM() {
 
     }
 
-
-    public void generateZalbaCuntanjaDOM() {
+    void generateZalbaCutanjaDOM() {
 
         // Kreiranje i postavljanje korenskog elementa
         Element zalbaCutanja = document.createElementNS(TARGET_NAMESPACE, "podaci_o_zalbi_cutanja");
@@ -208,15 +204,15 @@ public class DOMWriter {
         mestoIDatum.appendChild(document.createTextNode("године\n"));
     }
 
-    public void generateZalbaOdlukeDOM(){
+    void generateZalbaOdlukeDOM() {
 
         // Kreiranje i postavljanje korenskog elementa
         Element zalbaProtivOdluke = document.createElementNS(TARGET_NAMESPACE, "zalba_protiv_odluke");
         document.appendChild(zalbaProtivOdluke);
 
         zalbaProtivOdluke.setAttribute("xmlns", "zalba_protiv_odluke");
-        zalbaProtivOdluke.setAttribute( "xmlns:xsi", XSI_NAMESPACE);
-        zalbaProtivOdluke.setAttribute( "xsi:schemaLocation", "zalba_protiv_odluke ../schemas/zalbaOdluke.xsd");
+        zalbaProtivOdluke.setAttribute("xmlns:xsi", XSI_NAMESPACE);
+        zalbaProtivOdluke.setAttribute("xsi:schemaLocation", "zalba_protiv_odluke ../schemas/zalbaOdluke.xsd");
 
         Element vrstaZalbe = document.createElementNS(TARGET_NAMESPACE, "vrsta_zalbe");
         vrstaZalbe.appendChild(document.createTextNode("ЖАЛБА ПРОТИВ ОДЛУКЕ ОРГАНА ВЛАСТИ КОЈОМ ЈЕ ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ"));
@@ -387,13 +383,13 @@ public class DOMWriter {
         napomena.appendChild(stavka2);
     }
 
-    public void generateObavestenjeDOM(){
+    void generateObavestenjeDOM() {
 
         // Kreiranje i postavljanje korenskog elementa
         Element obavestenje = document.createElementNS(TARGET_NAMESPACE, "Obavestenje");
         document.appendChild(obavestenje);
 
-        obavestenje.setAttributeNS(XSI_NAMESPACE, "xsi:schemaLocation", "http://www.ftn.uns.ac.rs/obavestenje ../xsd/obavestenje.xsd" );
+        obavestenje.setAttributeNS(XSI_NAMESPACE, "xsi:schemaLocation", "http://www.ftn.uns.ac.rs/obavestenje ../xsd/obavestenje.xsd");
 
         Element informacijeOObavestenju = document.createElementNS(TARGET_NAMESPACE, "informacije_o_obavestenju");
         obavestenje.appendChild(informacijeOObavestenju);
@@ -529,12 +525,12 @@ public class DOMWriter {
 
     }
 
-    public void generateResenjeDOM(){
+    void generateResenjeDOM() {
         // Kreiranje i postavljanje korenskog elementa
         Element resenje = document.createElementNS(TARGET_NAMESPACE, "resenje");
         document.appendChild(resenje);
 
-        resenje.setAttributeNS(XSI_NAMESPACE, "xsi:schemaLocation", "http://www.ftn.uns.ac.rs/resenje ../xsd/resenje.xsd" );
+        resenje.setAttributeNS(XSI_NAMESPACE, "xsi:schemaLocation", "http://www.ftn.uns.ac.rs/resenje ../xsd/resenje.xsd");
 
         Element informacijeOResenju = document.createElementNS(TARGET_NAMESPACE, "informacije_o_resenju");
         resenje.appendChild(informacijeOResenju);
@@ -572,7 +568,6 @@ public class DOMWriter {
         Element prezime = document.createElementNS(TARGET_NAMESPACE, "prezime");
         prezime.appendChild(document.createTextNode("Aleksic"));
         trazilac.appendChild(prezime);
-
 
         Element organ = document.createElementNS(TARGET_NAMESPACE, "organ");
         informacijeOResenju.appendChild(organ);
@@ -637,7 +632,7 @@ public class DOMWriter {
     /**
      * Serializes DOM tree to an arbitrary OutputStream.
      */
-    public void transform(OutputStream out) {
+    void transform(OutputStream out) {
         try {
 
             // Kreiranje instance objekta zaduzenog za serijalizaciju DOM modela
@@ -656,93 +651,8 @@ public class DOMWriter {
             // Poziv metode koja vrši opisanu transformaciju
             transformer.transform(source, result);
 
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerFactoryConfigurationError e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
+        } catch (TransformerException | TransformerFactoryConfigurationError e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String args[]) {
-
-        String filePath = null;
-
-        System.out.println("[INFO] DOM Parser");
-        System.out.println("Odaberite dokument:");
-        System.out.println("0 - zahtev: \n1 - zalba protiv odluke: \n2 - zalba protiv cutanja: \n3 - obavestenje: \n4 - resenje:");
-
-        Scanner scanner = new Scanner(System.in);
-        Integer option = Integer.valueOf(scanner.next());
-
-        switch (option){
-            case 0:
-                filePath="src\\main\\resources\\static\\data\\xml\\zahtev.xml";
-
-                break;
-            case 1:
-                filePath="src\\main\\resources\\static\\data\\xml\\zalbaOdluke.xml";
-                break;
-            case 2:
-                filePath="src\\main\\resources\\static\\data\\xml\\zalbaCutanja.xml";
-                break;
-            case 3:
-                filePath="src\\main\\resources\\static\\data\\xml\\obavestenje.xml";
-                break;
-            case 4:
-                filePath="src\\main\\resources\\static\\data\\xml\\resenje.xml";
-                break;
-            default:
-                break;
-        }
-
-        if (args.length != 1) {
-
-            //filePath = "/static/data/schemas/zalbaCutanja.xml";
-
-            System.out.println("[INFO] No input file, using default \"" + filePath + "\"");
-
-        } else {
-            filePath = args[0];
-        }
-
-        DOMWriter handler = new DOMWriter();
-
-        // Kreiranje Document čvora
-        handler.createDocument();
-
-        // Generisanje DOM stabla
-        //handler.generateDOM();
-        switch (option){
-            case 0:
-                handler.generateZahtevDOM();
-                break;
-            case 1:
-                handler.generateZalbaOdlukeDOM();
-                break;
-            case 2:
-                handler.generateZalbaCuntanjaDOM();
-                break;
-            case 3:
-                handler.generateObavestenjeDOM();
-                break;
-            case 4:
-                handler.generateResenjeDOM();
-                break;
-            default:
-                break;
-        }
-
-        // Prikaz sadržaja (isprobati sa FileOutputStream-om)
-        handler.transform(System.out);
-
-
-        try {
-            handler.transform(new FileOutputStream("src/main/resources/static/data/xml/zalba_cutanja_out.xml"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
     }
 }

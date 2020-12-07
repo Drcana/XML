@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resenje xmlns="resenje"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="resenje ../schemas/resenje.xsd">
+    <informacije_o_resenju>
+        <datum_resenja>2020-11-11</datum_resenja>
+        <datum_pondosenja_zahteva>2020-10-10</datum_pondosenja_zahteva>
+        <trazilac>
+            <adresa>
+                <mesto>ns</mesto>
+                <ulica>npr</ulica>
+                <broj>11</broj>
+            </adresa>
+            <ime>a</ime>
+            <prezime>a</prezime>
+        </trazilac>
+        <organ>
+            <adresa>
+                <mesto>ns</mesto>
+                <ulica>qwert</ulica>
+                <broj>13</broj>
+            </adresa>
+            <naziv>faks</naziv>
+        </organ>
+        <poverenik>
+            <ime>pera</ime>
+            <prezime>peric</prezime>
+        </poverenik>
+    </informacije_o_resenju>
+    <sadrzaj_resenja>
+        <opis_resenja>Повереник за информације од јавног значаја и заштиту података о личности, у поступку по алби
+            коју је изјавио AA....
+        </opis_resenja>
+        <telo_resenja>
+            <paragraf>Р Е Ш Е Њ Е</paragraf>
+        </telo_resenja>
+        <obrazlozenje>
+            <paragraf>О б р а з л о ж е њ е</paragraf>
+        </obrazlozenje>
+        <uputstvo>Упутство о правном средству:</uputstvo>
+    </sadrzaj_resenja>
+</resenje>

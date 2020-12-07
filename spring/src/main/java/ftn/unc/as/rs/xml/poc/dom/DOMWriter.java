@@ -75,7 +75,7 @@ public class DOMWriter {
 
         zalbaCutanja.setAttribute("xmlns", "zalba_cutanje");
         zalbaCutanja.setAttribute("xsi", XSI_NAMESPACE);
-        zalbaCutanja.setAttribute("schemaLocation", "http://www.ftn.uns.ac.rs/zahtev ../xsd/zahtev.xsd");
+        zalbaCutanja.setAttribute("schemaLocation", "zalba_cutanje ../schemas/zalbaCutanja.xsd");
 
         Element vrstaZalbe = document.createElementNS(TARGET_NAMESPACE, "vrsta_zalbe");
         vrstaZalbe.appendChild(document.createTextNode("ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ РОКУ (ЋУТАЊЕ УПРАВЕ)\n"));

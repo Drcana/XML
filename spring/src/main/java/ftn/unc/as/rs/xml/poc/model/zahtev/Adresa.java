@@ -6,7 +6,7 @@
 //
 
 
-package zahtev;
+package ftn.unc.as.rs.xml.poc.model.zahtev;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -33,14 +33,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "ulica",
-    "broj",
-    "mesto"
+        "ulica",
+        "broj",
+        "mesto"
 })
 @XmlRootElement(name = "adresa")
 public class Adresa {
@@ -54,11 +52,9 @@ public class Adresa {
 
     /**
      * Gets the value of the ulica property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUlica() {
         return ulica;
@@ -66,11 +62,9 @@ public class Adresa {
 
     /**
      * Sets the value of the ulica property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUlica(String value) {
         this.ulica = value;
@@ -78,11 +72,9 @@ public class Adresa {
 
     /**
      * Gets the value of the broj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBroj() {
         return broj;
@@ -90,11 +82,9 @@ public class Adresa {
 
     /**
      * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBroj(String value) {
         this.broj = value;
@@ -102,11 +92,9 @@ public class Adresa {
 
     /**
      * Gets the value of the mesto property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMesto() {
         return mesto;
@@ -114,11 +102,9 @@ public class Adresa {
 
     /**
      * Sets the value of the mesto property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMesto(String value) {
         this.mesto = value;

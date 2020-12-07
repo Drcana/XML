@@ -6,7 +6,7 @@
 //
 
 
-package zahtev;
+package ftn.unc.as.rs.xml.poc.model.zahtev;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for drugi_nacin complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="drugi_nacin">
  *   &lt;complexContent>
@@ -31,13 +31,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "drugi_nacin", propOrder = {
-    "sadrzaj",
-    "napomena"
+        "sadrzaj",
+        "napomena"
 })
 public class DrugiNacin {
 
@@ -48,11 +46,9 @@ public class DrugiNacin {
 
     /**
      * Gets the value of the sadrzaj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSadrzaj() {
         return sadrzaj;
@@ -60,11 +56,9 @@ public class DrugiNacin {
 
     /**
      * Sets the value of the sadrzaj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSadrzaj(String value) {
         this.sadrzaj = value;
@@ -72,11 +66,9 @@ public class DrugiNacin {
 
     /**
      * Gets the value of the napomena property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Napomena }
-     *     
+     *
+     * @return possible object is
+     * {@link Napomena }
      */
     public Napomena getNapomena() {
         return napomena;
@@ -84,11 +76,9 @@ public class DrugiNacin {
 
     /**
      * Sets the value of the napomena property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Napomena }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Napomena }
      */
     public void setNapomena(Napomena value) {
         this.napomena = value;

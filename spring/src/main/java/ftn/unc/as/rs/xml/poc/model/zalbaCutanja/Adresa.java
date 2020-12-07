@@ -6,7 +6,7 @@
 //
 
 
-package zalbaCutanja;
+package ftn.unc.as.rs.xml.poc.model.zalbaCutanja;
 
 import java.io.Serializable;
 import java.util.ArrayList;

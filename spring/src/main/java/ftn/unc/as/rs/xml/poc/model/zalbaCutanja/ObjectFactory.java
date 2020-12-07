@@ -6,7 +6,7 @@
 //
 
 
-package zalbaCutanja;
+package ftn.unc.as.rs.xml.poc.model.zalbaCutanja;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the zalbaCutanja package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the zalbaCutanja package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -55,14 +54,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: zalbaCutanja
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link PodaciOZalbiCutanja }
-     * 
      */
     public PodaciOZalbiCutanja createPodaciOZalbiCutanja() {
         return new PodaciOZalbiCutanja();
@@ -70,7 +67,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PodaciOZalbiCutanja.InformacijeOPrimaocuZalbe }
-     * 
      */
     public PodaciOZalbiCutanja.InformacijeOPrimaocuZalbe createPodaciOZalbiCutanjaInformacijeOPrimaocuZalbe() {
         return new PodaciOZalbiCutanja.InformacijeOPrimaocuZalbe();
@@ -78,7 +74,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PodaciOZalbiCutanja.InformacijeOZalbi }
-     * 
      */
     public PodaciOZalbiCutanja.InformacijeOZalbi createPodaciOZalbiCutanjaInformacijeOZalbi() {
         return new PodaciOZalbiCutanja.InformacijeOZalbi();
@@ -86,7 +81,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PodaciOZalbiCutanja.DetaljiZalbe }
-     * 
      */
     public PodaciOZalbiCutanja.DetaljiZalbe createPodaciOZalbiCutanjaDetaljiZalbe() {
         return new PodaciOZalbiCutanja.DetaljiZalbe();
@@ -94,7 +88,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PodaciOZalbiCutanja.PodnosilacZalbe }
-     * 
      */
     public PodaciOZalbiCutanja.PodnosilacZalbe createPodaciOZalbiCutanjaPodnosilacZalbe() {
         return new PodaciOZalbiCutanja.PodnosilacZalbe();
@@ -102,7 +95,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PodaciOZalbiCutanja.MestoIDatum }
-     * 
      */
     public PodaciOZalbiCutanja.MestoIDatum createPodaciOZalbiCutanjaMestoIDatum() {
         return new PodaciOZalbiCutanja.MestoIDatum();
@@ -110,7 +102,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Adresa }
-     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -118,7 +109,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "podaci_za_kontakt", scope = PodaciOZalbiCutanja.PodnosilacZalbe.class, defaultValue = "")
     public JAXBElement<String> createPodaciOZalbiCutanjaPodnosilacZalbePodaciZaKontakt(String value) {
@@ -127,7 +117,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "ime", scope = PodaciOZalbiCutanja.PodnosilacZalbe.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaPodnosilacZalbeIme(String value) {
@@ -136,7 +125,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "prezime", scope = PodaciOZalbiCutanja.PodnosilacZalbe.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaPodnosilacZalbePrezime(String value) {
@@ -145,7 +133,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "potpis", scope = PodaciOZalbiCutanja.PodnosilacZalbe.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaPodnosilacZalbePotpis(String value) {
@@ -154,7 +141,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.MestoIDatum }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "mesto_i_datum", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<PodaciOZalbiCutanja.MestoIDatum> createPodaciOZalbiCutanjaMestoIDatum(PodaciOZalbiCutanja.MestoIDatum value) {
@@ -163,7 +149,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.PodnosilacZalbe }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "podnosilac_zalbe", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<PodaciOZalbiCutanja.PodnosilacZalbe> createPodaciOZalbiCutanjaPodnosilacZalbe(PodaciOZalbiCutanja.PodnosilacZalbe value) {
@@ -172,7 +157,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.InformacijeOPrimaocuZalbe }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "informacije_o_primaocu_zalbe", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<PodaciOZalbiCutanja.InformacijeOPrimaocuZalbe> createPodaciOZalbiCutanjaInformacijeOPrimaocuZalbe(PodaciOZalbiCutanja.InformacijeOPrimaocuZalbe value) {
@@ -181,7 +165,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "predlog_resenja", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaPredlogResenja(String value) {
@@ -190,7 +173,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "vrsta_zalbe", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaVrstaZalbe(String value) {
@@ -199,7 +181,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.InformacijeOZalbi }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "informacije_o_zalbi", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<PodaciOZalbiCutanja.InformacijeOZalbi> createPodaciOZalbiCutanjaInformacijeOZalbi(PodaciOZalbiCutanja.InformacijeOZalbi value) {
@@ -208,7 +189,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.DetaljiZalbe }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "detalji_zalbe", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<PodaciOZalbiCutanja.DetaljiZalbe> createPodaciOZalbiCutanjaDetaljiZalbe(PodaciOZalbiCutanja.DetaljiZalbe value) {
@@ -217,7 +197,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "razlog_zalbe", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaRazlogZalbe(String value) {
@@ -226,7 +205,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "napomena", scope = PodaciOZalbiCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaNapomena(String value) {
@@ -235,7 +213,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "podaci_o_zalbi", scope = PodaciOZalbiCutanja.DetaljiZalbe.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaDetaljiZalbePodaciOZalbi(String value) {
@@ -244,7 +221,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "datum", scope = PodaciOZalbiCutanja.DetaljiZalbe.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaDetaljiZalbeDatum(String value) {
@@ -253,7 +229,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "mesto", scope = Adresa.class)
     public JAXBElement<String> createAdresaMesto(String value) {
@@ -262,7 +237,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "ulica", scope = Adresa.class)
     public JAXBElement<String> createAdresaUlica(String value) {
@@ -271,7 +245,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "broj", scope = Adresa.class)
     public JAXBElement<String> createAdresaBroj(String value) {
@@ -280,7 +253,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "mesto", scope = PodaciOZalbiCutanja.MestoIDatum.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaMestoIDatumMesto(String value) {
@@ -289,7 +261,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "datum", scope = PodaciOZalbiCutanja.MestoIDatum.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaMestoIDatumDatum(String value) {
@@ -298,7 +269,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "naslov", scope = PodaciOZalbiCutanja.InformacijeOZalbi.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaInformacijeOZalbiNaslov(String value) {
@@ -307,7 +277,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "naziv_organa", scope = PodaciOZalbiCutanja.InformacijeOZalbi.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaInformacijeOZalbiNazivOrgana(String value) {
@@ -316,7 +285,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zalba_cutanje", name = "zakon", scope = PodaciOZalbiCutanja.InformacijeOZalbi.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaInformacijeOZalbiZakon(String value) {

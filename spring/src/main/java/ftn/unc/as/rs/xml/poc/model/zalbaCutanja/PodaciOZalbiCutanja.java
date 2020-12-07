@@ -6,7 +6,7 @@
 //
 
 
-package zalbaCutanja;
+package ftn.unc.as.rs.xml.poc.model.zalbaCutanja;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,9 +24,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -105,46 +105,44 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+        "content"
 })
 @XmlRootElement(name = "podaci_o_zalbi_cutanja")
 public class PodaciOZalbiCutanja {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "informacije_o_zalbi", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "napomena", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "razlog_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "podnosilac_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "detalji_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "vrsta_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "mesto_i_datum", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "informacije_o_primaocu_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "predlog_resenja", namespace = "zalba_cutanje", type = JAXBElement.class, required = false)
+            @XmlElementRef(name = "informacije_o_zalbi", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "napomena", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "razlog_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "podnosilac_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "detalji_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "vrsta_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "mesto_i_datum", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "informacije_o_primaocu_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "predlog_resenja", namespace = "zalba_cutanje", type = JAXBElement.class, required = false)
     })
     @XmlMixed
     protected List<Serializable> content;
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.InformacijeOZalbi }{@code >}
@@ -157,8 +155,6 @@ public class PodaciOZalbiCutanja {
      * {@link String }
      * {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.InformacijeOPrimaocuZalbe }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
-     * 
      */
     public List<Serializable> getContent() {
         if (content == null) {
@@ -170,9 +166,9 @@ public class PodaciOZalbiCutanja {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -185,45 +181,41 @@ public class PodaciOZalbiCutanja {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class DetaljiZalbe {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "datum", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "podaci_o_zalbi", namespace = "zalba_cutanje", type = JAXBElement.class, required = false)
+                @XmlElementRef(name = "datum", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
+                @XmlElementRef(name = "podaci_o_zalbi", namespace = "zalba_cutanje", type = JAXBElement.class, required = false)
         })
         @XmlMixed
         protected List<Serializable> content;
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link String }
-         * 
-         * 
          */
         public List<Serializable> getContent() {
             if (content == null) {
@@ -237,9 +229,9 @@ public class PodaciOZalbiCutanja {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -252,13 +244,11 @@ public class PodaciOZalbiCutanja {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "primalacZalbe",
-        "adresa"
+            "primalacZalbe",
+            "adresa"
     })
     public static class InformacijeOPrimaocuZalbe {
 
@@ -269,11 +259,9 @@ public class PodaciOZalbiCutanja {
 
         /**
          * Gets the value of the primalacZalbe property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPrimalacZalbe() {
             return primalacZalbe;
@@ -281,11 +269,9 @@ public class PodaciOZalbiCutanja {
 
         /**
          * Sets the value of the primalacZalbe property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPrimalacZalbe(String value) {
             this.primalacZalbe = value;
@@ -293,11 +279,9 @@ public class PodaciOZalbiCutanja {
 
         /**
          * Gets the value of the adresa property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Adresa }
-         *     
+         *
+         * @return possible object is
+         * {@link Adresa }
          */
         public Adresa getAdresa() {
             return adresa;
@@ -305,11 +289,9 @@ public class PodaciOZalbiCutanja {
 
         /**
          * Sets the value of the adresa property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Adresa }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Adresa }
          */
         public void setAdresa(Adresa value) {
             this.adresa = value;
@@ -320,9 +302,9 @@ public class PodaciOZalbiCutanja {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -336,47 +318,43 @@ public class PodaciOZalbiCutanja {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class InformacijeOZalbi {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "naziv_organa", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "zakon", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "naslov", namespace = "zalba_cutanje", type = JAXBElement.class)
+                @XmlElementRef(name = "naziv_organa", namespace = "zalba_cutanje", type = JAXBElement.class),
+                @XmlElementRef(name = "zakon", namespace = "zalba_cutanje", type = JAXBElement.class),
+                @XmlElementRef(name = "naslov", namespace = "zalba_cutanje", type = JAXBElement.class)
         })
         @XmlMixed
         protected List<Serializable> content;
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link String }
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link JAXBElement }{@code <}{@link String }{@code >}
-         * 
-         * 
          */
         public List<Serializable> getContent() {
             if (content == null) {
@@ -390,9 +368,9 @@ public class PodaciOZalbiCutanja {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -405,45 +383,41 @@ public class PodaciOZalbiCutanja {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class MestoIDatum {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "mesto", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "datum", namespace = "zalba_cutanje", type = JAXBElement.class)
+                @XmlElementRef(name = "mesto", namespace = "zalba_cutanje", type = JAXBElement.class),
+                @XmlElementRef(name = "datum", namespace = "zalba_cutanje", type = JAXBElement.class)
         })
         @XmlMixed
         protected List<Serializable> content;
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link String }
-         * 
-         * 
          */
         public List<Serializable> getContent() {
             if (content == null) {
@@ -457,9 +431,9 @@ public class PodaciOZalbiCutanja {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -475,41 +449,39 @@ public class PodaciOZalbiCutanja {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class PodnosilacZalbe {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "potpis", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "ime", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "prezime", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "adresa", namespace = "zalba_cutanje", type = Adresa.class),
-            @XmlElementRef(name = "podaci_za_kontakt", namespace = "zalba_cutanje", type = JAXBElement.class)
+                @XmlElementRef(name = "potpis", namespace = "zalba_cutanje", type = JAXBElement.class),
+                @XmlElementRef(name = "ime", namespace = "zalba_cutanje", type = JAXBElement.class),
+                @XmlElementRef(name = "prezime", namespace = "zalba_cutanje", type = JAXBElement.class),
+                @XmlElementRef(name = "adresa", namespace = "zalba_cutanje", type = Adresa.class),
+                @XmlElementRef(name = "podaci_za_kontakt", namespace = "zalba_cutanje", type = JAXBElement.class)
         })
         @XmlMixed
         protected List<Object> content;
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link JAXBElement }{@code <}{@link String }{@code >}
@@ -518,8 +490,6 @@ public class PodaciOZalbiCutanja {
          * {@link JAXBElement }{@code <}{@link String }{@code >}
          * {@link String }
          * {@link JAXBElement }{@code <}{@link String }{@code >}
-         * 
-         * 
          */
         public List<Object> getContent() {
             if (content == null) {

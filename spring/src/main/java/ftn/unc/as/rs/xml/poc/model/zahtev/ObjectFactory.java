@@ -6,7 +6,7 @@
 //
 
 
-package zahtev;
+package ftn.unc.as.rs.xml.poc.model.zahtev;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the zahtev package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the zahtev package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -42,14 +41,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: zahtev
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link Zahtev }
-     * 
      */
     public Zahtev createZahtev() {
         return new Zahtev();
@@ -57,7 +54,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev }
-     * 
      */
     public DokumentZahtev createDokumentZahtev() {
         return new DokumentZahtev();
@@ -65,7 +61,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev.Napomene }
-     * 
      */
     public DokumentZahtev.Napomene createDokumentZahtevNapomene() {
         return new DokumentZahtev.Napomene();
@@ -73,7 +68,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Napomena }
-     * 
      */
     public Napomena createNapomena() {
         return new Napomena();
@@ -81,7 +75,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Zahtev.ListaNacina }
-     * 
      */
     public Zahtev.ListaNacina createZahtevListaNacina() {
         return new Zahtev.ListaNacina();
@@ -89,7 +82,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Adresa }
-     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -97,7 +89,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev.ZahtevNaOsnovu }
-     * 
      */
     public DokumentZahtev.ZahtevNaOsnovu createDokumentZahtevZahtevNaOsnovu() {
         return new DokumentZahtev.ZahtevNaOsnovu();
@@ -105,7 +96,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev.ListaZahteva }
-     * 
      */
     public DokumentZahtev.ListaZahteva createDokumentZahtevListaZahteva() {
         return new DokumentZahtev.ListaZahteva();
@@ -113,7 +103,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev.ZahtevSeOdnosiNa }
-     * 
      */
     public DokumentZahtev.ZahtevSeOdnosiNa createDokumentZahtevZahtevSeOdnosiNa() {
         return new DokumentZahtev.ZahtevSeOdnosiNa();
@@ -121,7 +110,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev.MestoIDatum }
-     * 
      */
     public DokumentZahtev.MestoIDatum createDokumentZahtevMestoIDatum() {
         return new DokumentZahtev.MestoIDatum();
@@ -129,7 +117,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev.PodnosilacZahteva }
-     * 
      */
     public DokumentZahtev.PodnosilacZahteva createDokumentZahtevPodnosilacZahteva() {
         return new DokumentZahtev.PodnosilacZahteva();
@@ -137,7 +124,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Nacin }
-     * 
      */
     public Nacin createNacin() {
         return new Nacin();
@@ -145,7 +131,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DrugiNacin }
-     * 
      */
     public DrugiNacin createDrugiNacin() {
         return new DrugiNacin();
@@ -153,7 +138,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DokumentZahtev.Napomene.Lista }
-     * 
      */
     public DokumentZahtev.Napomene.Lista createDokumentZahtevNapomeneLista() {
         return new DokumentZahtev.Napomene.Lista();
@@ -161,7 +145,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "datum", scope = DokumentZahtev.MestoIDatum.class)
     public JAXBElement<String> createDokumentZahtevMestoIDatumDatum(String value) {
@@ -170,7 +153,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "mesto", scope = DokumentZahtev.MestoIDatum.class)
     public JAXBElement<String> createDokumentZahtevMestoIDatumMesto(String value) {
@@ -179,7 +161,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Zahtev.ListaNacina }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "lista_nacina", scope = Zahtev.class)
     public JAXBElement<Zahtev.ListaNacina> createZahtevListaNacina(Zahtev.ListaNacina value) {
@@ -188,7 +169,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "informacije", scope = DokumentZahtev.ZahtevSeOdnosiNa.class)
     public JAXBElement<String> createDokumentZahtevZahtevSeOdnosiNaInformacije(String value) {
@@ -197,7 +177,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "potpis", scope = DokumentZahtev.PodnosilacZahteva.class)
     public JAXBElement<String> createDokumentZahtevPodnosilacZahtevaPotpis(String value) {
@@ -206,7 +185,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "ime", scope = DokumentZahtev.PodnosilacZahteva.class)
     public JAXBElement<String> createDokumentZahtevPodnosilacZahtevaIme(String value) {
@@ -215,7 +193,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "prezime", scope = DokumentZahtev.PodnosilacZahteva.class)
     public JAXBElement<String> createDokumentZahtevPodnosilacZahtevaPrezime(String value) {
@@ -224,7 +201,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "zahtev_za_pristup_informacijama", name = "drugi_podaci_za_kontakt", scope = DokumentZahtev.PodnosilacZahteva.class)
     public JAXBElement<String> createDokumentZahtevPodnosilacZahtevaDrugiPodaciZaKontakt(String value) {

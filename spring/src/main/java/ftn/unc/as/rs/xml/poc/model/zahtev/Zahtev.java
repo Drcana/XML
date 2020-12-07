@@ -6,7 +6,7 @@
 //
 
 
-package zahtev;
+package ftn.unc.as.rs.xml.poc.model.zahtev;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -54,19 +54,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+        "content"
 })
 @XmlRootElement(name = "zahtev")
 public class Zahtev {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "lista_nacina", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "napomena", namespace = "zahtev_za_pristup_informacijama", type = Napomena.class, required = false)
+            @XmlElementRef(name = "lista_nacina", namespace = "zahtev_za_pristup_informacijama", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "napomena", namespace = "zahtev_za_pristup_informacijama", type = Napomena.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -80,27 +78,25 @@ public class Zahtev {
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Napomena }
      * {@link JAXBElement }{@code <}{@link Zahtev.ListaNacina }{@code >}
      * {@link String }
-     * 
-     * 
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -111,11 +107,9 @@ public class Zahtev {
 
     /**
      * Gets the value of the check property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCheck() {
         return check;
@@ -123,11 +117,9 @@ public class Zahtev {
 
     /**
      * Sets the value of the check property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCheck(String value) {
         this.check = value;
@@ -135,11 +127,9 @@ public class Zahtev {
 
     /**
      * Gets the value of the tipZahteva property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTipZahteva() {
         return tipZahteva;
@@ -147,11 +137,9 @@ public class Zahtev {
 
     /**
      * Sets the value of the tipZahteva property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTipZahteva(String value) {
         this.tipZahteva = value;
@@ -160,9 +148,9 @@ public class Zahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -174,12 +162,10 @@ public class Zahtev {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nacin"
+            "nacin"
     })
     public static class ListaNacina {
 
@@ -188,25 +174,23 @@ public class Zahtev {
 
         /**
          * Gets the value of the nacin property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the nacin property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getNacin().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Nacin }
-         * 
-         * 
          */
         public List<Nacin> getNacin() {
             if (nacin == null) {

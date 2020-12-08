@@ -6,28 +6,33 @@
 //
 
 
-package obavestenje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TLice complex type.
+ * <p>Java class for TPravno_lice complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TLice">
+ * &lt;complexType name="TPravno_lice">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{obavestenje}TLice">
  *       &lt;sequence>
- *         &lt;element ref="{obavestenje}Adresa"/>
+ *         &lt;element name="naziv">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;minLength value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -35,40 +40,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TLice", propOrder = {
-    "adresa"
+@XmlType(name = "TPravno_lice", propOrder = {
+    "naziv"
 })
-@XmlSeeAlso({
-    TPravnoLice.class,
-    TFizickoLice.class
-})
-public abstract class TLice {
+public class TPravnoLice
+    extends TLice
+{
 
-    @XmlElement(name = "Adresa", required = true)
-    protected Adresa adresa;
+    @XmlElement(required = true)
+    protected String naziv;
 
     /**
-     * Gets the value of the adresa property.
+     * Gets the value of the naziv property.
      * 
      * @return
      *     possible object is
-     *     {@link Adresa }
+     *     {@link String }
      *     
      */
-    public Adresa getAdresa() {
-        return adresa;
+    public String getNaziv() {
+        return naziv;
     }
 
     /**
-     * Sets the value of the adresa property.
+     * Sets the value of the naziv property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Adresa }
+     *     {@link String }
      *     
      */
-    public void setAdresa(Adresa value) {
-        this.adresa = value;
+    public void setNaziv(String value) {
+        this.naziv = value;
     }
 
 }

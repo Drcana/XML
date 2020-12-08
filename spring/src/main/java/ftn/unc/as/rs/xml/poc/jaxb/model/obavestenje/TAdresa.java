@@ -6,42 +6,29 @@
 //
 
 
-package obavestenje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.obavestenje;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for TAdresa complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
+ * &lt;complexType name="TAdresa">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Mesto">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;minLength value="1"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="Ulica">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;minLength value="1"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="Broj" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *         &lt;element name="mesto" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="ulica" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="broj" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -51,19 +38,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "TAdresa", propOrder = {
     "mesto",
     "ulica",
     "broj"
 })
-@XmlRootElement(name = "Adresa")
-public class Adresa {
+public class TAdresa {
 
-    @XmlElement(name = "Mesto", required = true)
+    @XmlElement(required = true)
     protected String mesto;
-    @XmlElement(name = "Ulica", required = true)
+    @XmlElement(required = true)
     protected String ulica;
-    @XmlElement(name = "Broj", required = true)
+    @XmlElement(required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger broj;
 

@@ -6,7 +6,7 @@
 //
 
 
-package obavestenje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.obavestenje;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;

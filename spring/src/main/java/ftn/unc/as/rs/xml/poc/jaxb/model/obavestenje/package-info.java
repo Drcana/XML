@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "obavestenje", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package obavestenje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.obavestenje;

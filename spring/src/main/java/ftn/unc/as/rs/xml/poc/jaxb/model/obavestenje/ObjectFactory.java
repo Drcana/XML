@@ -6,7 +6,7 @@
 //
 
 
-package obavestenje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

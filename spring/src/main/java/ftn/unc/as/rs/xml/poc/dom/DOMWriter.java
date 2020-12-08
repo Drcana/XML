@@ -43,7 +43,7 @@ public class DOMWriter {
     /**
      * Generates document object model for a given XML file.
      */
-    void createDocument() {
+    public void createDocument() {
 
         try {
 
@@ -706,7 +706,7 @@ public class DOMWriter {
 
     }
 
-    void generateResenjeDOM() {
+    public void generateResenjeDOM() {
         // Kreiranje i postavljanje korenskog elementa
         Element resenje = document.createElementNS(TARGET_NAMESPACE, "resenje");
         document.appendChild(resenje);
@@ -813,7 +813,7 @@ public class DOMWriter {
     /**
      * Serializes DOM tree to an arbitrary OutputStream.
      */
-    void transform(OutputStream out) {
+    public void transform(OutputStream out) {
         try {
 
             // Kreiranje instance objekta zaduzenog za serijalizaciju DOM modela

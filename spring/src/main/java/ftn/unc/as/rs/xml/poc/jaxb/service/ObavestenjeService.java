@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
+import java.io.IOException;
 
 @Service
 public class ObavestenjeService {
@@ -21,7 +22,7 @@ public class ObavestenjeService {
         return marshallerService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 
-    public void writeXmlObavestenje(HttpServletResponse response) throws JAXBException {
+    public void writeXmlObavestenje(HttpServletResponse response) throws JAXBException, IOException {
         marshallerService.unmarshalXml(JAXB_INSTANCE, XML_PATH, response);
     }
 }

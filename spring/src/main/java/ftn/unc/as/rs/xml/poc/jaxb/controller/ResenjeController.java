@@ -1,6 +1,6 @@
 package ftn.unc.as.rs.xml.poc.jaxb.controller;
 
-import ftn.unc.as.rs.xml.poc.jaxb.service.ObavestenjeService;
+import ftn.unc.as.rs.xml.poc.jaxb.service.ResenjeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,20 +15,20 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/api/obavestenje")
-public class ObavestenjeController {
+@RequestMapping("/api/resenje")
+public class ResenjeController {
 
     @Autowired
-    private ObavestenjeService service;
+    private ResenjeService service;
 
     @GetMapping
-    public ResponseEntity<String> parseXmlObavestenje() throws JAXBException {
-        return new ResponseEntity<>(service.parseXmlObavestenje(), HttpStatus.OK);
+    public ResponseEntity<String> parseXmlResenje() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlResenje(), HttpStatus.OK);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void writeXmlObavestenje(final HttpServletResponse response) throws JAXBException, IOException {
-        service.writeXmlObavestenje(response);
+    public void writeXmlResenje(final HttpServletResponse response) throws JAXBException, IOException {
+        service.writeXmlResenje(response);
     }
 }

@@ -115,8 +115,6 @@ public class DOMParser implements ErrorHandler {
         String elementName, attrName, choice = "";
         Element element;
 
-        printNode(document);
-
         while (!choice.equals("*")) {
 
             System.out.println("\n[INPUT] Unesite 0 - za prikaz celog dokumenta, 1 - prikaz elemenata, 2 - prikaz atributa, * - kraj: ");

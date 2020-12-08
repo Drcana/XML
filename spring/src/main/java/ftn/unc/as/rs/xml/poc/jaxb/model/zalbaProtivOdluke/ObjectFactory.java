@@ -6,7 +6,7 @@
 //
 
 
-package ftn.unc.as.rs.xml.poc.model.zalbaOdluke;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivOdluke;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

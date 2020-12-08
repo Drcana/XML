@@ -6,7 +6,7 @@
 //
 
 
-package ftn.unc.as.rs.xml.poc.model.zahtev;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zahtev;
 
 import java.io.Serializable;
 import java.util.ArrayList;

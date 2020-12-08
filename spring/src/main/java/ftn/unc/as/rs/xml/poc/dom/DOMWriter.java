@@ -75,7 +75,7 @@ public class DOMWriter {
 
         zalbaCutanja.setAttribute("xmlns", "zalba_cutanje");
         zalbaCutanja.setAttribute("xsi", XSI_NAMESPACE);
-        zalbaCutanja.setAttribute("schemaLocation", "zalba_cutanje ../schemas/zalbaCutanja.xsd");
+        zalbaCutanja.setAttribute("schemaLocation", "zalba_cutanje ../schemas/zalbaProtivCutanja.xsd");
 
         Element vrstaZalbe = document.createElementNS(TARGET_NAMESPACE, "vrsta_zalbe");
         vrstaZalbe.appendChild(document.createTextNode("ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ РОКУ (ЋУТАЊЕ УПРАВЕ)\n"));
@@ -212,7 +212,7 @@ public class DOMWriter {
 
         zalbaProtivOdluke.setAttribute("xmlns", "zalba_protiv_odluke");
         zalbaProtivOdluke.setAttribute("xmlns:xsi", XSI_NAMESPACE);
-        zalbaProtivOdluke.setAttribute("xsi:schemaLocation", "zalba_protiv_odluke ../schemas/zalbaOdluke.xsd");
+        zalbaProtivOdluke.setAttribute("xsi:schemaLocation", "zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd");
 
         Element vrstaZalbe = document.createElementNS(TARGET_NAMESPACE, "vrsta_zalbe");
         vrstaZalbe.appendChild(document.createTextNode("ЖАЛБА ПРОТИВ ОДЛУКЕ ОРГАНА ВЛАСТИ КОЈОМ ЈЕ ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ"));

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zalba_protiv_odluke xmlns="zalba_protiv_odluke" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaOdluke.xsd">
-
+                     xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd">
     <vrsta_zalbe>
         ЖАЛБА ПРОТИВ ОДЛУКЕ ОРГАНА ВЛАСТИ КОЈОМ ЈЕ
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ
@@ -12,9 +11,11 @@
             Поверенику за информације од јавног значаја и заштиту података о личности
         </primalac_zalbe>
         <adresa>
-            <mesto>Београд</mesto> ,
+            <mesto>Београд</mesto>
+            ,
             <ulica>Булевар краља Александрa</ulica>
-            бр.<broj> 15</broj>
+            бр.
+            <broj>15</broj>
         </adresa>
     </informacije_o_primaocu_zalbe>
 

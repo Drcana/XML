@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "zalba_protiv_odluke", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package ftn.unc.as.rs.xml.poc.model.zalbaOdluke;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivOdluke;

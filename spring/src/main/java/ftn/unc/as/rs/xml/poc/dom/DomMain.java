@@ -60,12 +60,12 @@ public class DomMain {
                     domParser.printDocument();
                     break;
                 case 1:
-                    filePath += "zalbaOdluke.xml";
+                    filePath += "zalbaProtivOdluke.xml";
                     domParser.buildDocument(filePath);
                     domParser.printDocument();
                     break;
                 case 2:
-                    filePath += "zalbaCutanja.xml";
+                    filePath += "zalbaProtivCutanja.xml";
                     domParser.buildDocument(filePath);
                     domParser.printDocument();
                     break;

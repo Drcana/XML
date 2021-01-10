@@ -5,50 +5,74 @@
     <informacije_o_obavestenju>
         <organ_vlasti>
             <Adresa>
-                <Mesto>ns</Mesto>
-                <Ulica>random</Ulica>
-                <Broj>1</Broj>
+                <mesto>Novi Sad</mesto>
+                <ulica>Strazilovska</ulica>
+                <broj>13</broj>
             </Adresa>
-            <naziv>Univerzitet</naziv>
+            <naziv>Sud Novi Sad</naziv>
         </organ_vlasti>
         <podnosilac_zahteva>
             <Adresa>
-                <Mesto>ns</Mesto>
-                <Ulica>random</Ulica>
-                <Broj>2</Broj>
+                <mesto>Novi Sad</mesto>
+                <ulica>Bulevar Cara Lazara</ulica>
+                <broj>22</broj>
             </Adresa>
-            <ime>Pera</ime>
-            <prezime>Peric</prezime>
+            <ime>Petar</ime>
+            <prezime>Petrovic</prezime>
         </podnosilac_zahteva>
-        <datum_obavestenja>2020-10-10</datum_obavestenja>
+        <datum_obavestenja>12.01.2021.</datum_obavestenja>
         <dostavljeno>
             <imenovanom></imenovanom>
             <arhivi></arhivi>
         </dostavljeno>
     </informacije_o_obavestenju>
     <tekst_obavestenja>
-        <zahtev_informacija>
-            <datum_zahteva_informacija>2020-10-10</datum_zahteva_informacija>
-            <trazena_informacija>asdasd</trazena_informacija>
-        </zahtev_informacija>
-        <uvid_u_informacije>
-            <datum_uvida>2020-10-10</datum_uvida>
+        <naslov>ОБАВЕШТЕЊЕ
+            о стављању на увид документа који садржи 
+            тражену информацију и о изради копије</naslov>
+        <p>
+            На основу члана 16. ст. 1. Закона о слободном приступу информацијама од јавног
+            значаја, поступајући по вашем захтеву за слободан приступ информацијама од
+            <godina>2021.</godina>
+            год.,којим сте тражили увид у документ/е са информацијама о / у вези са:
+            <trazena_informacija></trazena_informacija>
+            обавештавамо вас да дана 
+            <datum_uvida>18.01.2021.</datum_uvida>
+            , у 
             <vreme_uvida>
-                <tacno_vreme>13:00:00</tacno_vreme>
-                <interval_vremena>
-                    <od>13:00:00</od>
-                    <do>14:00:00</do>
-                </interval_vremena>
+                <sati>18:30</sati>
+                часова, односно у времену од 
+                <od>18:30</od>
+                do
+                <do>19:30</do>
             </vreme_uvida>
+            часова, у просторијама органа у 
             <mesto_uvida>
-                <Adresa>
-                    <Mesto>asd</Mesto>
-                    <Ulica>asd</Ulica>
-                    <Broj>13</Broj>
-                </Adresa>
-                <broj_kancelarije>23</broj_kancelarije>
+                <adresa>
+                    <mesto>Novi Sad</mesto>
+                    ул.
+                    <ulica>Strazilovska</ulica>
+                    бр.
+                    <broj>13</broj>
+                </adresa>
+                , канцеларија бр.
+                <broj_kancelarije>55</broj_kancelarije>
             </mesto_uvida>
-        </uvid_u_informacije>
+            можете извршити увид у документ/е у коме је садржана тражена информација. 
+            
+            Том приликом, на ваш захтев, може вам се издати и копија документа са траженом 
+            информацијом.
+            
+            Трошкови су утврђени Уредбом Владе Републике Србије („Сл. гласник РС“, бр. 8/06), и
+            то: копија стране А4 формата износи 3 динара, А3 формата 6 динара, CD 35 динара, 
+            дискете 20 динара, DVD 40 динара, аудио-касета – 150 динара, видео-касета 300 динара,
+            претварање једне стране документа из физичког у електронски облик – 30 динара.
+            
+            Износ укупних трошкова израде копије документа по вашем захтеву износи 
+            <troskovi>500</troskovi>
+            динара и уплаћује се на жиро-рачун Буџета Републике Србије бр. 840-742328-843-30,
+            с позивом на број 97 – ознака шифре општине/града где се налази орган власти
+            (из Правилника о условима и начину вођења рачуна – „Сл. гласник РС“, 20/07... 40/10).
+        </p>
     </tekst_obavestenja>
-    <troskovi>2323</troskovi>
 </Obavestenje>

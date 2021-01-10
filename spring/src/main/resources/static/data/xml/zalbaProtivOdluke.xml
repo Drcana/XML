@@ -26,7 +26,7 @@
         <adresa>
             <mesto></mesto>
             <ulica></ulica>
-            <broj></broj>
+            <broj>13</broj>
         </adresa>
         (Име, презиме, односно назив, адреса и седиште жалиоца)
     </podaci_o_zaliocu>
@@ -36,14 +36,14 @@
         <naziv_organa></naziv_organa>
         (назив органа који је донео одлуку)
         <resenje_zahteva>
-            Број <broj_resenja></broj_resenja> од <datum></datum> године.
+            Број <broj_resenja>071-01-1114/2020-03</broj_resenja> од <datum>20.01.2020.</datum> године.
         </resenje_zahteva>
     </podaci_o_organu>
 
     <detalji_zalbe>
         Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) ,
         супротно закону, одбијен-одбачен је мој захтев који сам поднео/ла-упутио/ла дана
-        <datum></datum>
+        <datum>20.02.2020.</datum>
         године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама
         од јавног значаја. Oдлуку побијам у целости, односно у делу којим
         <razlog_zalbe></razlog_zalbe>
@@ -56,7 +56,7 @@
 
     <mesto_i_datum>
         У <mesto></mesto> ,
-        дана <datum></datum> године
+        дана <datum>20.02.2020.</datum> године
     </mesto_i_datum>
 
     <podaci_o_podnosiocu_zalbe>
@@ -66,7 +66,7 @@
         <adresa>
             <mesto></mesto>
             <ulica></ulica>
-            <broj></broj>
+            <broj>13</broj>
         </adresa>
         адреса
         <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>

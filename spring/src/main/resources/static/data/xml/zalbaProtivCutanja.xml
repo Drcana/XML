@@ -6,19 +6,21 @@
         (ЋУТАЊЕ УПРАВЕ)
     </vrsta_zalbe>
 
-    <informacije_o_primaocu_zalbe>
-        <primalac_zalbe>
-            Поверенику за информације од јавног значаја и заштиту података о личности
-        </primalac_zalbe>
-        <adresa>
+    <primaoc_zalbe>
+        Поверенику за информације од јавног значаја и заштиту података о личности
+        <Adresa>
             Адреса за пошту:
             <mesto>Београд</mesto>
             ,
             <ulica>Булевар краља Александрa</ulica>
             бр.
             <broj>15</broj>
-        </adresa>
-    </informacije_o_primaocu_zalbe>
+        </Adresa>
+        <naziv>
+            
+        </naziv>
+        
+    </primaoc_zalbe>
 
     <informacije_o_zalbi>
         <zakon>У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим:</zakon>
@@ -35,7 +37,7 @@
 
     <detalji_zalbe>
         по мом захтеву за слободан приступ информацијама од јавног значаја који сам поднео том органу дана
-        <datum></datum>
+        <datum>20.01.2021.</datum>
         године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја
         омогући увид- копија документа који садржи информације о /у вези са :
         <podaci_o_zalbi></podaci_o_zalbi>
@@ -51,16 +53,17 @@
     </napomena>
 
     <podnosilac_zalbe>
-        <ime></ime>
-        <prezime></prezime>
-        Подносилац жалбе / Име и презиме
-        <adresa>
+        <Adresa>
             <mesto></mesto>
             <ulica></ulica>
-            <broj></broj>
-        </adresa>
+            <broj>13</broj>
+        </Adresa>
+        <ime>Petar</ime>
+        <prezime>Peric</prezime>
+        Подносилац жалбе / Име и презиме
+        
         адреса
-        <podaci_za_kontakt></podaci_za_kontakt>
+        <kontakt></kontakt>
         други подаци за контакт
         <potpis></potpis>
         Потпис
@@ -68,7 +71,7 @@
 
     <mesto_i_datum>
         У <mesto></mesto>,
-        дана <datum></datum> године
+        дана <datum>20.01.2021.</datum> године
     </mesto_i_datum>
 
 </zalba_protiv_cutanja>

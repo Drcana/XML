@@ -16,6 +16,7 @@
                 <xs:element name="informacije_o_resenju">
                     <xs:complexType mixed="true">
                         <xs:sequence>
+                            <xs:element name="id" type="res:TId"/>
                             <xs:element name="broj_resenja">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">

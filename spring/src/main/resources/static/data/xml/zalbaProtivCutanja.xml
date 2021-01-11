@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zalba_protiv_cutanja xmlns="zalba_protiv_cutanja" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                       xsi:schemaLocation="zalba_protiv_cutanja  ../schemas/zalbaProtivCutanja.xsd">
+    <id></id>
     <vrsta_zalbe>
         ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ РОКУ
         (ЋУТАЊЕ УПРАВЕ)

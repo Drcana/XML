@@ -8,6 +8,14 @@
                 <xs:element name="informacije_o_obavestenju">
                     <xs:complexType>
                         <xs:sequence>
+                            <xs:element name="id" type="ob:TId"/>
+                            <xs:element name="broj_predmeta">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[0123456789\-/]+"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
                             <xs:element name="organ_vlasti" type="ob:TPravno_Lice"/>
                             <xs:element name="podnosilac_zahteva" type="ob:TFIzicko_Lice"/>
                             <xs:element name="datum_obavestenja">
@@ -27,7 +35,6 @@
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
-                        <xs:attribute name="Broj_predmeta" type="xs:positiveInteger"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="tekst_obavestenja">

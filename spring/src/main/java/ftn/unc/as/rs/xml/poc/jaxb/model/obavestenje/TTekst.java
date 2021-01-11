@@ -16,21 +16,28 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlMixed;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java class for TLice complex type.
+ * <p>Java class for TTekst complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TLice">
+ * &lt;complexType name="TTekst">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Adresa" type="{obavestenje}TAdresa"/>
+ *         &lt;element name="p" maxOccurs="unbounded">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,16 +47,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TLice", propOrder = {
+@XmlType(name = "TTekst", propOrder = {
     "content"
 })
-@XmlSeeAlso({
-    TPravnoLice.class,
-    TFIzickoLice.class
-})
-public abstract class TLice {
+public class TTekst {
 
-    @XmlElementRef(name = "Adresa", namespace = "obavestenje", type = JAXBElement.class)
+    @XmlElementRef(name = "p", namespace = "obavestenje", type = JAXBElement.class)
     @XmlMixed
     protected List<Serializable> content;
 
@@ -71,7 +74,7 @@ public abstract class TLice {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TAdresa }{@code >}
+     * {@link JAXBElement }{@code <}{@link TTekst.P }{@code >}
      * {@link String }
      * 
      * 
@@ -81,6 +84,58 @@ public abstract class TLice {
             content = new ArrayList<Serializable>();
         }
         return this.content;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "content"
+    })
+    public static class P {
+
+        @XmlValue
+        protected String content;
+
+        /**
+         * Gets the value of the content property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getContent() {
+            return content;
+        }
+
+        /**
+         * Sets the value of the content property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setContent(String value) {
+            this.content = value;
+        }
+
     }
 
 }

@@ -3,6 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="obavestenje ../schemas/obavestenje.xsd">
     <informacije_o_obavestenju>
+        <id></id>
+        <broj_predmeta>123103</broj_predmeta>
         <organ_vlasti>
             <Adresa>
                 <mesto>Novi Sad</mesto>

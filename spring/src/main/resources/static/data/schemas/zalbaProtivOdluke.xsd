@@ -5,6 +5,7 @@
   <xs:element name="zalba_protiv_odluke">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="id" type="zalba:TId"/>
         <xs:element name="vrsta_zalbe" type="xs:string"/>
         <xs:element name="informacije_o_primaocu_zalbe">
           <xs:complexType>

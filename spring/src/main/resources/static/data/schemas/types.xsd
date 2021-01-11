@@ -70,4 +70,9 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="TId">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
 </xs:schema>

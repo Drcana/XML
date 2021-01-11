@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zalba_protiv_odluke xmlns="zalba_protiv_odluke" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                      xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd">
+    <id></id>
     <vrsta_zalbe>
         ЖАЛБА ПРОТИВ ОДЛУКЕ ОРГАНА ВЛАСТИ КОЈОМ ЈЕ
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ

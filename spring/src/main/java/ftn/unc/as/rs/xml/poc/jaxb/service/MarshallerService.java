@@ -23,7 +23,7 @@ import java.io.StringWriter;
 @Component
 public class MarshallerService {
 
-    public <T> String parseXml(String jaxbInstance, String xsdPath, String xmlPath) throws JAXBException {
+    <T> String parseXml(String jaxbInstance, String xsdPath, String xmlPath) throws JAXBException {
 
         T object;
 
@@ -50,7 +50,7 @@ public class MarshallerService {
         return stringWriter.toString();
     }
 
-    public <T> void unmarshalXml(String jaxbInstance, String xmlPath, HttpServletResponse response)
+    <T> void unmarshalXml(String jaxbInstance, String xmlPath, HttpServletResponse response)
             throws JAXBException {
 
         JAXBContext context;

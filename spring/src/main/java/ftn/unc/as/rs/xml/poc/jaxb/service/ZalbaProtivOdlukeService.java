@@ -1,5 +1,7 @@
 package ftn.unc.as.rs.xml.poc.jaxb.service;
 
+import ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivOdluke.ZalbaProtivOdluke;
+import ftn.unc.as.rs.xml.poc.jaxb.repository.ZalbaProtivOdlukeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +20,22 @@ public class ZalbaProtivOdlukeService {
     @Autowired
     private MarshallerService marshallerService;
 
+    @Autowired
+    private ZalbaProtivOdlukeRepository zalbaProtivOdlukeRepository;
+
     public String parseXmlZalbaProtivOdluke() throws JAXBException {
         return marshallerService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 
     public void writeXmlZalbaProtivOdluke(HttpServletResponse response) throws JAXBException {
         marshallerService.unmarshalXml(JAXB_INSTANCE, XML_PATH, response);
+    }
+
+    public void create(ZalbaProtivOdluke zalbaProtivOdluke) throws Exception {
+        zalbaProtivOdlukeRepository.create(zalbaProtivOdluke);
+    }
+
+    public ZalbaProtivOdluke get(String documentId) {
+       return zalbaProtivOdlukeRepository.get(documentId);
     }
 }

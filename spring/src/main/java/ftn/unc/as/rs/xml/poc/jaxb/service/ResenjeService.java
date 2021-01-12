@@ -1,5 +1,6 @@
 package ftn.unc.as.rs.xml.poc.jaxb.service;
 
+import ftn.unc.as.rs.xml.poc.jaxb.repository.ResenjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,9 @@ public class ResenjeService {
 
     @Autowired
     private DomService domService;
+
+    @Autowired
+    private ResenjeRepository resenjeRepository;
 
     public void writeXmlResenje(HttpServletResponse response) throws IOException {
         domService.createDocument();

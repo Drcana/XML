@@ -1,5 +1,7 @@
 package ftn.unc.as.rs.xml.poc.jaxb.service;
 
+import ftn.unc.as.rs.xml.poc.jaxb.model.zahtev.DokumentZahtev;
+import ftn.unc.as.rs.xml.poc.jaxb.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +20,22 @@ public class ZahtevService {
     @Autowired
     private MarshallerService marshallerService;
 
+    @Autowired
+    private ZahtevRepository zahtevRepository;
+
     public String parseXmlZahtev() throws JAXBException {
         return marshallerService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 
     public void writeXmlZahtev(HttpServletResponse response) throws JAXBException {
         marshallerService.unmarshalXml(JAXB_INSTANCE, XML_PATH, response);
+    }
+
+    public void create(DokumentZahtev dokumentZahtev) throws Exception {
+        zahtevRepository.create(dokumentZahtev);
+    }
+
+    public DokumentZahtev get(String documentId) {
+        return zahtevRepository.get(documentId);
     }
 }

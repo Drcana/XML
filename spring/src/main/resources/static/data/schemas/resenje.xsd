@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="resenje" elementFormDefault="qualified"
-    xmlns:res="resenje">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="resenje"
+    elementFormDefault="qualified" xmlns:res="resenje">
 
+    <xs:include schemaLocation="types.xsd"/>
     <xs:element name="resenje">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="informacije_o_resenju">
-                    <xs:complexType>
+                <xs:element name="naziv_resenja">
+                    <xs:complexType mixed="true">
                         <xs:sequence>
-                            <xs:element name="datum_resenja" type="xs:date"/>
-                            <xs:element name="datum_pondosenja_zahteva" type="xs:date"/>
-                            <xs:element name="trazilac" type="res:TFizicko_lice"/>
-                            <xs:element name="organ" type="res:TPravno_lice"/>
+                            <xs:element name="odluka" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="informacije_o_resenju">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="id" type="res:TId"/>
+                            <xs:element name="broj_resenja">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1"/>
+                                        <xs:pattern value="[0123456789\-/]+"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="datum_resenja">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\d{2}\.\d{2}\.\d{4}\."/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="datum_podnosenja_zahteva">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\d{2}\.\d{2}\.\d{4}\."/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="trazilac" type="res:TFIzicko_Lice"/>
+                            <xs:element name="organ" type="res:TPravno_Lice"/>
                             <xs:element name="poverenik">
                                 <xs:complexType>
                                     <xs:sequence>
@@ -34,95 +62,18 @@
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
-                        <xs:attribute name="broj_resenja"/>
-                        <xs:attribute name="tip_resenja" type="xs:string"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="sadrzaj_resenja">
-                    <xs:complexType>
+                    <xs:complexType mixed="true">
                         <xs:sequence>
-                            <xs:element name="opis_resenja">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:minLength value="1"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="telo_resenja" type="res:TParagrafi"/>
-                            <xs:element name="obrazlozenje" type="res:TParagrafi"/>
-                            <xs:element name="uputstvo" type="xs:string"/>
+                            <xs:element name="opis_resenja" type="res:TTekst"> </xs:element>
+                            <xs:element name="telo_resenja" type="res:TTekst"/>
+                            <xs:element name="obrazlozenje" type="res:TTekst"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="adresa">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="mesto">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:minLength value="1"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-                <xs:element name="ulica">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:minLength value="1"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-                <xs:element name="broj" type="xs:positiveInteger"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:complexType abstract="true" name="TLice">
-        <xs:sequence>
-            <xs:element ref="res:adresa"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="TPravno_lice">
-        <xs:complexContent>
-            <xs:extension base="res:TLice">
-                <xs:sequence>
-                    <xs:element name="naziv">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:minLength value="1"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TFizicko_lice">
-        <xs:complexContent>
-            <xs:extension base="res:TLice">
-                <xs:sequence>
-                    <xs:element name="ime">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:minLength value="1"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="prezime">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:minLength value="1"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TParagrafi">
-        <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="paragraf" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
 </xs:schema>

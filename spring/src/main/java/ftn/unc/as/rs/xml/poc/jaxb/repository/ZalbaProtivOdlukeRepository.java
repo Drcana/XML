@@ -14,7 +14,7 @@ public class ZalbaProtivOdlukeRepository {
     private ExistManager existManager;
 
     public void create(ZalbaProtivOdluke zalbaProtivOdluke) throws Exception {
-        existManager.store(COLLECTION_URI, "1", zalbaProtivOdluke);
+        existManager.store(COLLECTION_URI, zalbaProtivOdluke.getId().getValue(), zalbaProtivOdluke);
     }
 
     public ZalbaProtivOdluke get(String documentId) {

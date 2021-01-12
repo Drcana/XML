@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
-import java.io.IOException;
 
 @Controller
 @RequestMapping("/api/obavestenje")
@@ -32,7 +31,7 @@ public class ObavestenjeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void writeXmlObavestenje(final HttpServletResponse response) throws JAXBException, IOException {
+    public void writeXmlObavestenje(final HttpServletResponse response) throws JAXBException {
         service.writeXmlObavestenje(response);
     }
 

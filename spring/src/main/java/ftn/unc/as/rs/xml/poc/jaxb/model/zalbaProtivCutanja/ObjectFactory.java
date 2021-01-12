@@ -6,13 +6,13 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
-import java.math.BigInteger;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
+import java.math.BigInteger;
 
 
 /**
@@ -32,40 +32,40 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _TAdresaMesto_QNAME = new QName("zalba_cutanje", "mesto");
-    private final static QName _TAdresaUlica_QNAME = new QName("zalba_cutanje", "ulica");
-    private final static QName _TAdresaBroj_QNAME = new QName("zalba_cutanje", "broj");
-    private final static QName _PodaciOZalbiCutanjaDetaljiZalbePodaciOZalbi_QNAME = new QName("zalba_cutanje", "podaci_o_zalbi");
-    private final static QName _PodaciOZalbiCutanjaDetaljiZalbeDatum_QNAME = new QName("zalba_cutanje", "datum");
-    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbiNaslov_QNAME = new QName("zalba_cutanje", "naslov");
-    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbiNazivOrgana_QNAME = new QName("zalba_cutanje", "naziv_organa");
-    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbiZakon_QNAME = new QName("zalba_cutanje", "zakon");
-    private final static QName _TLiceAdresa_QNAME = new QName("zalba_cutanje", "Adresa");
-    private final static QName _PodaciOZalbiCutanjaMestoIDatum_QNAME = new QName("zalba_cutanje", "mesto_i_datum");
-    private final static QName _PodaciOZalbiCutanjaPodnosilacZalbe_QNAME = new QName("zalba_cutanje", "podnosilac_zalbe");
-    private final static QName _PodaciOZalbiCutanjaId_QNAME = new QName("zalba_cutanje", "id");
-    private final static QName _PodaciOZalbiCutanjaPredlogResenja_QNAME = new QName("zalba_cutanje", "predlog_resenja");
-    private final static QName _PodaciOZalbiCutanjaVrstaZalbe_QNAME = new QName("zalba_cutanje", "vrsta_zalbe");
-    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbi_QNAME = new QName("zalba_cutanje", "informacije_o_zalbi");
-    private final static QName _PodaciOZalbiCutanjaDetaljiZalbe_QNAME = new QName("zalba_cutanje", "detalji_zalbe");
-    private final static QName _PodaciOZalbiCutanjaPrimaocZalbe_QNAME = new QName("zalba_cutanje", "primaoc_zalbe");
-    private final static QName _PodaciOZalbiCutanjaRazlogZalbe_QNAME = new QName("zalba_cutanje", "razlog_zalbe");
-    private final static QName _PodaciOZalbiCutanjaNapomena_QNAME = new QName("zalba_cutanje", "napomena");
-    private final static QName _TTekstP_QNAME = new QName("zalba_cutanje", "p");
+    private final static QName _TAdresaMesto_QNAME = new QName("zalba_protiv_cutanja", "mesto");
+    private final static QName _TAdresaUlica_QNAME = new QName("zalba_protiv_cutanja", "ulica");
+    private final static QName _TAdresaBroj_QNAME = new QName("zalba_protiv_cutanja", "broj");
+    private final static QName _PodaciOZalbiCutanjaDetaljiZalbePodaciOZalbi_QNAME = new QName("zalba_protiv_cutanja", "podaci_o_zalbi");
+    private final static QName _PodaciOZalbiCutanjaDetaljiZalbeDatum_QNAME = new QName("zalba_protiv_cutanja", "datum");
+    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbiNaslov_QNAME = new QName("zalba_protiv_cutanja", "naslov");
+    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbiNazivOrgana_QNAME = new QName("zalba_protiv_cutanja", "naziv_organa");
+    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbiZakon_QNAME = new QName("zalba_protiv_cutanja", "zakon");
+    private final static QName _TLiceAdresa_QNAME = new QName("zalba_protiv_cutanja", "Adresa");
+    private final static QName _PodaciOZalbiCutanjaMestoIDatum_QNAME = new QName("zalba_protiv_cutanja", "mesto_i_datum");
+    private final static QName _PodaciOZalbiCutanjaPodnosilacZalbe_QNAME = new QName("zalba_protiv_cutanja", "podnosilac_zalbe");
+    private final static QName _PodaciOZalbiCutanjaId_QNAME = new QName("zalba_protiv_cutanja", "id");
+    private final static QName _PodaciOZalbiCutanjaPredlogResenja_QNAME = new QName("zalba_protiv_cutanja", "predlog_resenja");
+    private final static QName _PodaciOZalbiCutanjaVrstaZalbe_QNAME = new QName("zalba_protiv_cutanja", "vrsta_zalbe");
+    private final static QName _PodaciOZalbiCutanjaInformacijeOZalbi_QNAME = new QName("zalba_protiv_cutanja", "informacije_o_zalbi");
+    private final static QName _PodaciOZalbiCutanjaDetaljiZalbe_QNAME = new QName("zalba_protiv_cutanja", "detalji_zalbe");
+    private final static QName _PodaciOZalbiCutanjaPrimaocZalbe_QNAME = new QName("zalba_protiv_cutanja", "primaoc_zalbe");
+    private final static QName _PodaciOZalbiCutanjaRazlogZalbe_QNAME = new QName("zalba_protiv_cutanja", "razlog_zalbe");
+    private final static QName _PodaciOZalbiCutanjaNapomena_QNAME = new QName("zalba_protiv_cutanja", "napomena");
+    private final static QName _TTekstP_QNAME = new QName("zalba_protiv_cutanja", "p");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: zalba_cutanje
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: zalba_protiv_cutanja
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link PodaciOZalbiCutanja }
+     * Create an instance of {@link ZalbaProtivCutanja }
      * 
      */
-    public PodaciOZalbiCutanja createPodaciOZalbiCutanja() {
-        return new PodaciOZalbiCutanja();
+    public ZalbaProtivCutanja createPodaciOZalbiCutanja() {
+        return new ZalbaProtivCutanja();
     }
 
     /**
@@ -93,27 +93,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PodaciOZalbiCutanja.InformacijeOZalbi }
+     * Create an instance of {@link ZalbaProtivCutanja.InformacijeOZalbi }
      * 
      */
-    public PodaciOZalbiCutanja.InformacijeOZalbi createPodaciOZalbiCutanjaInformacijeOZalbi() {
-        return new PodaciOZalbiCutanja.InformacijeOZalbi();
+    public ZalbaProtivCutanja.InformacijeOZalbi createPodaciOZalbiCutanjaInformacijeOZalbi() {
+        return new ZalbaProtivCutanja.InformacijeOZalbi();
     }
 
     /**
-     * Create an instance of {@link PodaciOZalbiCutanja.DetaljiZalbe }
+     * Create an instance of {@link ZalbaProtivCutanja.DetaljiZalbe }
      * 
      */
-    public PodaciOZalbiCutanja.DetaljiZalbe createPodaciOZalbiCutanjaDetaljiZalbe() {
-        return new PodaciOZalbiCutanja.DetaljiZalbe();
+    public ZalbaProtivCutanja.DetaljiZalbe createPodaciOZalbiCutanjaDetaljiZalbe() {
+        return new ZalbaProtivCutanja.DetaljiZalbe();
     }
 
     /**
-     * Create an instance of {@link PodaciOZalbiCutanja.PodnosilacZalbe }
+     * Create an instance of {@link ZalbaProtivCutanja.PodnosilacZalbe }
      * 
      */
-    public PodaciOZalbiCutanja.PodnosilacZalbe createPodaciOZalbiCutanjaPodnosilacZalbe() {
-        return new PodaciOZalbiCutanja.PodnosilacZalbe();
+    public ZalbaProtivCutanja.PodnosilacZalbe createPodaciOZalbiCutanjaPodnosilacZalbe() {
+        return new ZalbaProtivCutanja.PodnosilacZalbe();
     }
 
     /**
@@ -152,7 +152,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "mesto", scope = TAdresa.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "mesto", scope = TAdresa.class)
     public JAXBElement<String> createTAdresaMesto(String value) {
         return new JAXBElement<String>(_TAdresaMesto_QNAME, String.class, TAdresa.class, value);
     }
@@ -161,7 +161,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "ulica", scope = TAdresa.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "ulica", scope = TAdresa.class)
     public JAXBElement<String> createTAdresaUlica(String value) {
         return new JAXBElement<String>(_TAdresaUlica_QNAME, String.class, TAdresa.class, value);
     }
@@ -170,7 +170,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "broj", scope = TAdresa.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "broj", scope = TAdresa.class)
     public JAXBElement<BigInteger> createTAdresaBroj(BigInteger value) {
         return new JAXBElement<BigInteger>(_TAdresaBroj_QNAME, BigInteger.class, TAdresa.class, value);
     }
@@ -179,52 +179,52 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "podaci_o_zalbi", scope = PodaciOZalbiCutanja.DetaljiZalbe.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "podaci_o_zalbi", scope = ZalbaProtivCutanja.DetaljiZalbe.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaDetaljiZalbePodaciOZalbi(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaDetaljiZalbePodaciOZalbi_QNAME, String.class, PodaciOZalbiCutanja.DetaljiZalbe.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaDetaljiZalbePodaciOZalbi_QNAME, String.class, ZalbaProtivCutanja.DetaljiZalbe.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "datum", scope = PodaciOZalbiCutanja.DetaljiZalbe.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "datum", scope = ZalbaProtivCutanja.DetaljiZalbe.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaDetaljiZalbeDatum(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaDetaljiZalbeDatum_QNAME, String.class, PodaciOZalbiCutanja.DetaljiZalbe.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaDetaljiZalbeDatum_QNAME, String.class, ZalbaProtivCutanja.DetaljiZalbe.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "naslov", scope = PodaciOZalbiCutanja.InformacijeOZalbi.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "naslov", scope = ZalbaProtivCutanja.InformacijeOZalbi.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaInformacijeOZalbiNaslov(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaInformacijeOZalbiNaslov_QNAME, String.class, PodaciOZalbiCutanja.InformacijeOZalbi.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaInformacijeOZalbiNaslov_QNAME, String.class, ZalbaProtivCutanja.InformacijeOZalbi.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "naziv_organa", scope = PodaciOZalbiCutanja.InformacijeOZalbi.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "naziv_organa", scope = ZalbaProtivCutanja.InformacijeOZalbi.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaInformacijeOZalbiNazivOrgana(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaInformacijeOZalbiNazivOrgana_QNAME, String.class, PodaciOZalbiCutanja.InformacijeOZalbi.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaInformacijeOZalbiNazivOrgana_QNAME, String.class, ZalbaProtivCutanja.InformacijeOZalbi.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "zakon", scope = PodaciOZalbiCutanja.InformacijeOZalbi.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "zakon", scope = ZalbaProtivCutanja.InformacijeOZalbi.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaInformacijeOZalbiZakon(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaInformacijeOZalbiZakon_QNAME, String.class, PodaciOZalbiCutanja.InformacijeOZalbi.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaInformacijeOZalbiZakon_QNAME, String.class, ZalbaProtivCutanja.InformacijeOZalbi.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "mesto", scope = TMestoDatum.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "mesto", scope = TMestoDatum.class)
     public JAXBElement<String> createTMestoDatumMesto(String value) {
         return new JAXBElement<String>(_TAdresaMesto_QNAME, String.class, TMestoDatum.class, value);
     }
@@ -233,7 +233,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "datum", scope = TMestoDatum.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "datum", scope = TMestoDatum.class)
     public JAXBElement<String> createTMestoDatumDatum(String value) {
         return new JAXBElement<String>(_PodaciOZalbiCutanjaDetaljiZalbeDatum_QNAME, String.class, TMestoDatum.class, value);
     }
@@ -242,7 +242,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link TAdresa }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "Adresa", scope = TLice.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "Adresa", scope = TLice.class)
     public JAXBElement<TAdresa> createTLiceAdresa(TAdresa value) {
         return new JAXBElement<TAdresa>(_TLiceAdresa_QNAME, TAdresa.class, TLice.class, value);
     }
@@ -251,97 +251,97 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link TMestoDatum }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "mesto_i_datum", scope = PodaciOZalbiCutanja.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "mesto_i_datum", scope = ZalbaProtivCutanja.class)
     public JAXBElement<TMestoDatum> createPodaciOZalbiCutanjaMestoIDatum(TMestoDatum value) {
-        return new JAXBElement<TMestoDatum>(_PodaciOZalbiCutanjaMestoIDatum_QNAME, TMestoDatum.class, PodaciOZalbiCutanja.class, value);
+        return new JAXBElement<TMestoDatum>(_PodaciOZalbiCutanjaMestoIDatum_QNAME, TMestoDatum.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.PodnosilacZalbe }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaProtivCutanja.PodnosilacZalbe }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "podnosilac_zalbe", scope = PodaciOZalbiCutanja.class)
-    public JAXBElement<PodaciOZalbiCutanja.PodnosilacZalbe> createPodaciOZalbiCutanjaPodnosilacZalbe(PodaciOZalbiCutanja.PodnosilacZalbe value) {
-        return new JAXBElement<PodaciOZalbiCutanja.PodnosilacZalbe>(_PodaciOZalbiCutanjaPodnosilacZalbe_QNAME, PodaciOZalbiCutanja.PodnosilacZalbe.class, PodaciOZalbiCutanja.class, value);
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "podnosilac_zalbe", scope = ZalbaProtivCutanja.class)
+    public JAXBElement<ZalbaProtivCutanja.PodnosilacZalbe> createPodaciOZalbiCutanjaPodnosilacZalbe(ZalbaProtivCutanja.PodnosilacZalbe value) {
+        return new JAXBElement<ZalbaProtivCutanja.PodnosilacZalbe>(_PodaciOZalbiCutanjaPodnosilacZalbe_QNAME, ZalbaProtivCutanja.PodnosilacZalbe.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TId }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "id", scope = PodaciOZalbiCutanja.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "id", scope = ZalbaProtivCutanja.class)
     public JAXBElement<TId> createPodaciOZalbiCutanjaId(TId value) {
-        return new JAXBElement<TId>(_PodaciOZalbiCutanjaId_QNAME, TId.class, PodaciOZalbiCutanja.class, value);
+        return new JAXBElement<TId>(_PodaciOZalbiCutanjaId_QNAME, TId.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "predlog_resenja", scope = PodaciOZalbiCutanja.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "predlog_resenja", scope = ZalbaProtivCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaPredlogResenja(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaPredlogResenja_QNAME, String.class, PodaciOZalbiCutanja.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaPredlogResenja_QNAME, String.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "vrsta_zalbe", scope = PodaciOZalbiCutanja.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "vrsta_zalbe", scope = ZalbaProtivCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaVrstaZalbe(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaVrstaZalbe_QNAME, String.class, PodaciOZalbiCutanja.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaVrstaZalbe_QNAME, String.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.InformacijeOZalbi }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaProtivCutanja.InformacijeOZalbi }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "informacije_o_zalbi", scope = PodaciOZalbiCutanja.class)
-    public JAXBElement<PodaciOZalbiCutanja.InformacijeOZalbi> createPodaciOZalbiCutanjaInformacijeOZalbi(PodaciOZalbiCutanja.InformacijeOZalbi value) {
-        return new JAXBElement<PodaciOZalbiCutanja.InformacijeOZalbi>(_PodaciOZalbiCutanjaInformacijeOZalbi_QNAME, PodaciOZalbiCutanja.InformacijeOZalbi.class, PodaciOZalbiCutanja.class, value);
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "informacije_o_zalbi", scope = ZalbaProtivCutanja.class)
+    public JAXBElement<ZalbaProtivCutanja.InformacijeOZalbi> createPodaciOZalbiCutanjaInformacijeOZalbi(ZalbaProtivCutanja.InformacijeOZalbi value) {
+        return new JAXBElement<ZalbaProtivCutanja.InformacijeOZalbi>(_PodaciOZalbiCutanjaInformacijeOZalbi_QNAME, ZalbaProtivCutanja.InformacijeOZalbi.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.DetaljiZalbe }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaProtivCutanja.DetaljiZalbe }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "detalji_zalbe", scope = PodaciOZalbiCutanja.class)
-    public JAXBElement<PodaciOZalbiCutanja.DetaljiZalbe> createPodaciOZalbiCutanjaDetaljiZalbe(PodaciOZalbiCutanja.DetaljiZalbe value) {
-        return new JAXBElement<PodaciOZalbiCutanja.DetaljiZalbe>(_PodaciOZalbiCutanjaDetaljiZalbe_QNAME, PodaciOZalbiCutanja.DetaljiZalbe.class, PodaciOZalbiCutanja.class, value);
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "detalji_zalbe", scope = ZalbaProtivCutanja.class)
+    public JAXBElement<ZalbaProtivCutanja.DetaljiZalbe> createPodaciOZalbiCutanjaDetaljiZalbe(ZalbaProtivCutanja.DetaljiZalbe value) {
+        return new JAXBElement<ZalbaProtivCutanja.DetaljiZalbe>(_PodaciOZalbiCutanjaDetaljiZalbe_QNAME, ZalbaProtivCutanja.DetaljiZalbe.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TPravnoLice }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "primaoc_zalbe", scope = PodaciOZalbiCutanja.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "primaoc_zalbe", scope = ZalbaProtivCutanja.class)
     public JAXBElement<TPravnoLice> createPodaciOZalbiCutanjaPrimaocZalbe(TPravnoLice value) {
-        return new JAXBElement<TPravnoLice>(_PodaciOZalbiCutanjaPrimaocZalbe_QNAME, TPravnoLice.class, PodaciOZalbiCutanja.class, value);
+        return new JAXBElement<TPravnoLice>(_PodaciOZalbiCutanjaPrimaocZalbe_QNAME, TPravnoLice.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "razlog_zalbe", scope = PodaciOZalbiCutanja.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "razlog_zalbe", scope = ZalbaProtivCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaRazlogZalbe(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaRazlogZalbe_QNAME, String.class, PodaciOZalbiCutanja.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaRazlogZalbe_QNAME, String.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "napomena", scope = PodaciOZalbiCutanja.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "napomena", scope = ZalbaProtivCutanja.class)
     public JAXBElement<String> createPodaciOZalbiCutanjaNapomena(String value) {
-        return new JAXBElement<String>(_PodaciOZalbiCutanjaNapomena_QNAME, String.class, PodaciOZalbiCutanja.class, value);
+        return new JAXBElement<String>(_PodaciOZalbiCutanjaNapomena_QNAME, String.class, ZalbaProtivCutanja.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TTekst.P }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "zalba_cutanje", name = "p", scope = TTekst.class)
+    @XmlElementDecl(namespace = "zalba_protiv_cutanja", name = "p", scope = TTekst.class)
     public JAXBElement<TTekst.P> createTTekstP(TTekst.P value) {
         return new JAXBElement<TTekst.P>(_TTekstP_QNAME, TTekst.P.class, TTekst.class, value);
     }

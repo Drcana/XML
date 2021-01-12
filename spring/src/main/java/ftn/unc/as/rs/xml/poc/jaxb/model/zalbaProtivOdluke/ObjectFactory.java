@@ -6,13 +6,13 @@
 //
 
 
-package zalba_protiv_odluke;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivOdluke;
 
-import java.math.BigInteger;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
+import java.math.BigInteger;
 
 
 /**

@@ -6,11 +6,8 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,6 +15,9 @@ import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -54,8 +54,8 @@ import javax.xml.bind.annotation.XmlType;
 public class TMestoDatum {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "datum", namespace = "zalba_cutanje", type = JAXBElement.class),
-        @XmlElementRef(name = "mesto", namespace = "zalba_cutanje", type = JAXBElement.class)
+        @XmlElementRef(name = "datum", namespace = "zalba_protiv_cutanja", type = JAXBElement.class),
+        @XmlElementRef(name = "mesto", namespace = "zalba_protiv_cutanja", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;

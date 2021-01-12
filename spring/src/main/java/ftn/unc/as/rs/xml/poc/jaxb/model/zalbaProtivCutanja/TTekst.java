@@ -6,11 +6,8 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,6 +15,9 @@ import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.XmlValue;
 })
 public class TTekst {
 
-    @XmlElementRef(name = "p", namespace = "zalba_cutanje", type = JAXBElement.class)
+    @XmlElementRef(name = "p", namespace = "zalba_protiv_cutanja", type = JAXBElement.class)
     @XmlMixed
     protected List<Serializable> content;
 

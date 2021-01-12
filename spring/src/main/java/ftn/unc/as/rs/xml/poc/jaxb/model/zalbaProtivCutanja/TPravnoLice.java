@@ -6,7 +6,7 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="TPravno_Lice">
  *   &lt;complexContent>
- *     &lt;extension base="{zalba_cutanje}TLice">
+ *     &lt;extension base="{zalba_protiv_cutanja}TLice">
  *       &lt;sequence>
  *         &lt;element name="naziv">
  *           &lt;simpleType>

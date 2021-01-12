@@ -6,7 +6,7 @@
 //
 
 
-package zahtev_za_pristup_informacijama;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zahtev;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

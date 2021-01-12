@@ -5,5 +5,5 @@
 // Generated on: 2021.01.12 at 12:44:15 AM CET 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "zalba_cutanje", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package zalba_cutanje;
+@javax.xml.bind.annotation.XmlSchema(namespace = "zalba_protiv_cutanja", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;

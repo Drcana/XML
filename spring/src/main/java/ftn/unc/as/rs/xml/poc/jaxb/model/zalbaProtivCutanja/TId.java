@@ -6,7 +6,7 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

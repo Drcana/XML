@@ -6,7 +6,7 @@
 //
 
 
-package zalba_protiv_odluke;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivOdluke;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

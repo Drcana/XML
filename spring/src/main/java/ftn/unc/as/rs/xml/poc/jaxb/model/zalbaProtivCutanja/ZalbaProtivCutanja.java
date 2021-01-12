@@ -6,11 +6,8 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -19,6 +16,9 @@ import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -31,9 +31,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence maxOccurs="unbounded" minOccurs="0">
- *         &lt;element name="id" type="{zalba_cutanje}TId"/>
+ *         &lt;element name="id" type="{zalba_protiv_cutanja}TId"/>
  *         &lt;element name="vrsta_zalbe" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="primaoc_zalbe" type="{zalba_cutanje}TPravno_Lice"/>
+ *         &lt;element name="primaoc_zalbe" type="{zalba_protiv_cutanja}TPravno_Lice"/>
  *         &lt;element name="informacije_o_zalbi">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -71,7 +71,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="podnosilac_zalbe">
  *           &lt;complexType>
  *             &lt;complexContent>
- *               &lt;extension base="{zalba_cutanje}TFIzicko_Lice">
+ *               &lt;extension base="{zalba_protiv_cutanja}TFIzicko_Lice">
  *                 &lt;sequence>
  *                   &lt;element name="kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                   &lt;element name="potpis" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -80,7 +80,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="mesto_i_datum" type="{zalba_cutanje}TMesto_Datum"/>
+ *         &lt;element name="mesto_i_datum" type="{zalba_protiv_cutanja}TMesto_Datum"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -93,20 +93,20 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "content"
 })
-@XmlRootElement(name = "podaci_o_zalbi_cutanja")
-public class PodaciOZalbiCutanja {
+@XmlRootElement(name = "zalba_protiv_cutanja")
+public class ZalbaProtivCutanja {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "informacije_o_zalbi", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "razlog_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "primaoc_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "mesto_i_datum", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "podnosilac_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "detalji_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "napomena", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "id", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "predlog_resenja", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "vrsta_zalbe", namespace = "zalba_cutanje", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "informacije_o_zalbi", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "razlog_zalbe", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "primaoc_zalbe", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "mesto_i_datum", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "podnosilac_zalbe", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "detalji_zalbe", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "napomena", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "id", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "predlog_resenja", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "vrsta_zalbe", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -129,12 +129,12 @@ public class PodaciOZalbiCutanja {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.InformacijeOZalbi }{@code >}
+     * {@link JAXBElement }{@code <}{@link ZalbaProtivCutanja.InformacijeOZalbi }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link TPravnoLice }{@code >}
      * {@link JAXBElement }{@code <}{@link TMestoDatum }{@code >}
-     * {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.PodnosilacZalbe }{@code >}
-     * {@link JAXBElement }{@code <}{@link PodaciOZalbiCutanja.DetaljiZalbe }{@code >}
+     * {@link JAXBElement }{@code <}{@link ZalbaProtivCutanja.PodnosilacZalbe }{@code >}
+     * {@link JAXBElement }{@code <}{@link ZalbaProtivCutanja.DetaljiZalbe }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link String }
      * {@link JAXBElement }{@code <}{@link TId }{@code >}
@@ -184,8 +184,8 @@ public class PodaciOZalbiCutanja {
     public static class DetaljiZalbe {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "datum", namespace = "zalba_cutanje", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "podaci_o_zalbi", namespace = "zalba_cutanje", type = JAXBElement.class, required = false)
+            @XmlElementRef(name = "datum", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "podaci_o_zalbi", namespace = "zalba_protiv_cutanja", type = JAXBElement.class, required = false)
         })
         @XmlMixed
         protected List<Serializable> content;
@@ -252,9 +252,9 @@ public class PodaciOZalbiCutanja {
     public static class InformacijeOZalbi {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "zakon", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "naslov", namespace = "zalba_cutanje", type = JAXBElement.class),
-            @XmlElementRef(name = "naziv_organa", namespace = "zalba_cutanje", type = JAXBElement.class)
+            @XmlElementRef(name = "zakon", namespace = "zalba_protiv_cutanja", type = JAXBElement.class),
+            @XmlElementRef(name = "naslov", namespace = "zalba_protiv_cutanja", type = JAXBElement.class),
+            @XmlElementRef(name = "naziv_organa", namespace = "zalba_protiv_cutanja", type = JAXBElement.class)
         })
         @XmlMixed
         protected List<Serializable> content;
@@ -302,7 +302,7 @@ public class PodaciOZalbiCutanja {
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
-     *     &lt;extension base="{zalba_cutanje}TFIzicko_Lice">
+     *     &lt;extension base="{zalba_protiv_cutanja}TFIzicko_Lice">
      *       &lt;sequence>
      *         &lt;element name="kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *         &lt;element name="potpis" type="{http://www.w3.org/2001/XMLSchema}string"/>

@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "resenje", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package resenje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.resenje;

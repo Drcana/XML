@@ -6,7 +6,7 @@
 //
 
 
-package resenje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

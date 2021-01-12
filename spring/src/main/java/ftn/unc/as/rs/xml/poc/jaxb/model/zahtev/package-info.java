@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "zahtev_za_pristup_informacijama", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package zahtev_za_pristup_informacijama;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zahtev;

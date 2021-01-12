@@ -6,11 +6,8 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,6 +15,9 @@ import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Adresa" type="{zalba_cutanje}TAdresa"/>
+ *         &lt;element name="Adresa" type="{zalba_protiv_cutanja}TAdresa"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -49,7 +49,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public abstract class TLice {
 
-    @XmlElementRef(name = "Adresa", namespace = "zalba_cutanje", type = JAXBElement.class)
+    @XmlElementRef(name = "Adresa", namespace = "zalba_protiv_cutanja", type = JAXBElement.class)
     @XmlMixed
     protected List<Serializable> content;
 

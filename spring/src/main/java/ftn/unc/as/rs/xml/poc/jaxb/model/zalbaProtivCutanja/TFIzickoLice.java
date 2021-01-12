@@ -6,7 +6,7 @@
 //
 
 
-package zalba_cutanje;
+package ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivCutanja;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="TFIzicko_Lice">
  *   &lt;complexContent>
- *     &lt;extension base="{zalba_cutanje}TLice">
+ *     &lt;extension base="{zalba_protiv_cutanja}TLice">
  *       &lt;sequence>
  *         &lt;element name="ime">
  *           &lt;simpleType>
@@ -49,7 +49,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TFIzicko_Lice")
 @XmlSeeAlso({
-    zalba_cutanje.PodaciOZalbiCutanja.PodnosilacZalbe.class
+    ZalbaProtivCutanja.PodnosilacZalbe.class
 })
 public class TFIzickoLice
     extends TLice

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-  targetNamespace="zalba_cutanje" xmlns:zalba="zalba_cutanje">
+  targetNamespace="zalba_protiv_cutanja" xmlns:zalba="zalba_protiv_cutanja">
   <xs:include schemaLocation="types.xsd"/>
-  <xs:element name="podaci_o_zalbi_cutanja">
+  <xs:element name="zalba_protiv_cutanja">
     <xs:complexType mixed="true">
       <xs:sequence maxOccurs="unbounded" minOccurs="0">
         <xs:element name="id" type="zalba:TId"/>

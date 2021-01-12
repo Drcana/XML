@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zalba_protiv_odluke xmlns="zalba_protiv_odluke" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd">
+                     xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd"
+                     xmlns:pred="http://examples/predicate/">
     <id></id>
     <vrsta_zalbe>
         ЖАЛБА ПРОТИВ ОДЛУКЕ ОРГАНА ВЛАСТИ КОЈОМ ЈЕ
@@ -12,32 +13,32 @@
             Поверенику за информације од јавног значаја и заштиту података о личности
         </primalac_zalbe>
         <adresa>
-            <mesto>Београд</mesto>
+            <mesto property="pred:mesto" datatype="xs:string">Београд</mesto>
             ,
-            <ulica>Булевар краља Александрa</ulica>
+            <ulica property="pred:ulica" datatype="xs:string">Булевар краља Александрa</ulica>
             бр.
-            <broj>15</broj>
+            <broj property="pred:broj">15</broj>
         </adresa>
     </informacije_o_primaocu_zalbe>
 
     <naslov>Ж А Л Б А</naslov>
 
     <podaci_o_zaliocu>
-        <naziv></naziv>
+        <naziv property="pred:naziv" datatype="xs:string">Никола Николић</naziv>
         <adresa>
-            <mesto></mesto>
-            <ulica></ulica>
-            <broj>13</broj>
+            <mesto property="pred:mesto" datatype="xs:string">Нови Сад</mesto>
+            <ulica property="pred:ulica" datatype="xs:string">Булевар Цара Лазара</ulica>
+            <broj property="pred:broj">13</broj>
         </adresa>
         (Име, презиме, односно назив, адреса и седиште жалиоца)
     </podaci_o_zaliocu>
 
     <podaci_o_organu>
         против решења-закључка
-        <naziv_organa></naziv_organa>
+        <naziv_organa property="pred:naziv_organa" datatype="xs:string">Назив органа</naziv_organa>
         (назив органа који је донео одлуку)
         <resenje_zahteva>
-            Број <broj_resenja>071-01-1114/2020-03</broj_resenja> од <datum>20.01.2020.</datum> године.
+            Број <broj_resenja>071-01-1114/2020-03</broj_resenja> од <datum property="pred:datum_resenja">20.01.2020.</datum> године.
         </resenje_zahteva>
     </podaci_o_organu>
 

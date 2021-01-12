@@ -2,6 +2,7 @@ package ftn.unc.as.rs.xml.poc.jaxb.db;
 
 
 import ftn.unc.as.rs.xml.poc.jaxb.service.MarshallerService;
+import ftn.unc.as.rs.xml.poc.jaxb.service.MetadataExtractorService;
 import org.exist.xmldb.EXistResource;
 import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,10 @@ public class ExistManager {
 
     @Autowired
     private MarshallerService marshallerService;
+
+    @Autowired
+    private MetadataExtractorService metadataExtractorService;
+
 
     public void createConnection() throws Exception {
         Class<?> cl = Class.forName(authManager.getDriver());
@@ -102,6 +107,8 @@ public class ExistManager {
             res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
 
             OutputStream os = marshallerService.getOutputStreamFromObject(xmlObject);
+
+            metadataExtractorService.extractMetadata(xmlObject.getClass().getSimpleName(), os, xmlObject);
 
             if (os == null) {
                 return;

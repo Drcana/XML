@@ -19,7 +19,15 @@
         <xs:element name="podaci_o_zaliocu">
           <xs:complexType mixed="true">
             <xs:sequence>
-              <xs:element name="naziv" type="xs:string"/>
+              <xs:element name="naziv">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:anyAttribute namespace="##any" processContents="lax"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="adresa" type="zalba:TAdresa"/>
             </xs:sequence>
           </xs:complexType>
@@ -27,7 +35,15 @@
         <xs:element name="podaci_o_organu">
           <xs:complexType mixed="true">
             <xs:sequence>
-              <xs:element name="naziv_organa" type="xs:string"/>
+              <xs:element name="naziv_organa">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:anyAttribute namespace="##any" processContents="lax"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="resenje_zahteva">
                 <xs:complexType mixed="true">
                   <xs:sequence>
@@ -39,11 +55,13 @@
                       </xs:simpleType>
                     </xs:element>
                     <xs:element name="datum">
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:pattern value="\d{2}\.\d{2}\.\d{4}\."/>
-                        </xs:restriction>
-                      </xs:simpleType>
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
                     </xs:element>
                   </xs:sequence>
                 </xs:complexType>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zalba_protiv_cutanja xmlns="zalba_protiv_cutanja" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                      xsi:schemaLocation="zalba_protiv_cutanja  ../schemas/zalbaProtivCutanja.xsd">
+                      xsi:schemaLocation="zalba_protiv_cutanja  ../schemas/zalbaProtivCutanja.xsd"
+                      xmlns:pred="http://examples/predicate/">
     <id></id>
     <vrsta_zalbe>
         ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ РОКУ
@@ -11,22 +12,22 @@
         Поверенику за информације од јавног значаја и заштиту података о личности
         <Adresa>
             Адреса за пошту:
-            <mesto>Београд</mesto>
+            <mesto property="pred:mesto" datatype="xs:string">Београд</mesto>
             ,
-            <ulica>Булевар краља Александрa</ulica>
+            <ulica property="pred:ulica" datatype="xs:string">Булевар краља Александрa</ulica>
             бр.
-            <broj>15</broj>
+            <broj property="pred:broj" datatype="xs:string">15</broj>
         </Adresa>
-        <naziv>
-            
+        <naziv property="pred:naziv" datatype="xs:string">
+            Primaoc zalbe
         </naziv>
-        
+
     </primaoc_zalbe>
 
     <informacije_o_zalbi>
         <zakon>У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим:</zakon>
         <naslov>Ж А Л Б У</naslov>
-        <naziv_organa></naziv_organa>
+        <naziv_organa property="pred:naziv_organa" datatype="xs:string">Naziv organa</naziv_organa>
         ( навести назив органа)
     </informacije_o_zalbi>
 
@@ -38,7 +39,7 @@
 
     <detalji_zalbe>
         по мом захтеву за слободан приступ информацијама од јавног значаја који сам поднео том органу дана
-        <datum>20.01.2021.</datum>
+        <datum property="pred:datum" datatype="xs:string">20.01.2021.</datum>
         године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја
         омогући увид- копија документа који садржи информације о /у вези са :
         <podaci_o_zalbi></podaci_o_zalbi>
@@ -62,7 +63,7 @@
         <ime>Petar</ime>
         <prezime>Peric</prezime>
         Подносилац жалбе / Име и презиме
-        
+
         адреса
         <kontakt></kontakt>
         други подаци за контакт

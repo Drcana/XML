@@ -1,7 +1,7 @@
 package ftn.unc.as.rs.xml.poc.jaxb.util;
 
 import com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;
-import org.xml.sax.SAXException;
+import org.springframework.stereotype.Component;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -10,23 +10,23 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.StringReader;
 
 /**
  * Primer demonstrira ekstrakciju RDFa metapodataka iz
  * XML dokumenta primenom GRDDL (Gleaning Resource Descriptions
  * from Dialects of Languages) transformacije.
  */
+@Component
 public class MetadataExtractor {
 
     private TransformerFactory transformerFactory;
 
-    private static final String XSLT_FILE = "static/data/xsl/grddl.xsl";
+    private static final String XSLT_FILE = "src/main/resources/static/data/xsl/grddl.xsl";
 
-    public MetadataExtractor() throws SAXException, IOException {
+    public MetadataExtractor() {
 
         // Setup the XSLT transformer factory
         transformerFactory = new TransformerFactoryImpl();
@@ -39,8 +39,7 @@ public class MetadataExtractor {
      * @param in  XML containing input stream
      * @param out RDF/XML output stream
      */
-    public void extractMetadata(InputStream in, OutputStream out) throws FileNotFoundException, TransformerException {
-
+    public void extractMetadata(InputStream in, OutputStream out) throws TransformerException {
         // Create transformation source
         StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
 
@@ -53,6 +52,29 @@ public class MetadataExtractor {
 
         // Initialize transformation subject
         StreamSource source = new StreamSource(in);
+
+        // Initialize result stream
+        StreamResult result = new StreamResult(out);
+
+        // Trigger the transformation
+        grddlTransformer.transform(source, result);
+    }
+
+    public void extractMetadata(String in, OutputStream out) throws TransformerException {
+
+        // Create transformation source
+        StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
+
+        // Initialize GRDDL transformer object
+        Transformer grddlTransformer = transformerFactory.newTransformer(transformSource);
+
+        // Set the indentation properties
+        grddlTransformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
+        grddlTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+        // Initialize transformation subject
+        StreamSource source = new StreamSource(new StringReader(in));
+
 
         // Initialize result stream
         StreamResult result = new StreamResult(out);

@@ -8,22 +8,46 @@
                 <xs:element name="informacije_o_obavestenju">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="id" type="ob:TId"/>
+                            <xs:element name="id"/>
                             <xs:element name="broj_predmeta">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="[0123456789\-/]+"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
                             </xs:element>
-                            <xs:element name="organ_vlasti" type="ob:TPravno_Lice"/>
-                            <xs:element name="podnosilac_zahteva" type="ob:TFIzicko_Lice"/>
+                            <xs:element name="organ_vlasti">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="ob:TPravno_Lice">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="podnosilac_zahteva">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="ob:TFIzicko_Lice">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="datum_obavestenja">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="\d{2}\.\d{2}\.\d{4}\."/>
-                                    </xs:restriction>
-                                </xs:simpleType>
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
                             </xs:element>
                             <xs:element name="dostavljeno">
                                 <xs:complexType>

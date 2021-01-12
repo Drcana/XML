@@ -1,10 +1,11 @@
 <dokument_zahtev xmlns="zahtev_za_pristup_informacijama" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="zahtev_za_pristup_informacijama  ../schemas/zahtev.xsd">
+                 xsi:schemaLocation="zahtev_za_pristup_informacijama  ../schemas/zahtev.xsd"
+                 xmlns:pred="http://examples/predicate/">
     <naziv_organa></naziv_organa>
     <adresa>
-        <ulica></ulica>
-        <broj></broj>
-        <mesto></mesto>
+        <mesto property="pred:mesto" datatype="xs:string">Subotica</mesto>
+        <ulica property="pred:ulica" datatype="xs:string">Brace Radic</ulica>
+        <broj property="pred:broj" datatype="xs:string">22</broj>
     </adresa>
     <naslov_dokumenta>
         З А Х Т Е В
@@ -54,8 +55,8 @@
     </mesto_i_datum>
 
     <podnosilac_zahteva>
-        <ime></ime>
-        <prezime></prezime>
+        <ime property="pred:ime" datatype="xs:string">Ime podnosioca</ime>
+        <prezime property="pred:prezime" datatype="xs:string">Prezime podnosioca</prezime>
         Тражилац информације/Име и презиме
         <adresa>
             <ulica></ulica>

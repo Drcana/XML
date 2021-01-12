@@ -1,0 +1,35 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="">
+    <pred:broj_predmeta xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">123103</pred:broj_predmeta>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:mesto xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Novi Sad</pred:mesto>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:ulica xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Strazilovska</pred:ulica>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:broj xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">13</pred:broj>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:mesto xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Sud Novi Sad</pred:mesto>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:mesto xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Novi Sad</pred:mesto>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:ulica xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Bulevar Cara Lazara</pred:ulica>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:broj xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">22</pred:broj>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:ime xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Petar</pred:ime>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:prezime xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Petrovic</pred:prezime>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:datum_obavestenja xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">12.01.2021.</pred:datum_obavestenja>
+  </rdf:Description>
+</rdf:RDF>

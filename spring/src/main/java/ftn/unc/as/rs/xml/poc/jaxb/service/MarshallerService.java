@@ -93,6 +93,10 @@ public class MarshallerService {
             JAXBContext context = JAXBContext.newInstance(xmlObject.getClass());
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty("com.sun.xml.bind.xmlHeaders",
+                    " <?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            marshaller.setProperty("com.sun.xml.bind.xmlHeaders",
+                    "<?xml-stylesheet type=\"text/xsl\" href=\"../xsl/grddl.xsl\"?>");
             marshaller.marshal(xmlObject, os);
         } catch (JAXBException e) {
             e.printStackTrace();

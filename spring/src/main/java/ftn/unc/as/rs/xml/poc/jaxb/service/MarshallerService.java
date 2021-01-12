@@ -2,6 +2,7 @@ package ftn.unc.as.rs.xml.poc.jaxb.service;
 
 import ftn.unc.as.rs.xml.poc.jaxb.util.MyValidationEventHandler;
 import org.springframework.stereotype.Component;
+import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,8 +14,10 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.StringWriter;
 
 @Component
@@ -66,5 +69,35 @@ public class MarshallerService {
         } catch (JAXBException | IOException e) {
             throw new JAXBException(e.getMessage());
         }
+    }
+
+    public <T> T getObjectFromNode(Node node, Class<?> classToMap) {
+        JAXBContext context;
+
+        try {
+            context = JAXBContext.newInstance(classToMap);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+
+            return (T) unmarshaller.unmarshal(node);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public OutputStream getOutputStreamFromObject(Object xmlObject){
+        OutputStream os = new ByteArrayOutputStream();
+
+        try {
+            JAXBContext context = JAXBContext.newInstance(xmlObject.getClass());
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.marshal(xmlObject, os);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+        return os;
     }
 }

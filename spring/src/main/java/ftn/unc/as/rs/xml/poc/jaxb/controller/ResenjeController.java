@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
 @Controller
@@ -22,13 +21,13 @@ public class ResenjeController {
     private ResenjeService service;
 
     @GetMapping
-    public ResponseEntity<String> parseXmlResenje() throws JAXBException {
+    public ResponseEntity<String> parseXmlResenje() {
         return new ResponseEntity<>(service.parseXmlResenje(), HttpStatus.OK);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void writeXmlResenje(final HttpServletResponse response) throws JAXBException, IOException {
+    public void writeXmlResenje(final HttpServletResponse response) throws IOException {
         service.writeXmlResenje(response);
     }
 }

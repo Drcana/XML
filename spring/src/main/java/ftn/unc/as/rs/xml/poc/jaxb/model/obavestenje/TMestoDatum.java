@@ -12,8 +12,8 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,16 +21,24 @@ import java.util.List;
 
 
 /**
- * <p>Java class for TLice complex type.
+ * <p>Java class for TMesto_Datum complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TLice">
+ * &lt;complexType name="TMesto_Datum">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Adresa" type="{obavestenje}TAdresa"/>
+ *         &lt;element name="mesto" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="datum">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;length value="11"/>
+ *               &lt;pattern value="\d{2}\.\d{2}\.\d{4}\."/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,16 +48,15 @@ import java.util.List;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TLice", propOrder = {
+@XmlType(name = "TMesto_Datum", propOrder = {
     "content"
 })
-@XmlSeeAlso({
-    TPravnoLice.class,
-    TFIzickoLice.class
-})
-public abstract class TLice {
+public class TMestoDatum {
 
-    @XmlElementRef(name = "Adresa", namespace = "obavestenje", type = JAXBElement.class)
+    @XmlElementRefs({
+        @XmlElementRef(name = "datum", namespace = "obavestenje", type = JAXBElement.class),
+        @XmlElementRef(name = "mesto", namespace = "obavestenje", type = JAXBElement.class)
+    })
     @XmlMixed
     protected List<Serializable> content;
 
@@ -71,8 +78,9 @@ public abstract class TLice {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TAdresa }{@code >}
      * {@link String }
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * 
      */

@@ -14,7 +14,7 @@ public class ObavestenjeRepository {
     private ExistManager existManager;
 
     public void create(Obavestenje obavestenje) throws Exception {
-        existManager.store(COLLECTION_URI, obavestenje.getInformacijeOObavestenju().getId().getValue(), obavestenje);
+        existManager.store(COLLECTION_URI, obavestenje.getInformacijeOObavestenju().getId(), obavestenje);
     }
 
     public Obavestenje get(String documentId) {

@@ -1,93 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zalba_protiv_odluke xmlns="zalba_protiv_odluke" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd"
-                     xmlns:pred="http://examples/predicate/">
-    <id></id>
-    <vrsta_zalbe>
+<zpo:zalba_protiv_odluke xmlns:zpo="zalba_protiv_odluke" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd"
+                         xmlns:pred="http://examples/predicate/">
+    <zpo:id></zpo:id>
+    <zpo:vrsta_zalbe>
         ЖАЛБА ПРОТИВ ОДЛУКЕ ОРГАНА ВЛАСТИ КОЈОМ ЈЕ
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ
-    </vrsta_zalbe>
+    </zpo:vrsta_zalbe>
 
-    <informacije_o_primaocu_zalbe>
-        <primalac_zalbe>
+    <zpo:informacije_o_primaocu_zalbe>
+        <zpo:primalac_zalbe>
             Поверенику за информације од јавног значаја и заштиту података о личности
-        </primalac_zalbe>
-        <adresa>
+        </zpo:primalac_zalbe>
+        <zpo:adresa>
             <mesto property="pred:mesto" datatype="xs:string">Београд</mesto>
             ,
             <ulica property="pred:ulica" datatype="xs:string">Булевар краља Александрa</ulica>
             бр.
             <broj property="pred:broj">15</broj>
-        </adresa>
-    </informacije_o_primaocu_zalbe>
+        </zpo:adresa>
+    </zpo:informacije_o_primaocu_zalbe>
 
-    <naslov>Ж А Л Б А</naslov>
+    <zpo:naslov>Ж А Л Б А</zpo:naslov>
 
-    <podaci_o_zaliocu>
-        <naziv property="pred:naziv" datatype="xs:string">Никола Николић</naziv>
-        <adresa>
+    <zpo:podaci_o_zaliocu>
+        <zpo:naziv property="pred:naziv" datatype="xs:string">Никола Николић</zpo:naziv>
+        <zpo:adresa>
             <mesto property="pred:mesto" datatype="xs:string">Нови Сад</mesto>
             <ulica property="pred:ulica" datatype="xs:string">Булевар Цара Лазара</ulica>
             <broj property="pred:broj">13</broj>
-        </adresa>
+        </zpo:adresa>
         (Име, презиме, односно назив, адреса и седиште жалиоца)
-    </podaci_o_zaliocu>
+    </zpo:podaci_o_zaliocu>
 
-    <podaci_o_organu>
+    <zpo:podaci_o_organu>
         против решења-закључка
-        <naziv_organa property="pred:naziv_organa" datatype="xs:string">Назив органа</naziv_organa>
+        <zpo:naziv_organa property="pred:naziv_organa" datatype="xs:string">Назив органа</zpo:naziv_organa>
         (назив органа који је донео одлуку)
-        <resenje_zahteva>
-            Број <broj_resenja>071-01-1114/2020-03</broj_resenja> од <datum property="pred:datum_resenja">20.01.2020.</datum> године.
-        </resenje_zahteva>
-    </podaci_o_organu>
+        <zpo:resenje_zahteva>
+            Број <zpo:broj_resenja>071-01-1114/2020-03</zpo:broj_resenja> од <zpo:datum property="pred:datum_resenja">20.01.2020.</zpo:datum> године.
+        </zpo:resenje_zahteva>
+    </zpo:podaci_o_organu>
 
-    <detalji_zalbe>
+    <zpo:detalji_zalbe>
         Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) ,
         супротно закону, одбијен-одбачен је мој захтев који сам поднео/ла-упутио/ла дана
-        <datum>20.02.2020.</datum>
+        <zpo:datum>20.02.2020.</zpo:datum>
         године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама
         од јавног значаја. Oдлуку побијам у целости, односно у делу којим
-        <razlog_zalbe></razlog_zalbe>
+        <zpo:razlog_zalbe></zpo:razlog_zalbe>
         јер није заснована на Закону о слободном приступу информацијама од јавног значаја.
         На основу изнетих разлога, предлажем да Повереник уважи моју жалбу, поништи одлука првостепеног органа и омогући
         ми приступ траженој/им информацији/ма.
         Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о слободном приступу
         информацијама од јавног значаја.
-    </detalji_zalbe>
+    </zpo:detalji_zalbe>
 
-    <mesto_i_datum>
+    <zpo:mesto_i_datum>
         У <mesto></mesto> ,
         дана <datum>20.02.2020.</datum> године
-    </mesto_i_datum>
+    </zpo:mesto_i_datum>
 
-    <podaci_o_podnosiocu_zalbe>
-        <ime></ime>
-        <prezime></prezime>
+    <zpo:podaci_o_podnosiocu_zalbe>
+        <zpo:ime></zpo:ime>
+        <zpo:prezime></zpo:prezime>
         Подносилац жалбе / Име и презиме
-        <adresa>
+        <zpo:adresa>
             <mesto></mesto>
             <ulica></ulica>
             <broj>13</broj>
-        </adresa>
+        </zpo:adresa>
         адреса
-        <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>
+        <zpo:drugi_podaci_za_kontakt></zpo:drugi_podaci_za_kontakt>
         други подаци за контакт
-        <potpis></potpis>
+        <zpo:potpis></zpo:potpis>
         потпис
-    </podaci_o_podnosiocu_zalbe>
+    </zpo:podaci_o_podnosiocu_zalbe>
 
-    <napomena title="Napomena:">
-        <lista_napomena>
-            <stavka id="napomena1">У жалби се мора навести одлука која се побија (решење, закључак, обавештење), назив
+    <zpo:napomena title="Napomena:">
+        <zpo:lista_napomena>
+            <zpo:stavka id="napomena1">У жалби се мора навести одлука која се побија (решење, закључак, обавештење), назив
                 органа који је одлуку донео, као и број и датум одлуке.
                 Довољно је да жалилац наведе у жалби у ком погледу је незадовољан одлуком, с тим да жалбу не мора
                 посебно образложити.
                 Ако жалбу изјављује на овом обрасцу, додатно образложење може посебно приложити.
-            </stavka>
-            <stavka id="napomena2">Уз жалбу обавезно приложити копију поднетог захтева и доказ о његовој
+            </zpo:stavka>
+            <zpo:stavka id="napomena2">Уз жалбу обавезно приложити копију поднетог захтева и доказ о његовој
                 предаји-упућивању органу као и копију одлуке органа која се оспорава жалбом.
-            </stavka>
-        </lista_napomena>
-    </napomena>
-</zalba_protiv_odluke>
+            </zpo:stavka>
+        </zpo:lista_napomena>
+    </zpo:napomena>
+</zpo:zalba_protiv_odluke>

@@ -1,67 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Obavestenje xmlns="obavestenje"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="obavestenje ../schemas/obavestenje.xsd"
-             xmlns:pred="http://examples/predicate/">
-    <informacije_o_obavestenju>
-        <id></id>
-        <broj_predmeta property="pred:broj_predmeta">123103</broj_predmeta>
-        <organ_vlasti>
-            <Adresa>
-                <mesto property="pred:mesto">Novi Sad</mesto>
-                <ulica property="pred:ulica">Strazilovska</ulica>
-                <broj property="pred:broj">13</broj>
-            </Adresa>
-            <naziv property="pred:mesto">Sud Novi Sad</naziv>
-        </organ_vlasti>
-        <podnosilac_zahteva>
-            <Adresa>
-                <mesto property="pred:mesto">Novi Sad</mesto>
-                <ulica property="pred:ulica">Bulevar Cara Lazara</ulica>
-                <broj property="pred:broj">22</broj>
-            </Adresa>
-            <ime property="pred:ime">Petar</ime>
-            <prezime property="pred:prezime">Petrovic</prezime>
-        </podnosilac_zahteva>
-        <datum_obavestenja property="pred:datum_obavestenja">12.01.2021.</datum_obavestenja>
-        <dostavljeno>
-            <imenovanom></imenovanom>
-            <arhivi></arhivi>
-        </dostavljeno>
-    </informacije_o_obavestenju>
-    <tekst_obavestenja>
-        <naslov>ОБАВЕШТЕЊЕ
+<?xml-stylesheet type="text/xsl" href="../xsl/grddl.xsl"?>
+
+<ob:Obavestenje xmlns="obavestenje"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="obavestenje ../schemas/obavestenje.xsd"
+                xmlns:pred="http://examples/predicate/" xmlns:ob="obavestenje">
+    <ob:informacije_o_obavestenju>
+        <ob:id></ob:id>
+        <ob:broj_predmeta property="pred:broj_predmeta">123103</ob:broj_predmeta>
+        <ob:organ_vlasti>
+            <ob:Adresa>
+                <ob:mesto property="pred:mesto">Novi Sad</ob:mesto>
+                <ob:ulica property="pred:ulica">Strazilovska</ob:ulica>
+                <ob:broj property="pred:broj">13</ob:broj>
+            </ob:Adresa>
+            <ob:naziv property="pred:mesto">Sud Novi Sad</ob:naziv>
+        </ob:organ_vlasti>
+        <ob:podnosilac_zahteva>
+            <ob:Adresa>
+                <ob:mesto property="pred:mesto">Novi Sad</ob:mesto>
+                <ob:ulica property="pred:ulica">Bulevar Cara Lazara</ob:ulica>
+                <ob:broj property="pred:broj">22</ob:broj>
+            </ob:Adresa>
+            <ob:ime property="pred:ime">Petar</ob:ime>
+            <ob:prezime property="pred:prezime">Petrovic</ob:prezime>
+        </ob:podnosilac_zahteva>
+        <ob:datum_obavestenja property="pred:datum_obavestenja">12.01.2021.</ob:datum_obavestenja>
+        <ob:dostavljeno>
+            <ob:imenovanom></ob:imenovanom>
+            <ob:arhivi></ob:arhivi>
+        </ob:dostavljeno>
+    </ob:informacije_o_obavestenju>
+    <ob:tekst_obavestenja>
+        <ob:naslov>ОБАВЕШТЕЊЕ
             о стављању на увид документа који садржи
             тражену информацију и о изради копије
-        </naslov>
-        <p>
+        </ob:naslov>
+        <ob:p>
             На основу члана 16. ст. 1. Закона о слободном приступу информацијама од јавног
             значаја, поступајући по вашем захтеву за слободан приступ информацијама од
-            <godina>2021.</godina>
+            <ob:godina>2021.</ob:godina>
             год.,којим сте тражили увид у документ/е са информацијама о / у вези са:
-            <trazena_informacija></trazena_informacija>
+            <ob:trazena_informacija></ob:trazena_informacija>
             обавештавамо вас да дана
-            <datum_uvida>18.01.2021.</datum_uvida>
+            <ob:datum_uvida>18.01.2021.</ob:datum_uvida>
             , у
-            <vreme_uvida>
-                <sati>18:30</sati>
+            <ob:vreme_uvida>
+                <ob:sati>18:30</ob:sati>
                 часова, односно у времену од
-                <od>18:30</od>
+                <ob:od>18:30</ob:od>
                 do
                 <do>19:30</do>
-            </vreme_uvida>
+            </ob:vreme_uvida>
             часова, у просторијама органа у
-            <mesto_uvida>
-                <adresa>
-                    <mesto>Novi Sad</mesto>
+            <ob:mesto_uvida>
+                <ob:adresa>
+                    <ob:mesto>Novi Sad</ob:mesto>
                     ул.
-                    <ulica>Strazilovska</ulica>
+                    <ob:ulica>Strazilovska</ob:ulica>
                     бр.
-                    <broj>13</broj>
-                </adresa>
+                    <ob:broj>13</ob:broj>
+                </ob:adresa>
                 , канцеларија бр.
-                <broj_kancelarije>55</broj_kancelarije>
-            </mesto_uvida>
+                <ob:broj_kancelarije>55</ob:broj_kancelarije>
+            </ob:mesto_uvida>
             можете извршити увид у документ/е у коме је садржана тражена информација.
 
             Том приликом, на ваш захтев, може вам се издати и копија документа са траженом
@@ -73,10 +75,10 @@
             претварање једне стране документа из физичког у електронски облик – 30 динара.
 
             Износ укупних трошкова израде копије документа по вашем захтеву износи
-            <troskovi>500</troskovi>
+            <ob:troskovi>500</ob:troskovi>
             динара и уплаћује се на жиро-рачун Буџета Републике Србије бр. 840-742328-843-30,
             с позивом на број 97 – ознака шифре општине/града где се налази орган власти
             (из Правилника о условима и начину вођења рачуна – „Сл. гласник РС“, 20/07... 40/10).
-        </p>
-    </tekst_obavestenja>
-</Obavestenje>
+        </ob:p>
+    </ob:tekst_obavestenja>
+</ob:Obavestenje>

@@ -1,84 +1,88 @@
-<dokument_zahtev xmlns="zahtev_za_pristup_informacijama" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="zahtev_za_pristup_informacijama  ../schemas/zahtev.xsd"
-                 xmlns:pred="http://examples/predicate/">
-    <naziv_organa></naziv_organa>
-    <adresa>
-        <mesto property="pred:mesto" datatype="xs:string">Subotica</mesto>
-        <ulica property="pred:ulica" datatype="xs:string">Brace Radic</ulica>
-        <broj property="pred:broj" datatype="xs:string">22</broj>
-    </adresa>
-    <naslov_dokumenta>
+<zah:dokument_zahtev xmlns="zahtev_za_pristup_informacijama" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="zahtev_za_pristup_informacijama  ../schemas/zahtev.xsd"
+                     xmlns:pred="http://examples/predicate/" xmlns:zah="zahtev_za_pristup_informacijama">
+    <zah:naziv_organa></zah:naziv_organa>
+    <zah:adresa>
+        <zah:mesto property="pred:mesto" datatype="xs:string">Subotica</zah:mesto>
+        <zah:ulica property="pred:ulica" datatype="xs:string">Brace Radic</zah:ulica>
+        <zah:broj property="pred:broj" datatype="xs:string">22</zah:broj>
+    </zah:adresa>
+    <zah:naslov_dokumenta>
         З А Х Т Е В
         за приступ информацији од јавног значаја
-    </naslov_dokumenta>
+    </zah:naslov_dokumenta>
 
-    <zahtev_na_osnovu>
-        <zakon>
+    <zah:zahtev_na_osnovu>
+        <zah:zakon>
             На основу члана 15. ст. 1. Закона о слободном приступу информацијама од јавног значаја („Службени гласник
             РС“, бр. 120/04, 54/07, 104/09 и 36/10), од горе наведеног органа захтевам:
-        </zakon>
-        <napomena id="1"/>
-    </zahtev_na_osnovu>
+        </zah:zakon>
+        <zah:napomena id="1"/>
+    </zah:zahtev_na_osnovu>
 
-    <lista_zahteva>
-        <zahtev tip_zahteva="posedovanje_informacije" check="">обавештење да ли поседује тражену информацију;</zahtev>
-        <zahtev tip_zahteva="uvid_u_dokument" check="">увид у документ који садржи тражену информацију;⁫</zahtev>
-        <zahtev tip_zahteva="kopija_dokumenta" check="">копију документа који садржи тражену информацију;</zahtev>
-        <zahtev tip_zahteva="dostavljanje_kopije_dokumenta" check="">
+    <zah:lista_zahteva>
+        <zah:zahtev tip_zahteva="posedovanje_informacije" check="">обавештење да ли поседује тражену информацију;
+        </zah:zahtev>
+        <zah:zahtev tip_zahteva="uvid_u_dokument" check="">увид у документ који садржи тражену информацију;⁫
+        </zah:zahtev>
+        <zah:zahtev tip_zahteva="kopija_dokumenta" check="">копију документа који садржи тражену информацију;
+        </zah:zahtev>
+        <zah:zahtev tip_zahteva="dostavljanje_kopije_dokumenta" check="">
             достављање копије документа који садржи тражену информацију
-            <napomena id="2"/>
-            <lista_nacina>
-                <nacin tip_dostave="postom" check=""></nacin>
-                <nacin tip_dostave="elektronski" check=""></nacin>
-                <nacin tip_dostave="faksom" check=""></nacin>
-                <nacin tip_dostave="drugi_nacin" check="">
-                    <drugi_nacin>
-                        <sadrzaj></sadrzaj>
-                        <napomena id="3"/>
-                    </drugi_nacin>
-                </nacin>
-            </lista_nacina>
-        </zahtev>
-    </lista_zahteva>
+            <zah:napomena id="2"/>
+            <zah:lista_nacina>
+                <zah:nacin tip_dostave="postom" check=""></zah:nacin>
+                <zah:nacin tip_dostave="elektronski" check=""></zah:nacin>
+                <zah:nacin tip_dostave="faksom" check=""></zah:nacin>
+                <zah:nacin tip_dostave="drugi_nacin" check="">
+                    <zah:drugi_nacin>
+                        <zah:sadrzaj></zah:sadrzaj>
+                        <zah:napomena id="3"/>
+                    </zah:drugi_nacin>
+                </zah:nacin>
+            </zah:lista_nacina>
+        </zah:zahtev>
+    </zah:lista_zahteva>
 
-    <zahtev_se_odnosi_na>
+    <zah:zahtev_se_odnosi_na>
         Овај захтев се односи на следеће информације:
-        <informacije></informacije>
+        <zah:informacije></zah:informacije>
         навести што прецизнији опис информације која се
         тражи као и друге податке који олакшавају проналажење
         тражене информације
-    </zahtev_se_odnosi_na>
+    </zah:zahtev_se_odnosi_na>
 
-    <mesto_i_datum>
-        У  <mesto></mesto>,
-        dana <datum></datum> godine
-    </mesto_i_datum>
+    <zah:mesto_i_datum>
+        У  <zah:mesto></zah:mesto>,
+        dana <zah:datum></zah:datum> godine
+    </zah:mesto_i_datum>
 
-    <podnosilac_zahteva>
-        <ime property="pred:ime" datatype="xs:string">Ime podnosioca</ime>
-        <prezime property="pred:prezime" datatype="xs:string">Prezime podnosioca</prezime>
+    <zah:podnosilac_zahteva>
+        <zah:ime property="pred:ime" datatype="xs:string">Ime podnosioca</zah:ime>
+        <zah:prezime property="pred:prezime" datatype="xs:string">Prezime podnosioca</zah:prezime>
         Тражилац информације/Име и презиме
-        <adresa>
-            <ulica></ulica>
-            <broj></broj>
-            <mesto></mesto>
-        </adresa>
+        <zah:adresa>
+            <zah:ulica></zah:ulica>
+            <zah:broj></zah:broj>
+            <zah:mesto></zah:mesto>
+        </zah:adresa>
         адреса
-        <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>
+        <zah:drugi_podaci_za_kontakt></zah:drugi_podaci_za_kontakt>
         други подаци за контакт
-        <potpis></potpis>
+        <zah:potpis></zah:potpis>
         Потпис
-    </podnosilac_zahteva>
+    </zah:podnosilac_zahteva>
 
-    <napomene naslov="Napomene">
-        <lista>
-            <napomena id="1" labela="*">У кућици означити која законска права на приступ информацијама желите да
+    <zah:napomene naslov="Napomene">
+        <zah:lista>
+            <zah:napomena id="1" labela="*">У кућици означити која законска права на приступ информацијама желите да
                 остварите.
-            </napomena>
-            <napomena id="2" labela="**">У кућици означити начин достављања копије докумената.</napomena>
-            <napomena id="3" labela="***">Када захтевате други начин достављања обавезно уписати који начин достављања
+            </zah:napomena>
+            <zah:napomena id="2" labela="**">У кућици означити начин достављања копије докумената.</zah:napomena>
+            <zah:napomena id="3" labela="***">Када захтевате други начин достављања обавезно уписати који начин
+                достављања
                 захтевате.
-            </napomena>
-        </lista>
-    </napomene>
-</dokument_zahtev>
+            </zah:napomena>
+        </zah:lista>
+    </zah:napomene>
+</zah:dokument_zahtev>

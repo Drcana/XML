@@ -24,12 +24,13 @@ import java.io.OutputStream;
 @Component
 public class ExistManager {
 
-    private final static String TARGET_NAMESPACE = "http://ftn.uns.ac.rs";
+    private static final String TARGET_NAMESPACE = "http://ftn.uns.ac.rs";
 
-    public static final String UPDATE = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
+    private static final String UPDATE = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
             + "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:update select=\"%1$s\">%2$s</xu:update>"
             + "</xu:modifications>";
-    public static final String APPEND = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
+
+    private static final String APPEND = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
             + "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:append select=\"%1$s\" child=\"last()\">%2$s</xu:append>"
             + "</xu:modifications>";
 
@@ -108,7 +109,7 @@ public class ExistManager {
 
             OutputStream os = marshallerService.getOutputStreamFromObject(xmlObject);
 
-            metadataExtractorService.extractMetadata(xmlObject.getClass().getSimpleName(), os, xmlObject);
+            metadataExtractorService.extractMetadata(xmlObject.getClass().getSimpleName(), os);
 
             if (os == null) {
                 return;

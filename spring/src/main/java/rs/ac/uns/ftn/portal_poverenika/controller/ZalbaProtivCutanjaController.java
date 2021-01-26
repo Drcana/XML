@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,24 +25,26 @@ public class ZalbaProtivCutanjaController {
     @Autowired
     private ZalbaProtivCutanjaService service;
 
-    @GetMapping
+    @GetMapping("/parse")
     public ResponseEntity<String> parseXmlZalbaProtivCutanja() throws JAXBException {
         return new ResponseEntity<>(service.parseXmlZalbaProtivCutanja(), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/write")
     @ResponseStatus(HttpStatus.OK)
     public void writeXmlZalbaProtivCutanja(final HttpServletResponse response) throws JAXBException {
         service.writeXmlZalbaProtivCutanja(response);
     }
 
-    @PostMapping("/create")
+    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody ZalbaProtivCutanja zalbaProtivCutanja) throws Exception {
         service.create(zalbaProtivCutanja);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<ZalbaProtivCutanja> get(@PathVariable("id") String documentId) {
         return new ResponseEntity<>(service.get(documentId), HttpStatus.OK);
     }

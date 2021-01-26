@@ -35,7 +35,7 @@ public class ZahtevController {
         service.writeXmlZahtev(response);
     }
 
-    @PostMapping("/create")
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_XML_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody DokumentZahtev dokumentZahtev) throws Exception {
         service.create(dokumentZahtev);

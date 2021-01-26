@@ -35,7 +35,7 @@ public class ExistManager {
             + "</xu:modifications>";
 
     @Autowired
-    private AuthenticationManager authManager;
+    private AuthenticationDBManager authManager;
 
     @Autowired
     private JAXBService JAXBService;

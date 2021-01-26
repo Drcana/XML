@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="zalba_protiv_cutanja" xmlns:zalba="zalba_protiv_cutanja">
+  <xs:include schemaLocation="types.xsd"/>
+  <xs:element name="zalba_protiv_cutanja">
+    <xs:complexType mixed="true">
+      <xs:sequence maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="id" type="zalba:TId"/>
+        <xs:element name="vrsta_zalbe" type="xs:string"/>
+        <xs:element name="primaoc_zalbe" type="zalba:TPravno_Lice"/>
+        <xs:element name="informacije_o_zalbi">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element name="zakon" type="xs:string"/>
+              <xs:element name="naslov" type="xs:string"/>
+              <xs:element name="naziv_organa">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:anyAttribute namespace="##any" processContents="lax"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="razlog_zalbe" type="xs:string"/>
+        <xs:element name="detalji_zalbe">
+          <xs:complexType mixed="true">
+            <xs:sequence maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="datum">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:anyAttribute namespace="##any" processContents="lax"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="podaci_o_zalbi">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string"/>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="predlog_resenja" type="xs:string"/>
+        <xs:element name="napomena" type="xs:string"/>
+        <xs:element name="podnosilac_zalbe">
+          <xs:complexType mixed="true">
+            <xs:complexContent>
+              <xs:extension base="zalba:TFIzicko_Lice">
+                <xs:sequence>
+                  <xs:element name="kontakt" type="xs:string"/>
+                  <xs:element name="potpis" type="xs:string"/>
+                </xs:sequence>
+              </xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="mesto_i_datum" type="zalba:TMesto_Datum"> </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

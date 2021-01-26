@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.ftn.uns.ac.rs/user"
+      xsi:schemaLocation="http://www.ftn.uns.ac.rs/user  ../schemas/user.xsd">
+    <first_name>Petar</first_name>
+    <last_name>Petrovic</last_name>
+    <email>test@gmail.test</email>
+    <password>11110000</password>
+    <role>GRADJANIN</role>
+</user>

@@ -2,13 +2,13 @@ package rs.ac.uns.ftn.portal_organa_vlasti.db;
 
 
 import org.exist.xmldb.EXistResource;
-import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Node;
 import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.Collection;
 import org.xmldb.api.base.Database;
+import org.xmldb.api.base.Resource;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.CollectionManagementService;
@@ -20,25 +20,16 @@ import rs.ac.uns.ftn.portal_organa_vlasti.service.MetadataExtractorService;
 
 import javax.xml.transform.OutputKeys;
 import java.io.OutputStream;
+import java.util.List;
 
 @Component
 public class ExistManager {
-
-    private static final String TARGET_NAMESPACE = "http://ftn.uns.ac.rs";
-
-    private static final String UPDATE = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
-            + "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:update select=\"%1$s\">%2$s</xu:update>"
-            + "</xu:modifications>";
-
-    private static final String APPEND = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
-            + "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:append select=\"%1$s\" child=\"last()\">%2$s</xu:append>"
-            + "</xu:modifications>";
 
     @Autowired
     private AuthenticationDBManager authManager;
 
     @Autowired
-    private JAXBService JAXBService;
+    private JAXBService jaxbService;
 
     @Autowired
     private MetadataExtractorService metadataExtractorService;
@@ -108,7 +99,7 @@ public class ExistManager {
             col = getOrCreateCollection(collectionId, 0);
             res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
 
-            OutputStream os = JAXBService.getOutputStreamFromObject(xmlObject);
+            OutputStream os = jaxbService.getOutputStreamFromObject(xmlObject);
 
             metadataExtractorService.extractMetadata(xmlObject.getClass().getSimpleName(), os);
 
@@ -163,7 +154,8 @@ public class ExistManager {
         }
     }
 
-    public ResourceSet retrieve(String collectionUri, String xpathExp) throws Exception {
+    // get list of objects -- retrieve
+    public <T> List<T> getList(String collectionUri, String xpathExp, String targetNamespace, Class<?> classToMap) throws Exception {
         createConnection();
         Collection col = null;
         ResourceSet result = null;
@@ -172,28 +164,31 @@ public class ExistManager {
                     authManager.getPassword());
             XPathQueryService xpathService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
             xpathService.setProperty("indent", "yes");
-            xpathService.setNamespace("", TARGET_NAMESPACE);
+            xpathService.setNamespace("", targetNamespace);
             result = xpathService.query(xpathExp);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         } finally {
             if (col != null) {
                 col.close();
             }
         }
-        return result;
+
+        return jaxbService.getList(result, classToMap);
     }
 
-    public void update(int template, String collectionUri, String document, String contextXPath, String patch)
+    public void update(int template, String collectionUri, String document, String contextXPath, String patch, String update, String append)
             throws Exception {
         createConnection();
         Collection col = null;
         String chosenTemplate = null;
         switch (template) {
             case 0: {
-                chosenTemplate = UPDATE;
+                chosenTemplate = update;
                 break;
             }
             case 1: {
-                chosenTemplate = APPEND;
+                chosenTemplate = append;
                 break;
             }
             default: {
@@ -220,7 +215,7 @@ public class ExistManager {
             return null;
         }
 
-        return JAXBService.getObjectFromNode(node, classToMap);
+        return jaxbService.getObjectFromNode(node, classToMap);
     }
 
     private Node retrieveDocFromDB(String collectionId, String documentId) {
@@ -267,5 +262,34 @@ public class ExistManager {
         }
 
         return null;
+    }
+
+    public boolean remove(String collectionUri, String documentId) throws Exception {
+        createConnection();
+
+        Collection collection = null;
+        try {
+            collection = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+                    authManager.getPassword());
+            Resource foundFile = collection.getResource(documentId);
+
+            if (foundFile == null) {
+                return false;
+            }
+
+            collection.removeResource(foundFile);
+
+        } finally {
+            // don't forget to cleanup
+            if (collection != null) {
+                try {
+                    collection.close();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+
+        return true;
     }
 }

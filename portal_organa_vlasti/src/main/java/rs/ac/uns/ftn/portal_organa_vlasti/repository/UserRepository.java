@@ -8,7 +8,7 @@ import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 @Repository
 public class UserRepository {
 
-    private static final String COLLECTION_URI = "db/poverenik/user";
+    private static final String COLLECTION_URI = "db/organ_vlasti/user";
 
     @Autowired
     private ExistManager existManager;

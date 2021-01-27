@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/types" xmlns:types="http://www.ftn.uns.ac.rs/types">
 
     <xs:complexType name="TAdresa" mixed="true">
         <xs:sequence>
@@ -34,27 +35,36 @@
     </xs:complexType>
     <xs:complexType mixed="true" name="TMesto_Datum">
         <xs:sequence>
-            <xs:element name="mesto" type="xs:string"/>
+            <xs:element name="mesto">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="datum">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:length value="11"/>
-                        <xs:pattern value="\d{2}\.\d{2}\.\d{4}\."/>
-                    </xs:restriction>
-                </xs:simpleType>
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType abstract="true" name="TLice" mixed="true">
         <xs:sequence>
-            <xs:element name="Adresa" type="TAdresa"/>
+            <xs:element name="adresa" type="types:TAdresa"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="TPravno_Lice">
         <xs:complexContent mixed="true">
-            <xs:extension base="TLice">
+            <xs:extension base="types:TLice">
                 <xs:sequence>
-                    <xs:element name="naziv">
+                    <xs:element name="naziv_organa">
                         <xs:complexType>
                             <xs:simpleContent>
                                 <xs:extension base="xs:string">
@@ -69,7 +79,7 @@
     </xs:complexType>
     <xs:complexType name="TFIzicko_Lice">
         <xs:complexContent mixed="true">
-            <xs:extension base="TLice">
+            <xs:extension base="types:TLice">
                 <xs:sequence>
                     <xs:element name="ime">
                         <xs:complexType>
@@ -89,6 +99,16 @@
                             </xs:simpleContent>
                         </xs:complexType>
                     </xs:element>
+                    <xs:element name="drugi_podaci_za_kontakt">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                    <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="potpis" type="xs:string"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -105,4 +125,5 @@
             <xs:extension base="xs:string"/>
         </xs:simpleContent>
     </xs:complexType>
+    <xs:element name="newElement" type="xs:string"/>
 </xs:schema>

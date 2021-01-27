@@ -3,6 +3,9 @@ package rs.ac.uns.ftn.portal_organa_vlasti.service;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
+import org.xmldb.api.base.ResourceIterator;
+import org.xmldb.api.base.ResourceSet;
+import org.xmldb.api.modules.XMLResource;
 import rs.ac.uns.ftn.portal_organa_vlasti.util.MyValidationEventHandler;
 
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +22,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class JAXBService {
@@ -84,6 +89,30 @@ public class JAXBService {
         }
 
         return null;
+    }
+
+    public <T> List<T> getList(ResourceSet resourceSet, Class<?> classToMap){
+        List<T> list = new ArrayList<>();
+
+        try {
+            ResourceIterator resourceIterator = resourceSet.getIterator();
+
+            while (resourceIterator.hasMoreResources()) {
+                XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+                if (xmlResource == null){
+                    return list;
+                }
+
+                JAXBContext context = JAXBContext.newInstance(classToMap);
+                Unmarshaller unmarshaller = context.createUnmarshaller();
+                T object = (T) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+                list.add(object);
+            }
+        } catch (Exception e) {
+            return list;
+        }
+
+        return list;
     }
 
     public OutputStream getOutputStreamFromObject(Object xmlObject) {

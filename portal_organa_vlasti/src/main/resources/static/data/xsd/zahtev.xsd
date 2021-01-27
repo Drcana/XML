@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://www.ftn.uns.ac.rs/zahtev" xmlns:types="http://www.ftn.uns.ac.rs/types"
+  xmlns:zah="http://www.ftn.uns.ac.rs/zahtev">
+  <xs:import namespace="http://www.ftn.uns.ac.rs/types" schemaLocation="types.xsd"/>
+
+  <xs:element name="dokument_zahtev">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="organ_vlasti" type="types:TPravno_Lice"/>
+        <xs:element name="sediste_organa" type="types:TAdresa"/>
+        <xs:element name="naslov_dokumenta" type="xs:string"/>
+        <xs:element name="zakon" type="zah:Tzakon"> </xs:element>
+        <xs:element name="lista_zahteva" maxOccurs="1" type="zah:Tlista_zahteva"> </xs:element>
+        <xs:element name="informacije" type="zah:TInformacije"> </xs:element>
+        <xs:element name="mesto_i_datum" type="types:TMesto_Datum"> </xs:element>
+        <xs:element name="podnosilac_zahteva" type="types:TFIzicko_Lice"> </xs:element>
+        <xs:element name="lista_napomena" type="zah:Tlista_napomena"> </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string"/>
+      <xs:attribute name="userId" type="xs:string"/>
+      <xs:attribute name="datum" type="xs:date"/>
+      <xs:anyAttribute namespace="##any" processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType mixed="true" name="Tnapomena">
+    <xs:attribute name="id" use="required" type="xs:integer"/>
+    <xs:attribute name="labela"/>
+  </xs:complexType>
+  <xs:complexType name="Tlista_napomena">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="napomena" type="zah:Tnapomena"/>
+    </xs:sequence>
+    <xs:attribute name="naslov" use="required" type="xs:NCName"/>
+  </xs:complexType>
+  <xs:complexType name="Tnacin">
+    <xs:sequence maxOccurs="1">
+      <xs:element maxOccurs="1" minOccurs="0" name="drugi_nacin" type="zah:Tdrugi_nacin"/>
+    </xs:sequence>
+    <xs:attribute name="checked" use="required" type="xs:boolean"/>
+    <xs:attribute name="tip_dostave" use="required" type="xs:NCName"/>
+  </xs:complexType>
+  <xs:complexType name="Tdrugi_nacin">
+    <xs:sequence>
+      <xs:element name="sadrzaj" type="xs:string"/>
+      <xs:element name="napomena" type="zah:Tnapomena"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType mixed="true" name="Tzahtev">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="napomena" type="zah:Tnapomena"/>
+      <xs:element minOccurs="0" name="lista_nacina" type="zah:Tlista_nacina"/>
+    </xs:sequence>
+    <xs:attribute name="checked" use="required" type="xs:boolean"/>
+    <xs:attribute name="tip_zahteva" use="required" type="xs:NCName"/>
+  </xs:complexType>
+  <xs:complexType name="Tlista_zahteva">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="zahtev" type="zah:Tzahtev"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Tlista_nacina">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="nacin" type="zah:Tnacin"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType mixed="true" name="Tzakon">
+    <xs:sequence>
+      <xs:element name="napomena" type="zah:Tnapomena"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType mixed="true" name="TInformacije">
+    <xs:sequence>
+      <xs:element name="sadrzaj_informacija" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

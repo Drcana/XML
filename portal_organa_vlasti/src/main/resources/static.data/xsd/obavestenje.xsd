@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="obavestenje" xmlns:ob="obavestenje">
+    <xs:include schemaLocation="types.xsd"/>
+    <xs:element name="Obavestenje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="informacije_o_obavestenju">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id"/>
+                            <xs:element name="broj_predmeta">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="organ_vlasti">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="ob:TPravno_Lice">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="podnosilac_zahteva">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="ob:TFIzicko_Lice">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="datum_obavestenja">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:anyAttribute namespace="##any" processContents="lax"
+                                            />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="dostavljeno">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element fixed="imenovanom" name="imenovanom"
+                                            type="xs:string"/>
+                                        <xs:element fixed="arhivi" name="arhivi" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="tekst_obavestenja">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="naslov" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" name="p">
+                                <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                        <xs:element name="godina">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                  <xs:length value="5"/>
+                                                  <xs:pattern value="\d{4}\."/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="trazena_informacija" type="xs:string"/>
+                                        <xs:element name="datum_uvida">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                  <xs:pattern value="\d{2}\.\d{2}\.\d{4}\."/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="vreme_uvida">
+                                            <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                  <xs:element name="sati" maxOccurs="1"
+                                                  minOccurs="0">
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:string">
+                                                  <xs:minLength value="2"/>
+                                                  <xs:maxLength value="5"/>
+                                                  <xs:pattern value="\d{2}:\d{2}"/>
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element name="od" maxOccurs="1" minOccurs="0">
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:string">
+                                                  <xs:minLength value="2"/>
+                                                  <xs:maxLength value="5"/>
+                                                  <xs:pattern value="\d{2}:\d{2}"/>
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element name="do" maxOccurs="1" minOccurs="0">
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:string">
+                                                  <xs:minLength value="2"/>
+                                                  <xs:maxLength value="5"/>
+                                                  <xs:pattern value="\d{2}:\d{2}"/>
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="mesto_uvida">
+                                            <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                  <xs:element name="adresa" type="ob:TAdresa"/>
+                                                  <xs:element name="broj_kancelarije"
+                                                  type="xs:positiveInteger"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="troskovi" type="xs:positiveInteger"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

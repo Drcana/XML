@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zpc:zalba_protiv_cutanja xmlns="zalba_protiv_cutanja" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                          xsi:schemaLocation="zalba_protiv_cutanja  ../schemas/zalbaProtivCutanja.xsd"
+                          xsi:schemaLocation="zalba_protiv_cutanja  ../xsd/zalbaProtivCutanja.xsd"
                           xmlns:pred="http://examples/predicate/" xmlns:zpc="zalba_protiv_cutanja">
     <zpc:id></zpc:id>
     <zpc:vrsta_zalbe>

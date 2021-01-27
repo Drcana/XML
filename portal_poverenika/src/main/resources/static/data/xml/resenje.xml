@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resenje xmlns="resenje"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="resenje ../schemas/resenje.xsd">
+    xsi:schemaLocation="resenje ../xsd/resenje.xsd">
     <naziv_resenja>
         Решење <odluka> када је жалба основана – налаже се: </odluka>
     </naziv_resenja>

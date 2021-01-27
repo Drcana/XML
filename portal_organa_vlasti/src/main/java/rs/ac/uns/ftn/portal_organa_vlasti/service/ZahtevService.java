@@ -1,9 +1,9 @@
-package rs.ac.uns.ftn.portal_poverenika.service;
+package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rs.ac.uns.ftn.portal_poverenika.model.zahtev.DokumentZahtev;
-import rs.ac.uns.ftn.portal_poverenika.repository.ZahtevRepository;
+import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
+import rs.ac.uns.ftn.portal_organa_vlasti.repository.ZahtevRepository;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
@@ -15,7 +15,7 @@ public class ZahtevService {
 
     private static final String XSD_PATH = "src/main/resources/static/data/xsd/zahtev.xsd";
 
-    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_poverenika.model.zahtev";
+    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev";
 
     @Autowired
     private JAXBService JAXBService;

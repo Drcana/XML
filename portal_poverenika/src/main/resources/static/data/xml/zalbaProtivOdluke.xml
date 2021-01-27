@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zpo:zalba_protiv_odluke xmlns:zpo="zalba_protiv_odluke" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                         xsi:schemaLocation="zalba_protiv_odluke ../schemas/zalbaProtivOdluke.xsd"
+                         xsi:schemaLocation="zalba_protiv_odluke ../xsd/zalbaProtivOdluke.xsd"
                          xmlns:pred="http://examples/predicate/">
     <zpo:id></zpo:id>
     <zpo:vrsta_zalbe>

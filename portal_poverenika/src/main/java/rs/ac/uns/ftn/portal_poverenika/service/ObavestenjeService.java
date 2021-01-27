@@ -12,9 +12,9 @@ import javax.xml.bind.JAXBException;
 public class ObavestenjeService {
     private static final String XML_PATH = "src/main/resources/static/data/xml/obavestenje.xml";
 
-    private static final String XSD_PATH = "src/main/resources/static/data/schemas/obavestenje.xsd";
+    private static final String XSD_PATH = "src/main/resources/static/data/xsd/obavestenje.xsd";
 
-    private static final String JAXB_INSTANCE = "ftn.unc.as.rs.xml.poc.jaxb.model.obavestenje";
+    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_poverenika.model.obavestenje";
 
     @Autowired
     private JAXBService JAXBService;

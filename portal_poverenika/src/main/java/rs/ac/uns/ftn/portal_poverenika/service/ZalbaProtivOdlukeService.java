@@ -13,9 +13,9 @@ public class ZalbaProtivOdlukeService {
 
     private static final String XML_PATH = "src/main/resources/static/data/xml/zalbaProtivOdluke.xml";
 
-    private static final String XSD_PATH = "src/main/resources/static/data/schemas/zalbaProtivOdluke.xsd";
+    private static final String XSD_PATH = "src/main/resources/static/data/xsd/zalbaProtivOdluke.xsd";
 
-    private static final String JAXB_INSTANCE = "ftn.unc.as.rs.xml.poc.jaxb.model.zalbaProtivOdluke";
+    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_poverenika.model.zalbaProtivOdluke";
 
     @Autowired
     private JAXBService JAXBService;

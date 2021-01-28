@@ -5,5 +5,13 @@
 // Generated on: 2021.01.29 at 12:14:31 AM CET 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.ftn.uns.ac.rs/types", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke;
+@javax.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.ftn.uns.ac.rs/zalba_protiv_odluke",
+        elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+        location = "http://www.ftn.uns.ac.rs/zalba_protiv_odluke ../xsd/zalba_protiv_odluke.xsd",
+        xmlns = {@XmlNs(prefix = "zpo", namespaceURI = "http://www.ftn.uns.ac.rs/zalba_protiv_odluke"),
+                @XmlNs(prefix = "types", namespaceURI = "http://www.ftn.uns.ac.rs/types"),
+                @XmlNs(prefix = "pred", namespaceURI = "http://examples/predicate/"),
+                @XmlNs(prefix = "xsi", namespaceURI = "http://www.w3.org/2001/XMLSchema-instance")})package rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke;
+
+import javax.xml.bind.annotation.XmlNs;

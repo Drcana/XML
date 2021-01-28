@@ -69,4 +69,10 @@ public class ZahtevController {
     public ResponseEntity<Boolean> delete(@PathVariable("id") String documentId) throws Exception {
         return new ResponseEntity<>(service.delete(documentId), HttpStatus.OK);
     }
+
+    @GetMapping("/generate/html/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generateHTML(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generateHTML(documentId), HttpStatus.OK);
+    }
 }

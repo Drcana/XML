@@ -1,21 +1,21 @@
 <zah:dokument_zahtev xmlns="http://www.ftn.uns.ac.rs/zahtev" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev  ../xsd/zahtev.xsd"
-    xmlns:pred="http://examples/predicate/"
-    xmlns:zah="http://www.ftn.uns.ac.rs/zahtev"
-    xmlns:types="http://www.ftn.uns.ac.rs/types"
-    about="http://www.ftn.uns.ac.rs/zahtev/1"
-    id="1"
-    userId="test@gmail.com"
-    mesto="" datum="2021-01-01" property="pred:datum" datatype="xs:date" content="2021-01-01" >
-   <organ_vlasti>
-       <types:adresa>
-           <types:mesto property="pred:mesto" datatype="xs:string">Subotica</types:mesto>
-           <types:ulica property="pred:ulica" datatype="xs:string">Brace Radic</types:ulica>
-           <types:broj property="pred:broj" datatype="xs:string">22</types:broj>
-       </types:adresa>
-       <types:naziv_organa property = "pred:naziv_organa"></types:naziv_organa>
-   </organ_vlasti>
-    
+                     xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev  ../xsd/zahtev.xsd"
+                     xmlns:pred="http://examples/predicate/"
+                     xmlns:zah="http://www.ftn.uns.ac.rs/zahtev"
+                     xmlns:types="http://www.ftn.uns.ac.rs/types"
+                     about="http://www.ftn.uns.ac.rs/zahtev/1"
+                     id="1"
+                     userId="test@gmail.com"
+                     mesto="" datum="2021-01-01" property="pred:datum" datatype="xs:date" content="2021-01-01" >
+    <zah:organ_vlasti>
+        <types:adresa>
+            <types:mesto property="pred:mesto" datatype="xs:string">Subotica</types:mesto>
+            <types:ulica property="pred:ulica" datatype="xs:string">Brace Radic</types:ulica>
+            <types:broj property="pred:broj" datatype="xs:string">22</types:broj>
+        </types:adresa>
+        <types:naziv_organa property = "pred:naziv_organa">Organ vlasti</types:naziv_organa>
+    </zah:organ_vlasti>
+
     <zah:naslov_dokumenta>
         З А Х Т Е В
         за приступ информацији од јавног значаја
@@ -28,19 +28,19 @@
     </zah:zakon>
 
     <zah:lista_zahteva>
-        <zah:zahtev tip_zahteva="posedovanje_informacije" checked="false">обавештење да ли поседује тражену информацију;
+        <zah:zahtev tip_zahteva="posedovanje_informacije" checked="true">обавештење да ли поседује тражену информацију;
         </zah:zahtev>
         <zah:zahtev tip_zahteva="uvid_u_dokument" checked="false">увид у документ који садржи тражену информацију;⁫
         </zah:zahtev>
-        <zah:zahtev tip_zahteva="kopija_dokumenta" checked="false">копију документа који садржи тражену информацију;
+        <zah:zahtev tip_zahteva="kopija_dokumenta" checked="true">копију документа који садржи тражену информацију;
         </zah:zahtev>
         <zah:zahtev tip_zahteva="dostavljanje_kopije_dokumenta" checked="false">
             достављање копије документа који садржи тражену информацију
             <zah:napomena id="2"/>
             <zah:lista_nacina>
-                <zah:nacin tip_dostave="postom" checked="false"></zah:nacin>
-                <zah:nacin tip_dostave="elektronski" checked="false"></zah:nacin>
-                <zah:nacin tip_dostave="faksom" checked="false"></zah:nacin>
+                <zah:nacin tip_dostave="postom" checked="false"/>
+                <zah:nacin tip_dostave="elektronski" checked="true"/>
+                <zah:nacin tip_dostave="faksom" checked="false"/>
                 <zah:nacin tip_dostave="drugi_nacin" checked="false">
                     <zah:drugi_nacin>
                         <zah:sadrzaj></zah:sadrzaj>
@@ -53,14 +53,14 @@
 
     <zah:informacije>
         Овај захтев се односи на следеће информације:
-        <zah:sadrzaj_informacija></zah:sadrzaj_informacija>
+        <zah:sadrzaj_informacija>v jhy ,kjuyv jyhuv yv y</zah:sadrzaj_informacija>
         навести што прецизнији опис информације која се
         тражи као и друге податке који олакшавају проналажење
         тражене информације
     </zah:informacije>
 
     <zah:mesto_i_datum>
-        У  <types:mesto></types:mesto>,
+        У  <types:mesto>Subotici</types:mesto>,
         dana <types:datum>2021-01-01</types:datum> godine
     </zah:mesto_i_datum>
 
@@ -74,20 +74,20 @@
         <types:ime property="pred:ime" datatype="xs:string">Ime podnosioca</types:ime>
         <types:prezime property="pred:prezime" datatype="xs:string">Prezime podnosioca</types:prezime>
         Тражилац информације/Име и презиме
-        <types:drugi_podaci_za_kontakt></types:drugi_podaci_za_kontakt>
+        <types:drugi_podaci_za_kontakt>test@email.com</types:drugi_podaci_za_kontakt>
         други подаци за контакт
-        <types:potpis></types:potpis>
+        <types:potpis>Potpis</types:potpis>
         Потпис
     </zah:podnosilac_zahteva>
 
     <zah:lista_napomena naslov="Napomene">
-            <zah:napomena id="1" labela="*">У кућици означити која законска права на приступ информацијама желите да
-                остварите.
-            </zah:napomena>
-            <zah:napomena id="2" labela="**">У кућици означити начин достављања копије докумената.</zah:napomena>
-            <zah:napomena id="3" labela="***">Када захтевате други начин достављања обавезно уписати који начин
-                достављања
-                захтевате.
-            </zah:napomena>
+        <zah:napomena id="1" labela="*">У кућици означити која законска права на приступ информацијама желите да
+            остварите.
+        </zah:napomena>
+        <zah:napomena id="2" labela="**">У кућици означити начин достављања копије докумената.</zah:napomena>
+        <zah:napomena id="3" labela="***">Када захтевате други начин достављања обавезно уписати који начин
+            достављања
+            захтевате.
+        </zah:napomena>
     </zah:lista_napomena>
 </zah:dokument_zahtev>

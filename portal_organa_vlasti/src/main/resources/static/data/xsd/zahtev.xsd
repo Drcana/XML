@@ -20,6 +20,8 @@
       <xs:attribute name="id" type="xs:string"/>
       <xs:attribute name="userId" type="xs:string"/>
       <xs:attribute name="datum" type="xs:date"/>
+      <xs:attribute name="about" type="xs:string"/>
+      <xs:attribute default="pending" name="status" type="zah:status"/>
       <xs:anyAttribute namespace="##any" processContents="lax"/>
     </xs:complexType>
   </xs:element>
@@ -74,4 +76,12 @@
       <xs:element name="sadrzaj_informacija" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:simpleType name="status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pending"/>
+      <xs:enumeration value="rejected"/>
+      <xs:enumeration value="withdrawed"/>
+      <xs:enumeration value="finished"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

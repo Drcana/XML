@@ -1,5 +1,6 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -7,13 +8,19 @@ import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
+import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.Status;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.ZahtevRepository;
+import rs.ac.uns.ftn.portal_organa_vlasti.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -21,11 +28,21 @@ import java.util.UUID;
 @Service
 public class ZahtevService {
 
+    /**
+     * For POC with JAXB*/
     private static final String XML_PATH = "src/main/resources/static/data/xml/zahtev.xml";
 
     private static final String XSD_PATH = "src/main/resources/static/data/xsd/zahtev.xsd";
 
     private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev";
+
+    private static final String TARGET_NAMESPACE = "http://www.ftn.uns.ac.rs/zahtev";
+
+    /**
+     * For generating XHTML / PDF files*/
+    private static final String XSL_FILE_PATH = "src/main/resources/static/data/xsl/zahtev.xsl";
+
+    private static final String XHTML_FILE_PATH = "src/main/resources/static/data/html/zahtev";
 
     @Autowired
     private JAXBService jaxbService;
@@ -42,13 +59,17 @@ public class ZahtevService {
     }
 
     public DocumentDto create(DokumentZahtev dokumentZahtev, Authentication authentication) throws Exception {
-        dokumentZahtev.setId(UUID.randomUUID().toString());
+        String id = UUID.randomUUID().toString();
+
+        dokumentZahtev.setId(id);
         dokumentZahtev.setUserId(getEmailOfLoggedUser(authentication));
         dokumentZahtev.setDatum(getTodayDate());
+        dokumentZahtev.setAbout(String.format("%s/%s", TARGET_NAMESPACE, id));
+        dokumentZahtev.setStatus(Status.PENDING);
 
         zahtevRepository.create(dokumentZahtev);
 
-        return new DocumentDto(dokumentZahtev.getId());
+        return new DocumentDto(id);
     }
 
     private String getEmailOfLoggedUser(Authentication authentication) {
@@ -76,5 +97,39 @@ public class ZahtevService {
 
     public ZahtevCollection getAllByUserId(Authentication authentication) {
         return zahtevRepository.getAllByUserId(getEmailOfLoggedUser(authentication));
+    }
+
+    public byte[] generateHTML(String documentId) {
+        FileTransformer transformer;
+
+        String xmlObject = getZahtevAsString(documentId);
+
+        String outputHtmlPath = "C:\\fax - projects\\XML - 2020\\XML\\portal_organa_vlasti\\src\\main\\resources\\static\\data\\html\\proba.html";
+//        String outputHtmlPath = String.format("%s_%s.html", XHTML_FILE_PATH, documentId);
+
+        boolean created;
+        try {
+            transformer = new FileTransformer();
+            created = transformer.generateHTML(xmlObject, "C:\\fax - projects\\XML - 2020\\XML\\portal_organa_vlasti\\src\\main\\resources\\static\\data\\xsl\\zahtev.xsl", outputHtmlPath);
+            if (created){
+                return convertFileToBytes(outputHtmlPath);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+
+        return null;
+    }
+
+    private String getZahtevAsString(String documentId) {
+        DokumentZahtev dokumentZahtev = zahtevRepository.get(documentId);
+        StringWriter stringWriter = new StringWriter();
+        JAXB.marshal(dokumentZahtev, stringWriter);
+
+        return stringWriter.toString();
+    }
+
+    private byte[] convertFileToBytes(String generatedFilePath) throws IOException {
+        return FileUtils.readFileToByteArray(new File(generatedFilePath));
     }
 }

@@ -5,5 +5,14 @@
 // Generated on: 2021.01.28 at 08:30:27 PM CET 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.ftn.uns.ac.rs/types", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@javax.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.ftn.uns.ac.rs/zalba_protiv_cutanja",
+        elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+        location = "http://www.ftn.uns.ac.rs/zalba_protiv_cutanja ../xsd/zalba_protiv_cutanja.xsd",
+        xmlns = {@XmlNs(prefix = "zpc", namespaceURI = "http://www.ftn.uns.ac.rs/zalba_protiv_cutanja"),
+                @XmlNs(prefix = "types", namespaceURI = "http://www.ftn.uns.ac.rs/types"),
+                @XmlNs(prefix = "pred", namespaceURI = "http://examples/predicate/"),
+                @XmlNs(prefix = "xsi", namespaceURI = "http://www.w3.org/2001/XMLSchema-instance")})
 package rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja;
+
+import javax.xml.bind.annotation.XmlNs;

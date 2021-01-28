@@ -9,7 +9,7 @@
         namespace = "http://www.ftn.uns.ac.rs/zahtev",
         elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
         location = "http://www.ftn.uns.ac.rs/zahtev ../xsd/zahtev.xsd",
-        xmlns = {@XmlNs(prefix = "zpc", namespaceURI = "http://www.ftn.uns.ac.rs/zahtev"),
+        xmlns = {@XmlNs(prefix = "zah", namespaceURI = "http://www.ftn.uns.ac.rs/zahtev"),
                 @XmlNs(prefix = "types", namespaceURI = "http://www.ftn.uns.ac.rs/types"),
                 @XmlNs(prefix = "pred", namespaceURI = "http://examples/predicate/"),
                 @XmlNs(prefix = "xsi", namespaceURI = "http://www.w3.org/2001/XMLSchema-instance")})

@@ -4,16 +4,14 @@
                      xmlns:zah="http://www.ftn.uns.ac.rs/zahtev"
                      xmlns:types="http://www.ftn.uns.ac.rs/types"
                      about="http://www.ftn.uns.ac.rs/zahtev/1"
-                     id="1"
-                     userId="test@gmail.com"
-                     mesto="" datum="2021-01-01" property="pred:datum" datatype="xs:date" content="2021-01-01" >
+                     id="1" userId="test@gmail.com" datum="2021-01-01">
     <zah:organ_vlasti>
+        <types:naziv_organa property="pred:naziv_organa">Organ vlasti</types:naziv_organa>
         <types:adresa>
             <types:mesto property="pred:mesto" datatype="xs:string">Subotica</types:mesto>
             <types:ulica property="pred:ulica" datatype="xs:string">Brace Radic</types:ulica>
             <types:broj property="pred:broj" datatype="xs:string">22</types:broj>
         </types:adresa>
-        <types:naziv_organa property = "pred:naziv_organa">Organ vlasti</types:naziv_organa>
     </zah:organ_vlasti>
 
     <zah:naslov_dokumenta>
@@ -60,8 +58,8 @@
     </zah:informacije>
 
     <zah:mesto_i_datum>
-        У  <types:mesto>Subotici</types:mesto>,
-        dana <types:datum>2021-01-01</types:datum> godine
+        У  <types:mesto property="pred:mesto">Subotici</types:mesto>,
+        dana <types:datum property="pred:datum" datatype="xs:date">2021-01-01</types:datum> godine
     </zah:mesto_i_datum>
 
     <zah:podnosilac_zahteva>

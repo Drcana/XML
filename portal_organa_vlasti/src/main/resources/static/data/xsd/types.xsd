@@ -55,63 +55,52 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType abstract="true" name="TLice" mixed="true">
+    <xs:complexType name="TPravno_Lice">
         <xs:sequence>
+            <xs:element name="naziv_organa">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="adresa" type="types:TAdresa"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TPravno_Lice">
-        <xs:complexContent mixed="true">
-            <xs:extension base="types:TLice">
-                <xs:sequence>
-                    <xs:element name="naziv_organa">
-                        <xs:complexType>
-                            <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                    <xs:anyAttribute namespace="##any" processContents="lax"/>
-                                </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
     <xs:complexType name="TFIzicko_Lice">
-        <xs:complexContent mixed="true">
-            <xs:extension base="types:TLice">
-                <xs:sequence>
-                    <xs:element name="ime">
-                        <xs:complexType>
-                            <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                    <xs:anyAttribute namespace="##any" processContents="lax"/>
-                                </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element name="prezime">
-                        <xs:complexType>
-                            <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                    <xs:anyAttribute namespace="##any" processContents="lax"/>
-                                </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element name="drugi_podaci_za_kontakt">
-                        <xs:complexType>
-                            <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                    <xs:anyAttribute namespace="##any" processContents="lax"/>
-                                </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element name="potpis" type="xs:string"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
+        <xs:sequence>
+            <xs:element name="ime">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="prezime">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="adresa" type="types:TAdresa"/>
+            <xs:element name="drugi_podaci_za_kontakt">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="potpis" type="xs:string"/>
+        </xs:sequence>
     </xs:complexType>
     <xs:complexType mixed="true" name="TTekst">
         <xs:sequence>
@@ -125,5 +114,4 @@
             <xs:extension base="xs:string"/>
         </xs:simpleContent>
     </xs:complexType>
-    <xs:element name="newElement" type="xs:string"/>
 </xs:schema>

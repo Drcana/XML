@@ -28,18 +28,20 @@ import java.util.UUID;
 @Service
 public class ZahtevService {
 
+    private static final String TARGET_NAMESPACE = "http://www.ftn.uns.ac.rs/zahtev";
+
     /**
-     * For POC with JAXB*/
+     * For POC with JAXB
+     */
     private static final String XML_PATH = "src/main/resources/static/data/xml/zahtev.xml";
 
     private static final String XSD_PATH = "src/main/resources/static/data/xsd/zahtev.xsd";
 
     private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev";
 
-    private static final String TARGET_NAMESPACE = "http://www.ftn.uns.ac.rs/zahtev";
-
     /**
-     * For generating XHTML / PDF files*/
+     * For generating XHTML / PDF files
+     */
     private static final String XSL_FILE_PATH = "src/main/resources/static/data/xsl/zahtev.xsl";
 
     private static final String XHTML_FILE_PATH = "src/main/resources/static/data/html/zahtev";
@@ -104,15 +106,14 @@ public class ZahtevService {
 
         String xmlObject = getZahtevAsString(documentId);
 
-        String outputHtmlPath = "C:\\fax - projects\\XML - 2020\\XML\\portal_organa_vlasti\\src\\main\\resources\\static\\data\\html\\proba.html";
-//        String outputHtmlPath = String.format("%s_%s.html", XHTML_FILE_PATH, documentId);
+        String htmlPath = String.format("%s_%s.html", XHTML_FILE_PATH, documentId);
 
         boolean created;
         try {
             transformer = new FileTransformer();
-            created = transformer.generateHTML(xmlObject, "C:\\fax - projects\\XML - 2020\\XML\\portal_organa_vlasti\\src\\main\\resources\\static\\data\\xsl\\zahtev.xsl", outputHtmlPath);
-            if (created){
-                return convertFileToBytes(outputHtmlPath);
+            created = transformer.generateHTML(xmlObject, XSL_FILE_PATH, htmlPath);
+            if (created) {
+                return convertFileToBytes(htmlPath);
             }
         } catch (Exception e) {
             return null;

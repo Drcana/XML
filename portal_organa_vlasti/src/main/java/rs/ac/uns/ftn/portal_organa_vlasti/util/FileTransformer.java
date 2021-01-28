@@ -52,7 +52,7 @@ public class FileTransformer {
     public FileTransformer() throws SAXException, IOException {
 
         // Initialize FOP factory object
-        fopFactory = FopFactory.newInstance(new File("C:\\fax - projects\\XML - 2020\\XML\\portal_organa_vlasti\\src\\main\\resources\\fop.xconf"));
+        fopFactory = FopFactory.newInstance(new File(FOP_FACTORY_PATH));
 
         // Setup the XSLT transformer factory
         transformerFactory = new TransformerFactoryImpl();

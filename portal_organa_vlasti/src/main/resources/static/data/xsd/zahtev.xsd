@@ -8,14 +8,13 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="organ_vlasti" type="types:TPravno_Lice"/>
-        <xs:element name="sediste_organa" type="types:TAdresa"/>
         <xs:element name="naslov_dokumenta" type="xs:string"/>
-        <xs:element name="zakon" type="zah:Tzakon"> </xs:element>
-        <xs:element name="lista_zahteva" maxOccurs="1" type="zah:Tlista_zahteva"> </xs:element>
+        <xs:element name="zakon" type="zah:TZakon"> </xs:element>
+        <xs:element name="lista_zahteva" maxOccurs="1" type="zah:TLista_zahteva"> </xs:element>
         <xs:element name="informacije" type="zah:TInformacije"> </xs:element>
         <xs:element name="mesto_i_datum" type="types:TMesto_Datum"> </xs:element>
         <xs:element name="podnosilac_zahteva" type="types:TFIzicko_Lice"> </xs:element>
-        <xs:element name="lista_napomena" type="zah:Tlista_napomena"> </xs:element>
+        <xs:element name="lista_napomena" type="zah:TLista_napomena"> </xs:element>
       </xs:sequence>
       <xs:attribute name="id" type="xs:string"/>
       <xs:attribute name="userId" type="xs:string"/>
@@ -25,50 +24,50 @@
       <xs:anyAttribute namespace="##any" processContents="lax"/>
     </xs:complexType>
   </xs:element>
-  <xs:complexType mixed="true" name="Tnapomena">
+  <xs:complexType mixed="true" name="TNapomena">
     <xs:attribute name="id" use="required" type="xs:integer"/>
     <xs:attribute name="labela"/>
   </xs:complexType>
-  <xs:complexType name="Tlista_napomena">
+  <xs:complexType name="TLista_napomena">
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="napomena" type="zah:Tnapomena"/>
+      <xs:element maxOccurs="unbounded" name="napomena" type="zah:TNapomena"/>
     </xs:sequence>
     <xs:attribute name="naslov" use="required" type="xs:NCName"/>
   </xs:complexType>
-  <xs:complexType name="Tnacin">
+  <xs:complexType name="TNacin">
     <xs:sequence maxOccurs="1">
-      <xs:element maxOccurs="1" minOccurs="0" name="drugi_nacin" type="zah:Tdrugi_nacin"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugi_nacin" type="zah:TDrugi_nacin"/>
     </xs:sequence>
     <xs:attribute name="checked" use="required" type="xs:boolean"/>
     <xs:attribute name="tip_dostave" use="required" type="xs:NCName"/>
   </xs:complexType>
-  <xs:complexType name="Tdrugi_nacin">
+  <xs:complexType name="TDrugi_nacin">
     <xs:sequence>
       <xs:element name="sadrzaj" type="xs:string"/>
-      <xs:element name="napomena" type="zah:Tnapomena"/>
+      <xs:element name="napomena" type="zah:TNapomena"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType mixed="true" name="Tzahtev">
+  <xs:complexType mixed="true" name="TZahtev">
     <xs:sequence>
-      <xs:element minOccurs="0" name="napomena" type="zah:Tnapomena"/>
-      <xs:element minOccurs="0" name="lista_nacina" type="zah:Tlista_nacina"/>
+      <xs:element minOccurs="0" name="napomena" type="zah:TNapomena"/>
+      <xs:element minOccurs="0" name="lista_nacina" type="zah:TLista_nacina"/>
     </xs:sequence>
     <xs:attribute name="checked" use="required" type="xs:boolean"/>
     <xs:attribute name="tip_zahteva" use="required" type="xs:NCName"/>
   </xs:complexType>
-  <xs:complexType name="Tlista_zahteva">
+  <xs:complexType name="TLista_zahteva">
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="1" name="zahtev" type="zah:Tzahtev"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="zahtev" type="zah:TZahtev"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="Tlista_nacina">
+  <xs:complexType name="TLista_nacina">
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="1" name="nacin" type="zah:Tnacin"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="nacin" type="zah:TNacin"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType mixed="true" name="Tzakon">
+  <xs:complexType mixed="true" name="TZakon">
     <xs:sequence>
-      <xs:element name="napomena" type="zah:Tnapomena"/>
+      <xs:element name="napomena" type="zah:TNapomena"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType mixed="true" name="TInformacije">

@@ -55,7 +55,7 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TPravno_Lice">
+    <xs:complexType name="TPravno_Lice" mixed="true">
         <xs:sequence>
             <xs:element name="naziv_organa">
                 <xs:complexType>
@@ -69,7 +69,7 @@
             <xs:element name="adresa" type="types:TAdresa"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TFIzicko_Lice">
+    <xs:complexType name="TFIzicko_Lice" mixed="true">
         <xs:sequence>
             <xs:element name="ime">
                 <xs:complexType>

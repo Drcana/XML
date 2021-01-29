@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.portal_poverenika.controller;
+package rs.ac.uns.ftn.portal_organa_vlasti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import rs.ac.uns.ftn.portal_poverenika.model.obavestenje.Obavestenje;
-import rs.ac.uns.ftn.portal_poverenika.service.ObavestenjeService;
+import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
+import rs.ac.uns.ftn.portal_organa_vlasti.service.ObavestenjeService;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;

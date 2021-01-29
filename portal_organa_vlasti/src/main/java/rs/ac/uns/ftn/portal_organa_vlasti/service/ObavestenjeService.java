@@ -1,9 +1,9 @@
-package rs.ac.uns.ftn.portal_poverenika.service;
+package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rs.ac.uns.ftn.portal_poverenika.model.obavestenje.Obavestenje;
-import rs.ac.uns.ftn.portal_poverenika.repository.ObavestenjeRepository;
+import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
+import rs.ac.uns.ftn.portal_organa_vlasti.repository.ObavestenjeRepository;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;

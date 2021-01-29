@@ -2,9 +2,13 @@ package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.RejectZahtevDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
@@ -51,6 +55,9 @@ public class ZahtevService {
 
     @Autowired
     private ZahtevRepository zahtevRepository;
+
+    @Autowired
+    private RestTemplateService restTemplateService;
 
     public String parseXmlZahtev() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
@@ -132,5 +139,14 @@ public class ZahtevService {
 
     private byte[] convertFileToBytes(String generatedFilePath) throws IOException {
         return FileUtils.readFileToByteArray(new File(generatedFilePath));
+    }
+
+    public String reject(String documentId, Authentication authentication) {
+        DokumentZahtev dokumentZahtev = get(documentId);
+
+        RejectZahtevDto rejectZahtevDto =
+                new RejectZahtevDto(dokumentZahtev.getUserId(), getEmailOfLoggedUser(authentication), documentId);
+
+        return restTemplateService.rejectZahtev(rejectZahtevDto);
     }
 }

@@ -6,7 +6,7 @@
 //
 
 
-package rs.ac.uns.ftn.portal_poverenika.model.obavestenje;
+package rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

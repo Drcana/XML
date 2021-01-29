@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.email_service.dto;
+package rs.ac.uns.ftn.portal_organa_vlasti.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

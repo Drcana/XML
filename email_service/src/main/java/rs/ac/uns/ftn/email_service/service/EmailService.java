@@ -32,10 +32,9 @@ public class EmailService {
     private JavaMailSender javaMailSender;
 
     public String sendObavestenje(ObavestenjeEmailDto obavestenjeEmailDto) {
-
-
         String response;
         MimeMessage message = javaMailSender.createMimeMessage();
+
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
                     StandardCharsets.UTF_8.name());
@@ -73,8 +72,8 @@ public class EmailService {
             helper.setFrom(new InternetAddress(rejectZahtevDto.getSenderEmail(), ORGAN_VLASTI));
 
             helper.setSubject(REJECTED_ZAHTEV_SUBJECT);
-            helper.setText("Poštovani, " + "\n\n Vaš zahtev = " + rejectZahtevDto.getZahtevId() + "je odbijen. " +
-                    "\n\nSrdačan pozdrav");
+            helper.setText("Poštovani, " + "\n\nVaš zahtev = " + rejectZahtevDto.getZahtevId() + " je odbijen. " +
+                    "\n\nSrdačan pozdrav!");
 
             javaMailSender.send(message);
 

@@ -1,9 +1,9 @@
-package rs.ac.uns.ftn.portal_poverenika.repository;
+package rs.ac.uns.ftn.portal_organa_vlasti.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import rs.ac.uns.ftn.portal_poverenika.db.ExistManager;
-import rs.ac.uns.ftn.portal_poverenika.model.obavestenje.Obavestenje;
+import rs.ac.uns.ftn.portal_organa_vlasti.db.ExistManager;
+import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 
 @Repository
 public class ObavestenjeRepository {

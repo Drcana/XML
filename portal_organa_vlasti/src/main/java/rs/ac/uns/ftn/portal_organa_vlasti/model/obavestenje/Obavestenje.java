@@ -6,7 +6,7 @@
 //
 
 
-package rs.ac.uns.ftn.portal_poverenika.model.obavestenje;
+package rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -207,11 +207,11 @@ public class Obavestenje {
 
     /**
      * Gets the value of the informacijeOObavestenju property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Obavestenje.InformacijeOObavestenju }
-     *     
+     *
      */
     public Obavestenje.InformacijeOObavestenju getInformacijeOObavestenju() {
         return informacijeOObavestenju;
@@ -219,11 +219,11 @@ public class Obavestenje {
 
     /**
      * Sets the value of the informacijeOObavestenju property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Obavestenje.InformacijeOObavestenju }
-     *     
+     *
      */
     public void setInformacijeOObavestenju(Obavestenje.InformacijeOObavestenju value) {
         this.informacijeOObavestenju = value;
@@ -231,11 +231,11 @@ public class Obavestenje {
 
     /**
      * Gets the value of the tekstObavestenja property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Obavestenje.TekstObavestenja }
-     *     
+     *
      */
     public Obavestenje.TekstObavestenja getTekstObavestenja() {
         return tekstObavestenja;
@@ -243,11 +243,11 @@ public class Obavestenje {
 
     /**
      * Sets the value of the tekstObavestenja property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Obavestenje.TekstObavestenja }
-     *     
+     *
      */
     public void setTekstObavestenja(Obavestenje.TekstObavestenja value) {
         this.tekstObavestenja = value;
@@ -256,9 +256,9 @@ public class Obavestenje {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -318,8 +318,8 @@ public class Obavestenje {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -347,11 +347,11 @@ public class Obavestenje {
 
         /**
          * Gets the value of the id property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getId() {
             return id;
@@ -359,11 +359,11 @@ public class Obavestenje {
 
         /**
          * Sets the value of the id property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setId(String value) {
             this.id = value;
@@ -371,11 +371,11 @@ public class Obavestenje {
 
         /**
          * Gets the value of the brojPredmeta property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link Obavestenje.InformacijeOObavestenju.BrojPredmeta }
-         *     
+         *
          */
         public Obavestenje.InformacijeOObavestenju.BrojPredmeta getBrojPredmeta() {
             return brojPredmeta;
@@ -383,11 +383,11 @@ public class Obavestenje {
 
         /**
          * Sets the value of the brojPredmeta property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link Obavestenje.InformacijeOObavestenju.BrojPredmeta }
-         *     
+         *
          */
         public void setBrojPredmeta(Obavestenje.InformacijeOObavestenju.BrojPredmeta value) {
             this.brojPredmeta = value;
@@ -395,11 +395,11 @@ public class Obavestenje {
 
         /**
          * Gets the value of the organVlasti property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link Obavestenje.InformacijeOObavestenju.OrganVlasti }
-         *     
+         *
          */
         public Obavestenje.InformacijeOObavestenju.OrganVlasti getOrganVlasti() {
             return organVlasti;
@@ -407,11 +407,11 @@ public class Obavestenje {
 
         /**
          * Sets the value of the organVlasti property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link Obavestenje.InformacijeOObavestenju.OrganVlasti }
-         *     
+         *
          */
         public void setOrganVlasti(Obavestenje.InformacijeOObavestenju.OrganVlasti value) {
             this.organVlasti = value;
@@ -419,11 +419,11 @@ public class Obavestenje {
 
         /**
          * Gets the value of the podnosilacZahteva property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link Obavestenje.InformacijeOObavestenju.PodnosilacZahteva }
-         *     
+         *
          */
         public Obavestenje.InformacijeOObavestenju.PodnosilacZahteva getPodnosilacZahteva() {
             return podnosilacZahteva;
@@ -431,11 +431,11 @@ public class Obavestenje {
 
         /**
          * Sets the value of the podnosilacZahteva property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link Obavestenje.InformacijeOObavestenju.PodnosilacZahteva }
-         *     
+         *
          */
         public void setPodnosilacZahteva(Obavestenje.InformacijeOObavestenju.PodnosilacZahteva value) {
             this.podnosilacZahteva = value;
@@ -443,11 +443,11 @@ public class Obavestenje {
 
         /**
          * Gets the value of the datumObavestenja property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link Obavestenje.InformacijeOObavestenju.DatumObavestenja }
-         *     
+         *
          */
         public Obavestenje.InformacijeOObavestenju.DatumObavestenja getDatumObavestenja() {
             return datumObavestenja;
@@ -455,11 +455,11 @@ public class Obavestenje {
 
         /**
          * Sets the value of the datumObavestenja property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link Obavestenje.InformacijeOObavestenju.DatumObavestenja }
-         *     
+         *
          */
         public void setDatumObavestenja(Obavestenje.InformacijeOObavestenju.DatumObavestenja value) {
             this.datumObavestenja = value;
@@ -467,11 +467,11 @@ public class Obavestenje {
 
         /**
          * Gets the value of the dostavljeno property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link Obavestenje.InformacijeOObavestenju.Dostavljeno }
-         *     
+         *
          */
         public Obavestenje.InformacijeOObavestenju.Dostavljeno getDostavljeno() {
             return dostavljeno;
@@ -479,11 +479,11 @@ public class Obavestenje {
 
         /**
          * Sets the value of the dostavljeno property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link Obavestenje.InformacijeOObavestenju.Dostavljeno }
-         *     
+         *
          */
         public void setDostavljeno(Obavestenje.InformacijeOObavestenju.Dostavljeno value) {
             this.dostavljeno = value;
@@ -492,9 +492,9 @@ public class Obavestenje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;simpleContent>
@@ -504,8 +504,8 @@ public class Obavestenje {
          *   &lt;/simpleContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -520,11 +520,11 @@ public class Obavestenje {
 
             /**
              * Gets the value of the value property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getValue() {
                 return value;
@@ -532,11 +532,11 @@ public class Obavestenje {
 
             /**
              * Sets the value of the value property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setValue(String value) {
                 this.value = value;
@@ -544,15 +544,15 @@ public class Obavestenje {
 
             /**
              * Gets a map that contains attributes that aren't bound to any typed property on this class.
-             * 
+             *
              * <p>
-             * the map is keyed by the name of the attribute and 
+             * the map is keyed by the name of the attribute and
              * the value is the string value of the attribute.
-             * 
+             *
              * the map returned by this method is live, and you can add new attribute
              * by updating the map directly. Because of this design, there's no setter.
-             * 
-             * 
+             *
+             *
              * @return
              *     always non-null
              */
@@ -565,9 +565,9 @@ public class Obavestenje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;simpleContent>
@@ -577,8 +577,8 @@ public class Obavestenje {
          *   &lt;/simpleContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -593,11 +593,11 @@ public class Obavestenje {
 
             /**
              * Gets the value of the value property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getValue() {
                 return value;
@@ -605,11 +605,11 @@ public class Obavestenje {
 
             /**
              * Sets the value of the value property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setValue(String value) {
                 this.value = value;
@@ -617,15 +617,15 @@ public class Obavestenje {
 
             /**
              * Gets a map that contains attributes that aren't bound to any typed property on this class.
-             * 
+             *
              * <p>
-             * the map is keyed by the name of the attribute and 
+             * the map is keyed by the name of the attribute and
              * the value is the string value of the attribute.
-             * 
+             *
              * the map returned by this method is live, and you can add new attribute
              * by updating the map directly. Because of this design, there's no setter.
-             * 
-             * 
+             *
+             *
              * @return
              *     always non-null
              */
@@ -638,9 +638,9 @@ public class Obavestenje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -653,8 +653,8 @@ public class Obavestenje {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -670,11 +670,11 @@ public class Obavestenje {
 
             /**
              * Gets the value of the imenovanom property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getImenovanom() {
                 return imenovanom;
@@ -682,11 +682,11 @@ public class Obavestenje {
 
             /**
              * Sets the value of the imenovanom property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setImenovanom(String value) {
                 this.imenovanom = value;
@@ -694,11 +694,11 @@ public class Obavestenje {
 
             /**
              * Gets the value of the arhivi property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getArhivi() {
                 return arhivi;
@@ -706,11 +706,11 @@ public class Obavestenje {
 
             /**
              * Sets the value of the arhivi property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setArhivi(String value) {
                 this.arhivi = value;
@@ -721,9 +721,9 @@ public class Obavestenje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -733,8 +733,8 @@ public class Obavestenje {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
@@ -747,15 +747,15 @@ public class Obavestenje {
 
             /**
              * Gets a map that contains attributes that aren't bound to any typed property on this class.
-             * 
+             *
              * <p>
-             * the map is keyed by the name of the attribute and 
+             * the map is keyed by the name of the attribute and
              * the value is the string value of the attribute.
-             * 
+             *
              * the map returned by this method is live, and you can add new attribute
              * by updating the map directly. Because of this design, there's no setter.
-             * 
-             * 
+             *
+             *
              * @return
              *     always non-null
              */
@@ -768,9 +768,9 @@ public class Obavestenje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -780,8 +780,8 @@ public class Obavestenje {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
@@ -794,15 +794,15 @@ public class Obavestenje {
 
             /**
              * Gets a map that contains attributes that aren't bound to any typed property on this class.
-             * 
+             *
              * <p>
-             * the map is keyed by the name of the attribute and 
+             * the map is keyed by the name of the attribute and
              * the value is the string value of the attribute.
-             * 
+             *
              * the map returned by this method is live, and you can add new attribute
              * by updating the map directly. Because of this design, there's no setter.
-             * 
-             * 
+             *
+             *
              * @return
              *     always non-null
              */
@@ -817,9 +817,9 @@ public class Obavestenje {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -907,8 +907,8 @@ public class Obavestenje {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -920,15 +920,15 @@ public class Obavestenje {
         @XmlElement(required = true)
         protected String naslov;
         @XmlElement(required = true)
-        protected List<Obavestenje.TekstObavestenja.P> p;
+        protected List<P> p;
 
         /**
          * Gets the value of the naslov property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getNaslov() {
             return naslov;
@@ -936,11 +936,11 @@ public class Obavestenje {
 
         /**
          * Sets the value of the naslov property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setNaslov(String value) {
             this.naslov = value;
@@ -948,29 +948,29 @@ public class Obavestenje {
 
         /**
          * Gets the value of the p property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the p property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getP().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Obavestenje.TekstObavestenja.P }
-         * 
-         * 
+         *
+         *
          */
-        public List<Obavestenje.TekstObavestenja.P> getP() {
+        public List<P> getP() {
             if (p == null) {
-                p = new ArrayList<Obavestenje.TekstObavestenja.P>();
+                p = new ArrayList<P>();
             }
             return this.p;
         }
@@ -978,9 +978,9 @@ public class Obavestenje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -1057,8 +1057,8 @@ public class Obavestenje {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -1079,20 +1079,20 @@ public class Obavestenje {
 
             /**
              * Gets the value of the content property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the content property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getContent().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link JAXBElement }{@code <}{@link Obavestenje.TekstObavestenja.P.VremeUvida }{@code >}

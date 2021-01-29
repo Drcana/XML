@@ -75,4 +75,10 @@ public class ZahtevController {
     public ResponseEntity<byte[]> generateHTML(@PathVariable("id") String documentId) {
         return new ResponseEntity<>(service.generateHTML(documentId), HttpStatus.OK);
     }
+
+    @PostMapping("/reject/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<String> reject(@PathVariable("id") String documentId, Authentication authentication) {
+        return new ResponseEntity<>(service.reject(documentId, authentication), HttpStatus.OK);
+    }
 }

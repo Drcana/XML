@@ -6,7 +6,7 @@
 //
 
 
-package rs.ac.uns.ftn.portal_poverenika.model.obavestenje;
+package rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,25 +15,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TFIzicko_Lice complex type.
+ * <p>Java class for TPravno_Lice complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TFIzicko_Lice">
+ * &lt;complexType name="TPravno_Lice">
  *   &lt;complexContent>
  *     &lt;extension base="{obavestenje}TLice">
  *       &lt;sequence>
- *         &lt;element name="ime">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                 &lt;anyAttribute processContents='lax'/>
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="prezime">
+ *         &lt;element name="naziv">
  *           &lt;complexType>
  *             &lt;simpleContent>
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
@@ -51,11 +42,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TFIzicko_Lice")
+@XmlType(name = "TPravno_Lice")
 @XmlSeeAlso({
-    Obavestenje.InformacijeOObavestenju.PodnosilacZahteva.class
+    Obavestenje.InformacijeOObavestenju.OrganVlasti.class
 })
-public class TFIzickoLice
+public class TPravnoLice
     extends TLice
 {
 

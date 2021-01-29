@@ -13,6 +13,6 @@
                 namespaceURI="obavestenje"),
                 @XmlNs(prefix="pred", namespaceURI = "http://examples/predicate/"),
                 @XmlNs(prefix="xsi", namespaceURI = "http://www.w3.org/2001/XMLSchema-instance")})
-package rs.ac.uns.ftn.portal_poverenika.model.obavestenje;
+package rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlNs;

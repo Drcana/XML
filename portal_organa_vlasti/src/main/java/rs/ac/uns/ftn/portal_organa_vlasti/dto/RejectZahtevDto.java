@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.email_service.dto;
+package rs.ac.uns.ftn.portal_organa_vlasti.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -6,9 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ObavestenjeEmailDto {
-
-    private byte[] file;
+public class RejectZahtevDto {
 
     private String receiverEmail;
 
@@ -16,9 +14,13 @@ public class ObavestenjeEmailDto {
 
     private String zahtevId;
 
-    private boolean pdfFile;
+    public RejectZahtevDto() {
+    }
 
-    public ObavestenjeEmailDto() {
+    public RejectZahtevDto(String receiverEmail, String senderEmail, String zahtevId) {
+        this.receiverEmail = receiverEmail;
+        this.senderEmail = senderEmail;
+        this.zahtevId = zahtevId;
     }
 
     public String getReceiverEmail() {
@@ -37,27 +39,11 @@ public class ObavestenjeEmailDto {
         this.senderEmail = senderEmail;
     }
 
-    public byte[] getFile() {
-        return file;
-    }
-
-    public void setFile(byte[] file) {
-        this.file = file;
-    }
-
     public String getZahtevId() {
         return zahtevId;
     }
 
     public void setZahtevId(String zahtevId) {
         this.zahtevId = zahtevId;
-    }
-
-    public boolean isPdfFile() {
-        return pdfFile;
-    }
-
-    public void setPdfFile(boolean pdfFile) {
-        this.pdfFile = pdfFile;
     }
 }

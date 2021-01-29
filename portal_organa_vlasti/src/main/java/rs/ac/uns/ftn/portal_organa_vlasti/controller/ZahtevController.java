@@ -76,6 +76,12 @@ public class ZahtevController {
         return new ResponseEntity<>(service.generateHTML(documentId), HttpStatus.OK);
     }
 
+    @GetMapping("/generate/pdf/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
+    }
+
     @PostMapping("/reject/{id}")
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<String> reject(@PathVariable("id") String documentId, Authentication authentication) {

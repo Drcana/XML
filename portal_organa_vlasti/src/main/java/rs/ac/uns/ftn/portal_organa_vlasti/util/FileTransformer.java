@@ -45,27 +45,19 @@ public class FileTransformer {
 
     private static TransformerFactory transformerFactory;
 
-    private static final String XSL_FO_FILE = "src/main/resources/static/data/xsl/zahtev_fo.xsl";
-
     private static final String FOP_FACTORY_PATH = "src/main/resources/fop.xconf";
 
     public FileTransformer() throws SAXException, IOException {
 
         // Initialize FOP factory object
         fopFactory = FopFactory.newInstance(new File(FOP_FACTORY_PATH));
-
-        // Setup the XSLT transformer factory
-        transformerFactory = new TransformerFactoryImpl();
-
+        transformerFactory = TransformerFactory.newInstance();
 
         /* Inicijalizacija DOM fabrike */
         documentFactory = DocumentBuilderFactory.newInstance();
         documentFactory.setNamespaceAware(true);
         documentFactory.setIgnoringComments(true);
         documentFactory.setIgnoringElementContentWhitespace(true);
-
-        /* Inicijalizacija Transformer fabrike */
-//		transformerFactory = TransformerFactory.newInstance();
     }
 
     private Document buildDocument(String filePath) {
@@ -102,10 +94,10 @@ public class FileTransformer {
         }
     }
 
-    private void generatePDF(String xmlDocument, String outputFilePath) throws Exception {
+    public void generatePDF(String xmlDocument, String xslFoFilePath, String outputFilePath) throws Exception {
 
         // Point to the XSL-FO file
-        File xslFile = new File(XSL_FO_FILE);
+        File xslFile = new File(xslFoFilePath);
 
         // Create transformation source
         StreamSource transformSource = new StreamSource(xslFile);
@@ -147,7 +139,5 @@ public class FileTransformer {
         out.close();
 
         System.out.println("[INFO] End.");
-
     }
-
 }

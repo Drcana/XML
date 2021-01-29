@@ -48,7 +48,11 @@ public class ZahtevService {
      */
     private static final String XSL_FILE_PATH = "src/main/resources/static/data/xsl/zahtev.xsl";
 
+    private static final String XSL_FO_FILE_PATH = "src/main/resources/static/data/xsl/zahtev_fo.xsl";
+
     private static final String XHTML_FILE_PATH = "src/main/resources/static/data/html/zahtev";
+
+    private static final String PDF_FILE_PATH = "src/main/resources/static/data/pdf/zahtev";
 
     @Autowired
     private JAXBService jaxbService;
@@ -148,5 +152,27 @@ public class ZahtevService {
                 new RejectZahtevDto(dokumentZahtev.getUserId(), getEmailOfLoggedUser(authentication), documentId);
 
         return restTemplateService.rejectZahtev(rejectZahtevDto);
+    }
+
+    public byte[] generatePDF(String documentId) {
+
+        FileTransformer transformer;
+
+        String xmlObject = getZahtevAsString(documentId);
+
+        String pdfPath = String.format("%s_%s.pdf", PDF_FILE_PATH, documentId);
+
+        boolean created= true;
+        try {
+            transformer = new FileTransformer();
+            transformer.generatePDF(xmlObject, XSL_FO_FILE_PATH, pdfPath);
+            if (created) {
+                return convertFileToBytes(pdfPath);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+
+        return null;
     }
 }

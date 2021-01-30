@@ -1,19 +1,29 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeEmailDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
+import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
+import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.Status;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.ObavestenjeRepository;
+import rs.ac.uns.ftn.portal_organa_vlasti.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -29,11 +39,26 @@ public class ObavestenjeService {
 
     private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_poverenika.model.obavestenje";
 
+
+    private static final String XSL_FILE_PATH = "src/main/resources/static/data/xsl/obavestenje.xsl";
+
+    private static final String XSL_FO_FILE_PATH = "src/main/resources/static/data/xsl/obavestenje_fo.xsl";
+
+    private static final String XHTML_FILE_PATH = "src/main/resources/static/data/html/obavestenje";
+
+    private static final String PDF_FILE_PATH = "src/main/resources/static/data/pdf/obavestenje";
+
     @Autowired
     private JAXBService jaxbService;
 
     @Autowired
     private ObavestenjeRepository obavestenjeRepository;
+
+    @Autowired
+    private RestTemplateService restTemplateService;
+
+    @Autowired
+    private ZahtevService zahtevService;
 
     public String parseXmlObavestenje() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
@@ -77,6 +102,87 @@ public class ObavestenjeService {
 
     public ObavestenjeCollection getAllByUserId(Authentication authentication) {
         return obavestenjeRepository.getAllByUserId(getEmailOfLoggedUser(authentication));
+    }
+
+    public byte[] generateHTML(String documentId) {
+        FileTransformer transformer;
+
+        String xmlObject = getObavestenjeAsString(documentId);
+
+        String htmlPath = String.format("%s_%s.html", XHTML_FILE_PATH, documentId);
+
+        try {
+            transformer = new FileTransformer();
+            if (transformer.generateHTML(xmlObject, XSL_FILE_PATH, htmlPath)) {
+                return convertFileToBytes(htmlPath);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+
+        return null;
+    }
+
+    private String getObavestenjeAsString(String documentId) {
+        Obavestenje obavestenje = obavestenjeRepository.get(documentId);
+        StringWriter stringWriter = new StringWriter();
+        JAXB.marshal(obavestenje, stringWriter);
+
+        return stringWriter.toString();
+    }
+
+    private byte[] convertFileToBytes(String generatedFilePath) throws IOException {
+        return FileUtils.readFileToByteArray(new File(generatedFilePath));
+    }
+
+    public byte[] generatePDF(String documentId) {
+
+        FileTransformer transformer;
+
+        String xmlObject = getObavestenjeAsString(documentId);
+
+        String pdfPath = String.format("%s_%s.pdf", PDF_FILE_PATH, documentId);
+
+        try {
+            transformer = new FileTransformer();
+            if (transformer.generatePDF(xmlObject, XSL_FO_FILE_PATH, pdfPath)) {
+                return convertFileToBytes(pdfPath);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+
+        return null;
+    }
+
+    public String sendResponseToUser(ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication) {
+        String obavestenjeId = obavestenjeNotificationDto.getObavestenjeId();
+        boolean isPdfFormat = obavestenjeNotificationDto.getPdfFile();
+
+//        byte[] generatedFile = isPdfFormat ? generatePDF(obavestenjeId) : generateHTML(obavestenjeId);
+        byte[] generatedFile;
+
+        try {
+            generatedFile = isPdfFormat ? convertFileToBytes("src/main/resources/static/data/pdf/example.pdf")
+                    : convertFileToBytes("src/main/resources/static/data/html/example.html");
+        } catch (IOException ex) {
+            return "";
+        }
+
+        Obavestenje obavestenje = get(obavestenjeId);
+        DokumentZahtev dokumentZahtev = zahtevService.get(obavestenje.getZahtevId());
+        dokumentZahtev.setStatus(Status.FINISHED);
+        //TODO:: UPDATE
+
+        ObavestenjeEmailDto obavestenjeEmailDto = new ObavestenjeEmailDto();
+
+        obavestenjeEmailDto.setSenderEmail(getEmailOfLoggedUser(authentication));
+        obavestenjeEmailDto.setPdfFile(isPdfFormat);
+        obavestenjeEmailDto.setFile(generatedFile);
+        obavestenjeEmailDto.setReceiverEmail(dokumentZahtev.getUserId());
+        obavestenjeEmailDto.setZahtevId(dokumentZahtev.getId());
+
+        return restTemplateService.sendResponseToUser(obavestenjeEmailDto);
     }
 
 }

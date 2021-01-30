@@ -6,7 +6,8 @@
                 xmlns:pred="http://examples/predicate/" xmlns:ob="http://www.ftn.uns.ac.rs/obavestenje"
                 xmlns:types="http://www.ftn.uns.ac.rs/types"
                 about="http://www.ftn.uns.ac.rs/obavestenje/1"
-                id="1" userId="test@gmail.com" datum="2021-01-01">
+                id="1" userId="test@gmail.com" datum="2021-01-01"
+                zahtevId = "">
 
     <ob:informacije_o_obavestenju>
         <ob:organ_vlasti>

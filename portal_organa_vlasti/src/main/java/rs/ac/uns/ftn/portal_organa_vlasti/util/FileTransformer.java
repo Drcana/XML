@@ -94,50 +94,54 @@ public class FileTransformer {
         }
     }
 
-    public void generatePDF(String xmlDocument, String xslFoFilePath, String outputFilePath) throws Exception {
+    public boolean generatePDF(String xmlDocument, String xslFoFilePath, String outputFilePath) throws Exception {
 
-        // Point to the XSL-FO file
-        File xslFile = new File(xslFoFilePath);
+        try {
+            // Point to the XSL-FO file
+            File xslFile = new File(xslFoFilePath);
 
-        // Create transformation source
-        StreamSource transformSource = new StreamSource(xslFile);
+            // Create transformation source
+            StreamSource transformSource = new StreamSource(xslFile);
 
-        StringReader stringReader = new StringReader(xmlDocument);
+            StringReader stringReader = new StringReader(xmlDocument);
 
-        // Initialize the transformation subject
-        StreamSource source = new StreamSource(stringReader);
+            // Initialize the transformation subject
+            StreamSource source = new StreamSource(stringReader);
 
-        // Initialize user agent needed for the transformation
-        FOUserAgent userAgent = fopFactory.newFOUserAgent();
+            // Initialize user agent needed for the transformation
+            FOUserAgent userAgent = fopFactory.newFOUserAgent();
 
-        // Create the output stream to store the results
-        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+            // Create the output stream to store the results
+            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 
-        // Initialize the XSL-FO transformer object
-        Transformer xslFoTransformer = transformerFactory.newTransformer(transformSource);
+            // Initialize the XSL-FO transformer object
+            Transformer xslFoTransformer = transformerFactory.newTransformer(transformSource);
 
-        // Construct FOP instance with desired output format
-        Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, userAgent, outStream);
+            // Construct FOP instance with desired output format
+            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, userAgent, outStream);
 
-        // Resulting SAX events
-        Result res = new SAXResult(fop.getDefaultHandler());
+            // Resulting SAX events
+            Result res = new SAXResult(fop.getDefaultHandler());
 
-        // Start XSLT transformation and FOP processing
-        xslFoTransformer.transform(source, res);
+            // Start XSLT transformation and FOP processing
+            xslFoTransformer.transform(source, res);
 
-        // Generate PDF file
-        File pdfFile = new File(outputFilePath);
-        if (!pdfFile.getParentFile().exists()) {
-            System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
-            pdfFile.getParentFile().mkdir();
+            // Generate PDF file
+            File pdfFile = new File(outputFilePath);
+            if (!pdfFile.getParentFile().exists()) {
+                System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
+                pdfFile.getParentFile().mkdir();
+            }
+
+            OutputStream out = new BufferedOutputStream(new FileOutputStream(pdfFile));
+            out.write(outStream.toByteArray());
+
+            System.out.println("[INFO] File \"" + pdfFile.getCanonicalPath() + "\" generated successfully.");
+            out.close();
+
+            return true;
+        } catch (Exception ex) {
+            return false;
         }
-
-        OutputStream out = new BufferedOutputStream(new FileOutputStream(pdfFile));
-        out.write(outStream.toByteArray());
-
-        System.out.println("[INFO] File \"" + pdfFile.getCanonicalPath() + "\" generated successfully.");
-        out.close();
-
-        System.out.println("[INFO] End.");
     }
 }

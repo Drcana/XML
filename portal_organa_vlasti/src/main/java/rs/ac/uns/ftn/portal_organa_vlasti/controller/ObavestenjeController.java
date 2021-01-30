@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.ObavestenjeService;
 
@@ -40,7 +41,6 @@ public class ObavestenjeController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<DocumentDto> create(@RequestBody Obavestenje obavestenje, Authentication authentication) throws Exception {
         return new ResponseEntity<>(service.create(obavestenje, authentication), HttpStatus.CREATED);
     }
@@ -60,5 +60,25 @@ public class ObavestenjeController {
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<ObavestenjeCollection> getAllByUserId(Authentication authentication) {
         return new ResponseEntity<>(service.getAllByUserId(authentication), HttpStatus.OK);
+    }
+
+    @GetMapping("/generate/html/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generateHTML(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generateHTML(documentId), HttpStatus.OK);
+    }
+
+    @GetMapping("/generate/pdf/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/sendResponse", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
+    public ResponseEntity<String> sendResponseToUser(
+            @RequestBody ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication) {
+
+        return new ResponseEntity<>(service.sendResponseToUser(obavestenjeNotificationDto, authentication), HttpStatus.OK);
     }
 }

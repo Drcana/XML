@@ -45,8 +45,8 @@ public class EmailService {
             helper.setSubject(OBAVESTENJE_SUBJECT);
             helper.setText(
                     "Poštovani, " +
-                            "\n\nOdgovor na Vaš zahtev = \"" + obavestenjeEmailDto.getZahtevId() + "\"se nalazi u prilogu. " +
-                            "\n\nSrdačan pozdrav");
+                            "\n\nOdgovor na Vaš zahtev = \"" + obavestenjeEmailDto.getZahtevId() + "\" se nalazi u prilogu. " +
+                            "\n\nSrdačan pozdrav!");
 
             helper.addAttachment(obavestenjeEmailDto.isPdfFile() ? OBAVESTENJE_PDF_NAME : OBAVESTENJE_HTML_NAME,
                     new ByteArrayResource(obavestenjeEmailDto.getFile()));

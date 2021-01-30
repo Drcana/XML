@@ -119,11 +119,9 @@ public class ZahtevService {
 
         String htmlPath = String.format("%s_%s.html", XHTML_FILE_PATH, documentId);
 
-        boolean created;
         try {
             transformer = new FileTransformer();
-            created = transformer.generateHTML(xmlObject, XSL_FILE_PATH, htmlPath);
-            if (created) {
+            if (transformer.generateHTML(xmlObject, XSL_FILE_PATH, htmlPath)) {
                 return convertFileToBytes(htmlPath);
             }
         } catch (Exception e) {
@@ -162,11 +160,9 @@ public class ZahtevService {
 
         String pdfPath = String.format("%s_%s.pdf", PDF_FILE_PATH, documentId);
 
-        boolean created= true;
         try {
             transformer = new FileTransformer();
-            transformer.generatePDF(xmlObject, XSL_FO_FILE_PATH, pdfPath);
-            if (created) {
+            if (transformer.generatePDF(xmlObject, XSL_FO_FILE_PATH, pdfPath)) {
                 return convertFileToBytes(pdfPath);
             }
         } catch (Exception e) {

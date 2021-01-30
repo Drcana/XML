@@ -36,9 +36,9 @@
                 <xs:element name="role">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="GRADJANIN"/>
-                            <xs:enumeration value="SLUZBENIK"/>
-                            <xs:enumeration value="POVERENIK"/>
+                            <xs:enumeration value="ROLE_GRADJANIN"/>
+                            <xs:enumeration value="ROLE_SLUZBENIK"/>
+                            <xs:enumeration value="ROLE_POVERENIK"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>

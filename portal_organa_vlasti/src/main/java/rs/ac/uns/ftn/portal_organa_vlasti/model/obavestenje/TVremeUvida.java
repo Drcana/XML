@@ -15,28 +15,47 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java class for TTekst complex type.
+ * <p>Java class for TVremeUvida complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TTekst">
+ * &lt;complexType name="TVremeUvida">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="p" maxOccurs="unbounded">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
+ *         &lt;element name="sati" minOccurs="0">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;minLength value="2"/>
+ *               &lt;maxLength value="5"/>
+ *               &lt;pattern value="\d{2}:\d{2}"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="od" minOccurs="0">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;minLength value="2"/>
+ *               &lt;maxLength value="5"/>
+ *               &lt;pattern value="\d{2}:\d{2}"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="do" minOccurs="0">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;minLength value="2"/>
+ *               &lt;maxLength value="5"/>
+ *               &lt;pattern value="\d{2}:\d{2}"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
  *         &lt;/element>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -47,12 +66,16 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TTekst", propOrder = {
+@XmlType(name = "TVremeUvida", namespace = "http://www.ftn.uns.ac.rs/obavestenje", propOrder = {
     "content"
 })
-public class TTekst {
+public class TVremeUvida {
 
-    @XmlElementRef(name = "p", namespace = "http://www.ftn.uns.ac.rs/types", type = JAXBElement.class)
+    @XmlElementRefs({
+        @XmlElementRef(name = "do", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "od", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "sati", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class, required = false)
+    })
     @XmlMixed
     protected List<Serializable> content;
 
@@ -75,7 +98,9 @@ public class TTekst {
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * {@link JAXBElement }{@code <}{@link TTekst.P }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * 
      */
@@ -84,58 +109,6 @@ public class TTekst {
             content = new ArrayList<Serializable>();
         }
         return this.content;
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "content"
-    })
-    public static class P {
-
-        @XmlValue
-        protected String content;
-
-        /**
-         * Gets the value of the content property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getContent() {
-            return content;
-        }
-
-        /**
-         * Sets the value of the content property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setContent(String value) {
-            this.content = value;
-        }
-
     }
 
 }

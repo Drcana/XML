@@ -9,35 +9,30 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java class for TTekst complex type.
+ * <p>Java class for TMestoUvida complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TTekst">
+ * &lt;complexType name="TMestoUvida">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="p" maxOccurs="unbounded">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
+ *         &lt;element name="adresa" type="{http://www.ftn.uns.ac.rs/types}TAdresa"/>
+ *         &lt;element name="broj_kancelarije" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -47,12 +42,15 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TTekst", propOrder = {
+@XmlType(name = "TMestoUvida", namespace = "http://www.ftn.uns.ac.rs/obavestenje", propOrder = {
     "content"
 })
-public class TTekst {
+public class TMestoUvida {
 
-    @XmlElementRef(name = "p", namespace = "http://www.ftn.uns.ac.rs/types", type = JAXBElement.class)
+    @XmlElementRefs({
+        @XmlElementRef(name = "broj_kancelarije", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class),
+        @XmlElementRef(name = "adresa", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class)
+    })
     @XmlMixed
     protected List<Serializable> content;
 
@@ -74,8 +72,9 @@ public class TTekst {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link TAdresa }{@code >}
      * {@link String }
-     * {@link JAXBElement }{@code <}{@link TTekst.P }{@code >}
+     * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
      * 
      * 
      */
@@ -84,58 +83,6 @@ public class TTekst {
             content = new ArrayList<Serializable>();
         }
         return this.content;
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "content"
-    })
-    public static class P {
-
-        @XmlValue
-        protected String content;
-
-        /**
-         * Gets the value of the content property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getContent() {
-            return content;
-        }
-
-        /**
-         * Sets the value of the content property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setContent(String value) {
-            this.content = value;
-        }
-
     }
 
 }

@@ -28,16 +28,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * <p>Java class for TMesto_Datum complex type.
+ * <p>Java class for TInformacijeOZalbi complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TMesto_Datum">
+ * &lt;complexType name="TInformacijeOZalbi">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="mesto">
+ *         &lt;element name="organ_vlasti" type="{http://www.ftn.uns.ac.rs/types}TPravno_Lice"/>
+ *         &lt;element name="broj_predmeta">
  *           &lt;complexType>
  *             &lt;simpleContent>
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
@@ -46,7 +47,7 @@ import javax.xml.namespace.QName;
  *             &lt;/simpleContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="datum">
+ *         &lt;element name="datum_obavestenja">
  *           &lt;complexType>
  *             &lt;simpleContent>
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
@@ -55,6 +56,7 @@ import javax.xml.namespace.QName;
  *             &lt;/simpleContent>
  *           &lt;/complexType>
  *         &lt;/element>
+ *         &lt;element name="podnosilac_zahteva" type="{http://www.ftn.uns.ac.rs/types}TFIzicko_Lice"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -64,14 +66,16 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TMesto_Datum", propOrder = {
+@XmlType(name = "TInformacijeOZalbi", namespace = "http://www.ftn.uns.ac.rs/obavestenje", propOrder = {
     "content"
 })
-public class TMestoDatum {
+public class TInformacijeOZalbi {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "datum", namespace = "http://www.ftn.uns.ac.rs/types", type = JAXBElement.class),
-        @XmlElementRef(name = "mesto", namespace = "http://www.ftn.uns.ac.rs/types", type = JAXBElement.class)
+        @XmlElementRef(name = "broj_predmeta", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class),
+        @XmlElementRef(name = "podnosilac_zahteva", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class),
+        @XmlElementRef(name = "datum_obavestenja", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class),
+        @XmlElementRef(name = "organ_vlasti", namespace = "http://www.ftn.uns.ac.rs/obavestenje", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -94,9 +98,11 @@ public class TMestoDatum {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TMestoDatum.Datum }{@code >}
+     * {@link JAXBElement }{@code <}{@link TInformacijeOZalbi.DatumObavestenja }{@code >}
      * {@link String }
-     * {@link JAXBElement }{@code <}{@link TMestoDatum.Mesto }{@code >}
+     * {@link JAXBElement }{@code <}{@link TInformacijeOZalbi.BrojPredmeta }{@code >}
+     * {@link JAXBElement }{@code <}{@link TFIzickoLice }{@code >}
+     * {@link JAXBElement }{@code <}{@link TPravnoLice }{@code >}
      * 
      * 
      */
@@ -116,7 +122,7 @@ public class TMestoDatum {
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
      *       &lt;anyAttribute processContents='lax'/>
      *     &lt;/extension>
      *   &lt;/simpleContent>
@@ -129,11 +135,10 @@ public class TMestoDatum {
     @XmlType(name = "", propOrder = {
         "value"
     })
-    public static class Datum {
+    public static class BrojPredmeta {
 
         @XmlValue
-        @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar value;
+        protected String value;
         @XmlAnyAttribute
         private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -142,10 +147,10 @@ public class TMestoDatum {
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getValue() {
+        public String getValue() {
             return value;
         }
 
@@ -154,10 +159,10 @@ public class TMestoDatum {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setValue(XMLGregorianCalendar value) {
+        public void setValue(String value) {
             this.value = value;
         }
 
@@ -190,7 +195,7 @@ public class TMestoDatum {
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
      *       &lt;anyAttribute processContents='lax'/>
      *     &lt;/extension>
      *   &lt;/simpleContent>
@@ -203,10 +208,11 @@ public class TMestoDatum {
     @XmlType(name = "", propOrder = {
         "value"
     })
-    public static class Mesto {
+    public static class DatumObavestenja {
 
         @XmlValue
-        protected String value;
+        @XmlSchemaType(name = "date")
+        protected XMLGregorianCalendar value;
         @XmlAnyAttribute
         private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -215,10 +221,10 @@ public class TMestoDatum {
          * 
          * @return
          *     possible object is
-         *     {@link String }
+         *     {@link XMLGregorianCalendar }
          *     
          */
-        public String getValue() {
+        public XMLGregorianCalendar getValue() {
             return value;
         }
 
@@ -227,10 +233,10 @@ public class TMestoDatum {
          * 
          * @param value
          *     allowed object is
-         *     {@link String }
+         *     {@link XMLGregorianCalendar }
          *     
          */
-        public void setValue(String value) {
+        public void setValue(XMLGregorianCalendar value) {
             this.value = value;
         }
 

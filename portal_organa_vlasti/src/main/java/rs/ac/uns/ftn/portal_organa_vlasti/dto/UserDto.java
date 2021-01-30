@@ -2,26 +2,20 @@ package rs.ac.uns.ftn.portal_organa_vlasti.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class UserDto {
 
-    @XmlElement
     private String email;
 
-    @XmlElement
     private String firstName;
 
-    @XmlElement
     private String lastName;
 
-    @XmlElement
     private String role;
 
-    @XmlElement
     private String token;
 
     public UserDto() {

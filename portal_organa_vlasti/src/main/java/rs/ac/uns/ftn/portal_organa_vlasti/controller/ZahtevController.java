@@ -40,7 +40,7 @@ public class ZahtevController {
         service.writeXmlZahtev(response);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<DocumentDto> create(@RequestBody DokumentZahtev dokumentZahtev, Authentication authentication) throws Exception {
         return new ResponseEntity<>(service.create(dokumentZahtev, authentication), HttpStatus.CREATED);

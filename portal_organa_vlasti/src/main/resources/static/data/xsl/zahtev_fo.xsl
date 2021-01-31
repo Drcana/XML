@@ -9,7 +9,7 @@
         <fo:root>
             <fo:layout-master-set>
                 <fo:simple-page-master master-name="zahtev_page">
-                    <fo:region-body margin-top="1in" margin-bottom="1in"
+                    <fo:region-body margin-top="0.5in" margin-bottom="0.5in"
                         margin-left="80pt" margin-right="80pt"/>
                 </fo:simple-page-master>
             </fo:layout-master-set>
@@ -29,63 +29,173 @@
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="14pt" font-weight="bold" 
                         text-align="center" margin-top="48pt">
-                        З А Х Т Е В 
+                        З А Х Т Е В
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="14pt" font-weight="bold" 
-                        text-align="center" margin-top="48pt">
+                        text-align="center" >
                         за приступ информацији од јавног значаја  
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="12pt"
                         text-align="justify" text-indent="4em" margin-top="28pt">
-                        На основу члана 15. ст. 1. Закона о слободном приступу информацијама од 
-                        јавног значаја („Службени гласник РС“, бр. 120/04, 54/07, 104/09 и 36/10), од горе
-                        наведеног органа захтевам:* 
+                        На основу члана 15. ст. 1. Закона о слободном приступу
+                        информацијама од јавног значаја („Службени гласник РС“, бр.
+                        120/04, 54/07, 104/09 и 36/10), од горе наведеног органа
+                        захтевам:* 
                     </fo:block>
-                        <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev">
-                            <fo:block text-indent="4em" font-size="12pt" font-family="Times New Roman" margin-top="12pt">
-                                <xsl:choose>
-                                    <xsl:when test="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin/@checked = 'true'">
-                                        <fo:inline font-size="12pt" font-family="MS Gothic">
-                                            ☑
-                                        </fo:inline>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <fo:inline font-size="12pt" font-family="MS Gothic">
-                                            ☐
-                                        </fo:inline>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                                <xsl:value-of select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev"/>
-                            </fo:block>
-                        </xsl:for-each>
-                        <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin">
-                            <fo:block text-indent="8em" font-size="12pt" font-family="Times New Roman">
-                                <xsl:choose>
-                                    <xsl:when test="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin/@checked = 'true'">
-                                        <fo:inline font-size="12pt" font-family="MS Gothic">
-                                            ☑
-                                        </fo:inline>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <fo:inline font-size="12pt" font-family="MS Gothic">
-                                            ☐
-                                        </fo:inline>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                                <xsl:value-of
-                                    select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin/@tip_dostave"/>
-                                <xsl:if test="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin[4]">
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[1]">
+                        <fo:block text-indent="4em" font-size="12pt" font-family="Times New Roman" margin-top="12pt">
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
                                     <fo:inline font-size="12pt" font-family="MS Gothic">
-                                        ________________________________
-                                        <xsl:value-of
-                                            select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin/zah:drugi_nacin"/>
+                                        ☑
                                     </fo:inline>
-                                </xsl:if>
-                            </fo:block>
-                        </xsl:for-each>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[1]"/>
+                        </fo:block>
+                    </xsl:for-each>
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[2]">
+                        <fo:block text-indent="4em" font-size="12pt" font-family="Times New Roman" >
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☑
+                                    </fo:inline>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[2]"/>
+                        </fo:block>
+                    </xsl:for-each>
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[3]">
+                        <fo:block text-indent="4em" font-size="12pt" font-family="Times New Roman">
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☑
+                                    </fo:inline>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[3]"/>
+                        </fo:block>
+                    </xsl:for-each>
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[4]">
+                        <fo:block text-indent="4em" font-size="12pt" font-family="Times New Roman" >
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☑
+                                    </fo:inline>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[4]/text()"/>
+                            <fo:inline font-size="12pt" font-family="Times New Roman"> **</fo:inline>
+                            
+                        </fo:block>
+                    </xsl:for-each>
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin[1]">
+                        <fo:block text-indent="8em" font-size="12pt" font-family="Times New Roman">
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☑
+                                    </fo:inline>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of
+                                select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[4]/zah:lista_nacina/zah:nacin[1]"/>
+                            
+                        </fo:block>
+                    </xsl:for-each>
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin[2]">
+                        <fo:block text-indent="8em" font-size="12pt" font-family="Times New Roman">
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☑
+                                    </fo:inline>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of
+                                select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[4]/zah:lista_nacina/zah:nacin[2]"/>
+                            
+                        </fo:block>
+                    </xsl:for-each>
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin[3]">
+                        <fo:block text-indent="8em" font-size="12pt" font-family="Times New Roman">
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☑
+                                    </fo:inline>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of
+                                select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[4]/zah:lista_nacina/zah:nacin[3]"/>
+                            
+                        </fo:block>
+                    </xsl:for-each>
+                    <xsl:for-each select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev/zah:lista_nacina/zah:nacin[4]">
+                        <fo:block text-indent="8em" font-size="12pt" font-family="Times New Roman">
+                            <xsl:choose>
+                                <xsl:when test="@checked = 'true'">
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☑
+                                    </fo:inline>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fo:inline font-size="12pt" font-family="MS Gothic">
+                                        ☐
+                                    </fo:inline>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of
+                                select="/zah:dokument_zahtev/zah:lista_zahteva/zah:zahtev[4]/zah:lista_nacina/zah:nacin[4]"/>
+                            ***
+                            <fo:inline font-size="12pt" font-family="Times New Roman" text-decoration="underline" >
+                                 
+                                <xsl:value-of select="/zah:dokument_zahtev/zah:lista_zahteva[1]/zah:zahtev[4]/zah:lista_nacina[1]/zah:nacin[4]/zah:drugi_nacin[1]/zah:sadrzaj[1]"/>
+                            </fo:inline>
+                        </fo:block>
+                    </xsl:for-each>
                     <fo:block font-family="Times New Roman" font-size="12pt"
                         text-align="justify" text-indent="4em" margin-top="12pt">
-                        Овај захтев се односи на следеће информације:
+                        Овај захтев се
+                        односи на следеће информације:
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="12pt"
                         text-align="justify" text-indent="4em" text-decoration="underline" margin-top="10pt">
@@ -93,21 +203,13 @@
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="9pt"
                         text-align="justify">
-                        (навести што прецизнији опис информације која се тражи као и друге податке који олакшавају проналажење
-                        тражене информације) 
-                    </fo:block>
-                    <fo:block font-family="Times New Roman" font-size="10pt"
-                        text-align="left" margin-top="-50pt"  text-decoration="underline">
-                        У 
-                        <xsl:value-of
-                            select="/zah:dokument_zahtev/zah:mesto_i_datum/types:mesto"/>
-                        ,
-                    </fo:block>
-                    <fo:block font-family="Times New Roman" font-size="10pt"
-                        text-align="left" margin-top="20pt"  text-decoration="underline">
-                        дана
-                        <xsl:value-of
-                            select="/zah:dokument_zahtev/zah:mesto_i_datum/types:datum"/>. године
+                        (навести што прецизнији опис
+                        информације која се
+                        тражи
+                        као
+                        и друге податке који олакшавају
+                        проналажење тражене
+                        информације)
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="10pt"
                         text-align="right" margin-top="27pt"  text-decoration="underline">
@@ -123,16 +225,16 @@
                     <fo:block font-family="Times New Roman" font-size="10pt"
                         text-align="right" margin-top="10pt"  text-decoration="underline">
                         <xsl:value-of
-                            select="/zah:dokument_zahtev/zah:podnosilac_zahteva/types:adresa/types:ulica"/>
+                            select="/zah:dokument_zahtev/zah:podnosilac_zahteva/types:adresa/types:ulica"/> 
                         <xsl:value-of
                             select="/zah:dokument_zahtev/zah:podnosilac_zahteva/types:adresa/types:broj"/>
-                        ,
+                        , 
                         <xsl:value-of
                             select="/zah:dokument_zahtev/zah:podnosilac_zahteva/types:adresa/types:mesto"/>
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="10pt"
                         text-align="right">
-                        адреса
+                        адресa
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="10pt"
                         text-align="right" margin-top="10pt"  text-decoration="underline">
@@ -152,21 +254,39 @@
                         text-align="right">
                         Потпис
                     </fo:block>
+                    <fo:block font-family="Times New Roman" font-size="10pt"
+                        text-align="left" margin-top="-100pt"  text-decoration="underline">
+                        У 
+                        <xsl:value-of
+                            select="/zah:dokument_zahtev/zah:mesto_i_datum/types:mesto"/>
+                        ,
+                    </fo:block>
+                    <fo:block font-family="Times New Roman" font-size="10pt"
+                        text-align="left" margin-top="20pt"  text-decoration="underline">
+                        дана
+                        <xsl:value-of
+                            select="/zah:dokument_zahtev/zah:mesto_i_datum/types:datum"/>. године
+                    </fo:block>
+                    
+                    
                     <fo:block font-family="Times New Roman" font-size="9pt"
-                        text-align="justify" margin-top="40pt">
+                        text-align="justify" margin-top="60pt">
                         __________________________________________
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="9pt"
                         text-align="justify">
-                        * У кућици означити која законска права на приступ информацијама желите да остварите. 
+                        * У кућици означити која законска права на приступ
+                        информацијама желите да остварите.
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="9pt"
                         text-align="justify">
-                        ** У кућици означити начин достављања копије докумената.  
+                        ** У кућици означити начин достављања копије
+                        докумената.  
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="9pt"
                         text-align="justify">
-                        *** Када захтевате други начин достављања обавезно уписати који начин достављања захтевате.  
+                        *** Када захтевате други начин достављања обавезно
+                        уписати који начин достављања захтевате.  
                     </fo:block>
                 </fo:flow>
             </fo:page-sequence>

@@ -23,7 +23,8 @@
                         text-align="left" text-decoration="underline" >
                         <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:organ_vlasti/types:adresa/types:mesto"/>
                         , 
-                        <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:organ_vlasti/types:adresa/types:ulica"/>  
+                        <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:organ_vlasti/types:adresa/types:ulica"/>
+
                         <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:organ_vlasti/types:adresa/types:broj"/>
                     </fo:block>
                     <fo:block text-align="left" font-size="11pt" font-family="Times New Roman" >
@@ -44,13 +45,15 @@
                     <fo:block font-family="Times New Roman" font-size="11pt" margin-top="20"
                         text-align="left" text-decoration="underline" >
                         <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:podnosilac_zahteva/types:ime"/>
+
                         <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:podnosilac_zahteva/types:prezime"/>
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="11pt" 
                         text-align="left" text-decoration="underline" >
                         <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:podnosilac_zahteva/types:adresa/types:mesto"/>
                         , 
-                        <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:podnosilac_zahteva/types:adresa/types:ulica"/>  
+                        <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:podnosilac_zahteva/types:adresa/types:ulica"/>
+
                         <xsl:value-of select="/ob:obavestenje/ob:informacije_o_obavestenju/ob:podnosilac_zahteva/types:adresa/types:broj"/>
                     </fo:block>
                     <fo:block text-align="left" font-size="11pt" font-family="Times New Roman" >
@@ -67,11 +70,11 @@
                     <fo:block font-family="Times New Roman" font-size="11pt"
                         text-align="justify" text-indent="4em" margin-top="20pt">
                         На основу члана 16. ст. 1. Закона о слободном приступу информацијама од јавног значаја,
-                        поступајући по вашем захтеву за слободан приступ информацијама о
+                        поступајући по вашем захтеву за слободан приступ информацијама од
                         <fo:inline font-family="Times New Roman" font-size="11pt" text-decoration="underline">
                             <xsl:value-of select="/ob:obavestenje/ob:tekst_obavestenja/ob:datum_zahteva"/>
-                        </fo:inline> 
-                        god. , којим сте тражили увид у документ/е са информацијама о / у вези са:  
+                        </fo:inline>
+                        год. , којим сте тражили увид у документ/е са информацијама о / у вези са:
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="11pt"
                         text-align="justify" text-decoration="underline">

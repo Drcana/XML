@@ -12,8 +12,8 @@ import javax.jws.WebService;
 public interface OrganVlastiEmailService {
 
     @WebMethod
-    String sendObavestenje(@WebParam(name = "obavestenjeNotification") ObavestenjeNotification notification);
+    Boolean sendObavestenje(@WebParam(name = "obavestenjeNotification") ObavestenjeNotification notification);
 
     @WebMethod
-    String rejectZahtev(@WebParam(name = "rejectNotification") RejectNotification rejectNotification);
+    Boolean rejectZahtev(@WebParam(name = "rejectNotification") RejectNotification rejectNotification);
 }

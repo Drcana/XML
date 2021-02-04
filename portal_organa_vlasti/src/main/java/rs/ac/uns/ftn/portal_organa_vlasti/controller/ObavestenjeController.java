@@ -1,5 +1,6 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.controller;
 
+import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,9 +82,15 @@ public class ObavestenjeController {
 
     @PostMapping(value = "/sendResponse", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
-    public ResponseEntity<String> sendResponseToUser(
-            @RequestBody ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication) {
+    public ResponseEntity<Boolean> sendResponseToUser(
+            @RequestBody ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication) throws NotFoundException {
 
         return new ResponseEntity<>(service.sendResponseToUser(obavestenjeNotificationDto, authentication), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
+    public ResponseEntity<Boolean> delete(@PathVariable("id") String documentId) throws Exception {
+        return new ResponseEntity<>(service.delete(documentId), HttpStatus.OK);
     }
 }

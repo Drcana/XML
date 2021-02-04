@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
 import org.apache.commons.io.FileUtils;
+import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -59,9 +60,6 @@ public class ZahtevService {
     private ZahtevRepository zahtevRepository;
 
     @Autowired
-    private RestTemplateService restTemplateService;
-
-    @Autowired
     private EmailClient emailClient;
 
     public String parseXmlZahtev() throws JAXBException {
@@ -72,18 +70,20 @@ public class ZahtevService {
         jaxbService.unmarshalXml(JAXB_INSTANCE, XML_PATH, response);
     }
 
-    public DocumentDto create(DokumentZahtev dokumentZahtev, Authentication authentication) throws Exception {
-        String id = UUID.randomUUID().toString();
+    public DocumentDto create(DokumentZahtev dokumentZahtev, Authentication authentication, boolean isFirstTimeCreated) throws Exception {
 
-        dokumentZahtev.setId(id);
-        dokumentZahtev.setUserId(getEmailOfLoggedUser(authentication));
-        dokumentZahtev.setDatum(getTodayDate());
-        dokumentZahtev.setAbout(String.format("%s/%s", TARGET_NAMESPACE, id));
-        dokumentZahtev.setStatus(Status.PENDING);
+        if (isFirstTimeCreated) {
+            String id = UUID.randomUUID().toString();
+            dokumentZahtev.setId(id);
+            dokumentZahtev.setUserId(getEmailOfLoggedUser(authentication));
+            dokumentZahtev.setAbout(String.format("%s/%s", TARGET_NAMESPACE, id));
+            dokumentZahtev.setDatum(getTodayDate());
+            dokumentZahtev.setStatus(Status.PENDING);
+        }
 
         zahtevRepository.create(dokumentZahtev);
 
-        return new DocumentDto(id);
+        return new DocumentDto(dokumentZahtev.getId());
     }
 
     private String getEmailOfLoggedUser(Authentication authentication) {
@@ -144,9 +144,8 @@ public class ZahtevService {
         return FileUtils.readFileToByteArray(new File(generatedFilePath));
     }
 
-    public String reject(String documentId, Authentication authentication) {
+    public Boolean reject(String documentId, Authentication authentication) throws NotFoundException {
         DokumentZahtev dokumentZahtev = get(documentId);
-        //TODO:: update status
 
         RejectNotification rejectNotification = new RejectNotification();
 
@@ -154,7 +153,23 @@ public class ZahtevService {
         rejectNotification.setSenderEmail(getEmailOfLoggedUser(authentication));
         rejectNotification.setZahtevId(documentId);
 
-        return emailClient.rejectZahtev(rejectNotification);
+        boolean sentEmail = emailClient.rejectZahtev(rejectNotification);
+
+        if (sentEmail) {
+            dokumentZahtev.setStatus(Status.REJECTED);
+            updateZahtev(dokumentZahtev, authentication);
+        }
+
+        return sentEmail;
+    }
+
+    public void updateZahtev(DokumentZahtev dokumentZahtev, Authentication authentication) throws NotFoundException {
+        try {
+            delete(dokumentZahtev.getId());
+            create(dokumentZahtev, authentication, false);
+        } catch (Exception ex) {
+            throw new NotFoundException("Zahtev with id = [ " + dokumentZahtev.getId() + " ] not found");
+        }
     }
 
     public byte[] generatePDF(String documentId) {

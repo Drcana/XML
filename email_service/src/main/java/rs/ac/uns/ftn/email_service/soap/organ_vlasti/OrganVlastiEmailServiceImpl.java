@@ -33,8 +33,7 @@ public class OrganVlastiEmailServiceImpl implements OrganVlastiEmailService {
     private JavaMailSender javaMailSender;
 
     @Override
-    public String sendObavestenje(ObavestenjeNotification notification) {
-        String response;
+    public Boolean sendObavestenje(ObavestenjeNotification notification) {
         MimeMessage message = javaMailSender.createMimeMessage();
 
         try {
@@ -54,17 +53,14 @@ public class OrganVlastiEmailServiceImpl implements OrganVlastiEmailService {
             helper.addAttachment(OBAVESTENJE_HTML_NAME, new ByteArrayResource(notification.getHtmlFile()));
 
             javaMailSender.send(message);
-            response = "Email has been sent to :" + notification.getReceiverEmail();
+            return true;
         } catch (MessagingException | IOException e) {
-            response = "Email send failure to :" + notification.getReceiverEmail();
+            return false;
         }
-
-        return response;
     }
 
     @Override
-    public String rejectZahtev(RejectNotification rejectNotification) {
-        String response;
+    public Boolean rejectZahtev(RejectNotification rejectNotification) {
         MimeMessage message = javaMailSender.createMimeMessage();
 
         try {
@@ -80,11 +76,9 @@ public class OrganVlastiEmailServiceImpl implements OrganVlastiEmailService {
 
             javaMailSender.send(message);
 
-            response = "Email has been sent to :" + rejectNotification.getReceiverEmail();
+            return true;
         } catch (MessagingException | IOException e) {
-            response = "Email send failure to :" + rejectNotification.getReceiverEmail();
+            return false;
         }
-
-        return response;
     }
 }

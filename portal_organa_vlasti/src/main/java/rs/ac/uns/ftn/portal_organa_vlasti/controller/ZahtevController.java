@@ -1,5 +1,6 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.controller;
 
+import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -43,7 +44,7 @@ public class ZahtevController {
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<DocumentDto> create(@RequestBody DokumentZahtev dokumentZahtev, Authentication authentication) throws Exception {
-        return new ResponseEntity<>(service.create(dokumentZahtev, authentication), HttpStatus.CREATED);
+        return new ResponseEntity<>(service.create(dokumentZahtev, authentication, true), HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_XML_VALUE)
@@ -83,8 +84,8 @@ public class ZahtevController {
     }
 
     @PostMapping("/reject/{id}")
-    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
-    public ResponseEntity<String> reject(@PathVariable("id") String documentId, Authentication authentication) {
+    @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
+    public ResponseEntity<Boolean> reject(@PathVariable("id") String documentId, Authentication authentication) throws NotFoundException {
         return new ResponseEntity<>(service.reject(documentId, authentication), HttpStatus.OK);
     }
 }

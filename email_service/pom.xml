@@ -75,7 +75,7 @@
                     <className>rs.ac.uns.ftn.email_service.soap.organ_vlasti.OrganVlastiEmailServiceImpl</className>
                     <genWsdl>true</genWsdl>
                     <verbose>false</verbose>
-                    <outputFile>${project.basedir}/src/main/resources/wsdl/ObavestenjeNotification.wsdl</outputFile>
+                    <outputFile>${project.basedir}/src/main/resources/wsdl/OrganVlastiEmail.wsdl</outputFile>
                 </configuration>
 
                 <executions>

@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
 import org.apache.commons.io.FileUtils;
+import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -56,9 +57,6 @@ public class ObavestenjeService {
     private ObavestenjeRepository obavestenjeRepository;
 
     @Autowired
-    private RestTemplateService restTemplateService;
-
-    @Autowired
     private ZahtevService zahtevService;
 
     @Autowired
@@ -72,9 +70,10 @@ public class ObavestenjeService {
         jaxbService.unmarshalXml(JAXB_INSTANCE, XML_PATH, response);
     }
 
-    public DocumentDto create(Obavestenje obavestenje, Authentication authentication) throws Exception {
-        String id = UUID.randomUUID().toString();
+    public DocumentDto create(Obavestenje obavestenje, Authentication authentication)
+            throws Exception {
 
+        String id = UUID.randomUUID().toString();
         obavestenje.setId(id);
         obavestenje.setUserId(getEmailOfLoggedUser(authentication));
         obavestenje.setDatum(getTodayDate());
@@ -82,7 +81,7 @@ public class ObavestenjeService {
 
         obavestenjeRepository.create(obavestenje);
 
-        return new DocumentDto(id);
+        return new DocumentDto(obavestenje.getId());
     }
 
     private String getEmailOfLoggedUser(Authentication authentication) {
@@ -159,7 +158,9 @@ public class ObavestenjeService {
         return null;
     }
 
-    public String sendResponseToUser(ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication) {
+    public Boolean sendResponseToUser(ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication)
+            throws NotFoundException {
+
         String obavestenjeId = obavestenjeNotificationDto.getObavestenjeId();
 
         byte[] generatedPdfFile = generatePDF(obavestenjeId);
@@ -168,8 +169,6 @@ public class ObavestenjeService {
         Obavestenje obavestenje = get(obavestenjeId);
 
         DokumentZahtev dokumentZahtev = zahtevService.get(obavestenje.getZahtevId());
-        dokumentZahtev.setStatus(Status.FINISHED);
-        //TODO:: UPDATE
 
         ObavestenjeNotification obavestenjeNotification = new ObavestenjeNotification();
 
@@ -180,7 +179,17 @@ public class ObavestenjeService {
         obavestenjeNotification.setReceiverEmail(dokumentZahtev.getUserId());
         obavestenjeNotification.setZahtevId(dokumentZahtev.getId());
 
-        return emailClient.sendObavestenje(obavestenjeNotification);
+        boolean sentEmail = emailClient.sendObavestenje(obavestenjeNotification);
+
+        if (sentEmail) {
+            dokumentZahtev.setStatus(Status.FINISHED);
+            zahtevService.updateZahtev(dokumentZahtev, authentication);
+        }
+
+        return sentEmail;
     }
 
+    public boolean delete(String documentId) throws Exception {
+        return obavestenjeRepository.delete(documentId);
+    }
 }

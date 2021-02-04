@@ -60,4 +60,8 @@ public class ObavestenjeRepository {
             return new ObavestenjeCollection(list);
         }
     }
+
+    public boolean delete(String documentId) throws Exception {
+        return existManager.remove(COLLECTION_URI, documentId);
+    }
 }

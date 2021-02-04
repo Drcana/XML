@@ -14,7 +14,7 @@
 </xs:schema>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/obavestenje_notification" version="1.0">
 
-  <xs:complexType name="obavestenjeNotification">
+  <xs:complexType name="ObavestenjeNotification">
     <xs:sequence>
       <xs:element name="pdfFile" type="xs:base64Binary"/>
       <xs:element name="htmlFile" type="xs:base64Binary"/>
@@ -47,13 +47,13 @@
 
   <xs:complexType name="rejectZahtevResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string"/>
+      <xs:element minOccurs="0" name="return" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="sendObavestenje">
     <xs:sequence>
-      <xs:element minOccurs="0" name="obavestenjeNotification" type="ns2:obavestenjeNotification"/>
+      <xs:element minOccurs="0" name="obavestenjeNotification" type="ns2:ObavestenjeNotification"/>
     </xs:sequence>
   </xs:complexType>
 

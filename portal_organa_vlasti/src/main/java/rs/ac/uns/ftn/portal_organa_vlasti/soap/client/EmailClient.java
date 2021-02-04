@@ -15,7 +15,7 @@ public class EmailClient extends WebServiceGatewaySupport {
 
     private static final String EMAIL_SOAP_URL = "http://localhost:9000/services/email/organ_vlasti";
 
-    public String sendObavestenje(ObavestenjeNotification obavestenjeNotification) {
+    public Boolean sendObavestenje(ObavestenjeNotification obavestenjeNotification) {
 
         SendObavestenje sendObavestenje = new SendObavestenje();
         sendObavestenje.setObavestenjeNotification(obavestenjeNotification);
@@ -25,10 +25,10 @@ public class EmailClient extends WebServiceGatewaySupport {
         JAXBElement<SendObavestenjeResponse> response = (JAXBElement<SendObavestenjeResponse>)
                 getWebServiceTemplate().marshalSendAndReceive(EMAIL_SOAP_URL, request);
 
-        return response.getValue().getReturn();
+        return response.getValue().isReturn();
     }
 
-    public String rejectZahtev(RejectNotification rejectNotification) {
+    public Boolean rejectZahtev(RejectNotification rejectNotification) {
         RejectZahtev rejectZahtev = new RejectZahtev();
         rejectZahtev.setRejectNotification(rejectNotification);
 
@@ -37,6 +37,6 @@ public class EmailClient extends WebServiceGatewaySupport {
         JAXBElement<RejectZahtevResponse> response = (JAXBElement<RejectZahtevResponse>)
                 getWebServiceTemplate().marshalSendAndReceive(EMAIL_SOAP_URL, request);
 
-        return response.getValue().getReturn();
+        return response.getValue().isReturn();
     }
 }

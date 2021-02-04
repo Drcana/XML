@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<obavestenje_notification xmlns="http://www.ftn.uns.ac.rs/obavestenje_notification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/obavestenje_notification  ../xsd/obavestenje_notification.xsd"
+    xmlns:notification="http://www.ftn.uns.ac.rs/obavestenje_notification">
+    <pdfFile></pdfFile>
+    <htmlFile></htmlFile>
+    <receiverEmail>jelenicaad@gmail.com</receiverEmail>
+    <senderEmail>jelenicaad@gmail.com</senderEmail>
+    <zahtevId>fb7a3810-89b1-4fdf-b9f1-3a355d020e13</zahtevId>
+</obavestenje_notification>

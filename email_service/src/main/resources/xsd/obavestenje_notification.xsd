@@ -1,0 +1,14 @@
+<xs:schema xmlns:notif="http://www.ftn.uns.ac.rs/obavestenje_notification"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/obavestenje_notification">
+
+    <xs:complexType name="ObavestenjeNotification">
+        <xs:sequence>
+            <xs:element form="qualified" name="pdfFile" type="xs:base64Binary"/>
+            <xs:element form="qualified" name="htmlFile" type="xs:base64Binary"/>
+            <xs:element form="qualified" name="receiverEmail" type="xs:string"/>
+            <xs:element form="qualified" name="senderEmail" type="xs:string"/>
+            <xs:element form="qualified" name="zahtevId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

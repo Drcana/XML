@@ -6,7 +6,7 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import rs.ac.uns.ftn.email_service.dto.ObavestenjeEmailDto;
+import rs.ac.uns.ftn.email_service.dto.ObavestenjeNotificationDto;
 import rs.ac.uns.ftn.email_service.dto.RejectZahtevDto;
 
 import javax.mail.MessagingException;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @Service
-public class EmailService {
+public class EmailServiceOld {
 
     private static final String ORGAN_VLASTI = "Organ vlasti";
 
@@ -31,7 +31,7 @@ public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public String sendObavestenje(ObavestenjeEmailDto obavestenjeEmailDto) {
+    public String sendObavestenje(ObavestenjeNotificationDto obavestenjeNotificationDto) {
         String response;
         MimeMessage message = javaMailSender.createMimeMessage();
 
@@ -39,22 +39,22 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
                     StandardCharsets.UTF_8.name());
 
-            helper.setTo(obavestenjeEmailDto.getReceiverEmail());
-            helper.setFrom(new InternetAddress(obavestenjeEmailDto.getSenderEmail(), ORGAN_VLASTI));
+            helper.setTo(obavestenjeNotificationDto.getReceiverEmail());
+            helper.setFrom(new InternetAddress(obavestenjeNotificationDto.getSenderEmail(), ORGAN_VLASTI));
 
             helper.setSubject(OBAVESTENJE_SUBJECT);
             helper.setText(
                     "Poštovani, " +
-                            "\n\nOdgovor na Vaš zahtev = \"" + obavestenjeEmailDto.getZahtevId() + "\" se nalazi u prilogu. " +
+                            "\n\nOdgovor na Vaš zahtev = \"" + obavestenjeNotificationDto.getZahtevId() + "\" se nalazi u prilogu. " +
                             "\n\nSrdačan pozdrav!");
 
-            helper.addAttachment(obavestenjeEmailDto.isPdfFile() ? OBAVESTENJE_PDF_NAME : OBAVESTENJE_HTML_NAME,
-                    new ByteArrayResource(obavestenjeEmailDto.getFile()));
+            helper.addAttachment(OBAVESTENJE_PDF_NAME, new ByteArrayResource(obavestenjeNotificationDto.getPdfFile()));
+            helper.addAttachment(OBAVESTENJE_HTML_NAME, new ByteArrayResource(obavestenjeNotificationDto.getHtmlFile()));
 
             javaMailSender.send(message);
-            response = "Email has been sent to :" + obavestenjeEmailDto.getReceiverEmail();
+            response = "Email has been sent to :" + obavestenjeNotificationDto.getReceiverEmail();
         } catch (MessagingException | IOException e) {
-            response = "Email send failure to :" + obavestenjeEmailDto.getReceiverEmail();
+            response = "Email send failure to :" + obavestenjeNotificationDto.getReceiverEmail();
         }
 
         return response;

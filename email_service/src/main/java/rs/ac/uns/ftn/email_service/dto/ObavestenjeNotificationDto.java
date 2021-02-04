@@ -4,11 +4,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name = "obavestenje_notification")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ObavestenjeEmailDto {
+public class ObavestenjeNotificationDto {
 
-    private byte[] file;
+    private byte[] pdfFile;
+
+    private byte[] htmlFile;
 
     private String receiverEmail;
 
@@ -16,9 +18,7 @@ public class ObavestenjeEmailDto {
 
     private String zahtevId;
 
-    private boolean pdfFile;
-
-    public ObavestenjeEmailDto() {
+    public ObavestenjeNotificationDto() {
     }
 
     public String getReceiverEmail() {
@@ -37,12 +37,12 @@ public class ObavestenjeEmailDto {
         this.senderEmail = senderEmail;
     }
 
-    public byte[] getFile() {
-        return file;
+    public byte[] getPdfFile() {
+        return pdfFile;
     }
 
-    public void setFile(byte[] file) {
-        this.file = file;
+    public void setPdfFile(byte[] pdfFile) {
+        this.pdfFile = pdfFile;
     }
 
     public String getZahtevId() {
@@ -53,11 +53,11 @@ public class ObavestenjeEmailDto {
         this.zahtevId = zahtevId;
     }
 
-    public boolean isPdfFile() {
-        return pdfFile;
+    public byte[] getHtmlFile() {
+        return htmlFile;
     }
 
-    public void setPdfFile(boolean pdfFile) {
-        this.pdfFile = pdfFile;
+    public void setHtmlFile(byte[] htmlFile) {
+        this.htmlFile = htmlFile;
     }
 }

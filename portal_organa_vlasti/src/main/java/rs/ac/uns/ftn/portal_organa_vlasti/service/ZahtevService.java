@@ -2,18 +2,16 @@ package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
-import rs.ac.uns.ftn.portal_organa_vlasti.dto.RejectZahtevDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.Status;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.ZahtevRepository;
+import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
+import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.RejectNotification;
 import rs.ac.uns.ftn.portal_organa_vlasti.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
@@ -62,6 +60,9 @@ public class ZahtevService {
 
     @Autowired
     private RestTemplateService restTemplateService;
+
+    @Autowired
+    private EmailClient emailClient;
 
     public String parseXmlZahtev() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
@@ -145,11 +146,15 @@ public class ZahtevService {
 
     public String reject(String documentId, Authentication authentication) {
         DokumentZahtev dokumentZahtev = get(documentId);
+        //TODO:: update status
 
-        RejectZahtevDto rejectZahtevDto =
-                new RejectZahtevDto(dokumentZahtev.getUserId(), getEmailOfLoggedUser(authentication), documentId);
+        RejectNotification rejectNotification = new RejectNotification();
 
-        return restTemplateService.rejectZahtev(rejectZahtevDto);
+        rejectNotification.setReceiverEmail(dokumentZahtev.getUserId());
+        rejectNotification.setSenderEmail(getEmailOfLoggedUser(authentication));
+        rejectNotification.setZahtevId(documentId);
+
+        return emailClient.rejectZahtev(rejectNotification);
     }
 
     public byte[] generatePDF(String documentId) {

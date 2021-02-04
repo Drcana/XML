@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/reject_notification"
+    xmlns:reject="http://www.ftn.uns.ac.rs/reject_notification">
+    <xs:complexType name="RejectNotification">
+        <xs:sequence>
+            <xs:element name="zahtevId" type="xs:string"/>
+            <xs:element name="senderEmail" type="xs:string"/>
+            <xs:element name="receiverEmail" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

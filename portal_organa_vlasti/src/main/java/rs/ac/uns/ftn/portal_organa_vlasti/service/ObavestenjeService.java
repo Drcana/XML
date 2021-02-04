@@ -6,13 +6,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
-import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeEmailDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.Status;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.ObavestenjeRepository;
+import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
+import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.ObavestenjeNotification;
 import rs.ac.uns.ftn.portal_organa_vlasti.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
@@ -59,6 +60,9 @@ public class ObavestenjeService {
 
     @Autowired
     private ZahtevService zahtevService;
+
+    @Autowired
+    private EmailClient emailClient;
 
     public String parseXmlObavestenje() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
@@ -157,32 +161,26 @@ public class ObavestenjeService {
 
     public String sendResponseToUser(ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication) {
         String obavestenjeId = obavestenjeNotificationDto.getObavestenjeId();
-        boolean isPdfFormat = obavestenjeNotificationDto.getPdfFile();
 
-//        byte[] generatedFile = isPdfFormat ? generatePDF(obavestenjeId) : generateHTML(obavestenjeId);
-        byte[] generatedFile;
-
-        try {
-            generatedFile = isPdfFormat ? convertFileToBytes("src/main/resources/static/data/pdf/example.pdf")
-                    : convertFileToBytes("src/main/resources/static/data/html/example.html");
-        } catch (IOException ex) {
-            return "";
-        }
+        byte[] generatedPdfFile = generatePDF(obavestenjeId);
+        byte[] generatedHtmlFile = generateHTML(obavestenjeId);
 
         Obavestenje obavestenje = get(obavestenjeId);
+
         DokumentZahtev dokumentZahtev = zahtevService.get(obavestenje.getZahtevId());
         dokumentZahtev.setStatus(Status.FINISHED);
         //TODO:: UPDATE
 
-        ObavestenjeEmailDto obavestenjeEmailDto = new ObavestenjeEmailDto();
+        ObavestenjeNotification obavestenjeNotification = new ObavestenjeNotification();
 
-        obavestenjeEmailDto.setSenderEmail(getEmailOfLoggedUser(authentication));
-        obavestenjeEmailDto.setPdfFile(isPdfFormat);
-        obavestenjeEmailDto.setFile(generatedFile);
-        obavestenjeEmailDto.setReceiverEmail(dokumentZahtev.getUserId());
-        obavestenjeEmailDto.setZahtevId(dokumentZahtev.getId());
+        obavestenjeNotification.setSenderEmail(getEmailOfLoggedUser(authentication));
+        obavestenjeNotification.setPdfFile(generatedPdfFile != null ? generatedPdfFile : new byte[]{});
+        obavestenjeNotification.setHtmlFile(generatedHtmlFile != null ? generatedHtmlFile : new byte[]{});
 
-        return restTemplateService.sendResponseToUser(obavestenjeEmailDto);
+        obavestenjeNotification.setReceiverEmail(dokumentZahtev.getUserId());
+        obavestenjeNotification.setZahtevId(dokumentZahtev.getId());
+
+        return emailClient.sendObavestenje(obavestenjeNotification);
     }
 
 }

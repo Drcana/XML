@@ -18,6 +18,7 @@ import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.ObavestenjeService;
+import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
@@ -28,6 +29,9 @@ public class ObavestenjeController {
 
     @Autowired
     private ObavestenjeService service;
+
+    @Autowired
+    private EmailClient emailClient;
 
     @GetMapping("/parse")
     public ResponseEntity<String> parseXmlObavestenje() throws JAXBException {

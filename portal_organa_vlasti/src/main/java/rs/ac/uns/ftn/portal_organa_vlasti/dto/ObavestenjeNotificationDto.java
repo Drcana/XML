@@ -10,14 +10,11 @@ public class ObavestenjeNotificationDto {
 
     private String obavestenjeId;
 
-    private Boolean pdfFile;
-
     public ObavestenjeNotificationDto() {
     }
 
     public ObavestenjeNotificationDto(String obavestenjeId, Boolean pdfFile) {
         this.obavestenjeId = obavestenjeId;
-        this.pdfFile = pdfFile;
     }
 
     public String getObavestenjeId() {
@@ -26,13 +23,5 @@ public class ObavestenjeNotificationDto {
 
     public void setObavestenjeId(String obavestenjeId) {
         this.obavestenjeId = obavestenjeId;
-    }
-
-    public Boolean getPdfFile() {
-        return pdfFile;
-    }
-
-    public void setPdfFile(Boolean pdfFile) {
-        this.pdfFile = pdfFile;
     }
 }

@@ -8,8 +8,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.UserRepository;
+import rs.ac.uns.ftn.user.User;
 
 import java.util.Collections;
 

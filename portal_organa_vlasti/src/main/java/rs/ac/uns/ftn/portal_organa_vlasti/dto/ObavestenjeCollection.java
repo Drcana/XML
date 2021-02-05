@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.dto;
 
-import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
+
+import rs.ac.uns.ftn.obavestenje.Obavestenje;
 
 import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;

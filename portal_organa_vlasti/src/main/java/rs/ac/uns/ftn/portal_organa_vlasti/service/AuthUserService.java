@@ -7,9 +7,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.LoginRequestDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.UserDto;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.UserRepository;
 import rs.ac.uns.ftn.portal_organa_vlasti.security.JwtUtil;
+import rs.ac.uns.ftn.user.User;
 
 @Service
 public class AuthUserService {

@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.Status;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.ZahtevRepository;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.RejectNotification;
 import rs.ac.uns.ftn.portal_organa_vlasti.util.FileTransformer;
+import rs.ac.uns.ftn.user.User;
+import rs.ac.uns.ftn.zahtev.DokumentZahtev;
+import rs.ac.uns.ftn.zahtev.Status;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXB;

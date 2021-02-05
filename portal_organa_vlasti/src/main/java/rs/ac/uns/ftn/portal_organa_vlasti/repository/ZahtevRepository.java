@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import rs.ac.uns.ftn.portal_organa_vlasti.db.ExistManager;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.JAXBService;
+import rs.ac.uns.ftn.zahtev.DokumentZahtev;
 
 import java.util.ArrayList;
 import java.util.List;

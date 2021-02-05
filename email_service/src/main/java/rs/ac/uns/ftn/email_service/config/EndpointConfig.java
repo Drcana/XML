@@ -19,4 +19,9 @@ public class EndpointConfig {
 
         return endpoint;
     }
+
+//    @Bean
+//    public JavaMailSender javaMailSender(){
+//        return new JavaMailSenderImpl();
+//    }
 }

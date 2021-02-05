@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.LoginRequestDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.UserDto;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.AuthUserService;
+import rs.ac.uns.ftn.user.User;
 
 @RestController
 @RequestMapping(value = "/api/auth",

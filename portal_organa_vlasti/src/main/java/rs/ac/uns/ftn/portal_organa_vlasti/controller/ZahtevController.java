@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.ZahtevService;
+import rs.ac.uns.ftn.zahtev.DokumentZahtev;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;

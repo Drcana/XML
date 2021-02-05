@@ -3,9 +3,9 @@ package rs.ac.uns.ftn.portal_organa_vlasti.repository;
 import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import rs.ac.uns.ftn.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.db.ExistManager;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import rs.ac.uns.ftn.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.ObavestenjeService;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
 

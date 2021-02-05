@@ -34,6 +34,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        web.ignoring().antMatchers("/**/**");
         web.ignoring().antMatchers("/api/auth/login");
         web.ignoring().antMatchers("/api/auth/register");
+        web.ignoring().antMatchers("/api/resenje/zahtev/**");
     }
 
     @Bean

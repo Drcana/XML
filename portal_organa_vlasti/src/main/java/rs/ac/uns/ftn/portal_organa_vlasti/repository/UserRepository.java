@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.portal_organa_vlasti.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import rs.ac.uns.ftn.portal_organa_vlasti.db.ExistManager;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
+import rs.ac.uns.ftn.user.User;
 
 @Repository
 public class UserRepository {

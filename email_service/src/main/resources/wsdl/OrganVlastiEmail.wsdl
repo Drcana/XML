@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="OrganVlastiEmailServiceImplService" targetNamespace="http://organ_vlasti.soap.email_service.ftn.uns.ac.rs/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://organ_vlasti.soap.email_service.ftn.uns.ac.rs/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions name="OrganVlastiEmailServiceImplService"
+                  targetNamespace="http://organ_vlasti.soap.email_service.ftn.uns.ac.rs/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://organ_vlasti.soap.email_service.ftn.uns.ac.rs/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/reject_notification" version="1.0">
 
@@ -59,7 +63,7 @@
 
   <xs:complexType name="sendObavestenjeResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string"/>
+      <xs:element minOccurs="0" name="return" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 

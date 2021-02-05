@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.portal_organa_vlasti.security;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
+import rs.ac.uns.ftn.user.User;
 
 import java.util.Date;
 

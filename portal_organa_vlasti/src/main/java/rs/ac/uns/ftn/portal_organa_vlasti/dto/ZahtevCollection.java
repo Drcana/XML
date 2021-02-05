@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.dto;
 
-import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
+
+import rs.ac.uns.ftn.zahtev.DokumentZahtev;
 
 import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;

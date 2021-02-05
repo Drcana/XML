@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ZahtevSoapServiceImplService"
+                  targetNamespace="http://zahtev.soap.portal_organa_vlasti.ftn.uns.ac.rs/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://zahtev.soap.portal_organa_vlasti.ftn.uns.ac.rs/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:ns1="http://www.ftn.uns.ac.rs/types" xmlns:ns2="http://www.ftn.uns.ac.rs/zahtev" xmlns:tns="http://zahtev.soap.portal_organa_vlasti.ftn.uns.ac.rs/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://zahtev.soap.portal_organa_vlasti.ftn.uns.ac.rs/" version="1.0">
+
+  <xs:import namespace="http://www.ftn.uns.ac.rs/types"/>
+
+  <xs:import namespace="http://www.ftn.uns.ac.rs/zahtev"/>
+
+  <xs:element name="getZahtevById" type="tns:getZahtevById"/>
+
+  <xs:element name="getZahtevByIdResponse" type="tns:getZahtevByIdResponse"/>
+
+  <xs:complexType name="getZahtevById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getZahtevByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element form="qualified" name="organ_vlasti" type="ns1:TPravno_Lice"/>
+            <xs:element form="qualified" name="naslov_dokumenta" type="xs:string"/>
+            <xs:element form="qualified" name="zakon" type="ns2:TZakon"/>
+            <xs:element form="qualified" name="lista_zahteva" type="ns2:TLista_zahteva"/>
+            <xs:element form="qualified" name="informacije" type="ns2:TInformacije"/>
+            <xs:element form="qualified" name="mesto_i_datum" type="ns1:TMesto_Datum"/>
+            <xs:element form="qualified" name="podnosilac_zahteva" type="ns1:TFIzicko_Lice"/>
+            <xs:element form="qualified" name="lista_napomena" type="ns2:TLista_napomena"/>
+          </xs:sequence>
+          <xs:attribute name="id" type="xs:string"/>
+          <xs:attribute name="userId" type="xs:string"/>
+          <xs:attribute name="datum" type="xs:date"/>
+          <xs:attribute name="about" type="xs:string"/>
+          <xs:attribute name="status" type="ns2:status"/>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+<xs:schema xmlns:ns1="http://www.ftn.uns.ac.rs/types" xmlns:tns="http://www.ftn.uns.ac.rs/zahtev" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/zahtev" version="1.0">
+
+  <xs:import namespace="http://www.ftn.uns.ac.rs/types"/>
+
+  <xs:element name="dokument_zahtev">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="organ_vlasti" type="ns1:TPravno_Lice"/>
+        <xs:element name="naslov_dokumenta" type="xs:string"/>
+        <xs:element name="zakon" type="tns:TZakon"/>
+        <xs:element name="lista_zahteva" type="tns:TLista_zahteva"/>
+        <xs:element name="informacije" type="tns:TInformacije"/>
+        <xs:element name="mesto_i_datum" type="ns1:TMesto_Datum"/>
+        <xs:element name="podnosilac_zahteva" type="ns1:TFIzicko_Lice"/>
+        <xs:element name="lista_napomena" type="tns:TLista_napomena"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string"/>
+      <xs:attribute name="userId" type="xs:string"/>
+      <xs:attribute name="datum" type="xs:date"/>
+      <xs:attribute name="about" type="xs:string"/>
+      <xs:attribute name="status" type="tns:status"/>
+      <xs:anyAttribute namespace="##other" processContents="skip"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType mixed="true" name="TZakon">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="napomena" type="tns:TNapomena"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TLista_napomena">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="napomena" type="tns:TNapomena"/>
+    </xs:sequence>
+    <xs:attribute name="naslov" type="xs:NCName" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="TNapomena">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="xs:integer" use="required"/>
+        <xs:attribute name="labela" type="xs:anySimpleType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="TLista_nacina">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="nacin" type="tns:TNacin"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType mixed="true" name="TNacin">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="drugi_nacin" type="tns:TDrugi_nacin"/>
+    </xs:sequence>
+    <xs:attribute name="checked" type="xs:boolean" use="required"/>
+    <xs:attribute name="tip_dostave" type="xs:NCName" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType mixed="true" name="TZahtev">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="napomena" type="tns:TNapomena"/>
+        <xs:element name="lista_nacina" type="tns:TLista_nacina"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="checked" type="xs:boolean" use="required"/>
+    <xs:attribute name="tip_zahteva" type="xs:NCName" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="TDrugi_nacin">
+    <xs:sequence>
+      <xs:element name="sadrzaj" type="xs:string"/>
+      <xs:element name="napomena" type="tns:TNapomena"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType mixed="true" name="TInformacije">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="sadrzaj_informacija" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TLista_zahteva">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="zahtev" type="tns:TZahtev"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PENDING"/>
+      <xs:enumeration value="REJECTED"/>
+      <xs:enumeration value="APPROVED"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+<xs:schema xmlns:tns="http://www.ftn.uns.ac.rs/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/types" version="1.0">
+
+  <xs:complexType mixed="true" name="TPravno_Lice">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="naziv_organa">
+          <xs:simpleType>
+            <xs:restriction base="xs:string"/>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="adresa" type="tns:TAdresa"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType mixed="true" name="TAdresa">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="mesto">
+          <xs:simpleType>
+            <xs:restriction base="xs:string"/>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="ulica">
+          <xs:simpleType>
+            <xs:restriction base="xs:string"/>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="broj">
+          <xs:simpleType>
+            <xs:restriction base="xs:integer"/>
+          </xs:simpleType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType mixed="true" name="TFIzicko_Lice">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="ime">
+          <xs:simpleType>
+            <xs:restriction base="xs:string"/>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="prezime">
+          <xs:simpleType>
+            <xs:restriction base="xs:string"/>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="adresa" type="tns:TAdresa"/>
+        <xs:element name="drugi_podaci_za_kontakt">
+          <xs:simpleType>
+            <xs:restriction base="xs:string"/>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="potpis" type="xs:string"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType mixed="true" name="TMesto_Datum">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="mesto">
+          <xs:simpleType>
+            <xs:restriction base="xs:string"/>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="datum">
+          <xs:simpleType>
+            <xs:restriction base="xs:anySimpleType"/>
+          </xs:simpleType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="TId">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType mixed="true" name="TTekst">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="p">
+        <xs:simpleType>
+          <xs:restriction base="xs:string"/>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getZahtevByIdResponse">
+    <wsdl:part name="parameters" element="tns:getZahtevByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getZahtevById">
+    <wsdl:part name="parameters" element="tns:getZahtevById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ZahtevSoapService">
+    <wsdl:operation name="getZahtevById">
+      <wsdl:input name="getZahtevById" message="tns:getZahtevById">
+    </wsdl:input>
+      <wsdl:output name="getZahtevByIdResponse" message="tns:getZahtevByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZahtevSoapServiceImplServiceSoapBinding" type="tns:ZahtevSoapService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getZahtevById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getZahtevById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getZahtevByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZahtevSoapServiceImplService">
+    <wsdl:port name="ZahtevSoapServiceImplPort" binding="tns:ZahtevSoapServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:9090/ZahtevSoapServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

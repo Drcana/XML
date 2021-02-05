@@ -9,7 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.web.filter.OncePerRequestFilter;
-import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
+import rs.ac.uns.ftn.user.User;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

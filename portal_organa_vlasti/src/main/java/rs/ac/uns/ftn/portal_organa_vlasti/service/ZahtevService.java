@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
@@ -62,8 +63,12 @@ public class ZahtevService {
     @Autowired
     private EmailClient emailClient;
 
-    public String parseXmlZahtev() throws JAXBException {
+    public String parseXmlZahtevToString() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
+    }
+
+    public DokumentZahtev parseXmlZahtevToObject() throws JAXBException {
+        return jaxbService.parseXmlToObject(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 
     public void writeXmlZahtev(HttpServletResponse response) throws JAXBException {
@@ -105,8 +110,8 @@ public class ZahtevService {
         return zahtevRepository.getAll();
     }
 
-    public boolean delete(String documentId) throws Exception {
-        return zahtevRepository.delete(documentId);
+    public WrapperResponse<Boolean> delete(String documentId) throws Exception {
+        return new WrapperResponse<>(zahtevRepository.delete(documentId));
     }
 
     public ZahtevCollection getAllByUserId(Authentication authentication) {
@@ -144,7 +149,7 @@ public class ZahtevService {
         return FileUtils.readFileToByteArray(new File(generatedFilePath));
     }
 
-    public Boolean reject(String documentId, Authentication authentication) throws NotFoundException {
+    public WrapperResponse<Boolean> reject(String documentId, Authentication authentication) throws NotFoundException {
         DokumentZahtev dokumentZahtev = get(documentId);
 
         RejectNotification rejectNotification = new RejectNotification();
@@ -160,7 +165,7 @@ public class ZahtevService {
             updateZahtev(dokumentZahtev, authentication);
         }
 
-        return sentEmail;
+        return new WrapperResponse<>(sentEmail);
     }
 
     public void updateZahtev(DokumentZahtev dokumentZahtev, Authentication authentication) throws NotFoundException {

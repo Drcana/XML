@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.ZahtevService;
@@ -30,9 +31,14 @@ public class ZahtevController {
     @Autowired
     private ZahtevService service;
 
-    @GetMapping("/parse")
-    public ResponseEntity<String> parseXmlZahtev() throws JAXBException {
-        return new ResponseEntity<>(service.parseXmlZahtev(), HttpStatus.OK);
+    @GetMapping(value = "/parse/string", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> parseXmlZahtevToString() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlZahtevToString(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/parse/object", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<DokumentZahtev> parseXmlZahtevToObject() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlZahtevToObject(), HttpStatus.OK);
     }
 
     @PostMapping("/write")
@@ -65,9 +71,9 @@ public class ZahtevController {
         return new ResponseEntity<>(service.getAllByUserId(authentication), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
-    public ResponseEntity<Boolean> delete(@PathVariable("id") String documentId) throws Exception {
+    public ResponseEntity<WrapperResponse<Boolean>> delete(@PathVariable("id") String documentId) throws Exception {
         return new ResponseEntity<>(service.delete(documentId), HttpStatus.OK);
     }
 
@@ -83,9 +89,11 @@ public class ZahtevController {
         return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
     }
 
-    @PostMapping("/reject/{id}")
+    @PostMapping(value = "/reject/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
-    public ResponseEntity<Boolean> reject(@PathVariable("id") String documentId, Authentication authentication) throws NotFoundException {
+    public ResponseEntity<WrapperResponse<Boolean>> reject(@PathVariable("id") String documentId,
+                                                           Authentication authentication) throws NotFoundException {
+
         return new ResponseEntity<>(service.reject(documentId, authentication), HttpStatus.OK);
     }
 }

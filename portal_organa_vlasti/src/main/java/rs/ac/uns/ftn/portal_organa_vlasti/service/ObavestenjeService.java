@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.user.User;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev.DokumentZahtev;
@@ -39,7 +40,7 @@ public class ObavestenjeService {
 
     private static final String XSD_PATH = "src/main/resources/static/data/xsd/obavestenje.xsd";
 
-    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_poverenika.model.obavestenje";
+    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje";
 
 
     private static final String XSL_FILE_PATH = "src/main/resources/static/data/xsl/obavestenje.xsl";
@@ -62,8 +63,12 @@ public class ObavestenjeService {
     @Autowired
     private EmailClient emailClient;
 
-    public String parseXmlObavestenje() throws JAXBException {
+    public String parseXmlObavestenjeToString() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
+    }
+
+    public Obavestenje parseXmlObavestenjeToObject() throws JAXBException {
+        return jaxbService.parseXmlToObject(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 
     public void writeXmlObavestenje(HttpServletResponse response) throws JAXBException {
@@ -158,7 +163,7 @@ public class ObavestenjeService {
         return null;
     }
 
-    public Boolean sendResponseToUser(ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication)
+    public WrapperResponse<Boolean> sendResponseToUser(ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication)
             throws NotFoundException {
 
         String obavestenjeId = obavestenjeNotificationDto.getObavestenjeId();
@@ -186,10 +191,10 @@ public class ObavestenjeService {
             zahtevService.updateZahtev(dokumentZahtev, authentication);
         }
 
-        return sentEmail;
+        return new WrapperResponse<>(sentEmail);
     }
 
-    public boolean delete(String documentId) throws Exception {
-        return obavestenjeRepository.delete(documentId);
+    public WrapperResponse<Boolean> delete(String documentId) throws Exception {
+        return new WrapperResponse<>(obavestenjeRepository.delete(documentId));
     }
 }

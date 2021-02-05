@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.ObavestenjeService;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
@@ -35,9 +36,14 @@ public class ObavestenjeController {
     @Autowired
     private EmailClient emailClient;
 
-    @GetMapping("/parse")
-    public ResponseEntity<String> parseXmlObavestenje() throws JAXBException {
-        return new ResponseEntity<>(service.parseXmlObavestenje(), HttpStatus.OK);
+    @GetMapping(value = "/parse/string", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> parseXmlObavestenjeToString() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlObavestenjeToString(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/parse/object", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<Obavestenje> parseXmlObavestenjeToObject() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlObavestenjeToObject(), HttpStatus.OK);
     }
 
     @PostMapping("/write")
@@ -82,7 +88,7 @@ public class ObavestenjeController {
 
     @PostMapping(value = "/sendResponse", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
-    public ResponseEntity<Boolean> sendResponseToUser(
+    public ResponseEntity<WrapperResponse<Boolean>> sendResponseToUser(
             @RequestBody ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication) throws NotFoundException {
 
         return new ResponseEntity<>(service.sendResponseToUser(obavestenjeNotificationDto, authentication), HttpStatus.OK);
@@ -90,7 +96,7 @@ public class ObavestenjeController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
-    public ResponseEntity<Boolean> delete(@PathVariable("id") String documentId) throws Exception {
+    public ResponseEntity<WrapperResponse<Boolean>> delete(@PathVariable("id") String documentId) throws Exception {
         return new ResponseEntity<>(service.delete(documentId), HttpStatus.OK);
     }
 }

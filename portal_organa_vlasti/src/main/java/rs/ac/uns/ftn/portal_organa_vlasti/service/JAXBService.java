@@ -55,6 +55,30 @@ public class JAXBService {
         return stringWriter.toString();
     }
 
+    <T> T parseXmlToObject(String jaxbInstance, String xsdPath, String xmlPath) throws JAXBException {
+
+        T object;
+
+        try {
+            JAXBContext context = JAXBContext.newInstance(jaxbInstance);
+
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+
+            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Schema schema = schemaFactory.newSchema(new File(xsdPath));
+
+            object = (T) unmarshaller.unmarshal(new File(xmlPath));
+
+            unmarshaller.setSchema(schema);
+            unmarshaller.setEventHandler(new MyValidationEventHandler());
+
+        } catch (SAXException | JAXBException e) {
+            throw new JAXBException(e.getMessage());
+        }
+
+        return object;
+    }
+
     <T> void unmarshalXml(String jaxbInstance, String xmlPath, HttpServletResponse response)
             throws JAXBException {
 

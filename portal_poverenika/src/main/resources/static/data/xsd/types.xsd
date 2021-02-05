@@ -89,8 +89,8 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="adresa" type="types:TAdresa"/>
-            <xs:element name="drugi_podaci_za_kontakt">
+            <xs:element name="adresa" type="types:TAdresa" minOccurs="0"/>
+            <xs:element name="drugi_podaci_za_kontakt" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:string">
@@ -99,7 +99,7 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="potpis" type="xs:string"/>
+            <xs:element name="potpis" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType mixed="true" name="TTekst">

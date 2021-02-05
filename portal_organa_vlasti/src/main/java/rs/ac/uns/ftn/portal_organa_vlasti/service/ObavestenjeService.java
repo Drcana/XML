@@ -187,7 +187,7 @@ public class ObavestenjeService {
         boolean sentEmail = emailClient.sendObavestenje(obavestenjeNotification);
 
         if (sentEmail) {
-            dokumentZahtev.setStatus(Status.FINISHED);
+            dokumentZahtev.setStatus(Status.APPROVED);
             zahtevService.updateZahtev(dokumentZahtev, authentication);
         }
 

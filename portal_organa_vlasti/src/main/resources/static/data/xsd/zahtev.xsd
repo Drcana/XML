@@ -20,7 +20,7 @@
       <xs:attribute name="userId" type="xs:string"/>
       <xs:attribute name="datum" type="xs:date"/>
       <xs:attribute name="about" type="xs:string"/>
-      <xs:attribute default="pending" name="status" type="zah:status"/>
+      <xs:attribute default="PENDING" name="status" type="zah:status"/>
       <xs:anyAttribute namespace="##any" processContents="lax"/>
     </xs:complexType>
   </xs:element>
@@ -77,10 +77,9 @@
   </xs:complexType>
   <xs:simpleType name="status">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="pending"/>
-      <xs:enumeration value="rejected"/>
-      <xs:enumeration value="withdrawed"/>
-      <xs:enumeration value="finished"/>
+      <xs:enumeration value="PENDING"/>
+      <xs:enumeration value="REJECTED"/>
+      <xs:enumeration value="APPROVED"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

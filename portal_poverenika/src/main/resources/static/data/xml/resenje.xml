@@ -6,7 +6,7 @@
     xmlns:res="http://www.ftn.uns.ac.rs/resenje"
     xmlns:types="http://www.ftn.uns.ac.rs/types"
     about="http://www.ftn.uns.ac.rs/resenje/1"
-    id="1" userId="test@test.com" datum="2021-01-01">
+    id="1" userId="test@test.com" datum="2021-01-01" zalbaId="zahtevId">
     
     <res:informacije_o_resenju>
         <res:vrsta_resenja>Решење када је жалба основана – налаже се:</res:vrsta_resenja>

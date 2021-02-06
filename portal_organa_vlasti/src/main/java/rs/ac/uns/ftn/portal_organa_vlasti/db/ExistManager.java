@@ -177,6 +177,29 @@ public class ExistManager {
         return jaxbService.getList(result, classToMap);
     }
 
+    public <T> List<T> getListWithNamespace(String collectionUri, String xpathExp, String targetNamespace, String prefix, Class<?> classToMap) throws Exception {
+        createConnection();
+        Collection col = null;
+        ResourceSet result = null;
+        try {
+            col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+                    authManager.getPassword());
+            XPathQueryService xpathService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+            xpathService.setProperty("indent", "yes");
+            xpathService.setNamespace(prefix, targetNamespace);
+            xpathService.setNamespace("types", "http://www.ftn.uns.ac.rs/types");
+            result = xpathService.query(xpathExp);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            if (col != null) {
+                col.close();
+            }
+        }
+
+        return jaxbService.getList(result, classToMap);
+    }
+
     public void update(int template, String collectionUri, String document, String contextXPath, String patch, String update, String append)
             throws Exception {
         createConnection();

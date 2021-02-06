@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
@@ -51,7 +52,7 @@ public class ZahtevController {
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<DocumentDto> create(@RequestBody DokumentZahtev dokumentZahtev, Authentication authentication) throws Exception {
-        return new ResponseEntity<>(service.create(dokumentZahtev, authentication, true), HttpStatus.CREATED);
+        return new ResponseEntity<>(service.create(dokumentZahtev, authentication), HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_XML_VALUE)
@@ -96,5 +97,11 @@ public class ZahtevController {
                                                            Authentication authentication) throws NotFoundException {
 
         return new ResponseEntity<>(service.reject(documentId, authentication), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/search", produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
+    public ResponseEntity<ZahtevCollection> searchAll(@RequestParam String term){
+        return new ResponseEntity<>(service.searchAll(term), HttpStatus.OK);
     }
 }

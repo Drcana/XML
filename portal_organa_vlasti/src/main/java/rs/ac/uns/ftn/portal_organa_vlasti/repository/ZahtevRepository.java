@@ -18,6 +18,8 @@ public class ZahtevRepository {
 
     private static final String TARGET_NAMESPACE = "http://www.ftn.uns.ac.rs/zahtev";
 
+    private static final String TARGET_NAMESPACE_PREFIX = "zah";
+
     private static final String UPDATE = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
             + "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:update select=\"%1$s\">%2$s</xu:update>"
             + "</xu:modifications>";
@@ -62,6 +64,27 @@ public class ZahtevRepository {
 
         try {
             list = existManager.getList(COLLECTION_URI, xPath, TARGET_NAMESPACE, DokumentZahtev.class);
+
+            return new ZahtevCollection(list);
+        } catch (Exception e) {
+            return new ZahtevCollection(list);
+        }
+    }
+
+    public ZahtevCollection searchAll(String term) {
+        List<DokumentZahtev> list = new ArrayList<>();
+        String xPath = "/zah:dokument_zahtev[zah:organ_vlasti[contains(types:naziv_organa, '" + term + "')]" +
+                " or zah:organ_vlasti/types:adresa/types:mesto[contains(.,'" + term + "')]" +
+                " or zah:organ_vlasti/types:adresa/types:ulica[contains(.,'" + term + "')]" +
+                " or zah:mesto_i_datum/types:mesto[contains(.,'" + term + "')]" +
+                " or zah:mesto_i_datum/types:datum[contains(.,'" + term + "')]" +
+                " or zah:podnosilac_zahteva/types:ime[contains(.,'" + term + "')]" +
+                " or zah:podnosilac_zahteva/types:prezime[contains(.,'" + term + "')]" +
+                " or zah:podnosilac_zahteva/types:adresa/types:mesto[contains(.,'" + term + "')]" +
+                " or zah:podnosilac_zahteva/types:adresa/types:ulica[contains(.,'" + term + "')]" +
+                " or zah:podnosilac_zahteva/types:drugi_podaci_za_kontakt[contains(.,'" + term + "')]" + "]";
+        try {
+            list = existManager.getListWithNamespace(COLLECTION_URI, xPath, TARGET_NAMESPACE, TARGET_NAMESPACE_PREFIX, DokumentZahtev.class);
 
             return new ZahtevCollection(list);
         } catch (Exception e) {

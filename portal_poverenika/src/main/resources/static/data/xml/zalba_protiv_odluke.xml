@@ -5,7 +5,7 @@
                          xmlns:pred="http://examples/predicate/"
                          xmlns:types="http://www.ftn.uns.ac.rs/types"
                          about="http://www.ftn.uns.ac.rs/zalba_protiv_odluke/1"
-                         id="1" userId="test@gmail.com" datum="2021-01-01">
+                         id="1" userId="test@gmail.com" datum="2021-01-01" zahtevId="zahtevId">
     <zpo:vrsta_zalbe>
         ЖАЛБА ПРОТИВ ОДЛУКЕ ОРГАНА ВЛАСТИ КОЈОМ ЈЕ
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ

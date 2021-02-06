@@ -85,7 +85,7 @@ public class ZalbaProtivOdlukeService {
 
     public DocumentDto create(ZalbaProtivOdluke zalbaProtivOdluke, Authentication authentication) throws Exception {
 
-        if (zahtevIsRejected(zalbaProtivOdluke.getZahtevId())) {
+        if (!zahtevIsRejected(zalbaProtivOdluke.getZahtevId())) {
             throw new NotRejectedZahtevException("Zahtev nije odbijen, ne moze se uneti zalba!");
         }
 

@@ -75,17 +75,19 @@ public class ZahtevService {
         jaxbService.unmarshalXml(JAXB_INSTANCE, XML_PATH, response);
     }
 
-    public DocumentDto create(DokumentZahtev dokumentZahtev, Authentication authentication, boolean isFirstTimeCreated) throws Exception {
+    public DocumentDto create(DokumentZahtev dokumentZahtev, Authentication authentication) throws Exception {
 
-        if (isFirstTimeCreated) {
-            String id = UUID.randomUUID().toString();
-            dokumentZahtev.setId(id);
-            dokumentZahtev.setUserId(getEmailOfLoggedUser(authentication));
-            dokumentZahtev.setAbout(String.format("%s/%s", TARGET_NAMESPACE, id));
-            dokumentZahtev.setDatum(getTodayDate());
-            dokumentZahtev.setStatus(Status.PENDING);
-        }
+        String id = UUID.randomUUID().toString();
+        dokumentZahtev.setId(id);
+        dokumentZahtev.setUserId(getEmailOfLoggedUser(authentication));
+        dokumentZahtev.setAbout(String.format("%s/%s", TARGET_NAMESPACE, id));
+        dokumentZahtev.setDatum(getTodayDate());
+        dokumentZahtev.setStatus(Status.PENDING);
 
+        return save(dokumentZahtev);
+    }
+
+    private DocumentDto save(DokumentZahtev dokumentZahtev) throws Exception {
         zahtevRepository.create(dokumentZahtev);
 
         return new DocumentDto(dokumentZahtev.getId());
@@ -171,7 +173,7 @@ public class ZahtevService {
     public void updateZahtev(DokumentZahtev dokumentZahtev, Authentication authentication) throws NotFoundException {
         try {
             delete(dokumentZahtev.getId());
-            create(dokumentZahtev, authentication, false);
+            save(dokumentZahtev);
         } catch (Exception ex) {
             throw new NotFoundException("Zahtev with id = [ " + dokumentZahtev.getId() + " ] not found");
         }
@@ -188,12 +190,16 @@ public class ZahtevService {
         try {
             transformer = new FileTransformer();
             if (transformer.generatePDF(xmlObject, XSL_FO_FILE_PATH, pdfPath)) {
-               return convertFileToBytes(pdfPath);
+                return convertFileToBytes(pdfPath);
             }
         } catch (Exception e) {
             return new byte[]{};
         }
 
         return new byte[]{};
+    }
+
+    public ZahtevCollection searchAll(String term) {
+        return zahtevRepository.searchAll(term);
     }
 }

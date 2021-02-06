@@ -1,7 +1,13 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
@@ -18,6 +24,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 @Service
 public class MetadataExtractorService {
@@ -58,5 +67,68 @@ public class MetadataExtractorService {
 
         UpdateProcessor processor = UpdateExecutionFactory.createRemote(update, conn.updateEndpoint);
         processor.execute();
+    }
+
+
+    public List<String> findAll(List<String> params, String searchQuery, Class<?> documentClassType) throws IOException {
+
+        FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
+
+        String queryPath = conn.dataEndpoint + SPARQL_NAMED_GRAPH_URI + "-" + documentClassType.getSimpleName();
+        //First param is database collection
+        params.add(0, queryPath);
+
+        // Querying the named graph with a referenced SPARQL query
+        System.out.println("[INFO] Loading SPARQL query from file \"" + searchQuery + "\"");
+        String sparqlQuery = String.format(searchQuery, params.toArray());
+
+        System.out.println(sparqlQuery);
+
+        // Create a QueryExecution that will access a SPARQL service over HTTP
+        QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint, sparqlQuery);
+
+        // Query the SPARQL endpoint, iterate over the result set...
+        System.out.println("[INFO] Showing the results for SPARQL query using the result handler.\n");
+        ResultSet results = query.execSelect();
+
+        String varName;
+        RDFNode varValue;
+
+        List<String> listOfIds = new ArrayList<>();
+
+        while (results.hasNext()) {
+
+            // A single answer from a SELECT query
+            QuerySolution querySolution = results.next();
+            Iterator<String> variableBindings = querySolution.varNames();
+
+            // Retrieve variable bindings
+            while (variableBindings.hasNext()) {
+
+                varName = variableBindings.next();
+                varValue = querySolution.get(varName);
+
+                int lastIndex = varValue.toString().lastIndexOf("/");
+                String id = varValue.toString().substring(lastIndex + 1);
+                listOfIds.add(id);
+            }
+        }
+
+        // Issuing the same query once again...
+
+        // Create a QueryExecution that will access a SPARQL service over HTTP
+        query = QueryExecutionFactory.sparqlService(conn.queryEndpoint, sparqlQuery);
+
+        // Query the collection, dump output response as XML
+        System.out.println("[INFO] Showing the results for SPARQL query in native SPARQL XML format.\n");
+        results = query.execSelect();
+
+        ResultSetFormatter.out(System.out, results);
+
+        query.close();
+
+        System.out.println("[INFO] End.");
+
+        return listOfIds;
     }
 }

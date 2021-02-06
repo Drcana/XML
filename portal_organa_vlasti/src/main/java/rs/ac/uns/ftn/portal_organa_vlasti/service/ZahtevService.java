@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.SearchZahtevMap;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.ZahtevRepository;
@@ -201,5 +202,9 @@ public class ZahtevService {
 
     public ZahtevCollection searchAll(String term) {
         return zahtevRepository.searchAll(term);
+    }
+
+    public ZahtevCollection advancedSearch(SearchZahtevMap searchMap) throws IOException {
+        return zahtevRepository.advancedSearch(searchMap);
     }
 }

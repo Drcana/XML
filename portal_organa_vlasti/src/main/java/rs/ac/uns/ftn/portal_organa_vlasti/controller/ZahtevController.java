@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_organa_vlasti.dto.SearchZahtevMap;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.ZahtevCollection;
 import rs.ac.uns.ftn.portal_organa_vlasti.service.ZahtevService;
@@ -24,6 +24,7 @@ import rs.ac.uns.ftn.zahtev.DokumentZahtev;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
+import java.io.IOException;
 import java.util.Base64;
 
 @Controller
@@ -99,9 +100,15 @@ public class ZahtevController {
         return new ResponseEntity<>(service.reject(documentId, authentication), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/search", produces = MediaType.APPLICATION_XML_VALUE)
+    @GetMapping(value = "/search/{term}", produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
-    public ResponseEntity<ZahtevCollection> searchAll(@RequestParam String term){
+    public ResponseEntity<ZahtevCollection> searchAll(@PathVariable("term") String term) {
         return new ResponseEntity<>(service.searchAll(term), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/advancedSearch", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
+    public ResponseEntity<ZahtevCollection> advancedSearch(@RequestBody SearchZahtevMap searchMap) throws IOException {
+        return new ResponseEntity<>(service.advancedSearch(searchMap), HttpStatus.OK);
     }
 }

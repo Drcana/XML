@@ -49,7 +49,7 @@ public class ResenjeController {
         return new ResponseEntity<>(service.parseXmlResenjeAsObject(), HttpStatus.OK);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<DocumentDto> create(@RequestBody Resenje resenje, Authentication authentication) throws Exception {
         return new ResponseEntity<>(service.create(resenje, authentication), HttpStatus.CREATED);

@@ -10,10 +10,12 @@ import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.ZalbaProtivCut
 import rs.ac.uns.ftn.portal_poverenika.repository.ZalbaProtivCutanjaRepository;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.StringWriter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -35,7 +37,16 @@ public class ZalbaProtivCutanjaService {
     @Autowired
     private ZalbaProtivCutanjaRepository zalbaProtivCutanjaRepository;
 
-    public String parseXmlZalbaProtivCutanja() throws JAXBException {
+    public String parseXmlZalbaProtivCutanjaAsString() throws JAXBException {
+        ZalbaProtivCutanja zalbaProtivCutanja = jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
+
+        StringWriter stringWriter = new StringWriter();
+        JAXB.marshal(zalbaProtivCutanja, stringWriter);
+
+        return stringWriter.toString();
+    }
+
+    public ZalbaProtivCutanja parseXmlZalbaProtivCutanjaAsObject() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 

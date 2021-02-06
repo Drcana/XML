@@ -10,7 +10,6 @@ import rs.ac.uns.ftn.portal_poverenika.util.MyValidationEventHandler;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.XMLConstants;
-import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -21,14 +20,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class JAXBService {
 
-    <T> String parseXml(String jaxbInstance, String xsdPath, String xmlPath) throws JAXBException {
+    <T> T parseXml(String jaxbInstance, String xsdPath, String xmlPath) throws JAXBException {
 
         T object;
 
@@ -49,10 +47,7 @@ public class JAXBService {
             throw new JAXBException(e.getMessage());
         }
 
-        StringWriter stringWriter = new StringWriter();
-        JAXB.marshal(object, stringWriter);
-
-        return stringWriter.toString();
+     return object;
     }
 
     <T> void unmarshalXml(String jaxbInstance, String xmlPath, HttpServletResponse response)

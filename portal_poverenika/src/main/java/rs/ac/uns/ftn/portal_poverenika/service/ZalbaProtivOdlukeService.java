@@ -10,10 +10,12 @@ import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.ZalbaProtivOdlu
 import rs.ac.uns.ftn.portal_poverenika.repository.ZalbaProtivOdlukeRepository;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.StringWriter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -35,7 +37,16 @@ public class ZalbaProtivOdlukeService {
     @Autowired
     private ZalbaProtivOdlukeRepository zalbaProtivOdlukeRepository;
 
-    public String parseXmlZalbaProtivOdluke() throws JAXBException {
+    public String parseXmlZalbaProtivOdlukeAsString() throws JAXBException {
+        ZalbaProtivOdluke zalbaProtivOdluke = jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
+
+        StringWriter stringWriter = new StringWriter();
+        JAXB.marshal(zalbaProtivOdluke, stringWriter);
+
+        return stringWriter.toString();
+    }
+
+    public ZalbaProtivOdluke parseXmlZalbaProtivOdlukeAsObject() throws JAXBException {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 

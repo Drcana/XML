@@ -21,6 +21,8 @@
       <xs:attribute name="userId" type="xs:string"/>
       <xs:attribute name="datum" type="xs:date"/>
       <xs:attribute name="about" type="xs:string"/>
+      <xs:attribute name="zahtevId" type="xs:string"/>
+      <xs:attribute name="status" type="zpc:status"/>
       <xs:anyAttribute namespace="##any" processContents="lax"/>
     </xs:complexType>
   </xs:element>
@@ -70,4 +72,11 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:simpleType name="status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="RESOLVED"/>
+      <xs:enumeration value="WITHDRAWN"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

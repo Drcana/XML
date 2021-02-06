@@ -20,7 +20,7 @@
            <types:prezime property="pred:prezime">Prezime </types:prezime>
        </res:podnosilac_zahteva> ,
         због непоступања
-        <organ>
+        <res:organ>
             <types:naziv_organa>Учитељског факултета</types:naziv_organa>
             y 
             <types:adresa>
@@ -28,7 +28,7 @@
                 <types:ulica> Немањина</types:ulica>
                 <types:broj>66</types:broj>
             </types:adresa>
-        </organ>
+        </res:organ>
         , по његовом захтеву од
         <datum_podnosenja_zahteva>2021-01-01</datum_podnosenja_zahteva>
         године за приступ
@@ -40,8 +40,8 @@
         тумачење), доноси 
     </res:informacije_o_resenju>
     
-    <sadrzaj_resenja>
-        <opis_resenja>
+    <res:sadrzaj_resenja>
+        <res:opis_resenja>
             Р Е Ш Е Њ Е 
             <types:p>I Налаже се Учитељском факултету у Призрену са привременим седиштем у Лепосавићу, да
                 без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести АА, да ли
@@ -56,8 +56,8 @@
                 II О извршењу решења Учитељски факултет у Призрену са привременим седиштем у
                 Лепосавићу, ће обавестити Повереника у року од седам дана од пријема овог решења
             </types:p>
-        </opis_resenja>
-        <telo_resenja>
+        </res:opis_resenja>
+        <res:telo_resenja>
             РЕШЕЊЕ
             <types:p>
                 I Налаже се Учитељском факултету у Призрену са привременим седиштем у Лепосавићу, да
@@ -74,8 +74,8 @@
                 II О извршењу решења Учитељски факултет у Призрену са привременим седиштем у
                 Лепосавићу, ће обавестити Повереника у року од седам дана од пријема овог решења. 
             </types:p>
-        </telo_resenja>
-        <obrazlozenje>
+        </res:telo_resenja>
+        <res:obrazlozenje>
             Образложење
             <types:p>
                 АА, као тражилац информација, изјавио је дана 07.05.2020. године жалбу Поверенику, због
@@ -140,8 +140,8 @@
                 споровима, може покренути управни спор тужбом Управном суду у Београду, у року од 30 дана од
                 дана пријема решења. Такса на тужбу износи 390,00 динара
             </types:p>
-        </obrazlozenje>
-    </sadrzaj_resenja>
+        </res:obrazlozenje>
+    </res:sadrzaj_resenja>
     <res:poverenik>    
         <types:ime>Ime poverenika</types:ime>
         <types:prezime>Prezime poverenika</types:prezime>

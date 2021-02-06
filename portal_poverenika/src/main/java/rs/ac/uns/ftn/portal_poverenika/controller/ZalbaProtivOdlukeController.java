@@ -28,9 +28,14 @@ public class ZalbaProtivOdlukeController {
     @Autowired
     private ZalbaProtivOdlukeService service;
 
-    @GetMapping("/parse")
-    public ResponseEntity<String> parseXmlZalbaProtivOdluke() throws JAXBException {
-        return new ResponseEntity<>(service.parseXmlZalbaProtivOdluke(), HttpStatus.OK);
+    @GetMapping(value = "/parse/string", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<String> parseXmlZalbaProtivOdlukeAsString() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlZalbaProtivOdlukeAsString(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/parse/object", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<ZalbaProtivOdluke> parseXmlZalbaProtivOdlukeAsObject() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlZalbaProtivOdlukeAsObject(), HttpStatus.OK);
     }
 
     @PostMapping("/write")

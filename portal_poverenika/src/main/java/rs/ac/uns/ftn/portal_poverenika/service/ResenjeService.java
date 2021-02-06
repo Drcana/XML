@@ -21,6 +21,7 @@ import rs.ac.uns.ftn.portal_poverenika.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXB;
+import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -35,6 +36,15 @@ import java.util.UUID;
 public class ResenjeService {
 
     private static final String TARGET_NAMESPACE = "http://www.ftn.uns.ac.rs/resenje";
+
+    /**
+     * For parsing xml file
+     */
+    private static final String XML_PATH = "src/main/resources/static/data/xml/resenje.xml";
+
+    private static final String XSD_PATH = "src/main/resources/static/data/xsd/resenje.xsd";
+
+    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_poverenika.model.resenje";
 
     /**
      * For generating XHTML / PDF files
@@ -62,6 +72,9 @@ public class ResenjeService {
     @Autowired
     private ZalbaProtivOdlukeService zalbaProtivOdlukeService;
 
+    @Autowired
+    private JAXBService jaxbService;
+
     public void writeXmlResenje(HttpServletResponse response) throws IOException {
         domService.createDocument();
         domService.generateResenje();
@@ -72,6 +85,10 @@ public class ResenjeService {
         domService.buildResenjeDocument();
 
         return domService.extractTreeToString(domService.getDocument());
+    }
+
+    public Resenje parseXmlResenjeAsObject() throws JAXBException {
+        return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 
     public DocumentDto create(Resenje resenje, Authentication authentication) throws Exception {

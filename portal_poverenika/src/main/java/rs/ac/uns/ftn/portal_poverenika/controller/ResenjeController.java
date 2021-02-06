@@ -22,6 +22,7 @@ import rs.ac.uns.ftn.portal_poverenika.model.resenje.Resenje;
 import rs.ac.uns.ftn.portal_poverenika.service.ResenjeService;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.Base64;
 
@@ -41,6 +42,11 @@ public class ResenjeController {
     @ResponseStatus(HttpStatus.OK)
     public void writeXmlResenje(final HttpServletResponse response) throws IOException {
         service.writeXmlResenje(response);
+    }
+
+    @GetMapping(value = "/parse/object", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<Resenje> parseXmlResenjeAsObject() throws JAXBException {
+        return new ResponseEntity<>(service.parseXmlResenjeAsObject(), HttpStatus.OK);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)

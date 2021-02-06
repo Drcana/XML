@@ -67,4 +67,17 @@ public class ZalbaProtivCutanjaController {
     public ResponseEntity<ZalbaProtivCutanjaCollection> getAllByUserId(Authentication authentication) {
         return new ResponseEntity<>(service.getAllByUserId(authentication), HttpStatus.OK);
     }
+
+
+    @GetMapping("/generate/html/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generateHTML(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generateHTML(documentId), HttpStatus.OK);
+    }
+
+    @GetMapping("/generate/pdf/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
+    }
 }

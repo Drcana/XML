@@ -17,7 +17,6 @@ import rs.ac.uns.ftn.portal_poverenika.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_poverenika.dto.ResenjeCollection;
 import rs.ac.uns.ftn.portal_poverenika.model.resenje.Resenje;
 import rs.ac.uns.ftn.portal_poverenika.service.ResenjeService;
-import rs.ac.uns.ftn.portal_poverenika.soap.client.OrganVlastiClient;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -29,9 +28,6 @@ public class ResenjeController {
     @Autowired
     private ResenjeService service;
 
-    @Autowired
-    private OrganVlastiClient organVlastiClient;
-
     @GetMapping
     public ResponseEntity<String> parseXmlResenje() {
         return new ResponseEntity<>(service.parseXmlResenje(), HttpStatus.OK);
@@ -41,11 +37,6 @@ public class ResenjeController {
     @ResponseStatus(HttpStatus.OK)
     public void writeXmlResenje(final HttpServletResponse response) throws IOException {
         service.writeXmlResenje(response);
-    }
-
-    @GetMapping("/zahtev/{id}")
-    public String getZahtev(@PathVariable("id") String id) {
-        return organVlastiClient.getZahtevId(id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
@@ -70,5 +61,18 @@ public class ResenjeController {
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<ResenjeCollection> getAllByUserId(Authentication authentication) {
         return new ResponseEntity<>(service.getAllByUserId(authentication), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/generate/html/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generateHTML(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generateHTML(documentId), HttpStatus.OK);
+    }
+
+    @GetMapping("/generate/pdf/{id}")
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
+        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
     }
 }

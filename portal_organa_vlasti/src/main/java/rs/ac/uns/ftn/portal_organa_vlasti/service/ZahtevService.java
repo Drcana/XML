@@ -132,10 +132,10 @@ public class ZahtevService {
                 return convertFileToBytes(htmlPath);
             }
         } catch (Exception e) {
-            return null;
+            return new byte[]{};
         }
 
-        return null;
+        return new byte[]{};
     }
 
     private String getZahtevAsString(String documentId) {
@@ -194,9 +194,9 @@ public class ZahtevService {
                 return Base64.getEncoder().encode(bytes);
             }
         } catch (Exception e) {
-            return null;
+            return new byte[]{};
         }
 
-        return null;
+        return new byte[]{};
     }
 }

@@ -11,7 +11,7 @@ public class OrganVlastiClient extends WebServiceGatewaySupport {
 
     private static final String ORGAN_VLASTI_SOAP_URL = "http://localhost:9001/services/zahtev";
 
-    public String getZahtevId (String zahtevId){
+    public GetZahtevByIdResponse.Return getZahtevId (String zahtevId){
         GetZahtevById getZahtevById = new GetZahtevById();
         getZahtevById.setArg0(zahtevId);
 
@@ -20,8 +20,6 @@ public class OrganVlastiClient extends WebServiceGatewaySupport {
         JAXBElement<GetZahtevByIdResponse> responseJAXBElement = (JAXBElement<GetZahtevByIdResponse>)
                 getWebServiceTemplate().marshalSendAndReceive(ORGAN_VLASTI_SOAP_URL, request);
 
-        String id = responseJAXBElement.getValue().getReturn().getId();
-
-        return id;
+        return responseJAXBElement.getValue().getReturn();
     }
 }

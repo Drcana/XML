@@ -1,16 +1,20 @@
 package rs.ac.uns.ftn.portal_poverenika.service;
 
 import org.apache.commons.io.FileUtils;
+import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import rs.ac.uns.ftn.portal_poverenika.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_poverenika.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_poverenika.dto.ZalbaProtivCutanjaCollection;
 import rs.ac.uns.ftn.portal_poverenika.exception.InvalidDateException;
 import rs.ac.uns.ftn.portal_poverenika.model.user.User;
 import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.ZalbaProtivCutanja;
 import rs.ac.uns.ftn.portal_poverenika.repository.ZalbaProtivCutanjaRepository;
+import rs.ac.uns.ftn.portal_poverenika.soap.client.EmailClient;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.OrganVlastiClient;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.Notification;
 import rs.ac.uns.ftn.portal_poverenika.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +26,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Base64;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -60,6 +63,9 @@ public class ZalbaProtivCutanjaService {
     @Autowired
     private OrganVlastiClient organVlastiClient;
 
+    @Autowired
+    private EmailClient emailClient;
+
     public String parseXmlZalbaProtivCutanjaAsString() throws JAXBException {
         ZalbaProtivCutanja zalbaProtivCutanja = jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
 
@@ -90,17 +96,23 @@ public class ZalbaProtivCutanjaService {
         zalbaProtivCutanja.setDatum(getTodayDate());
         zalbaProtivCutanja.setAbout(String.format("%s/%s", TARGET_NAMESPACE, id));
 
+        return save(zalbaProtivCutanja);
+    }
+
+    private DocumentDto save(ZalbaProtivCutanja zalbaProtivCutanja) throws Exception {
         zalbaProtivCutanjaRepository.create(zalbaProtivCutanja);
 
-        return new DocumentDto(id);
+        return new DocumentDto(zalbaProtivCutanja.getId());
     }
 
     private boolean hasDateValidForEnteringZalba(String zahtevId) {
-        XMLGregorianCalendar xmlGregorianCalendar = organVlastiClient.getZahtevId(zahtevId).getDatum();
-        Date dateOfZahtev = xmlGregorianCalendar.toGregorianCalendar().getTime();
-        Date minDateForZalba = new Date(dateOfZahtev.getTime() + TEN_DAYS_IN_MILLIS);
+//        XMLGregorianCalendar xmlGregorianCalendar = organVlastiClient.getZahtevById(zahtevId).getDatum();
+//        Date dateOfZahtev = xmlGregorianCalendar.toGregorianCalendar().getTime();
+//        Date minDateForZalba = new Date(dateOfZahtev.getTime() + TEN_DAYS_IN_MILLIS);
+//
+//        return new Date().after(minDateForZalba);
 
-        return new Date().after(minDateForZalba);
+        return true;
     }
 
     private String getEmailOfLoggedUser(Authentication authentication) {
@@ -168,14 +180,45 @@ public class ZalbaProtivCutanjaService {
         try {
             transformer = new FileTransformer();
             if (transformer.generatePDF(xmlObject, XSL_FO_FILE_PATH, pdfPath)) {
-                byte[] bytes = convertFileToBytes(pdfPath);
-
-                return Base64.getEncoder().encode(bytes);
+                return convertFileToBytes(pdfPath);
             }
         } catch (Exception e) {
             return new byte[]{};
         }
 
         return new byte[]{};
+    }
+
+    public void updateZalba(ZalbaProtivCutanja zalba) throws NotFoundException {
+
+        try {
+            delete(zalba.getId());
+            save(zalba);
+        } catch (Exception ex) {
+            throw new NotFoundException("Zalba protiv cutanja with id = [ " + zalba.getId() + " ] not found");
+        }
+    }
+
+    public boolean delete(String documentId) throws Exception {
+        return zalbaProtivCutanjaRepository.delete(documentId);
+    }
+
+    public WrapperResponse<Boolean> sendZalbaToUser(String documentId, Authentication authentication) {
+        ZalbaProtivCutanja zalba = get(documentId);
+
+        byte[] generatedPdfFile = generatePDF(documentId);
+        byte[] generatedHtmlFile = generateHTML(documentId);
+
+        Notification notification = new Notification();
+
+        notification.setSenderEmail(getEmailOfLoggedUser(authentication));
+        notification.setReceiverEmail(zalba.getUserId());
+
+        notification.setPdfFile(generatedPdfFile != null ? generatedPdfFile : new byte[]{});
+        notification.setHtmlFile(generatedHtmlFile != null ? generatedHtmlFile : new byte[]{});
+
+        notification.setDocumentId(zalba.getZahtevId());
+
+        return new WrapperResponse<>(emailClient.sendZalba(notification));
     }
 }

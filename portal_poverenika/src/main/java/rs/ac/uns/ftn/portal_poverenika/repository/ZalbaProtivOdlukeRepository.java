@@ -51,4 +51,8 @@ public class ZalbaProtivOdlukeRepository {
             return new ZalbaProtivOdlukeCollection(list);
         }
     }
+
+    public Boolean delete(String documentId) throws Exception {
+        return existManager.remove(COLLECTION_URI, documentId);
+    }
 }

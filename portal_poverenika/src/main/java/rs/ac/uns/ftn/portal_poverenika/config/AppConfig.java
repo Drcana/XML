@@ -3,6 +3,7 @@ package rs.ac.uns.ftn.portal_poverenika.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import rs.ac.uns.ftn.portal_poverenika.soap.client.EmailClient;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.OrganVlastiClient;
 
 @Configuration
@@ -20,6 +21,17 @@ public class AppConfig {
     public OrganVlastiClient organVlastiClient(Jaxb2Marshaller marshaller) {
         OrganVlastiClient client = new OrganVlastiClient();
         client.setDefaultUri("http://localhost:9001/services/zahtev");
+        client.setMarshaller(marshaller);
+        client.setUnmarshaller(marshaller);
+
+        return client;
+    }
+
+
+    @Bean
+    public EmailClient emailClient(Jaxb2Marshaller marshaller) {
+        EmailClient client = new EmailClient();
+        client.setDefaultUri("http://localhost:9000/services/email/portal_poverenika");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
 

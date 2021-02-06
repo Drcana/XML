@@ -76,7 +76,7 @@ import java.util.Map;
 @XmlType(name = "TFizicko_Lice", propOrder = {
     "content"
 })
-public class TFizickoLice {
+public class TFIzickoLice {
 
     @XmlElementRefs({
         @XmlElementRef(name = "prezime", namespace = "http://www.ftn.uns.ac.rs/types", type = JAXBElement.class),
@@ -108,9 +108,9 @@ public class TFizickoLice {
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link TAdresa }{@code >}
      * {@link String }
-     * {@link JAXBElement }{@code <}{@link TFizickoLice.Prezime }{@code >}
-     * {@link JAXBElement }{@code <}{@link TFizickoLice.Ime }{@code >}
-     * {@link JAXBElement }{@code <}{@link TFizickoLice.DrugiPodaciZaKontakt }{@code >}
+     * {@link JAXBElement }{@code <}{@link TFIzickoLice.Prezime }{@code >}
+     * {@link JAXBElement }{@code <}{@link TFIzickoLice.Ime }{@code >}
+     * {@link JAXBElement }{@code <}{@link TFIzickoLice.DrugiPodaciZaKontakt }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * 

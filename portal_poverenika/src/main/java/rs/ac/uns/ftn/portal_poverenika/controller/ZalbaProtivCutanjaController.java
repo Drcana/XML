@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_poverenika.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_poverenika.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_poverenika.dto.ZalbaProtivCutanjaCollection;
 import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.ZalbaProtivCutanja;
 import rs.ac.uns.ftn.portal_poverenika.service.ZalbaProtivCutanjaService;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
+import java.util.Base64;
 
 @Controller
 @RequestMapping("/api/zalbaProtivCutanja")
@@ -44,7 +46,7 @@ public class ZalbaProtivCutanjaController {
         service.writeXmlZalbaProtivCutanja(response);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<DocumentDto> create(@RequestBody ZalbaProtivCutanja zalbaProtivCutanja, Authentication authentication) throws Exception {
         return new ResponseEntity<>(service.create(zalbaProtivCutanja, authentication), HttpStatus.CREATED);
@@ -78,6 +80,14 @@ public class ZalbaProtivCutanjaController {
     @GetMapping("/generate/pdf/{id}")
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
-        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
+        return new ResponseEntity<>(Base64.getEncoder().encode(service.generatePDF(documentId)), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/sendZalba/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_POVERENIK')")
+    public ResponseEntity<WrapperResponse<Boolean>> sendZalbaToUser(
+            @PathVariable ("id") String documentId, Authentication authentication) {
+
+        return new ResponseEntity<>(service.sendZalbaToUser(documentId, authentication), HttpStatus.OK);
     }
 }

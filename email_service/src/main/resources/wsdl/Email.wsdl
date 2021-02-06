@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="EmailServiceImplService" targetNamespace="http://soap.email_service.ftn.uns.ac.rs/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.email_service.ftn.uns.ac.rs/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/reject_notification" version="1.0">
+
+  <xs:complexType name="RejectNotification">
+    <xs:sequence>
+      <xs:element name="zahtevId" type="xs:string"/>
+      <xs:element name="senderEmail" type="xs:string"/>
+      <xs:element name="receiverEmail" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/notification" version="1.0">
+
+  <xs:complexType name="Notification">
+    <xs:sequence>
+      <xs:element name="pdfFile" type="xs:base64Binary"/>
+      <xs:element name="htmlFile" type="xs:base64Binary"/>
+      <xs:element name="receiverEmail" type="xs:string"/>
+      <xs:element name="senderEmail" type="xs:string"/>
+      <xs:element name="documentId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+<xs:schema xmlns:ns1="http://www.ftn.uns.ac.rs/notification" xmlns:ns2="http://www.ftn.uns.ac.rs/reject_notification" xmlns:tns="http://soap.email_service.ftn.uns.ac.rs/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://soap.email_service.ftn.uns.ac.rs/" version="1.0">
+
+  <xs:import namespace="http://www.ftn.uns.ac.rs/notification"/>
+
+  <xs:import namespace="http://www.ftn.uns.ac.rs/reject_notification"/>
+
+  <xs:element name="rejectZahtev" type="tns:rejectZahtev"/>
+
+  <xs:element name="rejectZahtevResponse" type="tns:rejectZahtevResponse"/>
+
+  <xs:element name="sendObavestenje" type="tns:sendObavestenje"/>
+
+  <xs:element name="sendObavestenjeResponse" type="tns:sendObavestenjeResponse"/>
+
+  <xs:element name="sendResenje" type="tns:sendResenje"/>
+
+  <xs:element name="sendResenjeResponse" type="tns:sendResenjeResponse"/>
+
+  <xs:element name="sendZalba" type="tns:sendZalba"/>
+
+  <xs:element name="sendZalbaResponse" type="tns:sendZalbaResponse"/>
+
+  <xs:complexType name="sendResenje">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="resenjeNotification" type="ns1:Notification"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendResenjeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendObavestenje">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="obavestenjeNotification" type="ns1:Notification"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendObavestenjeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="rejectZahtev">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rejectNotification" type="ns2:RejectNotification"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="rejectZahtevResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendZalba">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="zalbaNotification" type="ns1:Notification"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendZalbaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="sendObavestenje">
+    <wsdl:part name="parameters" element="tns:sendObavestenje">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rejectZahtevResponse">
+    <wsdl:part name="parameters" element="tns:rejectZahtevResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendResenje">
+    <wsdl:part name="parameters" element="tns:sendResenje">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendObavestenjeResponse">
+    <wsdl:part name="parameters" element="tns:sendObavestenjeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rejectZahtev">
+    <wsdl:part name="parameters" element="tns:rejectZahtev">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendZalbaResponse">
+    <wsdl:part name="parameters" element="tns:sendZalbaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendResenjeResponse">
+    <wsdl:part name="parameters" element="tns:sendResenjeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendZalba">
+    <wsdl:part name="parameters" element="tns:sendZalba">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmailService">
+    <wsdl:operation name="sendResenje">
+      <wsdl:input name="sendResenje" message="tns:sendResenje">
+    </wsdl:input>
+      <wsdl:output name="sendResenjeResponse" message="tns:sendResenjeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendObavestenje">
+      <wsdl:input name="sendObavestenje" message="tns:sendObavestenje">
+    </wsdl:input>
+      <wsdl:output name="sendObavestenjeResponse" message="tns:sendObavestenjeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rejectZahtev">
+      <wsdl:input name="rejectZahtev" message="tns:rejectZahtev">
+    </wsdl:input>
+      <wsdl:output name="rejectZahtevResponse" message="tns:rejectZahtevResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendZalba">
+      <wsdl:input name="sendZalba" message="tns:sendZalba">
+    </wsdl:input>
+      <wsdl:output name="sendZalbaResponse" message="tns:sendZalbaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmailServiceImplServiceSoapBinding" type="tns:EmailService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendResenje">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendResenje">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendResenjeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendObavestenje">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendObavestenje">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendObavestenjeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rejectZahtev">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="rejectZahtev">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="rejectZahtevResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendZalba">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendZalba">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendZalbaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmailServiceImplService">
+    <wsdl:port name="EmailServiceImplPort" binding="tns:EmailServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:9090/EmailServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

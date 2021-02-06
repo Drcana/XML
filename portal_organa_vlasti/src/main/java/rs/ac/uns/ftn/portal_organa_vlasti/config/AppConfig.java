@@ -28,7 +28,7 @@ public class AppConfig {
     }
 
     @Bean
-    public EmailClient notificationClient(Jaxb2Marshaller marshaller) {
+    public EmailClient emailClient(Jaxb2Marshaller marshaller) {
         EmailClient client = new EmailClient();
         client.setDefaultUri("http://localhost:9000/services/email/organ_vlasti");
         client.setMarshaller(marshaller);

@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import rs.ac.uns.ftn.portal_poverenika.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_poverenika.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_poverenika.dto.ZalbaProtivOdlukeCollection;
 import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.ZalbaProtivOdluke;
 import rs.ac.uns.ftn.portal_poverenika.service.ZalbaProtivOdlukeService;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
+import java.util.Base64;
 
 @Controller
 @RequestMapping("/api/zalbaProtivOdluke")
@@ -77,6 +79,14 @@ public class ZalbaProtivOdlukeController {
     @GetMapping("/generate/pdf/{id}")
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
-        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
+        return new ResponseEntity<>(Base64.getEncoder().encode(service.generatePDF(documentId)), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/sendZalba/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_POVERENIK')")
+    public ResponseEntity<WrapperResponse<Boolean>> sendZalbaToUser(
+            @PathVariable ("id") String documentId, Authentication authentication) {
+
+        return new ResponseEntity<>(service.sendZalbaToUser(documentId, authentication), HttpStatus.OK);
     }
 }

@@ -120,7 +120,7 @@ public class TInformacijeOResenju {
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      * {@link JAXBElement }{@code <}{@link TInformacijeOResenju.DatumResenja }{@code >}
-     * {@link JAXBElement }{@code <}{@link TFizickoLice }{@code >}
+     * {@link JAXBElement }{@code <}{@link TFIzickoLice }{@code >}
      * {@link JAXBElement }{@code <}{@link TPravnoLice }{@code >}
      * {@link JAXBElement }{@code <}{@link TInformacijeOResenju.DatumPodnosenjaZahteva }{@code >}
      * {@link JAXBElement }{@code <}{@link TInformacijeOResenju.BrojResenja }{@code >}

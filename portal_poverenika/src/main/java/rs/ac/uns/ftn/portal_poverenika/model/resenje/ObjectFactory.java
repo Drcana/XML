@@ -92,11 +92,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TFizickoLice }
+     * Create an instance of {@link TFIzickoLice }
      * 
      */
-    public TFizickoLice createTFizickoLice() {
-        return new TFizickoLice();
+    public TFIzickoLice createTFizickoLice() {
+        return new TFIzickoLice();
     }
 
     /**
@@ -188,27 +188,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TFizickoLice.Ime }
+     * Create an instance of {@link TFIzickoLice.Ime }
      * 
      */
-    public TFizickoLice.Ime createTFizickoLiceIme() {
-        return new TFizickoLice.Ime();
+    public TFIzickoLice.Ime createTFizickoLiceIme() {
+        return new TFIzickoLice.Ime();
     }
 
     /**
-     * Create an instance of {@link TFizickoLice.Prezime }
+     * Create an instance of {@link TFIzickoLice.Prezime }
      * 
      */
-    public TFizickoLice.Prezime createTFizickoLicePrezime() {
-        return new TFizickoLice.Prezime();
+    public TFIzickoLice.Prezime createTFizickoLicePrezime() {
+        return new TFIzickoLice.Prezime();
     }
 
     /**
-     * Create an instance of {@link TFizickoLice.DrugiPodaciZaKontakt }
+     * Create an instance of {@link TFIzickoLice.DrugiPodaciZaKontakt }
      * 
      */
-    public TFizickoLice.DrugiPodaciZaKontakt createTFizickoLiceDrugiPodaciZaKontakt() {
-        return new TFizickoLice.DrugiPodaciZaKontakt();
+    public TFIzickoLice.DrugiPodaciZaKontakt createTFizickoLiceDrugiPodaciZaKontakt() {
+        return new TFIzickoLice.DrugiPodaciZaKontakt();
     }
 
     /**
@@ -283,45 +283,45 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "potpis", scope = TFizickoLice.class)
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "potpis", scope = TFIzickoLice.class)
     public JAXBElement<String> createTFizickoLicePotpis(String value) {
-        return new JAXBElement<String>(_TFizickoLicePotpis_QNAME, String.class, TFizickoLice.class, value);
+        return new JAXBElement<String>(_TFizickoLicePotpis_QNAME, String.class, TFIzickoLice.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TFizickoLice.Ime }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TFIzickoLice.Ime }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "ime", scope = TFizickoLice.class)
-    public JAXBElement<TFizickoLice.Ime> createTFizickoLiceIme(TFizickoLice.Ime value) {
-        return new JAXBElement<TFizickoLice.Ime>(_TFizickoLiceIme_QNAME, TFizickoLice.Ime.class, TFizickoLice.class, value);
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "ime", scope = TFIzickoLice.class)
+    public JAXBElement<TFIzickoLice.Ime> createTFizickoLiceIme(TFIzickoLice.Ime value) {
+        return new JAXBElement<TFIzickoLice.Ime>(_TFizickoLiceIme_QNAME, TFIzickoLice.Ime.class, TFIzickoLice.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TFizickoLice.Prezime }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TFIzickoLice.Prezime }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "prezime", scope = TFizickoLice.class)
-    public JAXBElement<TFizickoLice.Prezime> createTFizickoLicePrezime(TFizickoLice.Prezime value) {
-        return new JAXBElement<TFizickoLice.Prezime>(_TFizickoLicePrezime_QNAME, TFizickoLice.Prezime.class, TFizickoLice.class, value);
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "prezime", scope = TFIzickoLice.class)
+    public JAXBElement<TFIzickoLice.Prezime> createTFizickoLicePrezime(TFIzickoLice.Prezime value) {
+        return new JAXBElement<TFIzickoLice.Prezime>(_TFizickoLicePrezime_QNAME, TFIzickoLice.Prezime.class, TFIzickoLice.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TFizickoLice.DrugiPodaciZaKontakt }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TFIzickoLice.DrugiPodaciZaKontakt }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "drugi_podaci_za_kontakt", scope = TFizickoLice.class)
-    public JAXBElement<TFizickoLice.DrugiPodaciZaKontakt> createTFizickoLiceDrugiPodaciZaKontakt(TFizickoLice.DrugiPodaciZaKontakt value) {
-        return new JAXBElement<TFizickoLice.DrugiPodaciZaKontakt>(_TFizickoLiceDrugiPodaciZaKontakt_QNAME, TFizickoLice.DrugiPodaciZaKontakt.class, TFizickoLice.class, value);
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "drugi_podaci_za_kontakt", scope = TFIzickoLice.class)
+    public JAXBElement<TFIzickoLice.DrugiPodaciZaKontakt> createTFizickoLiceDrugiPodaciZaKontakt(TFIzickoLice.DrugiPodaciZaKontakt value) {
+        return new JAXBElement<TFIzickoLice.DrugiPodaciZaKontakt>(_TFizickoLiceDrugiPodaciZaKontakt_QNAME, TFIzickoLice.DrugiPodaciZaKontakt.class, TFIzickoLice.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TAdresa }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "adresa", scope = TFizickoLice.class)
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/types", name = "adresa", scope = TFIzickoLice.class)
     public JAXBElement<TAdresa> createTFizickoLiceAdresa(TAdresa value) {
-        return new JAXBElement<TAdresa>(_TFizickoLiceAdresa_QNAME, TAdresa.class, TFizickoLice.class, value);
+        return new JAXBElement<TAdresa>(_TFizickoLiceAdresa_QNAME, TAdresa.class, TFIzickoLice.class, value);
     }
 
     /**
@@ -352,12 +352,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TFizickoLice }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TFIzickoLice }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/resenje", name = "podnosilac_zahteva", scope = TInformacijeOResenju.class)
-    public JAXBElement<TFizickoLice> createTInformacijeOResenjuPodnosilacZahteva(TFizickoLice value) {
-        return new JAXBElement<TFizickoLice>(_TInformacijeOResenjuPodnosilacZahteva_QNAME, TFizickoLice.class, TInformacijeOResenju.class, value);
+    public JAXBElement<TFIzickoLice> createTInformacijeOResenjuPodnosilacZahteva(TFIzickoLice value) {
+        return new JAXBElement<TFIzickoLice>(_TInformacijeOResenjuPodnosilacZahteva_QNAME, TFIzickoLice.class, TInformacijeOResenju.class, value);
     }
 
     /**

@@ -8,6 +8,7 @@ import org.w3c.dom.Node;
 import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.Collection;
 import org.xmldb.api.base.Database;
+import org.xmldb.api.base.Resource;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.CollectionManagementService;
@@ -262,5 +263,34 @@ public class ExistManager {
         }
 
         return null;
+    }
+
+    public boolean remove(String collectionUri, String documentId) throws Exception {
+        createConnection();
+
+        Collection collection = null;
+        try {
+            collection = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+                    authManager.getPassword());
+            Resource foundFile = collection.getResource(documentId);
+
+            if (foundFile == null) {
+                return false;
+            }
+
+            collection.removeResource(foundFile);
+
+        } finally {
+            // don't forget to cleanup
+            if (collection != null) {
+                try {
+                    collection.close();
+                } catch (XMLDBException xe) {
+                    xe.printStackTrace();
+                }
+            }
+        }
+
+        return true;
     }
 }

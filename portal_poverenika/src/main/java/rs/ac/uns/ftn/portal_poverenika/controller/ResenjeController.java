@@ -1,5 +1,6 @@
 package rs.ac.uns.ftn.portal_poverenika.controller;
 
+import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import rs.ac.uns.ftn.portal_poverenika.dto.DocumentDto;
+import rs.ac.uns.ftn.portal_poverenika.dto.NotificationEmailDto;
 import rs.ac.uns.ftn.portal_poverenika.dto.ResenjeCollection;
+import rs.ac.uns.ftn.portal_poverenika.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_poverenika.model.resenje.Resenje;
 import rs.ac.uns.ftn.portal_poverenika.service.ResenjeService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Base64;
 
 @RestController
 @RequestMapping("/api/resenje")
@@ -73,6 +77,14 @@ public class ResenjeController {
     @GetMapping("/generate/pdf/{id}")
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
-        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
+        return new ResponseEntity<>(Base64.getEncoder().encode(service.generatePDF(documentId)), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/sendResenje", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_POVERENIK')")
+    public ResponseEntity<WrapperResponse<Boolean>> sendResenjeToUser(
+            @RequestBody NotificationEmailDto notificationEmailDto, Authentication authentication) throws NotFoundException {
+
+        return new ResponseEntity<>(service.sendResenjeToUser(notificationEmailDto, authentication), HttpStatus.OK);
     }
 }

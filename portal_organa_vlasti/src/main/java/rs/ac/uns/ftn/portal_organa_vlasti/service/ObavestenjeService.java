@@ -27,7 +27,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Base64;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -155,15 +154,13 @@ public class ObavestenjeService {
         try {
             transformer = new FileTransformer();
             if (transformer.generatePDF(xmlObject, XSL_FO_FILE_PATH, pdfPath)) {
-                byte[] bytes = convertFileToBytes(pdfPath);
-
-                return Base64.getEncoder().encode(bytes);
+                return convertFileToBytes(pdfPath);
             }
         } catch (Exception e) {
-            return null;
+            return new byte[]{};
         }
 
-        return null;
+        return new byte[]{};
     }
 
     public WrapperResponse<Boolean> sendResponseToUser(ObavestenjeNotificationDto obavestenjeNotificationDto, Authentication authentication)

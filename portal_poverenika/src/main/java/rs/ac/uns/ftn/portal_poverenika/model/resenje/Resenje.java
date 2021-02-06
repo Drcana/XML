@@ -63,7 +63,7 @@ public class Resenje {
     @XmlElement(name = "sadrzaj_resenja", namespace = "http://www.ftn.uns.ac.rs/resenje", required = true)
     protected TSadrzajResenja sadrzajResenja;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/resenje", required = true)
-    protected TFizickoLice poverenik;
+    protected TFIzickoLice poverenik;
     @XmlAttribute(name = "id")
     protected String id;
     @XmlAttribute(name = "userId")
@@ -131,10 +131,10 @@ public class Resenje {
      * 
      * @return
      *     possible object is
-     *     {@link TFizickoLice }
+     *     {@link TFIzickoLice }
      *     
      */
-    public TFizickoLice getPoverenik() {
+    public TFIzickoLice getPoverenik() {
         return poverenik;
     }
 
@@ -143,10 +143,10 @@ public class Resenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link TFizickoLice }
+     *     {@link TFIzickoLice }
      *     
      */
-    public void setPoverenik(TFizickoLice value) {
+    public void setPoverenik(TFIzickoLice value) {
         this.poverenik = value;
     }
 

@@ -23,6 +23,7 @@ import rs.ac.uns.ftn.zahtev.DokumentZahtev;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
+import java.util.Base64;
 
 @Controller
 @RequestMapping("/api/zahtev")
@@ -86,7 +87,7 @@ public class ZahtevController {
     @GetMapping("/generate/pdf/{id}")
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
     public ResponseEntity<byte[]> generatePDF(@PathVariable("id") String documentId) {
-        return new ResponseEntity<>(service.generatePDF(documentId), HttpStatus.OK);
+        return new ResponseEntity<>(Base64.getEncoder().encode(service.generatePDF(documentId)), HttpStatus.OK);
     }
 
     @PostMapping(value = "/reject/{id}", produces = MediaType.APPLICATION_XML_VALUE)

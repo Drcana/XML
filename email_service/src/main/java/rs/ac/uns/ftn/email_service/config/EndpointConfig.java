@@ -5,7 +5,7 @@ import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import rs.ac.uns.ftn.email_service.soap.organ_vlasti.OrganVlastiEmailServiceImpl;
+import rs.ac.uns.ftn.email_service.soap.EmailServiceImpl;
 
 import javax.xml.ws.Endpoint;
 
@@ -13,15 +13,10 @@ import javax.xml.ws.Endpoint;
 public class EndpointConfig {
 
     @Bean
-    public Endpoint endpoint(SpringBus springBus, OrganVlastiEmailServiceImpl organVlastiEmailService) {
-        EndpointImpl endpoint = new EndpointImpl(springBus, organVlastiEmailService);
-        endpoint.publish("/email/organ_vlasti");
+    public Endpoint endpoint(SpringBus springBus, EmailServiceImpl emailService) {
+        EndpointImpl endpoint = new EndpointImpl(springBus, emailService);
+        endpoint.publish("/email");
 
         return endpoint;
     }
-
-//    @Bean
-//    public JavaMailSender javaMailSender(){
-//        return new JavaMailSenderImpl();
-//    }
 }

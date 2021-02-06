@@ -63,4 +63,8 @@ public class ZalbaProtivCutanjaRepository {
             return new ZalbaProtivCutanjaCollection(list);
         }
     }
+
+    public boolean delete(String documentId) throws Exception {
+        return existManager.remove(COLLECTION_URI, documentId);
+    }
 }

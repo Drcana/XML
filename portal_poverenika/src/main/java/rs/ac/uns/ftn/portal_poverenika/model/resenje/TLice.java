@@ -8,7 +8,6 @@
 
 package rs.ac.uns.ftn.portal_poverenika.model.resenje;
 
-import rs.ac.uns.ftn.portal_poverenika.soap.model.TFIzickoLice;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;

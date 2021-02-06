@@ -16,7 +16,7 @@ import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.ZalbaProtivCut
 import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.ZalbaProtivOdluke;
 import rs.ac.uns.ftn.portal_poverenika.repository.ResenjeRepository;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.EmailClient;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.Notification;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.Notification;
 import rs.ac.uns.ftn.portal_poverenika.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;

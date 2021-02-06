@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://soap.email_service.ftn.uns.ac.rs/")
-package rs.ac.uns.ftn.portal_poverenika.soap.model;
+package rs.ac.uns.ftn.portal_poverenika.soap.model.email;

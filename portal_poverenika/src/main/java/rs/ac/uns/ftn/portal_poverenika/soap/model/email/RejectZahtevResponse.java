@@ -6,24 +6,25 @@
 //
 
 
-package rs.ac.uns.ftn.portal_poverenika.soap.model;
+package rs.ac.uns.ftn.portal_poverenika.soap.model.email;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for sendObavestenje complex type.
+ * <p>Java class for rejectZahtevResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="sendObavestenje"&gt;
+ * &lt;complexType name="rejectZahtevResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="obavestenjeNotification" type="{http://www.ftn.uns.ac.rs/notification}Notification" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,35 +34,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "sendObavestenje", propOrder = {
-    "obavestenjeNotification"
+@XmlType(name = "rejectZahtevResponse", propOrder = {
+    "_return"
 })
-public class SendObavestenje {
+public class RejectZahtevResponse {
 
-    protected Notification obavestenjeNotification;
+    @XmlElement(name = "return")
+    protected Boolean _return;
 
     /**
-     * Gets the value of the obavestenjeNotification property.
+     * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link Notification }
+     *     {@link Boolean }
      *     
      */
-    public Notification getObavestenjeNotification() {
-        return obavestenjeNotification;
+    public Boolean isReturn() {
+        return _return;
     }
 
     /**
-     * Sets the value of the obavestenjeNotification property.
+     * Sets the value of the return property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Notification }
+     *     {@link Boolean }
      *     
      */
-    public void setObavestenjeNotification(Notification value) {
-        this.obavestenjeNotification = value;
+    public void setReturn(Boolean value) {
+        this._return = value;
     }
 
 }

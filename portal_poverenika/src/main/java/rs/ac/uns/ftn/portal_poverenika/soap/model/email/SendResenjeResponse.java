@@ -6,7 +6,7 @@
 //
 
 
-package rs.ac.uns.ftn.portal_poverenika.soap.model;
+package rs.ac.uns.ftn.portal_poverenika.soap.model.email;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,12 +15,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for sendZalbaResponse complex type.
+ * <p>Java class for sendResenjeResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="sendZalbaResponse"&gt;
+ * &lt;complexType name="sendResenjeResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -34,10 +34,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "sendZalbaResponse", propOrder = {
+@XmlType(name = "sendResenjeResponse", propOrder = {
     "_return"
 })
-public class SendZalbaResponse {
+public class SendResenjeResponse {
 
     @XmlElement(name = "return")
     protected Boolean _return;

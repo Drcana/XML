@@ -126,7 +126,7 @@
                     <generatePackage>rs.ac.uns.ftn.portal_organa_vlasti.soap.model</generatePackage>
                     <schemas>
                         <schema>
-                            <url>http://localhost:9000/services/email/organ_vlasti?wsdl</url>
+                            <url>http://localhost:9000/services/email?wsdl</url>
                         </schema>
                     </schemas>
                 </configuration>

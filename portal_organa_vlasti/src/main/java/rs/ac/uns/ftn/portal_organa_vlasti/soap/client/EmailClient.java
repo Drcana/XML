@@ -1,7 +1,7 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.soap.client;
 
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
-import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.ObavestenjeNotification;
+import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.Notification;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.ObjectFactory;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.RejectNotification;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.RejectZahtev;
@@ -13,12 +13,12 @@ import javax.xml.bind.JAXBElement;
 
 public class EmailClient extends WebServiceGatewaySupport {
 
-    private static final String EMAIL_SOAP_URL = "http://localhost:9000/services/email/organ_vlasti";
+    private static final String EMAIL_SOAP_URL = "http://localhost:9000/services/email";
 
-    public Boolean sendObavestenje(ObavestenjeNotification obavestenjeNotification) {
+    public Boolean sendObavestenje(Notification notification) {
 
         SendObavestenje sendObavestenje = new SendObavestenje();
-        sendObavestenje.setObavestenjeNotification(obavestenjeNotification);
+        sendObavestenje.setObavestenjeNotification(notification);
 
         JAXBElement<SendObavestenje> request = new ObjectFactory().createSendObavestenje(sendObavestenje);
 

@@ -12,13 +12,16 @@ public class AppConfig {
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setContextPath("rs.ac.uns.ftn.portal_poverenika.soap.model");
+        marshaller.setContextPath("rs.ac.uns.ftn.portal_poverenika.soap.model.email");
 
         return marshaller;
     }
 
     @Bean
-    public OrganVlastiClient organVlastiClient(Jaxb2Marshaller marshaller) {
+    public OrganVlastiClient organVlastiClient() {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("rs.ac.uns.ftn.portal_poverenika.soap.model.zahtev");
+
         OrganVlastiClient client = new OrganVlastiClient();
         client.setDefaultUri("http://localhost:9001/services/zahtev");
         client.setMarshaller(marshaller);
@@ -31,7 +34,7 @@ public class AppConfig {
     @Bean
     public EmailClient emailClient(Jaxb2Marshaller marshaller) {
         EmailClient client = new EmailClient();
-        client.setDefaultUri("http://localhost:9000/services/email/portal_poverenika");
+        client.setDefaultUri("http://localhost:9000/services/email");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
 

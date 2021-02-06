@@ -14,7 +14,7 @@ import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.ZalbaProtivOdlu
 import rs.ac.uns.ftn.portal_poverenika.repository.ZalbaProtivOdlukeRepository;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.EmailClient;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.OrganVlastiClient;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.Notification;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.Notification;
 import rs.ac.uns.ftn.portal_poverenika.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
@@ -106,10 +106,9 @@ public class ZalbaProtivOdlukeService {
     }
 
     private boolean zahtevIsRejected(String zahtevId) {
-//        String status = organVlastiClient.getZahtevById(zahtevId).getStatus().toString();
-//
-//        return REJECTED_STATUS.equalsIgnoreCase(status);
-        return false;
+        String status = organVlastiClient.getZahtevById(zahtevId).getStatus().toString();
+
+        return REJECTED_STATUS.equalsIgnoreCase(status);
     }
 
     private String getEmailOfLoggedUser(Authentication authentication) {

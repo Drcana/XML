@@ -12,7 +12,7 @@ import rs.ac.uns.ftn.portal_organa_vlasti.dto.ObavestenjeNotificationDto;
 import rs.ac.uns.ftn.portal_organa_vlasti.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_organa_vlasti.repository.ObavestenjeRepository;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
-import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.ObavestenjeNotification;
+import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.Notification;
 import rs.ac.uns.ftn.portal_organa_vlasti.util.FileTransformer;
 import rs.ac.uns.ftn.user.User;
 import rs.ac.uns.ftn.zahtev.DokumentZahtev;
@@ -175,16 +175,16 @@ public class ObavestenjeService {
 
         DokumentZahtev dokumentZahtev = zahtevService.get(obavestenje.getZahtevId());
 
-        ObavestenjeNotification obavestenjeNotification = new ObavestenjeNotification();
+        Notification notification = new Notification();
 
-        obavestenjeNotification.setSenderEmail(getEmailOfLoggedUser(authentication));
-        obavestenjeNotification.setPdfFile(generatedPdfFile != null ? generatedPdfFile : new byte[]{});
-        obavestenjeNotification.setHtmlFile(generatedHtmlFile != null ? generatedHtmlFile : new byte[]{});
+        notification.setSenderEmail(getEmailOfLoggedUser(authentication));
+        notification.setPdfFile(generatedPdfFile != null ? generatedPdfFile : new byte[]{});
+        notification.setHtmlFile(generatedHtmlFile != null ? generatedHtmlFile : new byte[]{});
 
-        obavestenjeNotification.setReceiverEmail(dokumentZahtev.getUserId());
-        obavestenjeNotification.setZahtevId(dokumentZahtev.getId());
+        notification.setReceiverEmail(dokumentZahtev.getUserId());
+        notification.setDocumentId(dokumentZahtev.getId());
 
-        boolean sentEmail = emailClient.sendObavestenje(obavestenjeNotification);
+        boolean sentEmail = emailClient.sendObavestenje(notification);
 
         if (sentEmail) {
             dokumentZahtev.setStatus(Status.APPROVED);

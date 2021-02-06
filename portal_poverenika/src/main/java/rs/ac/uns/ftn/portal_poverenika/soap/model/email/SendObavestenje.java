@@ -6,7 +6,7 @@
 //
 
 
-package rs.ac.uns.ftn.portal_poverenika.soap.model;
+package rs.ac.uns.ftn.portal_poverenika.soap.model.email;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -14,16 +14,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for sendZalba complex type.
+ * <p>Java class for sendObavestenje complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="sendZalba"&gt;
+ * &lt;complexType name="sendObavestenje"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="zalbaNotification" type="{http://www.ftn.uns.ac.rs/notification}Notification" minOccurs="0"/&gt;
+ *         &lt;element name="obavestenjeNotification" type="{http://www.ftn.uns.ac.rs/notification}Notification" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,35 +33,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "sendZalba", propOrder = {
-    "zalbaNotification"
+@XmlType(name = "sendObavestenje", propOrder = {
+    "obavestenjeNotification"
 })
-public class SendZalba {
+public class SendObavestenje {
 
-    protected Notification zalbaNotification;
+    protected Notification obavestenjeNotification;
 
     /**
-     * Gets the value of the zalbaNotification property.
+     * Gets the value of the obavestenjeNotification property.
      * 
      * @return
      *     possible object is
      *     {@link Notification }
      *     
      */
-    public Notification getZalbaNotification() {
-        return zalbaNotification;
+    public Notification getObavestenjeNotification() {
+        return obavestenjeNotification;
     }
 
     /**
-     * Sets the value of the zalbaNotification property.
+     * Sets the value of the obavestenjeNotification property.
      * 
      * @param value
      *     allowed object is
      *     {@link Notification }
      *     
      */
-    public void setZalbaNotification(Notification value) {
-        this.zalbaNotification = value;
+    public void setObavestenjeNotification(Notification value) {
+        this.obavestenjeNotification = value;
     }
 
 }

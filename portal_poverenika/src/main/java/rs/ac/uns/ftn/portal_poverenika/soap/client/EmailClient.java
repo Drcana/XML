@@ -1,12 +1,12 @@
 package rs.ac.uns.ftn.portal_poverenika.soap.client;
 
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.Notification;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.ObjectFactory;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.SendResenje;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.SendResenjeResponse;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.SendZalba;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.SendZalbaResponse;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.Notification;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.ObjectFactory;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.SendResenje;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.SendResenjeResponse;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.SendZalba;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.SendZalbaResponse;
 
 import javax.xml.bind.JAXBElement;
 

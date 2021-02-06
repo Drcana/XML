@@ -14,7 +14,7 @@ import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.ZalbaProtivCut
 import rs.ac.uns.ftn.portal_poverenika.repository.ZalbaProtivCutanjaRepository;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.EmailClient;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.OrganVlastiClient;
-import rs.ac.uns.ftn.portal_poverenika.soap.model.Notification;
+import rs.ac.uns.ftn.portal_poverenika.soap.model.email.Notification;
 import rs.ac.uns.ftn.portal_poverenika.util.FileTransformer;
 
 import javax.servlet.http.HttpServletResponse;
@@ -106,13 +106,11 @@ public class ZalbaProtivCutanjaService {
     }
 
     private boolean hasDateValidForEnteringZalba(String zahtevId) {
-//        XMLGregorianCalendar xmlGregorianCalendar = organVlastiClient.getZahtevById(zahtevId).getDatum();
-//        Date dateOfZahtev = xmlGregorianCalendar.toGregorianCalendar().getTime();
-//        Date minDateForZalba = new Date(dateOfZahtev.getTime() + TEN_DAYS_IN_MILLIS);
-//
-//        return new Date().after(minDateForZalba);
+        XMLGregorianCalendar xmlGregorianCalendar = organVlastiClient.getZahtevById(zahtevId).getDatum();
+        Date dateOfZahtev = xmlGregorianCalendar.toGregorianCalendar().getTime();
+        Date minDateForZalba = new Date(dateOfZahtev.getTime() + TEN_DAYS_IN_MILLIS);
 
-        return true;
+        return new Date().after(minDateForZalba);
     }
 
     private String getEmailOfLoggedUser(Authentication authentication) {

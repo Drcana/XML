@@ -40,7 +40,7 @@ public class ObavestenjeService {
 
     private static final String XSD_PATH = "src/main/resources/static/data/xsd/obavestenje.xsd";
 
-    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_organa_vlasti.model.obavestenje";
+    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.obavestenje";
 
 
     private static final String XSL_FILE_PATH = "src/main/resources/static/data/xsl/obavestenje.xsl";

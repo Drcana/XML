@@ -41,7 +41,7 @@ public class ZahtevService {
 
     private static final String XSD_PATH = "src/main/resources/static/data/xsd/zahtev.xsd";
 
-    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.portal_organa_vlasti.model.zahtev";
+    private static final String JAXB_INSTANCE = "rs.ac.uns.ftn.zahtev";
 
     /**
      * For generating XHTML / PDF files

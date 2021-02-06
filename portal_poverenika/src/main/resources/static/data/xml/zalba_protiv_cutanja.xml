@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zpc:zalba_protiv_cutanja xmlns:zpc="http://www.ftn.uns.ac.rs/zalba_protiv_cutanja"
-                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                          xsi:schemaLocation="http://www.ftn.uns.ac.rs/zalba_protiv_cutanja  ../xsd/zalba_protiv_cutanja.xsd"
+                          xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+                          xs:schemaLocation="http://www.ftn.uns.ac.rs/zalba_protiv_cutanja  ../xsd/zalba_protiv_cutanja.xsd"
                           xmlns:pred="http://examples/predicate/"
                           xmlns:types="http://www.ftn.uns.ac.rs/types"
                           about="http://www.ftn.uns.ac.rs/zalba_protiv_cutanja/1"
@@ -13,16 +13,14 @@
     </zpc:vrsta_zalbe>
 
     <zpc:primalac_zalbe>
-        <types:naziv_organa property="pred:naziv_organa" datatype="xs:string">
-            Поверенику за информације од јавног значаја и заштиту података о личности
-        </types:naziv_organa>
+        <types:naziv_organa property="pred:naziv_poverenika" datatype="xs:string">Поверенику за информације од јавног значаја и заштиту података о личности</types:naziv_organa>
         <types:adresa>
             Адреса за пошту:
-            <types:mesto property="pred:mesto" datatype="xs:string">Београд</types:mesto>
+            <types:mesto property="pred:mesto_poverenika" datatype="xs:string">Београд</types:mesto>
             ,
-            <types:ulica property="pred:ulica" datatype="xs:string">Булевар краља Александрa</types:ulica>
+            <types:ulica property="pred:ulica_poverenika" datatype="xs:string">Булевар краља Александрa</types:ulica>
             бр.
-            <types:broj property="pred:broj" datatype="xs:string">15</types:broj>
+            <types:broj property="pred:broj_adrese_poverenika" datatype="xs:string">15</types:broj>
         </types:adresa>
     </zpc:primalac_zalbe>
 
@@ -30,7 +28,7 @@
         <zpc:zakon>У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим:
         </zpc:zakon>
         <zpc:naslov>Ж А Л Б У</zpc:naslov>
-        <zpc:naziv_organa property="pred:naziv_organa" datatype="xs:string">Naziv organa</zpc:naziv_organa>
+        <zpc:naziv_organa property="pred:naziv_organa_vlasti" datatype="xs:string">Naziv organa</zpc:naziv_organa>
         ( навести назив органа)
     </zpc:informacije_o_zalbi>
 
@@ -47,7 +45,7 @@
 
     <zpc:detalji_zalbe>
         по мом захтеву за слободан приступ информацијама од јавног значаја који сам поднео том органу дана
-        <zpc:datum property="pred:datum" datatype="xs:date">2021-01-01</zpc:datum>
+        <zpc:datum property="pred:datum_zahteva" datatype="xs:string">2021-01-01</zpc:datum>
         године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја
         омогући увид- копија документа који садржи информације о /у вези са :
         <zpc:podaci_o_zalbi>Potrebni podaci</zpc:podaci_o_zalbi>
@@ -64,14 +62,16 @@
 
     <zpc:podnosilac_zalbe>
 
-        <types:ime>Petar</types:ime>
-        <types:prezime>Peric</types:prezime>
+        <types:ime property="pred:ime_podnosioca" datatype="xs:string">Petar</types:ime>
+        <types:prezime property="pred:prezime_podnosioca" datatype="xs:string">Peric</types:prezime>
         Подносилац жалбе / Име и презиме
 
         <types:adresa>
-            <types:mesto property="pred:mesto" datatype="xs:string">Novi Sad</types:mesto>
-            <types:ulica property="pred:ulica" datatype="xs:string">Bulevar cara Lazara</types:ulica>
-            <types:broj property="pred:broj" datatype="xs:string">13</types:broj>
+            <types:mesto property="pred:mesto_podnosioca" datatype="xs:string">Novi Sad</types:mesto>
+
+            <types:ulica property="pred:ulica_podnosioca" datatype="xs:string">Bulevar cara Lazara</types:ulica>
+
+            <types:broj property="pred:broj_adrese_podnosioca" datatype="xs:string">13</types:broj>
         </types:adresa>
         адреса
 
@@ -83,8 +83,8 @@
     </zpc:podnosilac_zalbe>
 
     <zpc:mesto_i_datum>
-        У <types:mesto>Beogradu</types:mesto>,
-        дана <types:datum>2021-01-01</types:datum> године
+        У <types:mesto property="pred:mesto_podnosenja" datatype="xs:string">Beogradu</types:mesto>,
+        дана <types:datum property="pred:datum_podnosenja" datatype="xs:string">2021-01-01</types:datum> године
     </zpc:mesto_i_datum>
 
 </zpc:zalba_protiv_cutanja>

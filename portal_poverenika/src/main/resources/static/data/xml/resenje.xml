@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <res:resenje xmlns="http://www.ftn.uns.ac.rs/resenje"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/resenje ../xsd/resenje.xsd"
-    xmlns:pred="http://examples/predicate/"
-    xmlns:res="http://www.ftn.uns.ac.rs/resenje"
-    xmlns:types="http://www.ftn.uns.ac.rs/types"
-    about="http://www.ftn.uns.ac.rs/resenje/1"
-    id="1" userId="test@test.com" datum="2021-01-01" zalbaId="zahtevId">
-    
+             xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+             xs:schemaLocation="http://www.ftn.uns.ac.rs/resenje ../xsd/resenje.xsd"
+             xmlns:pred="http://examples/predicate/"
+             xmlns:res="http://www.ftn.uns.ac.rs/resenje"
+             xmlns:types="http://www.ftn.uns.ac.rs/types"
+             about="http://www.ftn.uns.ac.rs/resenje/1"
+             id="1" userId="test@test.com" datum="2021-01-01" zalbaId="zahtevId">
+
     <res:informacije_o_resenju>
         <res:vrsta_resenja>Решење када је жалба основана – налаже се:</res:vrsta_resenja>
-        Бр. <res:broj_resenja>071-01-1114/2020-03 </res:broj_resenja>
-        Датум: <res:datum_resenja>2021-01-01</res:datum_resenja> године.
-        
+        Бр.
+        <res:broj_resenja property="pred:broj_resenja" datatype="xs:string">071-01-1114/2020-03</res:broj_resenja>
+        Датум: <res:datum_resenja property="pred:datum_resenja" datatype="xs:string">2021-01-01</res:datum_resenja> године.
+
         Повереник за информације од јавног значаја и заштиту података о личности, у поступку по алби
-        коју је изјавио 
-       <res:podnosilac_zahteva>
-           <types:ime property="pred:ime_organa"> Ime </types:ime>
-           <types:prezime property="pred:prezime">Prezime </types:prezime>
-       </res:podnosilac_zahteva> ,
+        коју је изјавио
+        <res:podnosilac_zahteva>
+            <types:ime property="pred:ime_podnosioca_zahteva" datatype="xs:string">Ime</types:ime>
+            <types:prezime property="pred:_podnosioca_zahteva" datatype="xs:string">Prezime</types:prezime>
+        </res:podnosilac_zahteva>
+        ,
         због непоступања
         <res:organ>
-            <types:naziv_organa>Учитељског факултета</types:naziv_organa>
-            y 
+            <types:naziv_organa property="pred:naziv_organa_vlasti" datatype="xs:string">Учитељског факултета</types:naziv_organa>
+            y
             <types:adresa>
-                <types:mesto>Призрену</types:mesto>
-                <types:ulica> Немањина</types:ulica>
-                <types:broj>66</types:broj>
+                <types:mesto property="pred:mesto_organa_vlasti" datatype="xs:string">Призрену</types:mesto>
+                <types:ulica property="pred:ulica_organa_vlasti" datatype="xs:string">Немањина</types:ulica>
+                <types:broj property="pred:broj_adrese_organa_vlasti" datatype="xs:string">66</types:broj>
             </types:adresa>
         </res:organ>
         , по његовом захтеву од
-        <datum_podnosenja_zahteva>2021-01-01</datum_podnosenja_zahteva>
+        <datum_podnosenja_zahteva property="pred:datum_podnosenja_zahteva" datatype="xs:string">2021-01-01</datum_podnosenja_zahteva>
         године за приступ
         информацијама од јавног значаја, на основу члана 35. став 1. тачка 5. Закона о слободном приступу
         информацијама од јавног значаја („Сл. гласник РС“, бр. 120/04, 54/07, 104/09 и 36/10), а у вези са
         чланом 4. тачка 22. Закона о заштити података о личности („Сл. гласник РС“, број 87/18), као и члана
         23. и члана 24. став 4. Закона о слободном приступу информацијама од јавног значаја и члана 173.
         став 2. Закона о општем управном поступку („Сл. гласник РС“, бр. 18/2016 и 95/2018-аутентично
-        тумачење), доноси 
+        тумачење), доноси
     </res:informacije_o_resenju>
-    
+
     <res:sadrzaj_resenja>
         <res:opis_resenja>
-            Р Е Ш Е Њ Е 
+            Р Е Ш Е Њ Е
             <types:p>I Налаже се Учитељском факултету у Призрену са привременим седиштем у Лепосавићу, да
                 без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести АА, да ли
                 поседује тражене информације односно документ у коме су исте садржане, и то: Уговор о раду који
@@ -51,7 +53,8 @@
                 заштитити и учинити недоступним податке о личности којима би се повредило право на приватност
                 лица на које се информације односе, као што су: адреса становања, лични матични број грађана, име
                 оца, радни стаж, просечна оцена студирања и сл. уколико су такви подаци садржани у траженом
-                документу.</types:p>
+                документу.
+            </types:p>
             <types:p>
                 II О извршењу решења Учитељски факултет у Призрену са привременим седиштем у
                 Лепосавићу, ће обавестити Повереника у року од седам дана од пријема овог решења
@@ -72,7 +75,7 @@
             </types:p>
             <types:p>
                 II О извршењу решења Учитељски факултет у Призрену са привременим седиштем у
-                Лепосавићу, ће обавестити Повереника у року од седам дана од пријема овог решења. 
+                Лепосавићу, ће обавестити Повереника у року од седам дана од пријема овог решења.
             </types:p>
         </res:telo_resenja>
         <res:obrazlozenje>
@@ -81,7 +84,7 @@
                 АА, као тражилац информација, изјавио је дана 07.05.2020. године жалбу Поверенику, због
                 непоступања Учитељског факултета у Призрену са привременим седиштем у Лепосавићу по
                 његовом захтеву од 16.04.2020. године за приступ информацијама од јавног значаја и у прилогу
-                доставио копију истог. 
+                доставио копију истог.
             </types:p>
             <types:p>
                 Поступајући по жалби, Повереник је дана 11.05.2020. године упутио исту на изјашњење
@@ -100,12 +103,13 @@
                 факултету у Призрену са привременим седиштем у Лепосавићу, захтев за приступ информацијама
                 од јавног значаја, електронском поштом, којим је тражио информације од јавног значаја, ближе
                 наведенe у ставу I диспозитива овог решења.
-                
+
             </types:p>
             <types:p>
                 Такође је увидом у списе предмета утврђено да по захтеву жалиоца од 16.04.2020. године,
                 орган власти није поступио, што је био дужан да учини без одлагања, а најкасније у року од 15 дана
-                од пријема захтева те да жалиоца, у смислу члана 16. став 1. Закона о слободном приступу информацијама од јавног значаја, обавести да ли поседује тражене информације и да му, уколико
+                од пријема захтева те да жалиоца, у смислу члана 16. став 1. Закона о слободном приступу информацијама
+                од јавног значаја, обавести да ли поседује тражене информације и да му, уколико
                 исте поседује, стави на увид документ који исте садржи односно изда му или достави копију
                 документа у коме су тражене информације садржане, или да у супротном донесе решење о одбијању
                 захтева, у смислу става 10. истог члана.
@@ -130,7 +134,7 @@
             <types:p>
                 Учитељски факултет у Призрену са привременим седиштем у Лепосавићу, је дужан да о
                 извршењу решења из става I диспозитива, обавести Повереника у складу са чланом 24. став 3. Закона
-                о слободном приступу информацијама од јавног значаја. 
+                о слободном приступу информацијама од јавног значаја.
             </types:p>
             <types:p>
                 Упутство о правном средству:
@@ -142,8 +146,8 @@
             </types:p>
         </res:obrazlozenje>
     </res:sadrzaj_resenja>
-    <res:poverenik>    
-        <types:ime>Ime poverenika</types:ime>
-        <types:prezime>Prezime poverenika</types:prezime>
+    <res:poverenik>
+        <types:ime property="pred:ime_poverenika" datatype="xs:string">Ime poverenika</types:ime>
+        <types:prezime property="pred:prezime_poverenika" datatype="xs:string">Prezime poverenika</types:prezime>
     </res:poverenik>
 </res:resenje>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zpo:zalba_protiv_odluke xmlns:zpo="http://www.ftn.uns.ac.rs/zalba_protiv_odluke"
-                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                         xsi:schemaLocation="http://www.ftn.uns.ac.rs/zalba_protiv_odluke ../xsd/zalba_protiv_odluke.xsd"
+                         xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+                         xs:schemaLocation="http://www.ftn.uns.ac.rs/zalba_protiv_odluke ../xsd/zalba_protiv_odluke.xsd"
                          xmlns:pred="http://examples/predicate/"
                          xmlns:types="http://www.ftn.uns.ac.rs/types"
                          about="http://www.ftn.uns.ac.rs/zalba_protiv_odluke/1"
@@ -12,43 +12,41 @@
     </zpo:vrsta_zalbe>
 
     <zpo:primalac_zalbe>
-        <types:naziv_organa>Поверенику за информације од јавног значаја и заштиту података о личности
-        </types:naziv_organa>
+        <types:naziv_organa property="pred:poverenik" datatype="xs:string">Поверенику за информације од јавног значаја и заштиту података о личности</types:naziv_organa>
         Адреса за пошту:
         <types:adresa>
-            <types:mesto>Београд</types:mesto>,
-            <types:ulica>Булевар краља Александрa</types:ulica>
+            <types:mesto property="pred:mesto_poverenika" datatype="xs:string">Београд</types:mesto>,
+            <types:ulica property="pred:ulica_poverenika" datatype="xs:string">Булевар краља Александрa</types:ulica>
             бр.
-            <types:broj>15</types:broj>
+            <types:broj property="pred:broj_adrese_poverenika" datatype="xs:string">15</types:broj>
         </types:adresa>
     </zpo:primalac_zalbe>
 
     <zpo:naslov>Ж А Л Б А</zpo:naslov>
 
     <zpo:podaci_o_zaliocu>
-        <zpo:naziv property="pred:naziv" datatype="xs:string">Никола Николић</zpo:naziv>
+        <zpo:naziv property="pred:zalioc" datatype="xs:string">Никола Николић</zpo:naziv>
         <zpo:adresa>
-            <types:mesto property="pred:mesto" datatype="xs:string">Нови Сад</types:mesto>
-            <types:ulica property="pred:ulica" datatype="xs:string">Булевар Цара Лазара</types:ulica>
-            <types:broj property="pred:broj">13</types:broj>
+            <types:mesto property="pred:mesto_zalioca" datatype="xs:string">Нови Сад</types:mesto>
+            <types:ulica property="pred:ulica_zalioca" datatype="xs:string">Булевар Цара Лазара</types:ulica>
+            <types:broj property="pred:broj_adrese_zalioca" datatype="xs:string">13</types:broj>
         </zpo:adresa>
         (Име, презиме, односно назив, адреса и седиште жалиоца)
     </zpo:podaci_o_zaliocu>
 
     <zpo:resenje>
         против решења-закључка
-        <zpo:naziv_organa property="pred:naziv_organa" datatype="xs:string">Назив органа који је донео одлуку
-        </zpo:naziv_organa>
+        <zpo:naziv_organa property="pred:organ_vlasti" datatype="xs:string">Назив органа који је донео одлуку</zpo:naziv_organa>
         (назив органа који је донео одлуку)
         Број <zpo:broj_resenja property="pred:broj_resenja" datatype="xs:string">071-01-1114/2020-03</zpo:broj_resenja> од <zpo:datum
-            property="pred:datum_resenja" datatype="xs:date">2021-01-01
+            property="pred:datum_resenja" datatype="xs:string">2021-01-01
     </zpo:datum> године.
     </zpo:resenje>
 
     <zpo:detalji_zalbe>
         Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) ,
         супротно закону, одбијен-одбачен је мој захтев који сам поднео/ла-упутио/ла дана
-        <zpo:datum property="pred:datum_zahteva" datatype="xs:date">2021-01-01</zpo:datum>
+        <zpo:datum property="pred:datum_zahteva" datatype="xs:string">2021-01-01</zpo:datum>
         године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама
         од јавног значаја. Oдлуку побијам у целости, односно у делу којим
         <zpo:razlog_zalbe>Razlog zalbe</zpo:razlog_zalbe>
@@ -60,8 +58,8 @@
     </zpo:detalji_zalbe>
 
     <zpo:mesto_i_datum>
-        У <types:mesto>Novom Sadu</types:mesto> ,
-        дана <types:datum property="pred:datum_podnosenja_zalbe" datatype="xs:date">2021-01-01</types:datum> године
+        У <types:mesto property="pred:mesto_podnosenja_zalbe" datatype="xs:string">Novom Sadu</types:mesto> ,
+        дана <types:datum property="pred:datum_podnosenja_zalbe" datatype="xs:string">2021-01-01</types:datum> године
     </zpo:mesto_i_datum>
 
     <zpo:podaci_o_podnosiocu_zalbe>
@@ -69,9 +67,9 @@
         <types:prezime>Markovic</types:prezime>
         Подносилац жалбе / Име и презиме
         <types:adresa>
-            <types:mesto property="pred:mesto" datatype="xs:string">Novi Sad</types:mesto>
-            <types:ulica property="pred:ulica" datatype="xs:string">Puskinova</types:ulica>
-            <types:broj property="pred:broj">13</types:broj>
+            <types:mesto>Novi Sad</types:mesto>
+            <types:ulica>Puskinova</types:ulica>
+            <types:broj>13</types:broj>
         </types:adresa>
         адреса
         <types:drugi_podaci_za_kontakt>marko@test.com</types:drugi_podaci_za_kontakt>

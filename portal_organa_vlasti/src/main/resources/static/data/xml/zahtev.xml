@@ -1,16 +1,19 @@
-<zah:dokument_zahtev xmlns="http://www.ftn.uns.ac.rs/zahtev" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="http://www.ftn.uns.ac.rs/zahtev  ../xsd/zahtev.xsd"
+<?xml version="1.0" encoding="UTF-8"?>
+<zah:dokument_zahtev xmlns="http://www.ftn.uns.ac.rs/zahtev"
+                     xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+                     xs:schemaLocation="http://www.ftn.uns.ac.rs/zahtev  ../xsd/zahtev.xsd"
                      xmlns:pred="http://examples/predicate/"
                      xmlns:zah="http://www.ftn.uns.ac.rs/zahtev"
                      xmlns:types="http://www.ftn.uns.ac.rs/types"
                      about="http://www.ftn.uns.ac.rs/zahtev/1"
                      id="1" userId="test@gmail.com" datum="2021-01-01">
+
     <zah:organ_vlasti>
-        <types:naziv_organa property="pred:naziv_organa">Organ vlasti</types:naziv_organa>
+        <types:naziv_organa property="pred:organ_vlasti" datatype="xs:string">Organ vlasti</types:naziv_organa>
         <types:adresa>
-            <types:mesto property="pred:mesto" datatype="xs:string">Subotica</types:mesto>
-            <types:ulica property="pred:ulica" datatype="xs:string">Brace Radic</types:ulica>
-            <types:broj property="pred:broj" datatype="xs:string">22</types:broj>
+            <types:mesto property="pred:mesto_organa_vlasti" datatype="xs:string">Subotica</types:mesto>
+            <types:ulica property="pred:ulica_organa_vlasti" datatype="xs:string">Brace Radic</types:ulica>
+            <types:broj property="pred:broj_organa_vlasti" datatype="xs:string">22</types:broj>
         </types:adresa>
     </zah:organ_vlasti>
 
@@ -58,18 +61,18 @@
     </zah:informacije>
 
     <zah:mesto_i_datum>
-        У  <types:mesto property="pred:mesto">Subotici</types:mesto>,
-        dana <types:datum property="pred:datum" datatype="xs:date">2021-01-01</types:datum> godine
+        У  <types:mesto property="pred:mesto_zahteva" datatype="xs:string">Subotici</types:mesto>,
+        dana <types:datum property="pred:datum_zahteva" datatype="xs:string">2021-01-01</types:datum> godine
     </zah:mesto_i_datum>
 
     <zah:podnosilac_zahteva>
-        <types:ime property="pred:ime" datatype="xs:string">Ime podnosioca</types:ime>
-        <types:prezime property="pred:prezime" datatype="xs:string">Prezime podnosioca</types:prezime>
+        <types:ime property="pred:ime_podnosioca" datatype="xs:string">Ime podnosioca</types:ime>
+        <types:prezime property="pred:prezime_podnosioca" datatype="xs:string">Prezime podnosioca</types:prezime>
         Тражилац информације/Име и презиме
         <types:adresa>
-            <types:mesto property="pred:mesto">Subotica</types:mesto>
-            <types:ulica property="pred:ulica">Brace Ribnikara</types:ulica>
-            <types:broj property="pred:broj">1</types:broj>
+            <types:mesto property="pred:mesto_podnosioca" datatype="xs:string">Subotica</types:mesto>
+            <types:ulica property="pred:ulica_podnosioca" datatype="xs:string">Brace Ribnikara</types:ulica>
+            <types:broj property="pred:broj_podnosioca" datatype="xs:string">1</types:broj>
         </types:adresa>
         адреса
         <types:drugi_podaci_za_kontakt>test@email.com</types:drugi_podaci_za_kontakt>

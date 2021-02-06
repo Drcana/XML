@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../xsl/grddl.xsl"?>
 <ob:obavestenje xmlns="http://www.ftn.uns.ac.rs/obavestenje"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://www.ftn.uns.ac.rs/obavestenje ../xsd/obavestenje.xsd"
-                xmlns:pred="http://examples/predicate/" xmlns:ob="http://www.ftn.uns.ac.rs/obavestenje"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+                xs:schemaLocation="http://www.ftn.uns.ac.rs/obavestenje ../xsd/obavestenje.xsd"
+                xmlns:pred="http://examples/predicate/"
+                xmlns:ob="http://www.ftn.uns.ac.rs/obavestenje"
                 xmlns:types="http://www.ftn.uns.ac.rs/types"
                 about="http://www.ftn.uns.ac.rs/obavestenje/1"
-                id="1" userId="test@gmail.com" datum="2021-01-01"
+                id="1"
+                userId="test@gmail.com" datum="2021-01-01"
                 zahtevId = "">
 
     <ob:informacije_o_obavestenju>
         <ob:organ_vlasti>
-            <types:naziv_organa property="pred:naziv_organa">Sud Novi Sad</types:naziv_organa>
+            <types:naziv_organa property="pred:naziv_organa" datatype="xs:string">Sud Novi Sad</types:naziv_organa>
             (назив и седиште органа)
             <types:adresa>
-                <types:mesto property="pred:mesto">Novi Sad</types:mesto>
-                <types:ulica property="pred:ulica">Strazilovska</types:ulica>
-                <types:broj property="pred:broj">13</types:broj>
+                <types:mesto property="pred:mesto_organa" datatype="xs:string">Novi Sad</types:mesto>
+                <types:ulica property="pred:ulica_organa" datatype="xs:string">Strazilovska</types:ulica>
+                <types:broj property="pred:broj_adrese_organa" datatype="xs:string">13</types:broj>
             </types:adresa>
         </ob:organ_vlasti>
 
         Број предмета:
-        <ob:broj_predmeta property="pred:broj_predmeta">123103</ob:broj_predmeta>
+        <ob:broj_predmeta property="pred:broj_predmeta" datatype="xs:string">123103</ob:broj_predmeta>
         Датум:
-        <ob:datum_obavestenja property="pred:datum_obavestenja">2020-01-01</ob:datum_obavestenja>
+        <ob:datum_obavestenja property="pred:datum_obavestenja" datatype="xs:string">2020-01-01</ob:datum_obavestenja>
 
         <ob:podnosilac_zahteva>
-            <types:ime property="pred:ime">Petar</types:ime>
-            <types:prezime property="pred:prezime">Petrovic</types:prezime>
+            <types:ime property="pred:ime_podnosioca" datatype="xs:string">Petar</types:ime>
+            <types:prezime property="pred:prezime_podnosioca" datatype="xs:string">Petrovic</types:prezime>
             <types:adresa>
-                <types:mesto property="pred:mesto">Novi Sad</types:mesto>
-                <types:ulica property="pred:ulica">Bulevar Cara Lazara</types:ulica>
-                <types:broj property="pred:broj">22</types:broj>
+                <types:mesto property="pred:mesto_podnosioca" datatype="xs:string">Novi Sad</types:mesto>
+                <types:ulica property="pred:ulica_podnosioca" datatype="xs:string">Bulevar Cara Lazara</types:ulica>
+                <types:broj property="pred:broj_adrese_podnosioca" datatype="xs:string">22</types:broj>
             </types:adresa>
         </ob:podnosilac_zahteva>
         Име и презиме / назив / и адреса подносиоца захтева
@@ -63,11 +65,11 @@
         часова, у просторијама органа у
         <ob:mesto_uvida>
             <ob:adresa>
-                <types:mesto property="pred:mesto">Novi Sad</types:mesto>
+                <types:mesto property="pred:mesto_uvida" datatype="xs:string">Novi Sad</types:mesto>
                 ул.
-                <types:ulica property="pred:ulica">Strazilovska</types:ulica>
+                <types:ulica property="pred:ulica_uvida" datatype="xs:string">Strazilovska</types:ulica>
                 бр.
-                <types:broj property="pred:broj">13</types:broj>
+                <types:broj property="pred:broj_uvida" datatype="xs:string">13</types:broj>
             </ob:adresa>
             , канцеларија бр.
             <ob:broj_kancelarije>55</ob:broj_kancelarije>

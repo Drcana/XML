@@ -111,4 +111,10 @@ public class ZahtevController {
     public ResponseEntity<ZahtevCollection> advancedSearch(@RequestBody SearchZahtevMap searchMap) throws IOException {
         return new ResponseEntity<>(service.advancedSearch(searchMap), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/export/rdf/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
+    public ResponseEntity<byte[]> exportAsRdf(@PathVariable("id") String id) throws IOException {
+        return new ResponseEntity<>(service.exportAsRdf(id), HttpStatus.OK);
+    }
 }

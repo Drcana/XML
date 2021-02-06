@@ -116,7 +116,7 @@ public class JAXBService {
     }
 
     public <T> List<T> getList(ResourceSet resourceSet, Class<?> classToMap){
-        List<T> list = new ArrayList<>();
+      List<T> list = new ArrayList<>();
 
         try {
             ResourceIterator resourceIterator = resourceSet.getIterator();

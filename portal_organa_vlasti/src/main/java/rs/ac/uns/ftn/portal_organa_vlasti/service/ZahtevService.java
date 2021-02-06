@@ -13,6 +13,7 @@ import rs.ac.uns.ftn.portal_organa_vlasti.repository.ZahtevRepository;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.client.EmailClient;
 import rs.ac.uns.ftn.portal_organa_vlasti.soap.model.RejectNotification;
 import rs.ac.uns.ftn.portal_organa_vlasti.util.FileTransformer;
+import rs.ac.uns.ftn.portal_organa_vlasti.util.MetadataExtractor;
 import rs.ac.uns.ftn.user.User;
 import rs.ac.uns.ftn.zahtev.DokumentZahtev;
 import rs.ac.uns.ftn.zahtev.Status;
@@ -24,6 +25,9 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Date;
@@ -54,6 +58,10 @@ public class ZahtevService {
     private static final String XHTML_FILE_PATH = "src/main/resources/static/data/html/zahtev";
 
     private static final String PDF_FILE_PATH = "src/main/resources/static/data/pdf/zahtev";
+
+    private static final String XML_FILE_PATH = "src/main/resources/static/data/xml/zahtev";
+
+    private static final String RDF_FILE_PATH = "src/main/resources/static/data/rdf/zahtev";
 
     @Autowired
     private JAXBService jaxbService;
@@ -207,4 +215,26 @@ public class ZahtevService {
     public ZahtevCollection advancedSearch(SearchZahtevMap searchMap) throws IOException {
         return zahtevRepository.advancedSearch(searchMap);
     }
+
+    public byte[] exportAsRdf(String id) throws IOException {
+
+        String rdfFilePath = String.format("%s_%s.rdf", RDF_FILE_PATH, id);
+        String xmlFilePath = String.format("%s_%s.xml", XML_FILE_PATH, id);
+
+        String zahtev = getZahtevAsString(id);
+
+        MetadataExtractor metadataExtractorService = new MetadataExtractor();
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream(rdfFilePath); FileWriter fileWriter = new FileWriter(xmlFilePath)) {
+            fileWriter.write(zahtev);
+            fileWriter.close();
+
+            metadataExtractorService.extractMetadata(new FileInputStream(xmlFilePath), fileOutputStream);
+        } catch (Exception e) {
+            return new byte[]{};
+        }
+
+        return convertFileToBytes(rdfFilePath);
+    }
+
 }

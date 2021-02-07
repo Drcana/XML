@@ -1,5 +1,6 @@
 package rs.ac.uns.ftn.portal_poverenika.controller;
 
+import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -88,5 +89,11 @@ public class ZalbaProtivOdlukeController {
             @PathVariable ("id") String documentId, Authentication authentication) {
 
         return new ResponseEntity<>(service.sendZalbaToUser(documentId, authentication), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/withdraw/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_GRADJANIN')")
+    public ResponseEntity<WrapperResponse<Boolean>> withdraw(@PathVariable("id") String id) throws NotFoundException {
+        return new ResponseEntity<>(service.withdraw(id), HttpStatus.OK);
     }
 }

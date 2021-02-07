@@ -10,6 +10,7 @@ import rs.ac.uns.ftn.portal_poverenika.dto.WrapperResponse;
 import rs.ac.uns.ftn.portal_poverenika.dto.ZalbaProtivCutanjaCollection;
 import rs.ac.uns.ftn.portal_poverenika.exception.InvalidDateException;
 import rs.ac.uns.ftn.portal_poverenika.model.user.User;
+import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.Status;
 import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.ZalbaProtivCutanja;
 import rs.ac.uns.ftn.portal_poverenika.repository.ZalbaProtivCutanjaRepository;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.EmailClient;
@@ -187,11 +188,13 @@ public class ZalbaProtivCutanjaService {
         return new byte[]{};
     }
 
-    public void updateZalba(ZalbaProtivCutanja zalba) throws NotFoundException {
+    public Boolean updateZalba(ZalbaProtivCutanja zalba) throws NotFoundException {
 
         try {
             delete(zalba.getId());
             save(zalba);
+
+            return true;
         } catch (Exception ex) {
             throw new NotFoundException("Zalba protiv cutanja with id = [ " + zalba.getId() + " ] not found");
         }
@@ -218,5 +221,12 @@ public class ZalbaProtivCutanjaService {
         notification.setDocumentId(zalba.getZahtevId());
 
         return new WrapperResponse<>(emailClient.sendZalba(notification));
+    }
+
+    public WrapperResponse<Boolean> withdraw(String id) throws NotFoundException {
+        ZalbaProtivCutanja zalbaProtivCutanja = get(id);
+        zalbaProtivCutanja.setStatus(Status.WITHDRAWN);
+
+        return new WrapperResponse<>(updateZalba(zalbaProtivCutanja));
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import rs.ac.uns.ftn.portal_poverenika.dto.DocumentDto;
@@ -33,12 +34,12 @@ public class ResenjeController {
     @Autowired
     private ResenjeService service;
 
-    @GetMapping
+    @GetMapping("/parse/string")
     public ResponseEntity<String> parseXmlResenje() {
         return new ResponseEntity<>(service.parseXmlResenje(), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/write")
     @ResponseStatus(HttpStatus.OK)
     public void writeXmlResenje(final HttpServletResponse response) throws IOException {
         service.writeXmlResenje(response);
@@ -51,8 +52,10 @@ public class ResenjeController {
 
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_GRADJANIN')")
-    public ResponseEntity<DocumentDto> create(@RequestBody Resenje resenje, Authentication authentication) throws Exception {
-        return new ResponseEntity<>(service.create(resenje, authentication), HttpStatus.CREATED);
+    public ResponseEntity<DocumentDto> create(@RequestParam("zalbaProtivCutanja") boolean isZalbaProtivCutanja,
+                                              @RequestBody Resenje resenje, Authentication authentication) throws Exception {
+
+        return new ResponseEntity<>(service.create(isZalbaProtivCutanja, resenje, authentication), HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_XML_VALUE)

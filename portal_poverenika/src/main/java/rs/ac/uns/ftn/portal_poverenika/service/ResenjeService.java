@@ -9,6 +9,7 @@ import rs.ac.uns.ftn.portal_poverenika.dto.DocumentDto;
 import rs.ac.uns.ftn.portal_poverenika.dto.NotificationEmailDto;
 import rs.ac.uns.ftn.portal_poverenika.dto.ResenjeCollection;
 import rs.ac.uns.ftn.portal_poverenika.dto.WrapperResponse;
+import rs.ac.uns.ftn.portal_poverenika.exception.ProcessSuspendedException;
 import rs.ac.uns.ftn.portal_poverenika.model.resenje.Resenje;
 import rs.ac.uns.ftn.portal_poverenika.model.user.User;
 import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.Status;
@@ -16,6 +17,7 @@ import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_cutanja.ZalbaProtivCut
 import rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.ZalbaProtivOdluke;
 import rs.ac.uns.ftn.portal_poverenika.repository.ResenjeRepository;
 import rs.ac.uns.ftn.portal_poverenika.soap.client.EmailClient;
+import rs.ac.uns.ftn.portal_poverenika.soap.client.OrganVlastiClient;
 import rs.ac.uns.ftn.portal_poverenika.soap.model.email.Notification;
 import rs.ac.uns.ftn.portal_poverenika.util.FileTransformer;
 
@@ -67,6 +69,9 @@ public class ResenjeService {
     private EmailClient emailClient;
 
     @Autowired
+    private OrganVlastiClient organVlastiClient;
+
+    @Autowired
     private ZalbaProtivCutanjaService zalbaProtivCutanjaService;
 
     @Autowired
@@ -91,7 +96,10 @@ public class ResenjeService {
         return jaxbService.parseXml(JAXB_INSTANCE, XSD_PATH, XML_PATH);
     }
 
-    public DocumentDto create(Resenje resenje, Authentication authentication) throws Exception {
+    public DocumentDto create(boolean isZalbaProtivCutanja, Resenje resenje, Authentication authentication) throws Exception {
+
+        assertThatProcessIsActive(resenje, isZalbaProtivCutanja);
+
         String id = UUID.randomUUID().toString();
 
         resenje.setId(id);
@@ -102,6 +110,48 @@ public class ResenjeService {
         resenjeRepository.create(resenje);
 
         return new DocumentDto(id);
+    }
+
+    private void assertThatProcessIsActive(Resenje resenje, boolean isZalbaProtivCutanja)
+            throws NotFoundException, ProcessSuspendedException {
+
+        if (isZalbaProtivCutanja){
+            checkZalbaProtivCutanja(resenje.getZalbaId());
+        }
+        checkZalbaProtivOdluke(resenje.getZalbaId());
+    }
+
+    private void checkZalbaProtivCutanja(String id) throws NotFoundException, ProcessSuspendedException {
+        ZalbaProtivCutanja zalbaProtivCutanja = zalbaProtivCutanjaService.get(id);
+        if (Status.WITHDRAWN == zalbaProtivCutanja.getStatus()){
+            throw new ProcessSuspendedException("Ne moze se kreirati zalba jer je zalba POVUCENA");
+        }
+
+        rs.ac.uns.ftn.portal_poverenika.soap.model.zahtev.Status status =
+                organVlastiClient.getZahtevById(zalbaProtivCutanja.getZahtevId()).getStatus();
+
+        if (rs.ac.uns.ftn.portal_poverenika.soap.model.zahtev.Status.APPROVED == status){
+            zalbaProtivCutanja.setStatus(Status.RESOLVED);
+            zalbaProtivCutanjaService.updateZalba(zalbaProtivCutanja);
+            throw new ProcessSuspendedException("Ne moze se kreirati zalba jer je gradjanin dobio odgovor na zahtev");
+        }
+    }
+
+    private void checkZalbaProtivOdluke(String id) throws NotFoundException, ProcessSuspendedException {
+        ZalbaProtivOdluke zalbaProtivOdluke = zalbaProtivOdlukeService.get(id);
+        if (rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.Status.WITHDRAWN
+                == zalbaProtivOdluke.getStatus()){
+            throw new ProcessSuspendedException("Ne moze se kreirati zalba jer je zalba POVUCENA");
+        }
+
+        rs.ac.uns.ftn.portal_poverenika.soap.model.zahtev.Status status =
+                organVlastiClient.getZahtevById(zalbaProtivOdluke.getZahtevId()).getStatus();
+
+        if (rs.ac.uns.ftn.portal_poverenika.soap.model.zahtev.Status.APPROVED == status){
+            zalbaProtivOdluke.setStatus(rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.Status.RESOLVED);
+            zalbaProtivOdlukeService.updateZalba(zalbaProtivOdluke);
+            throw new ProcessSuspendedException("Ne moze se kreirati zalba jer je gradjanin dobio odgovor na zahtev");
+        }
     }
 
     private String getEmailOfLoggedUser(Authentication authentication) {
@@ -185,7 +235,7 @@ public class ResenjeService {
         Resenje resenje = get(resenjeId);
 
         byte[] generatedPdfFile = null; //generatePDF(resenjeId);
-        byte[] generatedHtmlFile = null; //generateHTML(resenjeId);
+        byte[] generatedHtmlFile = generateHTML(resenjeId);
 
         Notification notification = new Notification();
 

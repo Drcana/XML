@@ -30,6 +30,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
+import static rs.ac.uns.ftn.portal_poverenika.model.zalba_protiv_odluke.Status.WITHDRAWN;
+
 @Service
 public class ZalbaProtivOdlukeService {
 
@@ -185,11 +187,13 @@ public class ZalbaProtivOdlukeService {
         return new byte[]{};
     }
 
-    public void updateZalba(ZalbaProtivOdluke zalba) throws NotFoundException {
+    public boolean updateZalba(ZalbaProtivOdluke zalba) throws NotFoundException {
 
         try {
             delete(zalba.getId());
             save(zalba);
+
+            return true;
         } catch (Exception ex) {
             throw new NotFoundException("Zalba protiv odluke with id = [ " + zalba.getId() + " ] not found");
         }
@@ -216,5 +220,12 @@ public class ZalbaProtivOdlukeService {
         notification.setDocumentId(zalba.getZahtevId());
 
         return new WrapperResponse<>(emailClient.sendZalba(notification));
+    }
+
+    public WrapperResponse<Boolean> withdraw(String id) throws NotFoundException {
+        ZalbaProtivOdluke zalbaProtivOdluke = get(id);
+        zalbaProtivOdluke.setStatus(WITHDRAWN);
+
+        return new WrapperResponse<>(updateZalba(zalbaProtivOdluke));
     }
 }

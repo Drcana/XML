@@ -5,7 +5,8 @@
                           xmlns:pred="http://examples/predicate/"
                           xmlns:types="http://www.ftn.uns.ac.rs/types"
                           about="http://www.ftn.uns.ac.rs/zalba_protiv_cutanja/1"
-                          id="1" userId="test@gmail.com" datum="2021-01-01" zahtevId="zahtevId">
+                          id="1" userId="test@gmail.com" datum="2021-01-01" zahtevId="zahtevId"
+                          status="ACTIVE">
 
     <zpc:vrsta_zalbe>
         ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ РОКУ

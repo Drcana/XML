@@ -121,6 +121,6 @@ public class ZahtevController {
     @GetMapping(value = "/export/json/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
     public ResponseEntity<byte[]> exportAsJson(@PathVariable("id") String id) throws IOException {
-        return new ResponseEntity<>(service.exportAsJson(id), HttpStatus.OK);
+        return new ResponseEntity<>(Base64.getEncoder().encode(service.exportAsJson(id)), HttpStatus.OK);
     }
 }

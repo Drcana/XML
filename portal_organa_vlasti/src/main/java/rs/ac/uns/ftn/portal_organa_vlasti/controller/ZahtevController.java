@@ -117,4 +117,10 @@ public class ZahtevController {
     public ResponseEntity<byte[]> exportAsRdf(@PathVariable("id") String id) throws IOException {
         return new ResponseEntity<>(service.exportAsRdf(id), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/export/json/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_SLUZBENIK')")
+    public ResponseEntity<byte[]> exportAsJson(@PathVariable("id") String id) throws IOException {
+        return new ResponseEntity<>(service.exportAsJson(id), HttpStatus.OK);
+    }
 }

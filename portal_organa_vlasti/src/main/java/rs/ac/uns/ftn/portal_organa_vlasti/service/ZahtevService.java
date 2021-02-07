@@ -1,6 +1,8 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.service;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.exist.http.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -24,11 +26,13 @@ import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.StringWriter;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -62,6 +66,8 @@ public class ZahtevService {
     private static final String XML_FILE_PATH = "src/main/resources/static/data/xml/zahtev";
 
     private static final String RDF_FILE_PATH = "src/main/resources/static/data/rdf/zahtev";
+
+    private static final String JSON_FILE_PATH = "src/main/resources/static/data/json/zahtev";
 
     @Autowired
     private JAXBService jaxbService;
@@ -237,4 +243,14 @@ public class ZahtevService {
         return convertFileToBytes(rdfFilePath);
     }
 
+    public byte[] exportAsJson(String id) throws IOException {
+
+        ResultSet results = zahtevRepository.exportAsJson(id);
+
+        String jsonfilePath = String.format("%s_%s.json", JSON_FILE_PATH, id);
+        OutputStream out = new BufferedOutputStream(new FileOutputStream(jsonfilePath));
+        ResultSetFormatter.outputAsJSON(out, results);
+
+        return convertFileToBytes(jsonfilePath);
+    }
 }

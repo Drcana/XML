@@ -1,5 +1,6 @@
 package rs.ac.uns.ftn.portal_organa_vlasti.repository;
 
+import org.apache.jena.query.ResultSet;
 import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -39,6 +40,7 @@ public class ZahtevRepository {
 
     @Autowired
     private MetadataExtractorService metadataExtractorService;
+
 
     public void create(DokumentZahtev dokumentZahtev) throws Exception {
         existManager.store(COLLECTION_URI, dokumentZahtev.getId(), dokumentZahtev);
@@ -187,5 +189,9 @@ public class ZahtevRepository {
 
     private boolean isUnionValueRequired(SearchZahtevMap searchZahtevMap, int numbOfUnion) {
         return isOrOperatorAndMoreThanOneParam(searchZahtevMap) && numbOfUnion > 0;
+    }
+
+    public ResultSet exportAsJson(String id) throws IOException {
+        return metadataExtractorService.exportAsJson(TARGET_NAMESPACE, id, DokumentZahtev.class);
     }
 }

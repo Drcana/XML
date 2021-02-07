@@ -1,0 +1,35 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:naziv_organa xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Organ vlasti</pred:naziv_organa>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:mesto xmlns:pred="http://examples/predicate/" rdf:datatype="string">MLADENOVAC</pred:mesto>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:ulica xmlns:pred="http://examples/predicate/" rdf:datatype="string">Brace Radic</pred:ulica>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:broj xmlns:pred="http://examples/predicate/" rdf:datatype="string">22</pred:broj>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:mesto xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Subotici</pred:mesto>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:datum xmlns:pred="http://examples/predicate/" rdf:datatype="date">2021-01-01</pred:datum>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:ime xmlns:pred="http://examples/predicate/" rdf:datatype="string">Ime podnosioca</pred:ime>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:prezime xmlns:pred="http://examples/predicate/" rdf:datatype="string">Prezime podnosioca</pred:prezime>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:mesto xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Subotica</pred:mesto>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:ulica xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Brace Ribnikara</pred:ulica>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/zahtev/12e9ead9-4755-42f2-92b9-500420b65dc5">
+    <pred:broj xmlns:pred="http://examples/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1</pred:broj>
+  </rdf:Description>
+</rdf:RDF>

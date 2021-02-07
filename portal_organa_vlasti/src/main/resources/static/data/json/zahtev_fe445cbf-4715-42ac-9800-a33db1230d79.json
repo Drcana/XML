@@ -1,0 +1,53 @@
+{
+  "head": {
+    "vars": [ "p" , "o" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/ulica_podnosioca" } ,
+        "o": { "type": "literal" , "value": "Brace Ribnikara" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/mesto_podnosioca" } ,
+        "o": { "type": "literal" , "value": "Subotica" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/ime_podnosioca" } ,
+        "o": { "type": "literal" , "value": "Ime podnosioca" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/prezime_podnosioca" } ,
+        "o": { "type": "literal" , "value": "Prezime podnosioca" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/ulica_organa_vlasti" } ,
+        "o": { "type": "literal" , "value": "Hadzi Ruvimova" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/datum_zahteva" } ,
+        "o": { "type": "literal" , "value": "2021-01-01" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/broj_organa_vlasti" } ,
+        "o": { "type": "literal" , "value": "22" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/mesto_zahteva" } ,
+        "o": { "type": "literal" , "value": "Subotici" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/mesto_organa_vlasti" } ,
+        "o": { "type": "literal" , "value": "Nis" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/broj_podnosioca" } ,
+        "o": { "type": "literal" , "value": "1" }
+      } ,
+      {
+        "p": { "type": "uri" , "value": "http://examples/predicate/organ_vlasti" } ,
+        "o": { "type": "literal" , "value": "Organ vlasti" }
+      }
+    ]
+  }
+}

@@ -4,7 +4,6 @@ import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
-import org.apache.xalan.processor.TransformerFactoryImpl;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
@@ -94,7 +93,7 @@ public class FileTransformer {
         }
     }
 
-    public boolean generatePDF(String xmlDocument, String xslFoFilePath, String outputFilePath) throws Exception {
+    public boolean generatePDF(String xmlDocument, String xslFoFilePath, String outputFilePath) {
 
         try {
             // Point to the XSL-FO file

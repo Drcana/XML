@@ -131,4 +131,19 @@ public class MetadataExtractorService {
 
         return listOfIds;
     }
+
+    public ResultSet exportAsJson(String namespace, String documentId, Class<?> documentClassType) throws IOException {
+
+        FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
+
+        String graphURI = conn.dataEndpoint + SPARQL_NAMED_GRAPH_URI + "-" + documentClassType.getSimpleName();
+
+        String sparqlQuery = SparqlUtil.selectData(graphURI, String.format("<%s/%s> ?p ?o", namespace, documentId));
+
+        // Create a QueryExecution that will access a SPARQL service over HTTP
+        QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint, sparqlQuery);
+
+        // Query the collection, dump output response as XML
+         return query.execSelect();
+    }
 }
